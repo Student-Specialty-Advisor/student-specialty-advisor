@@ -62,7 +62,7 @@ function SignUpForm() {
             <input type="text" name="iEmail"></input><br></br>
             <label htmlFor="iPassword">Password:</label><br></br>
             <input type="password" name="iPassword"></input><br></br>
-            <label htmlFor="iPassword2">Repeat Password:</label><br></br>
+            <label htmlFor="iPassword2">Confirm Password:</label><br></br>
             <input type="password" name="iPassword2"></input><br></br>
             <button id='taskButton' onClick={task}>Sign up now!</button>
         </form>
