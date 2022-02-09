@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Videos = () => {
+function Home() {
 return (
 	<div
 	style={{
@@ -10,10 +10,10 @@ return (
 		height: '100vh'
 	}}
 	>
-	<h1>videos displayed here</h1>
+	<h1>Welcome to MedTech Student Specialty Advisor</h1>
 	</div>
 );
 };
 
-export default Videos;
+export default Home;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Curricilum = () => {
+function Curricilum() {
 return (
 	<div
 	style={{

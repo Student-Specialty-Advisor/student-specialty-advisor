@@ -1,12 +1,10 @@
 import React from 'react';
-import Navbar from './NavBar';
+import Navbar from './components/NavBar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages';
-import About from './pages/about';
-import Videos from './pages/videos';
-import Curricilum from './pages/curricilum';
-import SignUpForm from './components/SignUpForm'
-import SignInForm from './components/SignInForm'
+import Home from './components/Pages/Home';
+import About from './components/Pages/About';
+import Videos from './components/Pages/Videos';
+import Curricilum from './components/Pages/Curricilum';
 
 
 
@@ -18,8 +16,8 @@ return (
 	<Switch>
 		<Route path='/' exact component={Home} />
 		<Route path='/about' component={About} />
-		<Route path='/events' component={Videos} />
-		<Route path='/annual' component={Curricilum} />
+		<Route path='/videos' component={Videos} />
+		<Route path='/curricilum' component={Curricilum} />
 	</Switch>
 	</Router>
 		

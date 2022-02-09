@@ -8,7 +8,7 @@ NavBtn,
 NavBtnLink,
 } from './NavbarElements';
 
-const Navbar = () => {
+function Navbar() {
 return (
 	<>
 	<Nav>
