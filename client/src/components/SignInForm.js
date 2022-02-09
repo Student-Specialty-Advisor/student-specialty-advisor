@@ -40,7 +40,7 @@ function SignInForm() {
             <input type="text" name="iEmail"></input><br></br>
             <label htmlFor="iPassword">Password:</label><br></br>
             <input type="password" name="iPassword"></input><br></br>
-            <button id='taskButton' onClick={task}>Sign up now!</button>
+            <button id='taskButton' onClick={task}>Sign In now!</button>
         </form>
     );
 
