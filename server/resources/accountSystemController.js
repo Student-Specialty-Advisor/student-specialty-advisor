@@ -1,3 +1,4 @@
+const User = require("./User");
 var SignUp = (req, res) => {   //Sign up
 
 };
@@ -14,3 +15,5 @@ var EditAccount = (req, res) => { // Edit Account info
 exports.SignUp = SignUp;
 exports.LogIn = LogIn;
 exports.EditAccount = EditAccount;
+
+res.send(req.body);
