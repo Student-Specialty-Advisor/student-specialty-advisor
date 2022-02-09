@@ -1,6 +1,7 @@
-const User = require("./User");
-var SignUp = (req, res) => {   //Sign up
+const User = require("../db/User");
 
+var SignUp = (req, res) => {   //Sign up
+    //res.send(req.body); test
 };
 
 var LogIn = (req, res) => { //Sign in
@@ -15,5 +16,3 @@ var EditAccount = (req, res) => { // Edit Account info
 exports.SignUp = SignUp;
 exports.LogIn = LogIn;
 exports.EditAccount = EditAccount;
-
-res.send(req.body);
