@@ -1,12 +1,12 @@
 const User = require("../db/User");
-
+const bcrypt = require("bcrypt");
 const invalidPassword = { keyPattern: { password: 1 } };
 const invalidEmail = { keyPattern: { email: 1 } };
 
 var SignUp = (req, res) => {
   // Endpoint: /as-api/sign-up
   const json = req.body;
-  var hashedPassword = "hash"; // Hash json.password
+  var hashedPassword = bcrypt.hashSync(json.password); // Hash json.password
   var userData = {
     firstName: json.firstName,
     lastName: json.lastName,
@@ -34,10 +34,11 @@ var LogIn = (req, res) => {
     if (user === null) {
       res.status(500).send(invalidEmail);
     } else {
-      var hashedPassword = "hash"; // Hash json.password
-      // Compare hashedPassword with user.hash
-      // If true, res.status(200).send(user)
-      // If false, res.status(500).send(invalidPassword)
+      if (bcrypt.compareSync(json.password, user.password)) {
+        res.status(200).send(user);
+      } else {
+        res.status(500).send(invalidPassword);
+      }
     }
   });
 };
