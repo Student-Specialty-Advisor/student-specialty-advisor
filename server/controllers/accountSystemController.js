@@ -6,7 +6,10 @@ const invalidEmail = { keyPattern: { email: 1 } };
 var SignUp = (req, res) => {
   // Endpoint: /as-api/sign-up
   const json = req.body;
-  var hashedPassword = bcrypt.hashSync(json.password, process.env.HASH_SALT); // Hash json.password
+  var hashedPassword = bcrypt.hashSync(
+    json.password,
+    parseInt(process.env.HASH_SALT)
+  ); // Hash json.password
   var userData = {
     firstName: json.firstName,
     lastName: json.lastName,

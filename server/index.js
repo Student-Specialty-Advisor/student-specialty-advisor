@@ -1,6 +1,7 @@
 const express = require("express");
-const db = require("./db");
-const User = require("./db/User");
+require("dotenv").config(); // Comment this for heroku later
+require("./db");
+require("./db/User");
 /*const path = require("path");*/
 const app = express();
 const PORT = process.env.PORT || 8000;
