@@ -1,5 +1,5 @@
 import React from "react";
-import SmuLogoTree from "../../assets/Images/SmuLogoTree.png";
+import SmuLogoTree from "../../assets/images/SmuLogoTree.png";
 import {
   Nav,
   NavLink,
@@ -17,7 +17,7 @@ function Navbar() {
 
         <NavMenu>
           <NavLink to="/" activeStyle>
-            <img src={SmuLogoTree} alt="not working"></img>
+            <img src={SmuLogoTree} alt="logo is still loading.."></img>
           </NavLink>
           <NavLink to="/about" activeStyle>
             About
@@ -35,7 +35,7 @@ function Navbar() {
         </NavMenu>
         <NavBtn>
           <NavBtn>
-            <NavBtnLink to="/signin">Sign In</NavBtnLink>
+            <NavBtnLink to="/login">Log In</NavBtnLink>
           </NavBtn>
           <NavBtn>
             <NavBtnLink to="/signup">Sign Up</NavBtnLink>

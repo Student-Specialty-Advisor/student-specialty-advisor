@@ -1,78 +1,86 @@
-import utils from './utils';
+import utils from "./utils";
 
 function SignUpForm() {
+  const getFormData = () => {
+    var form = document.getElementById("signUpForm").elements;
+    var firstName = utils.check(form["iFirstName"].value);
+    if (firstName === null) return null;
+    var lastName = utils.check(form["iLastName"].value);
+    if (lastName === null) return null;
+    var email = utils.check(form["iEmail"].value);
+    if (email === null) return null;
+    if (
+      email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[0] &&
+      email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[1]
+    )
+      return null;
+    var password = utils.check(form["iPassword"].value);
+    if (password === null) return null;
+    var repeatPassword = utils.check(form["iPassword2"].value);
+    if (repeatPassword === null) return null;
+    if (password !== repeatPassword) return null;
 
-    const getFormData = () => {
+    const formDataHolder = {
+      firstName: firstName,
+      lastName: lastName,
+      year: document.getElementById("signUpForm").elements["iUniversityYear"]
+        .value,
+      email: email,
+      password: password,
+    };
 
-        var form = document.getElementById("signUpForm").elements;
-        var  firstName = utils.check(form["iFirstName"].value);
-        if(firstName === null) return null; 
-        var lastName = utils.check(form["iLastName"].value);
-        if(lastName === null) return null; 
-        var email = utils.check(form["iEmail"].value);
-        if(email === null) return null;
-        if(email.substring(email.indexOf('@') + 1) !== utils.possible_email[0]
-        && email.substring(email.indexOf('@') + 1) !== utils.possible_email[1]) return null;
-        var password = utils.check(form["iPassword"].value);
-        if(password === null) return null;
-        var repeatPassword = utils.check(form["iPassword2"].value);
-        if(repeatPassword === null) return null; 
-        if(password !== repeatPassword) return null;
+    return formDataHolder; // If all values are there, create an object with them and return it
+  };
 
-        const formDataHolder = {
-            firstName: firstName,
-            lastName: lastName,
-            year: document.getElementById("signUpForm").elements["iUniversityYear"].value,
-            email: email,
-            password: password
-        }
-
-       return formDataHolder // If all values are there, create an object with them and return it
+  const task = (e) => {
+    e.preventDefault(); // Prevent form from refreshing the page on button click
+    var data = getFormData();
+    if (data === null) {
+      alert("Invalid Sign Up!");
+    } else {
+      alert(JSON.stringify(data));
     }
+  };
 
-    const task = (e) => { 
-        e.preventDefault(); // Prevent form from refreshing the page on button click
-        var data = getFormData();
-        if(data === null)
-        {
-            alert("Invalid Sign Up!");
-        }
-        else
-        {
-            alert(JSON.stringify(data));
-        }
-    }
+  const Form = (
+    <form id="signUpForm">
+      <h3>Create your account in a few steps!</h3>
+      <label htmlFor="iFirstName">First Name:</label>
+      <br></br>
+      <input type="text" name="iFirstName"></input>
+      <br></br>
+      <label htmlFor="iLastName">Last Name:</label>
+      <br></br>
+      <input type="text" name="iLastName"></input>
+      <br></br>
+      <label htmlFor="iUniversityYear">University Year:</label> <br></br>
+      <select name="iUniversityYear">
+        <option value="Freshman">Freshman year</option>
+        <option value="Sophomore">Sophomore year</option>
+        <option value="Junior">Junior year</option>
+        <option value="Senior">Senior year</option>
+        <option value="Final">Final year</option>
+      </select>{" "}
+      <br></br>
+      <label htmlFor="iEmail">E-mail Address:</label>
+      <br></br>
+      <input type="text" name="iEmail"></input>
+      <br></br>
+      <label htmlFor="iPassword">Password:</label>
+      <br></br>
+      <input type="password" name="iPassword"></input>
+      <br></br>
+      <label htmlFor="iPassword2">Confirm Password:</label>
+      <br></br>
+      <input type="password" name="iPassword2"></input>
+      <br></br>
+      <button id="taskButton" onClick={task}>
+        Sign up now!
+      </button>
+    </form>
+  );
 
-    const Form = (
-        <form id = "signUpForm">
-            <h3>Create your account in a few steps!</h3>
-            <label htmlFor="iFirstName">First Name:</label><br></br>
-            <input type="text" name="iFirstName"></input><br></br>
-            <label htmlFor="iLastName">Last Name:</label><br></br>
-            <input type="text" name="iLastName"></input><br></br>
-            <label htmlFor="iUniversityYear">University Year:</label> <br></br>
-            <select name="iUniversityYear">
-                <option value="Freshman">Freshman year</option>
-                <option value="Sophomore">Sophomore year</option>
-                <option value="Junior">Junior year</option>
-                <option value="Senior">Senior year</option>
-                <option value="Final">Final year</option>
-            </select> <br></br>
-            <label htmlFor="iEmail">E-mail Address:</label><br></br>
-            <input type="text" name="iEmail"></input><br></br>
-            <label htmlFor="iPassword">Password:</label><br></br>
-            <input type="password" name="iPassword"></input><br></br>
-            <label htmlFor="iPassword2">Confirm Password:</label><br></br>
-            <input type="password" name="iPassword2"></input><br></br>
-            <button id='taskButton' onClick={task}>Sign up now!</button>
-        </form>
-    );
-
-    return (
-        <div>
-            {Form}
-        </div>
-    );
+  return <div>{Form}</div>;
 }
 
 export default SignUpForm;

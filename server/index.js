@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config(); // Comment this for heroku later
 require("./db");
 require("./db/User");
@@ -13,6 +14,7 @@ app.use(express.static(buildPath)); LEAVE THIS COMMENTED*/
 /* use app.put / app.get ... here without a router class. It's necessary for heroku deployment */
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/as-api/sign-up", controller.SignUp);
 app.post("/as-api/log-in", controller.LogIn);

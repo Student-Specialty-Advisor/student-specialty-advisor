@@ -1,5 +1,6 @@
 const User = require("../db/User");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const invalidPassword = { keyPattern: { password: 1 } };
 const invalidEmail = { keyPattern: { email: 1 } };
 
@@ -25,7 +26,7 @@ var SignUp = (req, res) => {
       res.status(200).send(newUser);
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(200).send(error);
     });
 };
 
@@ -35,12 +36,24 @@ var LogIn = (req, res) => {
   var emailObj = { email: json.email };
   User.findOne(emailObj).then((user) => {
     if (user === null) {
-      res.status(500).send(invalidEmail);
+      res.status(200).send(invalidEmail);
     } else {
       if (bcrypt.compareSync(json.password, user.password)) {
-        res.status(200).send(user);
+        var token = jwt.sign({ id: user._id }, process.env.TOKEN_KEY, {
+          expiresIn: 86400 /*24 hours*/,
+        });
+        var userData = {
+          id: user._id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          universityYear: user.universityYear,
+          email: user.email,
+          role: user.role,
+          accessToken: token,
+        };
+        res.status(200).send(userData);
       } else {
-        res.status(500).send(invalidPassword);
+        res.status(200).send(invalidPassword);
       }
     }
   });

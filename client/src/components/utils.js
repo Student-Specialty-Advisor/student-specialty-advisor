@@ -1,5 +1,13 @@
-const check = (v) => {return((v === "") ? null:v);} 
-const possible_email = ["medtech.tn", "smu.tn"];
+const check = (v) => {
+  return v === "" ? null : v;
+};
+const possibleEmail = ["medtech.tn", "smu.tn"];
+const invalidPassword = { keyPattern: { password: 1 } };
+const invalidEmail = { keyPattern: { email: 1 } };
 
-exports.check = check;
-exports.possible_email = possible_email;
+module.exports = {
+  check: check,
+  possibleEmail: possibleEmail,
+  invalidEmail: invalidEmail,
+  invalidPassword: invalidPassword,
+};
