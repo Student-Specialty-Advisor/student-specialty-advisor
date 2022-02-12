@@ -1,5 +1,5 @@
 import React from "react";
-import SmuLogoTree from "../../assets/images/SmuLogoTree.png";
+import SmuLogoTree from "../../assets/Images/SmuLogoTree.png";
 import {
   Nav,
   NavLink,
