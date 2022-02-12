@@ -16,18 +16,12 @@ function Navbar() {
         <Bars />
 
         <NavMenu>
-          <NavLink to="/" activeStyle>
+          <NavLink to="/">
             <img src={SmuLogoTree} alt="logo is still loading.."></img>
           </NavLink>
-          <NavLink to="/about" activeStyle>
-            About
-          </NavLink>
-          <NavLink to="/videos" activeStyle>
-            Videos
-          </NavLink>
-          <NavLink to="/curricilum" activeStyle>
-            Curricilum
-          </NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/videos">Videos</NavLink>
+          <NavLink to="/curricilum">Curricilum</NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
           {/* Second Nav */}

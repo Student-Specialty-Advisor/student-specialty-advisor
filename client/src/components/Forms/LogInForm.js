@@ -2,6 +2,8 @@ import utils from "../utils";
 import AuthSerice from "../../services/AuthService";
 
 function LogInForm(props) {
+  const defaultRedirectPath = "/home";
+
   const getFormData = () => {
     var form = document.getElementById("signInForm").elements;
     var email = utils.check(form["iEmail"].value);
@@ -36,12 +38,37 @@ function LogInForm(props) {
             "Error: Invalid Credentials. Make sure you have written your e-mail and password correctly!"
           );
         } else {
-          props.history.push("/example");
+          try {
+            var customRedirectPath = props.location.state.from.pathname;
+          } catch (error) {
+            console.log(error);
+            props.history.push(defaultRedirectPath);
+          }
+          console.log(customRedirectPath);
+          props.history.push(customRedirectPath);
+
           //window.location.reload();
         }
       });
     }
   };
+
+  /*const test = (e) => {
+    e.preventDefault();
+    try {
+      var customRedirectPath = props.location.state.from.pathname;
+    } catch (error) {
+      console.log(error);
+      props.history.push(defaultRedirectPath);
+    }
+    console.log(customRedirectPath);
+    props.history.push(customRedirectPath);
+  };*/
+
+  /*const logout = (e) => {
+    e.preventDefault();
+    AuthSerice.logout();
+  };*/
 
   const Form = (
     <form id="signInForm">

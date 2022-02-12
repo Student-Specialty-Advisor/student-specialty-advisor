@@ -1,3 +1,5 @@
+import authHeader from "./authHeader";
+
 class AuthService {
   async login(data) {
     const response = await fetch(process.env.REACT_APP_API_URL + "log-in", {
@@ -19,6 +21,13 @@ class AuthService {
   register() {}
   getCurrentUser() {
     return JSON.parse(localStorage.getItem("user"));
+  }
+  isLoggedIn() {
+    var user = this.getCurrentUser();
+    if (user && user.accessToken) {
+      return true;
+    }
+    return false;
   }
 }
 

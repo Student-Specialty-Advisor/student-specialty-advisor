@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config(); // Comment this for heroku later
+require("dotenv").config();
 require("./db");
 require("./db/User");
 /*const path = require("path");*/
+const controller = require("./controllers/accountSystemController.js");
+const authJWT = require("./middlewares/authJWT");
+
 const app = express();
 const PORT = process.env.PORT || 8000;
-const controller = require("./controllers/accountSystemController.js");
 
 /*const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.static(buildPath)); LEAVE THIS COMMENTED*/
@@ -15,6 +17,14 @@ app.use(express.static(buildPath)); LEAVE THIS COMMENTED*/
 
 app.use(express.json());
 app.use(cors());
+
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
+  next();
+});
 
 app.post("/as-api/sign-up", controller.SignUp);
 app.post("/as-api/log-in", controller.LogIn);
