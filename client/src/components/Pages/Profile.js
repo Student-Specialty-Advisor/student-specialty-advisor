@@ -1,7 +1,7 @@
 import React from "react";
-import Data from "../../services/AuthService";
+import Authservice from "../../services/AuthService";
 function Profile() {
-  const userData = Data.getCurrentUser();
+  const userData = Authservice.getCurrentUser();
   return (
     <div>
       <h1>Welcome to Your Profile!</h1>

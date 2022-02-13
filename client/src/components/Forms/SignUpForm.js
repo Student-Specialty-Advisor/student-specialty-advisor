@@ -1,30 +1,31 @@
-import utils from "./utils";
+import AuthService from "../../services/AuthService";
+import utils from "../utils";
 
 function SignUpForm() {
   const getFormData = () => {
     var form = document.getElementById("signUpForm").elements;
     var firstName = utils.check(form["iFirstName"].value);
-    if (firstName === null) return null;
+    if (firstName === null) return utils.emptyInput;
     var lastName = utils.check(form["iLastName"].value);
-    if (lastName === null) return null;
+    if (lastName === null) return utils.emptyInput;
     var email = utils.check(form["iEmail"].value);
-    if (email === null) return null;
+    if (email === null) return utils.emptyInput;
     if (
       email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[0] &&
       email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[1]
     )
-      return null;
+      return utils.invalidEmail;
     var password = utils.check(form["iPassword"].value);
-    if (password === null) return null;
+    if (password === null) return utils.emptyInput;
     var repeatPassword = utils.check(form["iPassword2"].value);
-    if (repeatPassword === null) return null;
-    if (password !== repeatPassword) return null;
+    if (repeatPassword === null) return utils.emptyInput;
+    if (password !== repeatPassword) return utils.invalidPassword;
 
     const formDataHolder = {
       firstName: firstName,
       lastName: lastName,
-      year: document.getElementById("signUpForm").elements["iUniversityYear"]
-        .value,
+      universityYear:
+        document.getElementById("signUpForm").elements["iUniversityYear"].value,
       email: email,
       password: password,
     };
@@ -35,10 +36,18 @@ function SignUpForm() {
   const task = (e) => {
     e.preventDefault(); // Prevent form from refreshing the page on button click
     var data = getFormData();
-    if (data === null) {
-      alert("Invalid Sign Up!");
+    if (data === utils.emptyInput) {
+      alert("Some fields were left empty. Make sure to fill them!");
+    } else if (data === utils.invalidEmail) {
+      alert("Error: Make sure to enter a valid e-mail!");
+    } else if (data === utils.invalidPassword) {
+      alert("Password fields are not matching!");
     } else {
-      alert(JSON.stringify(data));
+      AuthService.register(data).then((response) => {
+        if (response.keyPattern) {
+          alert("Error: Email is already used!");
+        }
+      });
     }
   };
 

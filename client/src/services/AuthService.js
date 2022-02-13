@@ -1,5 +1,3 @@
-import authHeader from "./authHeader";
-
 class AuthService {
   async login(data) {
     const response = await fetch(process.env.REACT_APP_API_URL + "log-in", {
@@ -18,7 +16,17 @@ class AuthService {
   logout() {
     localStorage.removeItem("user");
   }
-  register() {}
+  async register(data) {
+    const response = await fetch(process.env.REACT_APP_API_URL + "sign-up", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+    return json;
+  }
   getCurrentUser() {
     return JSON.parse(localStorage.getItem("user"));
   }
