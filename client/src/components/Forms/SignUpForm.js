@@ -46,6 +46,8 @@ function SignUpForm() {
       AuthService.register(data).then((response) => {
         if (response.keyPattern) {
           alert("Error: Email is already used!");
+        } else {
+          alert("Sign up was successful!");
         }
       });
     }
