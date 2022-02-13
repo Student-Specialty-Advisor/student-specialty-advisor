@@ -21,11 +21,11 @@ function Profile() {
         {userData.email}
       </h4>
       <br />
-      {/*<h4>
-        <b>Password : </b>
-        {userData.password}
+      <h4>
+        <b>University Year : </b>
+        {userData.universityYear}
       </h4>
-      <br />*/}
+      <br />
     </div>
   );
 }
