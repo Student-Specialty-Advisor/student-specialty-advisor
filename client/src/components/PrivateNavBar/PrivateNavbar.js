@@ -7,9 +7,9 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
-} from "./NavbarElements";
+} from "./PrivateNavbarElements";
 
-function Navbar() {
+function PrivateNavbar() {
   return (
     <>
       <Nav>
@@ -22,17 +22,13 @@ function Navbar() {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/videos">Videos</NavLink>
           <NavLink to="/curricilum">Curricilum</NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-up'>Sign Up</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
           <NavBtn>
-            <NavBtnLink to="/login">Log In</NavBtnLink>
+            <NavBtnLink to="/profile">Profile</NavBtnLink>
           </NavBtn>
           <NavBtn>
-            <NavBtnLink to="/signup">Sign Up</NavBtnLink>
+            <NavBtnLink to="/logout">Log Out</NavBtnLink>
           </NavBtn>
         </NavBtn>
       </Nav>
@@ -40,4 +36,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default PrivateNavbar;
