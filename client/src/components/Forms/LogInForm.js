@@ -2,7 +2,7 @@ import utils from "../utils";
 import AuthSerice from "../../services/AuthService";
 
 function LogInForm(props) {
-  const defaultRedirectPath = "/home";
+  const defaultRedirectPath = "/";
 
   const getFormData = () => {
     var form = document.getElementById("signInForm").elements;
@@ -46,8 +46,7 @@ function LogInForm(props) {
           }
           console.log(customRedirectPath);
           props.history.push(customRedirectPath);
-
-          //window.location.reload();
+          window.location.reload();
         }
       });
     }

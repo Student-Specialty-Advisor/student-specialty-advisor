@@ -9,7 +9,7 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
-function Navbar() {
+function PublicNavbar() {
   return (
     <>
       <Nav>
@@ -20,12 +20,6 @@ function Navbar() {
             <img src={SmuLogoTree} alt="logo is still loading.."></img>
           </NavLink>
           <NavLink to="/about">About</NavLink>
-          <NavLink to="/videos">Videos</NavLink>
-          <NavLink to="/curricilum">Curricilum</NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-up'>Sign Up</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
           <NavBtn>
@@ -40,4 +34,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default PublicNavbar;
