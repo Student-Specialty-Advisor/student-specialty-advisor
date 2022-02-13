@@ -7,7 +7,7 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
-} from "./PublicNavbarElements";
+} from "./PublicNavBarElements";
 
 function PublicNavbar() {
   return (
@@ -19,14 +19,14 @@ function PublicNavbar() {
           <NavLink to="/">
             <img src={SmuLogoTree} alt="logo is still loading.."></img>
           </NavLink>
-          {/*<NavLink to="/about">About</NavLink>*/}
+          <NavLink to="/about">About</NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtn>
-            <NavBtnLink to="/sign-in">Sign In</NavBtnLink>
+            <NavBtnLink to="/signin">Sign In</NavBtnLink>
           </NavBtn>
           <NavBtn>
-            <NavBtnLink to="/sign-up">Sign-up</NavBtnLink>
+            <NavBtnLink to="/signup">Sign Up</NavBtnLink>
           </NavBtn>
         </NavBtn>
       </Nav>
