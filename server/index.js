@@ -30,7 +30,7 @@ app.post("/as-api/sign-up", controller.SignUp);
 app.post("/as-api/log-in", controller.LogIn);
 /*app.get("/as-api/", );
 app.delete("/as-api/", );*/
-app.put("/as-api/:username/", controller.EditAccount);
+app.put("/as-api/edit-profile/", [authJWT.verifyToken], controller.EditAccount);
 
 app.listen(PORT, () => {
   console.log(`Started listening to requests on port ${PORT}`);

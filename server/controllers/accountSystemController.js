@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const invalidPassword = { keyPattern: { password: 1 } };
 const invalidEmail = { keyPattern: { email: 1 } };
+const passwordChange = { success: "Successfully updated the password" };
 
 var SignUp = (req, res) => {
   // Endpoint: /as-api/sign-up
@@ -60,9 +61,50 @@ var LogIn = (req, res) => {
 };
 
 var EditAccount = (req, res) => {
-  // Edit Account info
+  // Endpoint: /as-api/:username/
+  const user = req.body;
+  const id = {
+    id: req.userId,
+  };
+  if (user.password) {
+    var hashedPassword = bcrypt.hashSync(
+      user.password,
+      parseInt(process.env.HASH_SALT)
+    );
+    User.findOneAndUpdate(id, { password: hashedPassword })
+      .then(() => {
+        res.status(200).send(passwordChange);
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
+  } else {
+    const userToSave = {
+      id: req.userId,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      universityYear: user.universityYear,
+      email: user.email,
+      role: user.role,
+    };
+    User.findOneAndUpdate(id, userToSave, { new: true })
+      .then((userData) => {
+        const userToReturn = {
+          id: userData._id,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          universityYear: userData.universityYear,
+          email: userData.email,
+          role: userData.role,
+          accessToken: user.accessToken,
+        };
+        res.status(200).send(userToReturn);
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
+  }
 };
-
 // Exports
 exports.SignUp = SignUp;
 exports.LogIn = LogIn;
