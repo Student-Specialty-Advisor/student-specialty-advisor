@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* font color = fc */
+:root{
+  --navbackground:  #203549;
+  --navbutton: #f39313;
+  --fcblue: #057999; /*in white background*/
+  --pagecolor: #007ea4;
+  --buttoninpage: #00afaa;
+  --fcwhite: #FFFFFF; /*in pagecolor*/
+  --fcblack: #000000; /*in white background*/
+  --fcsubheader: #203549;
 }
