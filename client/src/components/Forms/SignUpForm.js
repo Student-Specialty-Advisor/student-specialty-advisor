@@ -71,7 +71,7 @@ function SignUpForm() {
         <option value="Junior">Junior year</option>
         <option value="Senior">Senior year</option>
         <option value="Final">Final year</option>
-      </select>{" "}
+      </select>
       <br></br>
       <label htmlFor="iEmail">E-mail Address:</label>
       <br></br>

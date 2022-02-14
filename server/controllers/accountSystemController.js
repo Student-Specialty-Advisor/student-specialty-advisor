@@ -64,7 +64,7 @@ var EditAccount = (req, res) => {
   // Endpoint: /as-api/:username/
   const user = req.body;
   const id = {
-    id: req.userId,
+    _id: req.userId,
   };
   if (user.password) {
     var hashedPassword = bcrypt.hashSync(

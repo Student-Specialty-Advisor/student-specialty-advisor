@@ -37,6 +37,11 @@ class AuthService {
     }
     return false;
   }
+  setCurrentUser(json) {
+    if (json.accessToken) {
+      localStorage.setItem("user", JSON.stringify(json));
+    }
+  }
 }
 
 export default new AuthService();
