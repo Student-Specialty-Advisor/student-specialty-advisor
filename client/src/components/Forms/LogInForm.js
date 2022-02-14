@@ -4,6 +4,8 @@ import AuthSerice from "../../services/AuthService";
 function LogInForm(props) {
   const defaultRedirectPath = "/";
 
+  const isLoggedIn = AuthSerice.isLoggedIn();
+
   const getFormData = () => {
     var form = document.getElementById("signInForm").elements;
     var email = utils.check(form["iEmail"].value);
@@ -69,6 +71,29 @@ function LogInForm(props) {
     AuthSerice.logout();
   };*/
 
+  const AlreadyLoggedIn = () => {
+    const logout = () => {
+      AuthSerice.logout();
+      props.history.push(defaultRedirectPath);
+      window.location.reload();
+    };
+    const cancel = () => {
+      props.history.push(defaultRedirectPath);
+      window.location.reload();
+    };
+    var email = AuthSerice.getCurrentUser().email;
+    return (
+      <div>
+        <p>
+          You are already logged in as {email}'s account. You need to logout if
+          you wish to use another account!
+        </p>
+        <button onClick={logout}>Logout</button>
+        <button onClick={cancel}>Cancel</button>
+      </div>
+    );
+  };
+
   const Form = (
     <form id="signInForm">
       <h3>Sign into your account!</h3>
@@ -86,7 +111,7 @@ function LogInForm(props) {
     </form>
   );
 
-  return <div>{Form}</div>;
+  return isLoggedIn ? <AlreadyLoggedIn /> : Form;
 }
 
 export default LogInForm;
