@@ -10,6 +10,7 @@ import SignUpForm from "./components/Forms/SignUpForm";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import Profile from "./components/Pages/Profile";
 
+
 function App() {
   return (
     <Router>
