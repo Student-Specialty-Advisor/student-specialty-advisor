@@ -1,9 +1,9 @@
 import React from "react";
-import SmuLogoTree from "../../assets/Images/SmuLogoTree.png";
 import Authservice from "../../services/AuthService";
 import {
   Nav,
   NavLink,
+  NavLogo,
   Bars,
   NavMenu,
   NavBtn,
@@ -21,9 +21,15 @@ function PrivateNavbar(props) {
       <Nav>
         <Bars />
         <NavMenu>
-          <NavLink to="/">
-            <img src={SmuLogoTree} alt="logo is still loading.."></img>
-          </NavLink>
+          <NavLogo to="/">
+            <div className="navbar-logo-container">
+              <img
+                className="navbar-logo"
+                src={props.logo}
+                alt="logo is still loading.."
+              ></img>
+            </div>
+          </NavLogo>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/videos">Videos</NavLink>
           <NavLink to="/curricilum">Curricilum</NavLink>

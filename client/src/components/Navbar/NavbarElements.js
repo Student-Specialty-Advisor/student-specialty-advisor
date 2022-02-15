@@ -4,7 +4,7 @@ import styled from "styled-components"; // npm i styled-components
 
 export const Nav = styled.nav`
   background: #203549;
-  height: 85px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   padding: 0.2rem calc((100vw - 1000px) / 2);
@@ -22,8 +22,19 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   &.active {
-    color: #FFFFFF;
+    color: #ffffff;
   }
+`;
+
+export const NavLogo = styled(Link)`
+  color: #808080;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  margin-right: 50px;
 `;
 
 export const Bars = styled(FaBars)`
@@ -42,7 +53,7 @@ export const Bars = styled(FaBars)`
 
 export const NavMenu = styled.div`
   display: flex;
-  
+
   align-items: center;
   margin-right: -24px;
   /* Second Nav */
