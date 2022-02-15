@@ -67,17 +67,25 @@ var EditAccount = (req, res) => {
     _id: req.userId,
   };
   if (user.password) {
-    var hashedPassword = bcrypt.hashSync(
-      user.password,
-      parseInt(process.env.HASH_SALT)
-    );
-    User.findOneAndUpdate(id, { password: hashedPassword })
-      .then(() => {
-        res.status(200).send(passwordChange);
+    User.findById(req.userId)
+      .then((foundUser) => {
+        if (bcrypt.compareSync(user.currentPassword, foundUser.password)) {
+          var hashedPassword = bcrypt.hashSync(
+            user.password,
+            parseInt(process.env.HASH_SALT)
+          );
+          User.findOneAndUpdate(id, { password: hashedPassword })
+            .then(() => {
+              res.status(200).send(passwordChange);
+            })
+            .catch((error) => {
+              res.status(500).send(error);
+            });
+        } else {
+          res.status(403).send(invalidPassword);
+        }
       })
-      .catch((error) => {
-        res.status(500).send(error);
-      });
+      .catch((error) => res.status(500).send(error));
   } else {
     const userToSave = {
       firstName: user.firstName,

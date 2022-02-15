@@ -2,15 +2,16 @@ import AuthService from "../../../services/AuthService";
 
 function ChangePassword(props) {
   const updatePassword = async () => {
-    const currentPassword = document.getElementById("currentPassword");
-    const newPassword = document.getElementById("newPassword");
-    const newPassword2 = document.getElementById("newPassword2");
-
+    const currentPassword = document.getElementById("currentPassword").value;
+    const newPassword = document.getElementById("newPassword").value;
+    const newPassword2 = document.getElementById("newPassword2").value;
+    console.log(newPassword);
+    console.log(newPassword2);
     if (newPassword === newPassword2) {
       const userData = AuthService.getCurrentUser();
       const passwordJson = {
         currentPassword: currentPassword,
-        newPassword: newPassword,
+        password: newPassword,
       };
       const response = await fetch(
         process.env.REACT_APP_API_URL + "edit-profile",
