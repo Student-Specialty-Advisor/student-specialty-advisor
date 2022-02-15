@@ -10,11 +10,7 @@ function LogInForm(props) {
     var form = document.getElementById("signInForm").elements;
     var email = utils.check(form["iEmail"].value);
     if (email === null) return utils.invalidEmail;
-    if (
-      email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[0] &&
-      email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[1]
-    )
-      return utils.invalidEmail;
+    if (!utils.isValidEmail(email)) return utils.invalidEmail;
     var password = utils.check(form["iPassword"].value);
     if (password === null) return utils.invalidPassword;
 

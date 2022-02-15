@@ -13,14 +13,13 @@ import {
 function PrivateNavbar(props) {
   const logout = () => {
     Authservice.logout();
-    props.history.push("/");
+    props.history.push("/login");
     window.location.reload();
   };
   return (
     <>
       <Nav>
         <Bars />
-
         <NavMenu>
           <NavLink to="/">
             <img src={SmuLogoTree} alt="logo is still loading.."></img>

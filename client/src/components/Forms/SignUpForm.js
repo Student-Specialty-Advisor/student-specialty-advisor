@@ -10,11 +10,7 @@ function SignUpForm() {
     if (lastName === null) return utils.emptyInput;
     var email = utils.check(form["iEmail"].value);
     if (email === null) return utils.emptyInput;
-    if (
-      email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[0] &&
-      email.substring(email.indexOf("@") + 1) !== utils.possibleEmail[1]
-    )
-      return utils.invalidEmail;
+    if (!utils.isValidEmail(email)) return utils.invalidEmail;
     var password = utils.check(form["iPassword"].value);
     if (password === null) return utils.emptyInput;
     var repeatPassword = utils.check(form["iPassword2"].value);

@@ -8,7 +8,8 @@ import Curricilum from "./components/Pages/Curricilum";
 import LogInForm from "./components/Forms/LogInForm";
 import SignUpForm from "./components/Forms/SignUpForm";
 import PrivateRoute from "./components/Auth/PrivateRoute";
-import Profile from "./components/Pages/Profile";
+import Profile from "./components/Pages/Profile/Profile";
+import ChangePassword from "./components/Pages/Profile/ChangePassword";
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
         <Route exact path="/login" component={LogInForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <PrivateRoute exact path="/profile" component={Profile} />
+        <PrivateRoute
+          exact
+          path="/profile/password"
+          component={ChangePassword}
+        />
       </Switch>
     </Router>
   );

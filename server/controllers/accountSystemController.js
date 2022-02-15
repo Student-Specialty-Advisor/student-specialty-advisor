@@ -80,12 +80,10 @@ var EditAccount = (req, res) => {
       });
   } else {
     const userToSave = {
-      id: req.userId,
       firstName: user.firstName,
       lastName: user.lastName,
       universityYear: user.universityYear,
       email: user.email,
-      role: user.role,
     };
     User.findOneAndUpdate(id, userToSave, { new: true })
       .then((userData) => {
