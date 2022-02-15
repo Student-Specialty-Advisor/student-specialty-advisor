@@ -1,13 +1,6 @@
-/*
 body {
-
+  background: bisque;
 }
-
-code {
-
-}
-*/
-
 /* font color = fc */
 :root {
   --navbackground: #203549;

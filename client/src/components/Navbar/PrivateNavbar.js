@@ -4,7 +4,6 @@ import {
   Nav,
   NavLink,
   NavLogo,
-  Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
@@ -19,7 +18,6 @@ function PrivateNavbar(props) {
   return (
     <>
       <Nav>
-        <Bars />
         <NavMenu>
           <NavLogo to="/">
             <div className="navbar-logo-container">
