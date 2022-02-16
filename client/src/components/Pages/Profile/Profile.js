@@ -41,9 +41,8 @@ function Profile(props) {
     document.getElementById("lastName").value =
       document.getElementById("lastName").defaultValue;
     document.getElementById("email").value =
-      document.getElementById("email").value;
-    document.getElementById("university year").value =
-      document.getElementById("university year").value;
+      document.getElementById("email").defaultValue;
+    document.getElementById("university year").value = userData.universityYear;
     changingState(false);
   };
 
