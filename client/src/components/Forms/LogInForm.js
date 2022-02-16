@@ -39,10 +39,8 @@ function LogInForm(props) {
           try {
             var customRedirectPath = props.location.state.from.pathname;
           } catch (error) {
-            console.log(error);
             props.history.push(defaultRedirectPath);
           }
-          console.log(customRedirectPath);
           props.history.push(customRedirectPath);
           window.location.reload();
         }
@@ -55,10 +53,8 @@ function LogInForm(props) {
     try {
       var customRedirectPath = props.location.state.from.pathname;
     } catch (error) {
-      console.log(error);
       props.history.push(defaultRedirectPath);
     }
-    console.log(customRedirectPath);
     props.history.push(customRedirectPath);
   };*/
 

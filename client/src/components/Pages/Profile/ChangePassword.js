@@ -5,8 +5,6 @@ function ChangePassword(props) {
     const currentPassword = document.getElementById("currentPassword").value;
     const newPassword = document.getElementById("newPassword").value;
     const newPassword2 = document.getElementById("newPassword2").value;
-    console.log(newPassword);
-    console.log(newPassword2);
     if (newPassword === newPassword2) {
       const userData = AuthService.getCurrentUser();
       const passwordJson = {

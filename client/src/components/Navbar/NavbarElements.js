@@ -1,4 +1,3 @@
-import { FaBars } from "react-icons/fa"; // npm install react-icons
 import { NavLink as Link } from "react-router-dom"; // npm install -S react-router-dom
 import styled from "styled-components"; // npm i styled-components
 
