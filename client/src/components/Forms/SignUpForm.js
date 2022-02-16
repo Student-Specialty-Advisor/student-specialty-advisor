@@ -1,7 +1,9 @@
 import AuthService from "../../services/AuthService";
 import utils from "../utils";
 
-function SignUpForm() {
+function SignUpForm(props) {
+  const loginPagePath = "/login";
+
   const getFormData = () => {
     var form = document.getElementById("signUpForm").elements;
     var firstName = utils.check(form["iFirstName"].value);
@@ -43,7 +45,8 @@ function SignUpForm() {
         if (response.keyPattern) {
           alert("Error: Email is already used!");
         } else {
-          alert("Sign up was successful!");
+          alert("Sign up was successful. You can now log into your account!");
+          props.history.push(loginPagePath);
         }
       });
     }

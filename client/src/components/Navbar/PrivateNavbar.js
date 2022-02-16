@@ -28,10 +28,11 @@ function PrivateNavbar(props) {
               ></img>
             </div>
           </NavLogo>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/videos">Videos</NavLink>
-          <NavLink to="/curricilum">Curricilum</NavLink>
           <NavLink to="/quiz">Quiz</NavLink>
+          <NavLink to="/programs">Programs</NavLink>
+          <NavLink to="/videos">Videos</NavLink>
+          <NavLink to="/meeting">Meeting</NavLink>
+          <NavLink to="/forum">Forum</NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtn>

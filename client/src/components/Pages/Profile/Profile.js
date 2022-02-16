@@ -27,15 +27,21 @@ function Profile(props) {
     );
     const json = await response.json();
     if (json.keyPattern) {
-      alert("error occured");
+      if (json.keyPattern.email) {
+        alert("This email is already used by another account!");
+        throw utils.invalidEmail;
+      } else {
+        alert("Error occured while updating profile. Try again later!");
+        throw utils.emptyInput;
+      }
     } else if (json.accessToken) {
       Authservice.setCurrentUser(json);
       setUserData(json);
-      alert("success");
+      alert("Updating profile was successful!");
     }
   };
 
-  const cancel = () => {
+  const refreshInputFields = () => {
     document.getElementById("firstName").value =
       document.getElementById("firstName").defaultValue;
     document.getElementById("lastName").value =
@@ -43,6 +49,10 @@ function Profile(props) {
     document.getElementById("email").value =
       document.getElementById("email").defaultValue;
     document.getElementById("university year").value = userData.universityYear;
+  };
+
+  const cancel = () => {
+    refreshInputFields();
     changingState(false);
   };
 
@@ -65,7 +75,13 @@ function Profile(props) {
         universityYear: newUniversityYear,
         accessToken: userData.accessToken,
       };
-      updateInfo(newData).then(() => changingState(false));
+      updateInfo(newData)
+        .then(() => {
+          changingState(false);
+        })
+        .catch((error) => {
+          return;
+        });
     }
   };
 

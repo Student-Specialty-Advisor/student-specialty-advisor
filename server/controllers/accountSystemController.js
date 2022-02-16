@@ -107,7 +107,7 @@ var EditAccount = (req, res) => {
         res.status(200).send(userToReturn);
       })
       .catch((error) => {
-        res.status(500).send(error);
+        res.status(403).send(error);
       });
   }
 };
