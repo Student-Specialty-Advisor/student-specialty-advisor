@@ -10,6 +10,7 @@ import SignUpForm from "./components/Forms/SignUpForm";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import Profile from "./components/Pages/Profile/Profile";
 import ChangePassword from "./components/Pages/Profile/ChangePassword";
+import Quiz from "./components/Pages/Quiz";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           path="/profile/password"
           component={ChangePassword}
         />
+        <PrivateRoute exact path="/quiz" component={Quiz} />
       </Switch>
     </Router>
   );

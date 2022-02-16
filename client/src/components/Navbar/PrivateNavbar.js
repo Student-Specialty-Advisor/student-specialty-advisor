@@ -31,6 +31,7 @@ function PrivateNavbar(props) {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/videos">Videos</NavLink>
           <NavLink to="/curricilum">Curricilum</NavLink>
+          <NavLink to="/quiz">Quiz</NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtn>
