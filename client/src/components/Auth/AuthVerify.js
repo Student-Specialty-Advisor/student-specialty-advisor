@@ -1,5 +1,6 @@
+import alertify from "alertifyjs";
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 
 function AuthVerify(props) {
@@ -16,17 +17,25 @@ function AuthVerify(props) {
     if (user) {
       const decodedToken = parseToken(user.accessToken);
       if (decodedToken.exp * 1000 < Date.now()) {
-        AuthService.logout();
-        history.push({ tokenExpired: "yes" });
-        props.setIsLoggedIn(AuthService.isLoggedIn());
+        alertify.alert(
+          "Your 24H session expired. Please login again to continue!",
+          function () {
+            if (window.location.pathname === "/") {
+              AuthService.logout();
+              props.history.push("/login");
+              window.location.reload();
+            } else {
+              AuthService.logout();
+              window.location.reload();
+            }
+          }
+        );
       }
     }
   };
 
-  const [history] = React.useState(useHistory());
-
   const listen = () => {
-    history.listen(() => {
+    props.history.listen(() => {
       verify();
     });
   };
@@ -37,4 +46,4 @@ function AuthVerify(props) {
   return <></>;
 }
 
-export default AuthVerify;
+export default withRouter(AuthVerify);

@@ -1,11 +1,12 @@
+import alertify from "alertifyjs";
 import React from "react";
-import Authservice from "../../../services/AuthService";
+import AuthService from "../../../services/AuthService";
 import utils from "../../utils";
 
 function Profile(props) {
   const [isChanging, setIsChanging] = React.useState(false);
   const [isReadOnly, setIsReadOnly] = React.useState(true);
-  const [userData, setUserData] = React.useState(Authservice.getCurrentUser());
+  const [userData, setUserData] = React.useState(AuthService.getCurrentUser());
   const changePasswordPath = "/profile/password";
 
   const changingState = (bool) => {
@@ -26,18 +27,32 @@ function Profile(props) {
       }
     );
     const json = await response.json();
-    if (json.keyPattern) {
+    if (json.tokenError) {
+      alertify.alert(
+        "Your 24H session expired. Please login again to continue!",
+        function () {
+          AuthService.logout();
+          props.history.push("/login");
+          window.location.reload();
+        }
+      );
+      throw utils.emptyInput;
+    } else if (json.keyPattern) {
       if (json.keyPattern.email) {
-        alert("This email is already used by another account!");
+        alertify.error(
+          "Seems like this email is already used by another account!"
+        );
         throw utils.invalidEmail;
       } else {
-        alert("Error occured while updating profile. Try again later!");
+        alertify.error(
+          "Error occured while updating profile. Try again later!"
+        );
         throw utils.emptyInput;
       }
     } else if (json.accessToken) {
-      Authservice.setCurrentUser(json);
+      AuthService.setCurrentUser(json);
       setUserData(json);
-      alert("Updating profile was successful!");
+      alertify.success("Updating profile was successful!");
     }
   };
 
@@ -62,18 +77,15 @@ function Profile(props) {
     const newEmail = document.getElementById("email").value;
     const newUniversityYear = document.getElementById("university year").value;
     if (newFirstName === "" || newLastName === "" || newEmail === "") {
-      alert("Some fields were left empty. Please make sure to fill them!");
+      alertify.warning("Hey! Some important fields were left empty!");
     } else if (!utils.isValidEmail(newEmail)) {
-      alert(
-        "An invalid email was given. Email should end with medtech.tn or smu.tn!"
-      );
+      alertify.warning("Make sure to enter a valid SMU / MEDTECH e-mail!");
     } else {
       const newData = {
         firstName: newFirstName,
         lastName: newLastName,
         email: newEmail,
         universityYear: newUniversityYear,
-        accessToken: userData.accessToken,
       };
       updateInfo(newData)
         .then(() => {

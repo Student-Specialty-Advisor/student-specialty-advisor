@@ -95,6 +95,9 @@ var EditAccount = (req, res) => {
     };
     User.findOneAndUpdate(id, userToSave, { new: true })
       .then((userData) => {
+        var token = jwt.sign({ id: userData._id }, process.env.TOKEN_KEY, {
+          expiresIn: parseInt(process.env.TOKEN_DURATION),
+        });
         const userToReturn = {
           id: userData._id,
           firstName: userData.firstName,
@@ -102,7 +105,7 @@ var EditAccount = (req, res) => {
           universityYear: userData.universityYear,
           email: userData.email,
           role: userData.role,
-          accessToken: user.accessToken,
+          accessToken: token,
         };
         res.status(200).send(userToReturn);
       })

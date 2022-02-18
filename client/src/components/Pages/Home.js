@@ -1,7 +1,7 @@
 import React from "react";
 import AuthService from "../../services/AuthService";
 
-function Home() {
+function Home(props) {
   const isLoggedIn = AuthService.isLoggedIn();
 
   const PublicPage = (

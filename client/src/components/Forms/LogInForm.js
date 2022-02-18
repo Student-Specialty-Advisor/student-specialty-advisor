@@ -1,20 +1,12 @@
 import utils from "../utils";
 import AuthService from "../../services/AuthService";
+import React from "react";
+import alertify from "alertifyjs";
 
 function LogInForm(props) {
   const defaultRedirectPath = "/";
-  const tokenExpired = () => {
-    if (props.location.state) {
-      if (props.location.state.from) {
-        if (props.location.state.from.tokenExpired) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
+
   const isLoggedIn = AuthService.isLoggedIn();
-  const isTokenExpired = tokenExpired();
 
   const getFormData = () => {
     var form = document.getElementById("signInForm").elements;
@@ -36,14 +28,14 @@ function LogInForm(props) {
     e.preventDefault(); // Prevent form from refreshing the page on button click
     var data = getFormData();
     if (data === utils.invalidEmail) {
-      alert("Error: Make sure to enter a valid e-mail!");
+      alertify.warning("Make sure to enter a valid SMU / MEDTECH e-mail!");
     } else if (data === utils.invalidPassword) {
-      alert("Error: No password was given!");
+      alertify.warning("Hey! No password was given!");
     } else {
       AuthService.login(data).then((response) => {
         if (response.keyPattern) {
-          alert(
-            "Error: Invalid Credentials. Make sure you have written your e-mail and password correctly!"
+          alertify.error(
+            "Invalid Credentials..   Make sure you have written your e-mail and password correctly!"
           );
         } else {
           try {
@@ -99,12 +91,6 @@ function LogInForm(props) {
     );
   };
 
-  const Expired = (
-    <div>
-      <p>Your session expired. Please login again to continue!</p>
-    </div>
-  );
-
   const Form = (
     <form id="signInForm">
       <h3>Sign into your account!</h3>
@@ -122,12 +108,7 @@ function LogInForm(props) {
     </form>
   );
 
-  return (
-    <>
-      {isTokenExpired ? Expired : null}
-      {isLoggedIn ? <AlreadyLoggedIn /> : Form}
-    </>
-  );
+  return isLoggedIn ? <AlreadyLoggedIn /> : Form;
 }
 
 export default LogInForm;

@@ -1,6 +1,7 @@
 import { Redirect } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 import utils from "../utils";
+import alertify from "alertifyjs";
 
 function SignUpForm(props) {
   const loginPagePath = "/login";
@@ -38,17 +39,21 @@ function SignUpForm(props) {
     e.preventDefault(); // Prevent form from refreshing the page on button click
     var data = getFormData();
     if (data === utils.emptyInput) {
-      alert("Some fields were left empty. Make sure to fill them!");
+      alertify.warning("Hey! Some important fields were left empty!");
     } else if (data === utils.invalidEmail) {
-      alert("Error: Make sure to enter a valid e-mail!");
+      alertify.warning("Make sure to enter a valid SMU / MEDTECH e-mail!");
     } else if (data === utils.invalidPassword) {
-      alert("Password fields are not matching!");
+      alertify.warning("Password fields are not matching!");
     } else {
       AuthService.register(data).then((response) => {
         if (response.keyPattern) {
-          alert("Error: Email is already used!");
+          alertify.error(
+            "Seems like this email is already used by another account!"
+          );
         } else {
-          alert("Sign up was successful. You can now log into your account!");
+          alertify.success(
+            "Sign up was successful. You can now log into your account!"
+          );
           props.history.push(loginPagePath);
         }
       });

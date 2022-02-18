@@ -12,11 +12,13 @@ import Quiz from "./components/Pages/Quiz";
 import Programs from "./components/Pages/Programs";
 import Forum from "./components/Pages/Forum";
 import Meeting from "./components/Pages/Meeting";
+import AuthVerify from "./components/Auth/AuthVerify";
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <AuthVerify />
       <Switch>
         <Route exact path="/" component={Home} />
         <PrivateRoute exact path="/quiz" component={Quiz} />
