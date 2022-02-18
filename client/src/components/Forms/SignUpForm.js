@@ -1,8 +1,11 @@
+import { Redirect } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 import utils from "../utils";
 
 function SignUpForm(props) {
   const loginPagePath = "/login";
+
+  const isLoggedIn = AuthService.isLoggedIn();
 
   const getFormData = () => {
     var form = document.getElementById("signUpForm").elements;
@@ -90,7 +93,7 @@ function SignUpForm(props) {
     </form>
   );
 
-  return <div>{Form}</div>;
+  return isLoggedIn ? <Redirect to="/login" /> : <div>{Form}</div>;
 }
 
 export default SignUpForm;

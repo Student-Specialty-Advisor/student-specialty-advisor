@@ -41,7 +41,7 @@ var LogIn = (req, res) => {
     } else {
       if (bcrypt.compareSync(json.password, user.password)) {
         var token = jwt.sign({ id: user._id }, process.env.TOKEN_KEY, {
-          expiresIn: 86400 /*24 hours*/,
+          expiresIn: parseInt(process.env.TOKEN_DURATION),
         });
         var userData = {
           id: user._id,

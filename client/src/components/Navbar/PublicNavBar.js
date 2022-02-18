@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Nav,
-  NavLink,
-  NavLogo,
-  NavMenu,
-  NavBtn,
-  NavBtnLink,
-} from "./NavbarElements";
+import { Nav, NavLogo, NavMenu, NavBtn, NavBtnLink } from "./NavbarElements";
 
 function PublicNavbar(props) {
   return (
@@ -22,7 +15,6 @@ function PublicNavbar(props) {
               ></img>
             </div>
           </NavLogo>
-          <NavLink to="/about">About</NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtn>

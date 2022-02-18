@@ -1,10 +1,20 @@
 import utils from "../utils";
-import AuthSerice from "../../services/AuthService";
+import AuthService from "../../services/AuthService";
 
 function LogInForm(props) {
   const defaultRedirectPath = "/";
-
-  const isLoggedIn = AuthSerice.isLoggedIn();
+  const tokenExpired = () => {
+    if (props.location.state) {
+      if (props.location.state.from) {
+        if (props.location.state.from.tokenExpired) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+  const isLoggedIn = AuthService.isLoggedIn();
+  const isTokenExpired = tokenExpired();
 
   const getFormData = () => {
     var form = document.getElementById("signInForm").elements;
@@ -30,7 +40,7 @@ function LogInForm(props) {
     } else if (data === utils.invalidPassword) {
       alert("Error: No password was given!");
     } else {
-      AuthSerice.login(data).then((response) => {
+      AuthService.login(data).then((response) => {
         if (response.keyPattern) {
           alert(
             "Error: Invalid Credentials. Make sure you have written your e-mail and password correctly!"
@@ -40,9 +50,12 @@ function LogInForm(props) {
             var customRedirectPath = props.location.state.from.pathname;
           } catch (error) {
             props.history.push(defaultRedirectPath);
+            window.location.reload();
+            return;
           }
           props.history.push(customRedirectPath);
           window.location.reload();
+          return;
         }
       });
     }
@@ -65,7 +78,7 @@ function LogInForm(props) {
 
   const AlreadyLoggedIn = () => {
     const logout = () => {
-      AuthSerice.logout();
+      AuthService.logout();
       props.history.push(defaultRedirectPath);
       window.location.reload();
     };
@@ -73,7 +86,7 @@ function LogInForm(props) {
       props.history.push(defaultRedirectPath);
       window.location.reload();
     };
-    var email = AuthSerice.getCurrentUser().email;
+    var email = AuthService.getCurrentUser().email;
     return (
       <div>
         <p>
@@ -85,6 +98,12 @@ function LogInForm(props) {
       </div>
     );
   };
+
+  const Expired = (
+    <div>
+      <p>Your session expired. Please login again to continue!</p>
+    </div>
+  );
 
   const Form = (
     <form id="signInForm">
@@ -103,7 +122,12 @@ function LogInForm(props) {
     </form>
   );
 
-  return isLoggedIn ? <AlreadyLoggedIn /> : Form;
+  return (
+    <>
+      {isTokenExpired ? Expired : null}
+      {isLoggedIn ? <AlreadyLoggedIn /> : Form}
+    </>
+  );
 }
 
 export default LogInForm;
