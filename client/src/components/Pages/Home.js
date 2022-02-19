@@ -4,21 +4,107 @@ import AuthService from "../../services/AuthService";
 function Home(props) {
   const isLoggedIn = AuthService.isLoggedIn();
 
-  const PublicPage = (
-    <div>
-      <h1>Welcome to MedTech Student Specialty Advisor (VISITOR)</h1>
-    </div>
-  );
+  const PublicPage = () => {
+    return (
+      <>
+        <div className="home-public-head">
+          <h1>Student Specialy Advisor</h1>
+          <h2>By Students. For Students.</h2>
+          <br /> <br />
+          <p>
+            Free, Reliable & Safe. Let us help you get things done. Join the
+            family now!
+          </p>
+          <button
+            onClick={() => {
+              props.history.push("/signup");
+            }}
+          >
+            Sign Up For Free
+          </button>
+          <br /> <br /> <br />
+          <p>“Good Advice Is Beyond All Price”</p>
+        </div>
+        <div className="home-public-mid">
+          <h1>All the info you need in one place.</h1>
+          <br />
+          <p>
+            Choosing a specialty might define your future career. We & the SMU
+            community will help you pick a decision you will not regret.
+          </p>
+        </div>
+        <br /> <br /> <br />
+        <div className="home-public-mid-img"></div>
+        <div className="home-public-mid-other">
+          <h1>So.. What is it?</h1>
+          <p>
+            Student Specialty Advisor is a free service, delivered as a
+            web-based app to SMU students.
+            <br />
+            <br />
+            We believe that with SSA, choosing a specialty has never been
+            easier.
+            <br />
+            <br />
+            Gone are the days of "I am not sure", "I don't know the difference"
+            & "What if".
+          </p>
+        </div>
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+        <div className="home-public-mid-other-img">
+          <div id="side-a"></div>
+          <div id="side-b"></div>
+        </div>
+        <div className="home-public-bot">
+          <h1>Access multiple features at any time!</h1>
+          <ul className="feature-img">
+            <li id="featureOne"></li>
+            <li id="featureTwo"></li>
+            <li id="featureThree"></li>
+            <li id="featureFour"></li>
+          </ul>
+          <ul className="feature-desc">
+            <li id="featureOne">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </li>
+            <li id="featureTwo">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </li>
+            <li id="featureThree">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </li>
+            <li id="featureFour">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </li>
+          </ul>
+        </div>
+      </>
+    );
+  };
 
-  const PrivatePage = (
-    <div>
-      <h1>
-        Welcome to MedTech Student Specialty Advisor (MEMBER IS SIGNED IN)
-      </h1>
-    </div>
-  );
+  const PrivatePage = () => {
+    return (
+      <div>
+        <h1>
+          Welcome to MedTech Student Specialty Advisor (MEMBER IS SIGNED IN)
+        </h1>
+      </div>
+    );
+  };
 
-  return isLoggedIn ? PrivatePage : PublicPage;
+  return isLoggedIn ? <PrivatePage /> : <PublicPage />;
 }
 
 export default Home;

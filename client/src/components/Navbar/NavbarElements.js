@@ -1,12 +1,18 @@
-import { NavLink as Link } from "react-router-dom"; // npm install -S react-router-dom
-import styled from "styled-components"; // npm i styled-components
+import { NavLink as Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background: #203549;
+  position: fixed; /*law ken fama hajet de5la fel navbar w u cant type feha this is khater
+  the rest of the stuff mahoush affected bel css, disable hedhy for testing w ba3ed raja3eha*/
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgb(32, 53, 73);
   height: 100px;
   display: flex;
   justify-content: space-between;
-  padding: 0.2rem calc((100vw - 1000px) / 2);
+  padding: 0.2rem;
+  margin-bottom: 100px;
   z-index: 12;
 `;
 
@@ -31,6 +37,7 @@ export const NavLogo = styled(Link)`
   height: 100%;
   cursor: pointer;
   margin-right: 50px;
+  margin-left: 50px;
 `;
 
 export const NavMenu = styled.div`
@@ -60,7 +67,6 @@ width: 100vw; */
 `;
 
 export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
   background: #f39313;
   padding: 10px 22px;
   color: #000000;

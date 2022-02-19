@@ -1,16 +1,73 @@
 /* font color = fc */
 :root {
-  --mydarkblue: #203549;
-  --myorange: #f39313;
-  --myblue: #057999; /*in white background*/
-  --mylightblue: #00afaa;
+  --mydarkblue: rgb(32, 53, 73);
+  --myorange: rgb(243, 147, 19);
+  --myblue: rgb(5, 121, 153); /*in white background*/
+  --mylightblue: rgb(0, 255, 255);
 }
 
 body {
-  background: bisque;
-  /*margin: 0;
-  padding: 0;*/
+  font-family: "segoe", "Segoe UI", Arial, sans-serif;
+  background: url("./assets/art/background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
+
+/*#region keyframes*/
+
+@keyframes fadeInWithTranslateY {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loopFrame {
+  0% {
+    box-shadow: -50px -50px 0 -40px var(--mydarkblue),
+      50px 50px 0 -40px var(--mydarkblue);
+  }
+  25% {
+    box-shadow: 50px -50px 0 -40px var(--mydarkblue),
+      -50px 50px 0 -40px var(--mydarkblue);
+  }
+  50% {
+    box-shadow: 50px 50px 0 -40px var(--mydarkblue),
+      -50px -50px 0 -40px var(--mydarkblue);
+  }
+  75% {
+    box-shadow: -50px 50px 0 -40px var(--mydarkblue),
+      50px -50px 0 -40px var(--mydarkblue);
+  }
+  100% {
+    box-shadow: -50px -50px 0 -40px var(--mydarkblue),
+      50px 50px 0 -40px var(--mydarkblue);
+  }
+}
+
+@keyframes flipTwoSided {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/*#endregion keyframes*/
 
 /*#region AlertifyJS*/
 
@@ -46,6 +103,276 @@ body {
 
 /*#endregion AlertifyJS*/
 
+/*#region public home page*/
+.home-public-head {
+  width: 100%;
+  padding-top: 130px;
+}
+.home-public-head h1 {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 0, 40);
+  animation: fadeInWithTranslateY 1s;
+}
+.home-public-head h2 {
+  text-align: center;
+  font-size: 50px;
+  font-style: italic;
+  color: rgb(0, 0, 60);
+  animation: fadeInWithTranslateY 1.5s;
+}
+.home-public-head p {
+  text-align: center;
+  font-size: 30px;
+  color: var(--myblue);
+  font-style: oblique;
+  animation: fadeInWithTranslateY 2s;
+}
+.home-public-head button {
+  border-radius: 4px;
+  background: var(--myorange);
+  padding: 10px 50px;
+  color: black;
+  border-style: solid;
+  border-color: black;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  transition: all 0.2s ease-in-out;
+  font-style: bold;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  animation: fadeIn 2s;
+  /*top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);*/
+}
+.home-public-head button:hover {
+  transition: all 0.2s ease-in-out;
+  background: bisque;
+  padding: 10px 60px;
+  color: #808080;
+}
+
+.home-public-mid {
+  width: 40%;
+  padding-top: 20px;
+  margin-left: 5%;
+  float: left;
+}
+.home-public-mid h1 {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 0, 40);
+}
+.home-public-mid p {
+  text-align: center;
+  font-size: 20px;
+  color: var(--myblue);
+}
+.home-public-mid-img {
+  background-image: url("./assets/art/klouz.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 40%;
+  height: 355px;
+  margin-left: 55%;
+  box-shadow: -50px -50px 0 -40px var(--mydarkblue),
+    50px 50px 0 -40px var(--mydarkblue);
+  transition: filter 0.5s ease-in-out;
+  animation: loopFrame 5s infinite;
+}
+
+.home-public-mid-other {
+  width: 40%;
+  padding-top: 100px;
+  margin-left: 55%;
+  float: left;
+}
+.home-public-mid-other h1 {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 0, 40);
+}
+.home-public-mid-other p {
+  text-align: center;
+  font-size: 20px;
+  color: var(--myblue);
+}
+.home-public-mid-other-img {
+  margin-left: 10%;
+  width: 350px;
+  height: 350px;
+}
+.home-public-mid-other-img div {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3),
+    0 12px 20px -10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3),
+    0 12px 20px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 45px rgba(255, 255, 255, 0.3),
+    0 12px 20px -10px rgba(0, 0, 0, 0.4);
+}
+.home-public-mid-other-img #side-a {
+  background-image: url("./assets/art/logo/logo_black_circle_only.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.home-public-mid-other-img #side-b {
+  background-image: url("./assets/art/logo/logo_black_text_only.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.home-public-mid-other-img {
+  transform-style: preserve-3d;
+}
+.home-public-mid-other-img div {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.home-public-mid-other-img #side-b {
+  transform: rotateY(-180deg);
+}
+.home-public-mid-other-img {
+  animation: flipTwoSided 5s linear infinite;
+}
+
+.home-public-bot {
+  width: 100%;
+  margin-top: 150px;
+}
+.home-public-bot h1 {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 0, 40);
+}
+.home-public-bot .feature-img {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 20%;
+}
+.home-public-bot .feature-img li {
+  width: 50px;
+  height: 50px;
+  margin-top: 0.9em;
+  margin-bottom: 2.3em;
+  margin-left: 80%;
+}
+.home-public-bot .feature-img li#featureOne {
+  background-image: url("./assets/art/icon/quiz.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.home-public-bot .feature-img li#featureTwo {
+  background-image: url("./assets/art/icon/info.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.home-public-bot .feature-img li#featureThree {
+  background-image: url("./assets/art/icon/meeting.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.home-public-bot .feature-img li#featureFour {
+  background-image: url("./assets/art/icon/forum.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.home-public-bot .feature-desc {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.home-public-bot .feature-desc li {
+  background-color: bisque;
+  color: var(--myblue);
+  font-size: 15px;
+  border: 0.3em solid var(--myorange);
+  border-radius: 0.5em;
+  display: inline-block;
+  width: 60%;
+  height: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 3em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 1em;
+  margin-right: 13em;
+}
+.home-public-bot .feature-desc li span {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color: var(--myorange);
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 1) * 25%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+.home-public-bot .feature-desc li#featureOne::before {
+  content: "Personality Quiz";
+}
+.home-public-bot .feature-desc li#featureTwo::before {
+  content: "All Kind Of Information";
+}
+.home-public-bot .feature-desc li#featureThree::before {
+  content: "Meetings With Advisors";
+}
+.home-public-bot .feature-desc li#featureFour::before {
+  content: "Community Forum";
+}
+.home-public-bot .feature-desc li:hover#featureOne::before {
+  content: "All about your personality type and what specialty might suit you";
+}
+.home-public-bot .feature-desc li:hover#featureTwo::before {
+  content: "All the info you need about a specialty: Videos, Programs, Curricilums..";
+}
+.home-public-bot .feature-desc li:hover#featureThree::before {
+  content: "Meet with people who can answer your in-depth questions";
+}
+.home-public-bot .feature-desc li:hover#featureFour::before {
+  content: "Learn to share & Share to learn from other's opinions and experiences";
+}
+.home-public-bot .feature-desc li:hover {
+  color: black;
+}
+.home-public-bot .feature-desc li:hover span {
+  transform: translateY(0) scale(2);
+}
+.home-public-bot .feature-desc li span:nth-child(1) {
+  --n: 1;
+}
+.home-public-bot .feature-desc li span:nth-child(2) {
+  --n: 2;
+}
+.home-public-bot .feature-desc li span:nth-child(3) {
+  --n: 3;
+}
+.home-public-bot .feature-desc li span:nth-child(4) {
+  --n: 4;
+}
+
+/*#endregion public home page*/
+
+/*#region navbar logo*/
 .navbar-logo-container {
   height: inherit;
   width: 100px;
@@ -55,3 +382,4 @@ body {
   max-width: 100%;
   max-height: 100%;
 }
+/*#endregion navbar logo*/
