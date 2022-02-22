@@ -11,6 +11,7 @@ body {
   background: url("./assets/art/background.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
+  margin: 0;
 }
 
 /*#region keyframes*/
@@ -311,7 +312,7 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  transition: 0.5s;
+  transition: 1s;
   margin: 1em;
   margin-right: 13em;
 }
@@ -368,6 +369,88 @@ body {
 }
 .home-public-bot .feature-desc li span:nth-child(4) {
   --n: 4;
+}
+
+.home-public-team {
+  width: 100%;
+  margin-top: 100px;
+}
+.home-public-team h1 {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 0, 40);
+}
+.home-public-team ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+.home-public-team li {
+  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+  font-style: bolder;
+  color: var(--mydarkblue);
+  width: 16%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
+.home-public-team li div {
+  background-color: bisque;
+  width: auto;
+  height: inherit;
+  padding-top: 100%;
+  border-radius: 50%;
+  border-style: solid;
+}
+.home-public-team li img {
+  width: 15%;
+  height: auto;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+.home-public-footer {
+  width: 100%;
+  height: 200px;
+  margin-top: 200px;
+  background-color: var(--mydarkblue);
+}
+.home-public-footer-logo {
+  background-image: url("./assets/art/logo/logo_white.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 75%;
+  width: 150px;
+  margin-left: 10%;
+  float: left;
+}
+.home-public-footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 40%;
+  margin-left: 60%;
+  margin-top: 40px;
+}
+.home-public-footer li {
+  display: inline-block;
+  margin-right: 10%;
+  color: white;
+  font-style: bold;
+}
+.home-public-footer li a {
+  text-decoration: none;
+}
+.home-public-footer li a:hover {
+  text-decoration: underline;
+}
+.home-public-footer li a:visited {
+  color: white;
 }
 
 /*#endregion public home page*/

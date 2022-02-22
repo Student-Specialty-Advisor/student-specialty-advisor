@@ -1,5 +1,6 @@
 import React from "react";
 import AuthService from "../../services/AuthService";
+import MemberCard from "../Team/MemberCard";
 
 function Home(props) {
   const isLoggedIn = AuthService.isLoggedIn();
@@ -39,11 +40,11 @@ function Home(props) {
           <h1>So.. What is it?</h1>
           <p>
             Student Specialty Advisor is a free service, delivered as a
-            web-based app to SMU students.
+            web-based multifeatured app to SMU students.
             <br />
             <br />
-            We believe that with SSA, choosing a specialty has never been
-            easier.
+            We believe that with what this project provides, choosing a
+            specialty has never been easier.
             <br />
             <br />
             Gone are the days of "I am not sure", "I don't know the difference"
@@ -87,6 +88,74 @@ function Home(props) {
               <span></span>
               <span></span>
               <span></span>
+            </li>
+          </ul>
+        </div>
+        <div className="home-public-team">
+          <h1>Cooking the website with love:</h1>
+          <ul>
+            <MemberCard
+              fullname="Aymen HAMMAMI"
+              email="contact"
+              fb="https://www.facebook.com"
+              github="https://www.github.com"
+            />
+            <MemberCard
+              fullname="Youssef AYDI"
+              email="contact"
+              fb="https://www.facebook.com"
+              github="https://www.github.com"
+            />
+            <MemberCard
+              fullname="Aziz MAAZOUZ"
+              email="contact"
+              fb="https://www.facebook.com"
+              github="https://www.github.com"
+            />
+            <MemberCard
+              fullname="Mahdi KLOUZ"
+              email="contact"
+              fb="https://www.facebook.com"
+              github="https://www.github.com"
+            />
+            <MemberCard
+              fullname="Amir MEKNI"
+              email="contact"
+              fb="https://www.facebook.com"
+              github="https://www.github.com"
+            />
+          </ul>
+        </div>
+        <div className="home-public-footer">
+          <br />
+          <div className="home-public-footer-logo"></div>
+          <ul>
+            <li>
+              <a
+                href="https://www.google.com"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Send feedback
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.google.com"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Report an issue
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.google.com"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Contact the team
+              </a>
             </li>
           </ul>
         </div>
