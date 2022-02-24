@@ -6,6 +6,7 @@ require("./db/User");
 /*const path = require("path");*/
 const accountSystemController = require("./controllers/accountSystemController.js");
 const statisticsController = require("./controllers/statisticsController.js");
+const quizController = require("./controllers/quizController.js");
 const authJWT = require("./middlewares/authJWT");
 
 const app = express();
@@ -35,6 +36,9 @@ app.put(
   [authJWT.verifyToken],
   accountSystemController.EditAccount
 );
+
+//quiz
+app.get("/ssa-api/quiz-questions", quizController.sendQuestionList);
 
 // Statistics
 app.post(
