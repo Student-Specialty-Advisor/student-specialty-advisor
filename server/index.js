@@ -4,7 +4,8 @@ require("dotenv").config();
 require("./db");
 require("./db/User");
 /*const path = require("path");*/
-const controller = require("./controllers/accountSystemController.js");
+const accountSystemController = require("./controllers/accountSystemController.js");
+const statisticsController = require("./controllers/statisticsController.js");
 const authJWT = require("./middlewares/authJWT");
 
 const app = express();
@@ -26,11 +27,26 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post("/as-api/sign-up", controller.SignUp);
-app.post("/as-api/log-in", controller.LogIn);
-/*app.get("/as-api/", );
-app.delete("/as-api/", );*/
-app.put("/as-api/edit-profile/", [authJWT.verifyToken], controller.EditAccount);
+// Account System
+app.post("/ssa-api/sign-up", accountSystemController.SignUp);
+app.post("/ssa-api/log-in", accountSystemController.LogIn);
+app.put(
+  "/ssa-api/edit-profile/",
+  [authJWT.verifyToken],
+  accountSystemController.EditAccount
+);
+
+// Statistics
+app.post(
+  "/ssa-api/statistics",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  statisticsController.PostStat
+);
+app.get(
+  "/ssa-api/statistics",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  statisticsController.GetStats
+);
 
 app.listen(PORT, () => {
   console.log(`Started listening to requests on port ${PORT}`);
