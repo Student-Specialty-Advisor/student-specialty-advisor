@@ -38,24 +38,24 @@ body {
 
 @keyframes loopFrame {
   0% {
-    box-shadow: -50px -50px 0 -40px var(--mydarkblue),
-      50px 50px 0 -40px var(--mydarkblue);
+    box-shadow: -8.13vh -8.13vh 0 -6.5vh var(--mydarkblue),
+      8.13vh 8.13vh 0 -6.5vh var(--mydarkblue);
   }
   25% {
-    box-shadow: 50px -50px 0 -40px var(--mydarkblue),
-      -50px 50px 0 -40px var(--mydarkblue);
+    box-shadow: 8.13vh -8.13vh 0 -6.5vh var(--mydarkblue),
+      -8.13vh 8.13vh 0 -6.5vh var(--mydarkblue);
   }
   50% {
-    box-shadow: 50px 50px 0 -40px var(--mydarkblue),
-      -50px -50px 0 -40px var(--mydarkblue);
+    box-shadow: 8.13vh 8.13vh 0 -6.5vh var(--mydarkblue),
+      -8.13vh -8.13vh 0 -6.5vh var(--mydarkblue);
   }
   75% {
-    box-shadow: -50px 50px 0 -40px var(--mydarkblue),
-      50px -50px 0 -40px var(--mydarkblue);
+    box-shadow: -8.13vh 8.13vh 0 -6.5vh var(--mydarkblue),
+      8.13vh -8.13vh 0 -6.5vh var(--mydarkblue);
   }
   100% {
-    box-shadow: -50px -50px 0 -40px var(--mydarkblue),
-      50px 50px 0 -40px var(--mydarkblue);
+    box-shadow: -8.13vh -8.13vh 0 -6.5vh var(--mydarkblue),
+      8.13vh 8.13vh 0 -6.5vh var(--mydarkblue);
   }
 }
 
@@ -174,15 +174,15 @@ body {
   color: var(--myblue);
 }
 .home-public-mid-img {
+  width: 40%;
+  height: 26.35vw;
+  margin-left: 55%;
   background-image: url("./assets/art/klouz.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
-  width: 40%;
-  height: 355px;
-  margin-left: 55%;
-  box-shadow: -50px -50px 0 -40px var(--mydarkblue),
-    50px 50px 0 -40px var(--mydarkblue);
+  box-shadow: -3.125rem -3.125rem 0 -2.5rem var(--mydarkblue),
+    3.125rem 3.125rem 0 -2.5rem var(--mydarkblue);
   transition: filter 0.5s ease-in-out;
   animation: loopFrame 5s infinite;
 }
