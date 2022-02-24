@@ -37,6 +37,16 @@ class AuthService {
     }
     return false;
   }
+  isAdmin() {
+    var user = this.getCurrentUser();
+    if (user && user.accessToken) {
+      if (user.role === "Admin") {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
   setCurrentUser(json) {
     if (json.accessToken) {
       localStorage.setItem("user", JSON.stringify(json));
