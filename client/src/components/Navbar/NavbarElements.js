@@ -2,8 +2,8 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  position: fixed; /*law ken fama hajet de5la fel navbar w u cant type feha this is khater
-  the rest of the stuff mahoush affected bel css, disable hedhy for testing w ba3ed raja3eha*/
+  // position: fixed; /*law ken fama hajet de5la fel navbar w u cant type feha this is khater
+  // the rest of the stuff mahoush affected bel css, disable hedhy for testing w ba3ed raja3eha*/
   width: 100%;
   top: 0;
   left: 0;
