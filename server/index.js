@@ -37,8 +37,12 @@ app.put(
   accountSystemController.EditAccount
 );
 
-//quiz
-app.get("/ssa-api/quiz-questions", quizController.sendQuestionList);
+// Personality Quiz
+app.get(
+  "/ssa-api/quiz-questions",
+  [authJWT.verifyToken],
+  quizController.sendQuestionList
+);
 
 // Statistics
 app.post(

@@ -2,8 +2,7 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  position: fixed; /*law ken fama hajet de5la fel navbar w u cant type feha this is khater
-  the rest of the stuff mahoush affected bel css, disable hedhy for testing w ba3ed raja3eha*/
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -49,9 +48,6 @@ export const NavMenu = styled.div`
   /* Third Nav */
   /* width: 100vw;
 white-space: nowrap; */
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const NavBtn = styled.nav`
@@ -61,8 +57,6 @@ export const NavBtn = styled.nav`
   /* Third Nav */
   /* justify-content: flex-end;
 width: 100vw; */
-  @media screen and (max-width: 768px) {
-    display: none;
   }
 `;
 
