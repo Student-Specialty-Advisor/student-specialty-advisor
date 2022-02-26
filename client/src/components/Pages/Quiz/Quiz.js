@@ -43,11 +43,9 @@ function Quiz(props) {
             document.getElementById("n5").className = "quiz-transition-start";
             document.getElementById("n6").className = "quiz-transition-start";
             lastOne.addEventListener("animationend", function () {
-              console.log("end");
               props.history.push("/quiz/started");
               window.scrollTo(0, 0);
             });
-            setTimeout(() => {}, 2000);
           }}
         >
           Start Quiz

@@ -12,7 +12,7 @@ function Home(props) {
         <div className="home-public-head">
           <h1>Student Specialy Advisor</h1>
           <h2>By Students. For Students.</h2>
-          <br /> <br />
+          <br />
           <p>
             Free, Reliable & Safe. Let us help you get things done. Join the
             family now!

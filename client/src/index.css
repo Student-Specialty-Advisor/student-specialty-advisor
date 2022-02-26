@@ -8,7 +8,7 @@
 
 body {
   font-family: "segoe", "Segoe UI", Arial, sans-serif;
-  background: url("./assets/art/background.jpg");
+  /*background: url("./assets/art/background.jpg");*/
   background-size: 100%;
   background-repeat: no-repeat;
   margin: 0;
@@ -150,7 +150,7 @@ body {
 .home-public-head button {
   border-radius: 4px;
   background: var(--myorange);
-  padding: 10px 50px;
+  padding: 10px 20px;
   color: black;
   border-style: solid;
   border-color: black;
@@ -170,9 +170,8 @@ body {
 }
 .home-public-head button:hover {
   transition: all 0.2s ease-in-out;
-  background: bisque;
-  padding: 10px 60px;
-  color: #808080;
+  background: rgb(221, 196, 168);
+  color: rgb(22, 22, 22);
 }
 
 .home-public-mid {
@@ -670,14 +669,15 @@ body {
 }
 .quiz-transition-end-waiting p {
   text-align: center;
+  font-style: oblique;
   font-size: 50px;
   color: white;
-  animation: fadeIn 0.25s;
 }
 .quiz-transition-end p {
   text-align: center;
   font-size: 50px;
   color: white;
+  font-style: oblique;
 }
 .quiz-transition-end-waiting#n1 {
   top: 0;

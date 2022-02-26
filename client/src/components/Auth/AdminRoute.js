@@ -10,7 +10,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
   const UnAuthorized = (props) => {
     React.useEffect(() => {
       alertify.error("You are not authorized to access this page!");
-    });
+    }, []);
     return <Redirect to={{ pathname: "/" }} />;
   };
 
