@@ -1,6 +1,7 @@
 import React from "react";
 import AuthService from "../../services/AuthService";
 import MemberCard from "../Team/MemberCard";
+import Footer from "./Footer";
 
 function Home(props) {
   const isLoggedIn = AuthService.isLoggedIn();
@@ -126,50 +127,20 @@ function Home(props) {
             />
           </ul>
         </div>
-        <div className="home-public-footer">
-          <br />
-          <div className="home-public-footer-logo"></div>
-          <ul>
-            <li>
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Send feedback
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Report an issue
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Contact the team
-              </a>
-            </li>
-          </ul>
-        </div>
+        <Footer />
       </>
     );
   };
 
   const PrivatePage = () => {
     return (
-      <div>
-        <h1>
-          Welcome to MedTech Student Specialty Advisor (MEMBER IS SIGNED IN)
-        </h1>
-      </div>
+      <>
+        <div>
+          <h1>
+            Welcome to MedTech Student Specialty Advisor (MEMBER IS SIGNED IN)
+          </h1>
+        </div>
+      </>
     );
   };
 
