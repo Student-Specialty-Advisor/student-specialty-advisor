@@ -177,7 +177,7 @@ body {
   width: 40%;
   height: 26.35vw;
   margin-left: 55%;
-  background-image: url("./assets/art/klouz.jpg");
+  background-image: url("./assets/art/background.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
@@ -466,3 +466,68 @@ body {
   max-height: 100%;
 }
 /*#endregion navbar logo*/
+
+/*#region login page*/
+.sign-in-background {
+  background: url("./assets/art/logInBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 633px;
+}
+.sign-in-form-container {
+  text-align: cover;
+  margin-top: 6.9%;
+  width: 50%;
+  display: flex;
+  height: 80vh;
+  align-items: center;
+}
+.sign-in-form-container form {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.63);
+  height: 69vh; /*nice!*/
+  width: 45vw;
+  border-radius: 15px;
+  border-style: solid;
+  text-align: center;
+  border-color: var(--mydarkblue);
+}
+.sign-in-form-container form h3 {
+  margin-top: 14%;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: rgb(0, 0, 40);
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+.sign-in-form-container input {
+  width: 40%;
+  border-color: var(--mydarkblue);
+  border-style: none;
+  background-color: transparent;
+  border-bottom-style: solid;
+  font-size: 15px;
+  color: darkblue;
+  outline: none;
+}
+
+.sign-in-form-container button {
+  border-color: var(--mydarkblue);
+  color: rgb(0, 0, 40);
+  font-size: 1rem;
+  font-weight: normal;
+  height: auto;
+  padding: 10px 30px;
+  background-color: var(--myorange);
+  border-radius: 10px;
+  border-style: solid;
+  transition: 0.5s;
+}
+.sign-in-form-container button:hover {
+  background-color: rgb(224, 136, 20);
+  border-style: none;
+}
+
+/*#endregion login page*/

@@ -92,20 +92,33 @@ function LogInForm(props) {
   };
 
   const Form = (
-    <form id="signInForm">
-      <h3>Sign into your account!</h3>
-      <label htmlFor="iEmail">E-mail Address:</label>
-      <br></br>
-      <input type="text" name="iEmail"></input>
-      <br></br>
-      <label htmlFor="iPassword">Password:</label>
-      <br></br>
-      <input type="password" name="iPassword"></input>
-      <br></br>
-      <button id="taskButton" onClick={task}>
-        Sign In now!
-      </button>
-    </form>
+    <div className="sign-in-background">
+      <div className="sign-in-form-container">
+        <form id="signInForm">
+          <h3>Please type your account information:</h3>
+          <label htmlFor="iEmail"></label>
+          <br></br>
+          <input
+            type="text"
+            name="iEmail"
+            placeholder="E-mail Address.."
+          ></input>
+          <br />
+          <br />
+          <label htmlFor="iPassword"></label>
+          <br></br>
+          <input
+            type="password"
+            name="iPassword"
+            placeholder="Password.."
+          ></input>
+          <br /> <br /> <br /> <br />
+          <button id="taskButton" onClick={task}>
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
   );
 
   return isLoggedIn ? <AlreadyLoggedIn /> : Form;

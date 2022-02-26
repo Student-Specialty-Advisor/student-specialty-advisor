@@ -18,7 +18,7 @@ function PublicNavbar(props) {
         </NavMenu>
         <NavBtn>
           <NavBtn>
-            <NavBtnLink to="/login">Log In</NavBtnLink>
+            <NavBtnLink to="/login">Login</NavBtnLink>
           </NavBtn>
           <NavBtn>
             <NavBtnLink to="/signup">Sign Up</NavBtnLink>
