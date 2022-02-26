@@ -32,17 +32,22 @@ function Quiz(props) {
         </p>
         <br />
         <button
+          id="start-button"
           onClick={() => {
+            document.getElementById("start-button").disabled = true;
+            var lastOne = document.getElementById("n6");
             document.getElementById("n1").className = "quiz-transition-start";
             document.getElementById("n2").className = "quiz-transition-start";
             document.getElementById("n3").className = "quiz-transition-start";
             document.getElementById("n4").className = "quiz-transition-start";
             document.getElementById("n5").className = "quiz-transition-start";
             document.getElementById("n6").className = "quiz-transition-start";
-            setTimeout(() => {
+            lastOne.addEventListener("animationend", function () {
+              console.log("end");
               props.history.push("/quiz/started");
               window.scrollTo(0, 0);
-            }, 2000);
+            });
+            setTimeout(() => {}, 2000);
           }}
         >
           Start Quiz
