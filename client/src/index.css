@@ -655,8 +655,7 @@ body {
 .quiz-question p {
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
+  margin-bottom: 4%;
   font-style: italic;
 }
 .quiz-question #text {
@@ -665,7 +664,7 @@ body {
   padding: 0;
   text-align: center;
   width: 100%;
-  margin-left: -0.8%;
+  margin-bottom: 2.5%;
 }
 .quiz-question #radio {
   list-style-type: none;
@@ -673,19 +672,16 @@ body {
   padding: 0;
   text-align: center;
   width: 100%;
-  margin-bottom: 2.5%;
-  scale: 140%;
+  margin-bottom: 6%;
 }
 .quiz-question ul li {
   display: inline-block;
-  margin-right: 13%;
-  margin-left: 13%;
+  width: 33.33%;
 }
 .quiz-question ul input {
   display: inline-block;
-  margin-top: 2%;
-  margin-right: 5%;
-  margin-left: 5%;
+  scale: 150%;
+  width: 16%;
 }
 
 .quiz-transition-start {
