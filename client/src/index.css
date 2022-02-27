@@ -484,7 +484,7 @@ body {
   font-weight: normal;
 }
 .sign-in-form-container input {
-  width: 75%;
+  width: 63%;
   border-color: var(--mydarkblue);
   border-style: none;
   background-color: transparent;
@@ -500,7 +500,7 @@ body {
   font-size: 1rem;
   font-weight: normal;
   height: auto;
-  padding: 10px 150px;
+  padding: 10px 30%;
   background-color: var(--myorange);
   border-radius: 10px;
   border-style: solid;
