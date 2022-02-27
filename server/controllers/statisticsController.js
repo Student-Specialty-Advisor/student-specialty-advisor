@@ -3,22 +3,6 @@ const resultSE = { result: "SE" };
 const resultCSE = { result: "CSE" };
 const resultRE = { result: "RE" };
 
-var PostStat = (req, res) => {
-  if (req.body.result) {
-    const newStat = new Statistics(req.body);
-    newStat
-      .save()
-      .then((stat) => {
-        res.send(stat);
-      })
-      .catch((error) => {
-        res.send(error);
-      });
-  } else {
-    res.send({ keyPattern: { result: "missing result" } });
-  }
-};
-
 var GetStats = (req, res) => {
   const countDocs = async () => {
     var countSE = await Statistics.countDocuments(resultSE);
@@ -47,5 +31,4 @@ var GetStats = (req, res) => {
     .catch((error) => res.status(500).send(error));
 };
 
-exports.PostStat = PostStat;
 exports.GetStats = GetStats;

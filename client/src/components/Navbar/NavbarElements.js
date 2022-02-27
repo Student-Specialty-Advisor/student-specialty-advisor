@@ -11,7 +11,6 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 0.2rem;
-  margin-bottom: 100px;
   z-index: 12;
 `;
 

@@ -114,7 +114,7 @@ function LogInForm(props) {
           ></input>
           <br /> <br /> <br /> <br />
           <button id="taskButton" onClick={task}>
-            Login
+            LOGIN
           </button>
         </form>
       </div>
