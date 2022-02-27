@@ -452,7 +452,8 @@ body {
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 633px;
+  height: 90.1vh;
+  margin-top: -2%;
 }
 .sign-in-form-container {
   text-align: cover;
@@ -507,6 +508,88 @@ body {
 .sign-in-form-container button:hover {
   background-color: rgb(224, 136, 20);
   border-style: none;
+}
+
+/*Sign up Page */
+.sign-up-background {
+  background: url("./assets/art/IMG_2090.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 90.1vh;
+  margin-top: -2%;
+}
+.sign-up-form-container {
+  text-align: cover;
+  margin-top: 6.9%;
+  width: 50%;
+  display: flex;
+  height: 80vh;
+  align-items: center;
+}
+.sign-up-form-container form {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.63);
+  height: 69vh; /*nice!*/
+  width: 45vw;
+  border-radius: 15px;
+  border-style: solid;
+  text-align: center;
+  border-color: var(--mydarkblue);
+}
+.sign-up-form-container form h3 {
+  margin-top: 14%;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: rgb(0, 0, 40);
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+.sign-up-form-container input {
+  width: 50%;
+  border-color: var(--mydarkblue);
+  border-style: none;
+  background-color: transparent;
+  border-bottom-style: solid;
+  font-size: 15px;
+  color: darkblue;
+  outline: none;
+}
+
+.sign-up-form-container button {
+  border-color: var(--mydarkblue);
+  color: rgb(0, 0, 40);
+  font-size: 1rem;
+  font-weight: normal;
+  height: auto;
+  padding: 15px 90px;
+  margin-top: 6%;
+  background-color: var(--myorange);
+  border-radius: 10px;
+  border-style: solid;
+  transition: 0.5s;
+}
+.sign-up-form-container button:hover {
+  background-color: rgb(253, 183, 91);
+  border-style: none;
+}
+.sign-up-form-container select{
+  position: relative;
+}
+.sign-up-form-container select:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+.sign-up-form-container.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
 }
 
 /*#endregion login page*/

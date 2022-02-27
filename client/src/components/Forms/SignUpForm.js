@@ -61,15 +61,25 @@ function SignUpForm(props) {
   };
 
   const Form = (
+    <div className="sign-up-background">
+    <div className="sign-up-form-container">
     <form id="signUpForm">
       <h3>Create your account in a few steps!</h3>
-      <label htmlFor="iFirstName">First Name:</label>
+      <label htmlFor="iFirstName"></label>
       <br></br>
-      <input type="text" name="iFirstName"></input>
+      <input
+      type="text" 
+      name="iFirstName"
+      placeholder="First Name.."
+      ></input>
       <br></br>
-      <label htmlFor="iLastName">Last Name:</label>
+      <label htmlFor="iLastName"></label>
       <br></br>
-      <input type="text" name="iLastName"></input>
+      <input 
+      type="text" 
+      name="iLastName"
+      placeholder="Last Name.."
+      ></input>
       <br></br>
       <label htmlFor="iUniversityYear">University Year:</label> <br></br>
       <select name="iUniversityYear">
@@ -80,22 +90,36 @@ function SignUpForm(props) {
         <option value="Final">Final year</option>
       </select>
       <br></br>
-      <label htmlFor="iEmail">E-mail Address:</label>
+      <label htmlFor="iEmail"></label>
       <br></br>
-      <input type="text" name="iEmail"></input>
+      <input
+       type="text" 
+       name="iEmail"
+       placeholder="E-mail Address.."
+      ></input>
       <br></br>
-      <label htmlFor="iPassword">Password:</label>
+      <label htmlFor="iPassword"></label>
       <br></br>
-      <input type="password" name="iPassword"></input>
+      <input
+      type="password" 
+      name="iPassword"
+      placeholder="Password.."
+      ></input>
       <br></br>
-      <label htmlFor="iPassword2">Confirm Password:</label>
+      <label htmlFor="iPassword2"></label>
       <br></br>
-      <input type="password" name="iPassword2"></input>
+      <input 
+      type="password" 
+      name="iPassword2"
+      placeholder="Confirm Password.."
+      ></input>
       <br></br>
       <button id="taskButton" onClick={task}>
-        Sign up now!
+        SIGN UP
       </button>
     </form>
+    </div>
+    </div>
   );
 
   return isLoggedIn ? <Redirect to="/login" /> : <div>{Form}</div>;
