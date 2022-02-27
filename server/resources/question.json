@@ -1,22 +1,122 @@
 [
-  { "question": "whats your name", "number": "1" },
-  { "question": "whats your name", "number": "2" },
-  { "question": "whats your name", "number": "3" },
-  { "question": "whats your name", "number": "4" },
-  { "question": "whats your name", "number": "5" },
-  { "question": "whats your name", "number": "6" },
-  { "question": "whats your name", "number": "7" },
-  { "question": "whats your name", "number": "8" },
-  { "question": "whats your name", "number": "9" },
-  { "question": "whats your name", "number": "10" },
-  { "question": "whats your name", "number": "11" },
-  { "question": "whats your name", "number": "12" },
-  { "question": "whats your name", "number": "13" },
-  { "question": "whats your name", "number": "14" },
-  { "question": "whats your name", "number": "15" },
-  { "question": "whats your name", "number": "16" },
-  { "question": "whats your name", "number": "17" },
-  { "question": "whats your name", "number": "18" },
-  { "question": "whats your name", "number": "19" },
-  { "question": "whats your name", "number": "20" }
+  {
+    "question": "whats your name",
+    "number": "0",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "1",
+    "type": "SE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "2",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "3",
+    "type": "SE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "4",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "5",
+    "type": "SE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "6",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "7",
+    "type": "CSE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "8",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "9",
+    "type": "CSE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "10",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "11",
+    "type": "CSE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "12",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "13",
+    "type": "RE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "14",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "15",
+    "type": "RE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "16",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "17",
+    "type": "RE",
+    "multi": "2"
+  },
+  {
+    "question": "whats your name",
+    "number": "18",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "whats your name",
+    "number": "19",
+    "type": "RE",
+    "multi": "2"
+  }
 ]

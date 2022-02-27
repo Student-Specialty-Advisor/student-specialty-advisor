@@ -4,7 +4,6 @@ var saveStats = (json) => {
   if (json.result) {
     const newStat = new Statistics(json);
     newStat.save().catch((error) => {
-      console.log(error);
       throw error;
     });
   } else {

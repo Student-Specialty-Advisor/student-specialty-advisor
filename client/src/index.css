@@ -1,4 +1,3 @@
-/* font color = fc */
 :root {
   --mydarkblue: rgb(32, 53, 73);
   --myorange: rgb(243, 147, 19);
@@ -170,7 +169,7 @@ body {
 }
 .home-public-head button:hover {
   transition: all 0.2s ease-in-out;
-  background: rgb(221, 196, 168);
+  background: rgb(241, 166, 66);
   color: rgb(22, 22, 22);
 }
 
@@ -682,6 +681,7 @@ body {
   display: inline-block;
   scale: 150%;
   width: 16%;
+  outline: none;
 }
 
 .quiz-transition-start {
@@ -777,33 +777,37 @@ body {
 }
 .quiz-transition-end#n1 {
   top: 0;
-  animation: transitionQuizBackwards 0.5s forwards;
+  animation: transitionQuizBackwards 0.5s forwards 0.5s;
 }
 .quiz-transition-end#n2 {
   top: 20vh;
-  animation: transitionQuizBackwards 0.75s forwards;
+  animation: transitionQuizBackwards 0.75s forwards 0.5s;
 }
 .quiz-transition-end#n3 {
   top: 40vh;
-  animation: transitionQuizBackwards 1s forwards;
+  animation: transitionQuizBackwards 1s forwards 0.5s;
 }
 .quiz-transition-end#n4 {
   top: 60vh;
-  animation: transitionQuizBackwards 1.25s forwards;
+  animation: transitionQuizBackwards 1.25s forwards 0.5s;
 }
 .quiz-transition-end#n5 {
   top: 80vh;
-  animation: transitionQuizBackwards 1.5s forwards;
+  animation: transitionQuizBackwards 1.5s forwards 0.5s;
 }
 .quiz-transition-end#n6 {
   top: 100vh;
-  animation: transitionQuizBackwards 1.75s forwards;
+  animation: transitionQuizBackwards 1.75s forwards 0.5s;
 }
 
 /*#endregion quiz*/
+
+/*#region media / exceptions*/
 
 @media only screen and (width: 1366px) {
   .sign-in-form-container form h3 {
     margin-top: 21%;
   }
 }
+
+/*#endregion media / exceptions*/

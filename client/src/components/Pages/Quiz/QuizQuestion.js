@@ -1,6 +1,6 @@
 function QuizQuestion(props) {
   return (
-    <div className="quiz-question">
+    <div id={props.id} className="quiz-question">
       <p>{props.question}</p>
       <ul id="text">
         <li>I disagree</li>
