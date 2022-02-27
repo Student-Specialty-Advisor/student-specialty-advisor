@@ -870,10 +870,10 @@ body {
 
 /*#region media / exceptions*/
 
-/*@media only screen and (width: 1366px) {
+@media only screen and (width: 1366px) {
   .sign-in-form-container form h3 {
     margin-top: 21%;
   }
-}*/
+}
 
 /*#endregion media / exceptions*/

@@ -36,22 +36,45 @@ var sendQuestionAnswer = (req, res) => {
     } else if (x === 0 && y === 0) {
       res.status(200).send({ retry: "IDK" });
     } else {
-      var result = "";
+      var bestResult = "";
+      var secondBestResult = "";
       if (y < 0) {
-        result = "RE";
+        bestResult = "RE";
+        if (x > 0) {
+          secondBestResult = "SE";
+        } else {
+          secondBestResult = "CSE";
+        }
       } else {
         if (x > 0) {
-          result = "SE";
+          bestResult = "SE";
+          if (x > y) {
+            secondBestResult = "RE";
+          } else {
+            secondBestResult = "CSE";
+          }
         } else {
-          result = "CSE";
+          bestResult = "CSE";
+          if (-x > y) {
+            secondBestResult = "RE";
+          } else {
+            secondBestResult = "SE";
+          }
         }
       }
       try {
-        saveStats({ result: result });
+        saveStats({ result: bestResult });
       } catch (error) {
         console.log(error);
       }
-      res.status(200).send({ x: x, y: y, result: result });
+      res
+        .status(200)
+        .send({
+          x: x,
+          y: y,
+          result: bestResult,
+          secondResult: secondBestResult,
+        });
     }
   }
 };
