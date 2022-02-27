@@ -44,12 +44,13 @@ app.get(
   quizController.sendQuestionList
 );
 
-// Statistics
 app.post(
-  "/ssa-api/statistics",
-  [authJWT.verifyToken, authJWT.isAdmin],
-  statisticsController.PostStat
+  "/ssa-api/quiz-questions",
+  [authJWT.verifyToken],
+  quizController.sendQuestionAnswer
 );
+
+// Statistics
 app.get(
   "/ssa-api/statistics",
   [authJWT.verifyToken, authJWT.isAdmin],
