@@ -32,18 +32,27 @@ var sendQuestionAnswer = (req, res) => {
       }
     }
     if (x === 0 && y > 0) {
-      console.log("not re, but same for cse and se");
+      res.status(200).send({ retry: "CSE vs SE" });
     } else if (x === 0 && y === 0) {
-      console.log("idk what to do");
+      res.status(200).send({ retry: "IDK" });
     } else {
+      var result = "";
+      if (y < 0) {
+        result = "RE";
+      } else {
+        if (x > 0) {
+          result = "SE";
+        } else {
+          result = "CSE";
+        }
+      }
+      try {
+        saveStats({ result: result });
+      } catch (error) {
+        console.log(error);
+      }
+      res.status(200).send({ x: x, y: y, result: result });
     }
-    res.send({ x: x, y: y });
-    /*try {
-      saveStats({ result: "SE" });
-      res.status(200).send({ result: "SE" });
-    } catch (error) {
-      res.status(500).send(error);
-    }*/
   }
 };
 
