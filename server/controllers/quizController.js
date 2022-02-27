@@ -1,3 +1,5 @@
+const { saveStats } = require("../middlewares/saveStatistics");
+
 try {
   var questions = require("../resources/question.json");
 } catch (error) {
@@ -11,5 +13,15 @@ var sendQuestionList = (req, res) => {
     res.status(200).send(questions);
   }
 };
+var sendQuestionAnswer = (req, res) => {
+  try {
+    saveStats({ result: "software" });
+    res.status(200).send("success");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+};
 
 exports.sendQuestionList = sendQuestionList;
+exports.sendQuestionAnswer = sendQuestionAnswer;
