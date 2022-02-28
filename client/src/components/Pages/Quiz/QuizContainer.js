@@ -90,7 +90,9 @@ function QuizContainer() {
           " Coordinates: x:" +
           result.x +
           " | y:" +
-          result.y
+          result.y +
+          " | z:" +
+          result.z
       );
     });
   };

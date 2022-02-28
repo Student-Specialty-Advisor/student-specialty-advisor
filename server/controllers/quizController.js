@@ -22,44 +22,41 @@ var sendQuestionAnswer = (req, res) => {
   } else {
     var x = 0;
     var y = 0;
+    var z = 0;
     for (var i = 0; i < questions.length; i++) {
       if (questions[i].type === "SE") {
         x = x + req.body[i] * questions[i].multi;
       } else if (questions[i].type === "CSE") {
-        x = x - req.body[i] * questions[i].multi;
+        z = z + req.body[i] * questions[i].multi;
       } else {
-        y = y - req.body[i] * questions[i].multi;
+        y = y + req.body[i] * questions[i].multi;
       }
     }
-    if (x === 0 && y > 0) {
-      res.status(200).send({ retry: "CSE vs SE" });
-    } else if (x === 0 && y === 0) {
+    if (x === y && y === z) {
       res.status(200).send({ retry: "IDK" });
     } else {
       var bestResult = "";
       var secondBestResult = "";
-      if (y < 0) {
+      if (Math.max(x, y, z) === x) {
+        bestResult = "SE";
+        if (y > z) {
+          secondBestResult = "RE";
+        } else {
+          secondBestResult = "CSE";
+        }
+      } else if (Math.max(x, y, z) === y) {
         bestResult = "RE";
-        if (x > 0) {
+        if (x > z) {
           secondBestResult = "SE";
         } else {
           secondBestResult = "CSE";
         }
-      } else {
-        if (x > 0) {
-          bestResult = "SE";
-          if (x > y) {
-            secondBestResult = "RE";
-          } else {
-            secondBestResult = "CSE";
-          }
+      } else if (Math.max(x, y, z) === z) {
+        bestResult = "CSE";
+        if (x > y) {
+          secondBestResult = "SE";
         } else {
-          bestResult = "CSE";
-          if (-x > y) {
-            secondBestResult = "RE";
-          } else {
-            secondBestResult = "SE";
-          }
+          secondBestResult = "RE";
         }
       }
       try {
@@ -67,14 +64,13 @@ var sendQuestionAnswer = (req, res) => {
       } catch (error) {
         console.log(error);
       }
-      res
-        .status(200)
-        .send({
-          x: x,
-          y: y,
-          result: bestResult,
-          secondResult: secondBestResult,
-        });
+      res.status(200).send({
+        x: x,
+        y: y,
+        z: z,
+        result: bestResult,
+        secondResult: secondBestResult,
+      });
     }
   }
 };
