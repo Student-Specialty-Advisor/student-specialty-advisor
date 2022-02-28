@@ -35,7 +35,7 @@ function QuizContainer() {
         "Error while retrieving quiz :( Try refreshing the page.";
     } else {
       setQuestionList(json);
-      document.getElementById("n3 text").innerText = "Loading done :D";
+      document.getElementById("n3 text").innerText = "Done Loading :D";
       document.getElementById("n1").className = "quiz-transition-end";
       document.getElementById("n2").className = "quiz-transition-end";
       document.getElementById("n3").className = "quiz-transition-end";
@@ -74,7 +74,7 @@ function QuizContainer() {
         document
           .getElementById(questionList[i].number)
           .scrollIntoView({ behavior: "smooth", block: "center" });
-        alertify.error("Hey! You forgot to answer to this field!");
+        alertify.error("Hey! You forgot to give an answer to this field!");
         break;
       }
     }
@@ -82,7 +82,16 @@ function QuizContainer() {
       return;
     }
     sendQuizAnswers(answerList).then((result) => {
-      console.log(result);
+      alertify.alert(
+        "Best result: " +
+          result.result +
+          " Second result: " +
+          result.secondResult +
+          " Coordinates: x:" +
+          result.x +
+          " | y:" +
+          result.y
+      );
     });
   };
 

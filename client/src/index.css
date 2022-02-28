@@ -13,6 +13,11 @@ body {
   margin: 0;
 }
 
+/*.lock-scrolling {
+  height: 100%;
+  overflow: hidden;
+}*/
+
 /*#region keyframes*/
 
 @keyframes fadeInWithTranslateY {
@@ -124,7 +129,7 @@ body {
 /*#region public home page*/
 .home-public-head {
   width: 100%;
-  padding-top: 130px;
+  padding-top: 10vh;
 }
 .home-public-head h1 {
   text-align: center;
@@ -205,7 +210,7 @@ body {
 
 .home-public-mid-other {
   width: 40%;
-  padding-top: 100px;
+  padding-top: 20vh;
   margin-left: 55%;
   float: left;
 }
@@ -221,8 +226,8 @@ body {
 }
 .home-public-mid-other-img {
   margin-left: 10%;
-  width: 350px;
-  height: 350px;
+  width: 25.6vw;
+  height: 25.6vw;
 }
 .home-public-mid-other-img div {
   width: 100%;
@@ -263,7 +268,7 @@ body {
 
 .home-public-bot {
   width: 100%;
-  margin-top: 150px;
+  margin-top: 24vh;
 }
 .home-public-bot h1 {
   text-align: center;
@@ -278,8 +283,8 @@ body {
   width: 20%;
 }
 .home-public-bot .feature-img li {
-  width: 50px;
-  height: 50px;
+  width: 3.66vw;
+  height: 3.66vw;
   margin-top: 0.9em;
   margin-bottom: 2.3em;
   margin-left: 80%;
@@ -318,7 +323,7 @@ body {
   border-radius: 0.5em;
   display: inline-block;
   width: 60%;
-  height: 3em;
+  height: 7.8vh;
   text-transform: uppercase;
   font-weight: bold;
   font-family: sans-serif;
@@ -389,7 +394,7 @@ body {
 
 .home-public-team {
   width: 100%;
-  margin-top: 100px;
+  margin-top: 16.26vh;
 }
 .home-public-team h1 {
   text-align: center;
@@ -784,7 +789,7 @@ body {
 }
 .quiz-transition-start#n6 {
   animation: transitionQuiz 1.75s forwards;
-  height: 30vh;
+  height: 26vh;
   top: 125vh;
 }
 
@@ -863,6 +868,7 @@ body {
 }
 .quiz-transition-end#n6 {
   top: 100vh;
+  height: 40vh;
   animation: transitionQuizBackwards 1.75s forwards 0.5s;
 }
 
