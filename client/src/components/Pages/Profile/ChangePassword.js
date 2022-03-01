@@ -40,6 +40,9 @@ function ChangePassword(props) {
       } else if (json.keyPattern) {
         alertify.error("The given current password is incorrect. Try again!");
       } else {
+        window.addEventListener("beforeunload", () => {
+          AuthService.logout();
+        });
         alertify.alert(
           "Password was changed successfully. Please re-login!",
           function () {

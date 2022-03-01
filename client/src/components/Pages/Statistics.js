@@ -1,14 +1,38 @@
 import React from "react";
 import AuthService from "../../services/AuthService";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-ChartJS.register(ArcElement, Tooltip, Legend, Title);
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Title,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+} from "chart.js";
+import { Doughnut, Bar } from "react-chartjs-2";
+import Footer from "./Footer";
+
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  Title,
+  CategoryScale,
+  LinearScale,
+  BarElement
+);
+
 function Statistics() {
   const [isLoaded, setIsLoaded] = React.useState(false);
-
   const [percentageSE, setPercentageSE] = React.useState(null);
   const [percentageCSE, setPercentageCSE] = React.useState(null);
   const [percentageRE, setPercentageRE] = React.useState(null);
+  const [total, setTotal] = React.useState(null);
+  const [countSE, setCountSE] = React.useState(null);
+  const [countCSE, setCountCSE] = React.useState(null);
+  const [countRE, setCountRE] = React.useState(null);
+
   const getQuizJson = async () => {
     var user = AuthService.getCurrentUser();
     const response = await fetch(process.env.REACT_APP_API_URL + "statistics", {
@@ -21,9 +45,14 @@ function Statistics() {
     setPercentageSE(json.percentageSE);
     setPercentageCSE(json.percentageCSE);
     setPercentageRE(json.percentageRE);
+    setTotal(json.total);
+    setCountSE(json.countSE);
+    setCountCSE(json.countCSE);
+    setCountRE(json.countRE);
     setIsLoaded(true);
   };
-  const data = {
+
+  const percentageData = {
     labels: [
       "Software Engineering",
       "Computer Science Engineering",
@@ -33,9 +62,9 @@ function Statistics() {
       {
         data: [percentageSE, percentageCSE, percentageRE],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.7)",
-          "rgba(54, 162, 235, 0.7)",
-          "rgba(255, 206, 86, 0.7)",
+          "rgba(255, 99, 132, 0.5)",
+          "rgba(54, 162, 235, 0.5)",
+          "rgba(255, 206, 86, 0.5)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
@@ -46,34 +75,101 @@ function Statistics() {
       },
     ],
   };
+
+  const countData = {
+    labels: [
+      "Total",
+      "Software Engineering",
+      "Computer Science Engineering",
+      "Renewable Energy Engineering",
+    ],
+    datasets: [
+      {
+        data: [total, countSE, countCSE, countRE],
+        backgroundColor: [
+          "rgba(0, 0, 40, 0.5)",
+          "rgba(255, 99, 132, 0.5)",
+          "rgba(54, 162, 235, 0.5)",
+          "rgba(255, 206, 86, 0.5)",
+        ],
+        borderColor: [
+          "rgba(0, 0, 40, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+        ],
+        borderWidth: 3,
+      },
+    ],
+  };
+
   React.useEffect(() => {
     getQuizJson();
   }, []);
-  return (
-    <div>
-      {!isLoaded ? (
-        <h1>Graph is loading ...</h1>
-      ) : (
-        <Doughnut
-          data={data}
-          options={{
-            maintainAspectRatio: false,
-            plugins: {
-              title: {
-                display: true,
-                text: "Personality Quiz Statistics",
-                position: "top",
-                padding: 50,
-                font: { size: 20 },
+  return !isLoaded ? (
+    <>
+      <div className="statistics-loading">
+        <h1>Loading Statistics...</h1>
+      </div>
+      <Footer />
+    </>
+  ) : (
+    <>
+      <div className="statistics-loaded">
+        <h1>Statistics Page</h1>
+        <div>
+          <Doughnut
+            data={percentageData}
+            options={{
+              maintainAspectRatio: false,
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Personality Quiz Results in %",
+                  position: "top",
+                  padding: 20,
+                  font: { size: 20 },
+                },
+                legend: {
+                  position: "bottom",
+                  labels: {
+                    padding: 40,
+                  },
+                },
               },
-              legend: { position: "bottom" },
-            },
-          }}
-          width={400}
-          height={500}
-        />
-      )}
-    </div>
+            }}
+            height="400px"
+          />
+        </div>
+        <div>
+          <Bar
+            data={countData}
+            options={{
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Personality Quiz Results in numbers",
+                  position: "top",
+                  padding: 20,
+                  font: { size: 20 },
+                },
+                legend: {
+                  display: false,
+                },
+              },
+            }}
+            height="400px"
+          />
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 }
 

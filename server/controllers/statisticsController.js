@@ -23,6 +23,10 @@ var GetStats = (req, res) => {
       var percentageCSE = (numbers.countCSE / numbers.total) * 100;
       var percentageRE = (numbers.countRE / numbers.total) * 100;
       res.status(200).send({
+        countSE: numbers.countSE,
+        countCSE: numbers.countCSE,
+        countRE: numbers.countRE,
+        total: numbers.total,
         percentageSE: percentageSE.toFixed(2),
         percentageCSE: percentageCSE.toFixed(2),
         percentageRE: percentageRE.toFixed(2),

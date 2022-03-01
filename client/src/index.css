@@ -588,8 +588,8 @@ body {
 /*#region page footer*/
 .public-footer {
   width: 100%;
-  height: 200px;
-  margin-top: 200px;
+  height: 32.5vh;
+  margin-top: 32vh;
   background-color: var(--mydarkblue);
 }
 .public-footer-logo {
@@ -628,7 +628,7 @@ body {
 
 /*#region quiz*/
 .quiz-intro {
-  margin-top: 10vw;
+  margin-top: 16vh;
 }
 .quiz-intro h1 {
   text-align: center;
@@ -789,7 +789,7 @@ body {
 }
 .quiz-transition-start#n6 {
   animation: transitionQuiz 1.75s forwards;
-  height: 26vh;
+  height: 19vh;
   top: 125vh;
 }
 
@@ -873,6 +873,23 @@ body {
 }
 
 /*#endregion quiz*/
+
+/*#region statistics page*/
+
+.statistics-loaded {
+  margin-top: 14vh;
+}
+.statistics-loaded h1 {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 0, 40);
+  animation: fadeInWithTranslateY 1s;
+}
+.statistics-loaded div {
+  margin-bottom: 5%;
+}
+
+/*#endregion statistics page*/
 
 /*#region media / exceptions*/
 
