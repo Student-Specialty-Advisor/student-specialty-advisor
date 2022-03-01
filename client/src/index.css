@@ -146,7 +146,7 @@ body {
 /*#region public home page*/
 .home-public-head {
   width: 100%;
-  padding-top: 10vh;
+  padding-top: 20vh;
 }
 .home-public-head h1 {
   text-align: center;
@@ -346,7 +346,7 @@ body {
   font-family: sans-serif;
   letter-spacing: 0.1em;
   text-align: center;
-  line-height: 3em;
+  line-height: 7.8vh;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -550,7 +550,7 @@ body {
   margin-top: 6.9%;
   width: 50%;
   display: flex;
-  height: 82vh;
+  height: 90vh;
   align-items: center;
 }
 .sign-up-form-container form {
@@ -558,14 +558,14 @@ body {
   margin-right: auto;
   background-color: rgba(255, 255, 255, 0.63);
   height: 71vh; /*nice!*/
-  width: 45vw;
+  width: 40vw;
   border-radius: 15px;
   border-style: solid;
   text-align: center;
   border-color: var(--mydarkblue);
 }
 .sign-up-form-container form h3 {
-  margin-top: 14%;
+  margin-top: 9%;
   margin-left: 5%;
   margin-right: 5%;
   color: rgb(0, 0, 40);
@@ -590,8 +590,7 @@ body {
   font-weight: normal;
   height: auto;
   padding: 15px 90px;
-  margin-top: 4%;
-  margin-bottom: 5%;
+  margin-top: 7%;
   background-color: var(--myorange);
   border-radius: 10px;
   border-style: solid;
@@ -605,6 +604,19 @@ body {
   width: 33%;
   margin-top: 5vh;
   margin-left: 1%;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  color: darkblue;
+  background-color: #fff;
+  border: 1px solid var(--mydarkblue);
+  border-radius: 0.25em;
+  text-align: center;
+  cursor: pointer;
+  grid-template-areas: "select";
+}
+.sign-up-form-container select:after {
+  grid-area: select;
 }
 
 /*#endregion login page*/
@@ -652,7 +664,7 @@ body {
 
 /*#region quiz*/
 .quiz-intro {
-  margin-top: 16vh;
+  margin-top: 18vh;
 }
 .quiz-intro h1 {
   text-align: center;
@@ -813,7 +825,7 @@ body {
 }
 .quiz-transition-start#n6 {
   animation: transitionQuiz 1.75s forwards;
-  height: 19vh;
+  height: 10vh;
   top: 125vh;
 }
 
@@ -926,16 +938,25 @@ body {
   animation: fadeInWithTranslateY 1s;
 }
 .statistics-loaded div {
-  margin-bottom: 5%;
+  margin-bottom: 7%;
 }
 
 /*#endregion statistics page*/
 
 /*#region media / exceptions*/
 
-@media only screen and (width: 1366px) {
+@media only screen and (min-width: 1280px) and (max-width: 1366px) {
   .sign-in-form-container form h3 {
     margin-top: 21%;
+  }
+  .sign-up-form-container form {
+    height: 80vh;
+  }
+  .home-public-head {
+    padding-top: 10vh;
+  }
+  .quiz-transition-start#n6 {
+    height: 21vh;
   }
 }
 
