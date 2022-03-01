@@ -22,7 +22,13 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    opacity: 0.7;
+    color: #ffffff;
+  }
   &.active {
+    opacity: 1;
     color: #ffffff;
   }
 `;

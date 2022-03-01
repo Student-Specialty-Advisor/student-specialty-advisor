@@ -1,4 +1,14 @@
 function QuizQuestion(props) {
+  const scrollToNext = () => {
+    try {
+      document
+        .getElementById((parseInt(props.id) + 1).toString())
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    } catch (error) {
+      return;
+    }
+  };
+
   return (
     <div id={props.id} className="quiz-question">
       <p>{props.question}</p>
@@ -8,11 +18,36 @@ function QuizQuestion(props) {
         <li>I agree</li>
       </ul>
       <ul id="radio">
-        <input name={props.number} value="-2" type="radio"></input>
-        <input name={props.number} value="-1" type="radio"></input>
-        <input name={props.number} value="0" type="radio"></input>
-        <input name={props.number} value="1" type="radio"></input>
-        <input name={props.number} value="2" type="radio"></input>
+        <input
+          onClick={scrollToNext}
+          name={props.number}
+          value="-2"
+          type="radio"
+        ></input>
+        <input
+          onClick={scrollToNext}
+          name={props.number}
+          value="-1"
+          type="radio"
+        ></input>
+        <input
+          onClick={scrollToNext}
+          name={props.number}
+          value="0"
+          type="radio"
+        ></input>
+        <input
+          onClick={scrollToNext}
+          name={props.number}
+          value="1"
+          type="radio"
+        ></input>
+        <input
+          onClick={scrollToNext}
+          name={props.number}
+          value="2"
+          type="radio"
+        ></input>
       </ul>
     </div>
   );

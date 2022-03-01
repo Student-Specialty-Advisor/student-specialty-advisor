@@ -20,9 +20,9 @@ var sendQuestionAnswer = (req, res) => {
   } else if (req.body === null || req.body.length !== questions.length) {
     res.status(500).send({ error: "answers received are invalid." });
   } else {
-    var x = 0;
-    var y = 0;
-    var z = 0;
+    var x = 0; // SE
+    var y = 0; // RE
+    var z = 0; // CSE
     for (var i = 0; i < questions.length; i++) {
       if (questions[i].type === "SE") {
         x = x + req.body[i] * questions[i].multi;
