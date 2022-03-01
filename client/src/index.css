@@ -876,6 +876,16 @@ body {
 
 /*#region statistics page*/
 
+.statistics-loading {
+  margin-top: 14vh;
+}
+.statistics-loading h1 {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 0, 40);
+  animation: fadeIn 1s;
+}
+
 .statistics-loaded {
   margin-top: 14vh;
 }

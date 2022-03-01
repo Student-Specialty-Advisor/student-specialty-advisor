@@ -111,7 +111,6 @@ function Statistics() {
       <div className="statistics-loading">
         <h1>Loading Statistics...</h1>
       </div>
-      <Footer />
     </>
   ) : (
     <>
