@@ -550,14 +550,14 @@ body {
   margin-top: 6.9%;
   width: 50%;
   display: flex;
-  height: 80vh;
+  height: 82vh;
   align-items: center;
 }
 .sign-up-form-container form {
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(255, 255, 255, 0.63);
-  height: 69vh; /*nice!*/
+  height: 71vh; /*nice!*/
   width: 45vw;
   border-radius: 15px;
   border-style: solid;
@@ -590,7 +590,8 @@ body {
   font-weight: normal;
   height: auto;
   padding: 15px 90px;
-  margin-top: 6%;
+  margin-top: 4%;
+  margin-bottom: 5%;
   background-color: var(--myorange);
   border-radius: 10px;
   border-style: solid;
