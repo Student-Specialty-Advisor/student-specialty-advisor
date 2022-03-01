@@ -114,6 +114,7 @@ function QuizContainer() {
         }
         setResults(result);
         setIsSubmitted(true);
+        window.scrollTo(0, 0);
       })
       .catch((error) => {
         console.log(error);
