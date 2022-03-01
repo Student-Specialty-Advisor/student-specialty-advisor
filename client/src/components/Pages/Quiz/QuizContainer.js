@@ -29,6 +29,7 @@ function QuizContainer() {
   const [questionList, setQuestionList] = React.useState([]);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [results, setResults] = React.useState({});
+  var isAdmin = AuthService.isAdmin();
 
   var showQuestionList = questionList.map((q) => {
     return (
@@ -126,20 +127,6 @@ function QuizContainer() {
   };
 
   const Results = () => {
-    console.log(results);
-    var array = ["SE", "CSE", "RE"];
-    var badSpecialty = array
-      .filter((a) => a !== results.result && a !== results.secondResult)
-      .map((a) => {
-        if (a === "SE") {
-          return "Software Engineering";
-        } else if (a === "CSE") {
-          return "Computer Systems Engineering";
-        } else {
-          return "Renewable Energy Engineering";
-        }
-      });
-
     const graphData = {
       labels: [
         "Software Engineering",
@@ -160,38 +147,40 @@ function QuizContainer() {
         <h1>Your results are in!</h1>
         {results.result === "SE" ? (
           <p>
-            The specialty that suits you best would probably be: Software
-            Engineering!
+            The specialty that suits you best would probably be:{" "}
+            <strong>Software Engineering!</strong>
           </p>
         ) : null}
         {results.result === "CSE" ? (
           <p>
-            The specialty that suits you best would probably be: Computer
-            Systems Engineering!
+            The specialty that suits you best would probably be:{" "}
+            <strong>Computer Systems Engineering!</strong>
           </p>
         ) : null}
         {results.result === "RE" ? (
           <p>
-            The specialty that suits you best would probably be: Renewable
-            Energy Engineering!
+            The specialty that suits you best would probably be:{" "}
+            <strong>Renewable Energy Engineering!</strong>
           </p>
         ) : null}
         {results.secondResult === "SE" ? (
-          <p>But we also think Software Engineering could be good for you.</p>
+          <p>
+            But we also think <strong>Software Engineering</strong> could be
+            good for you.
+          </p>
         ) : null}
         {results.secondResult === "CSE" ? (
           <p>
-            But we also think Computer Systems Engineering could be good for
-            you.
+            But we also think <strong>Computer Systems Engineering</strong>{" "}
+            could be good for you.
           </p>
         ) : null}
         {results.secondResult === "RE" ? (
           <p>
-            But we also think Renewable Energy Engineering could be good for
-            you.
+            But we also think <strong>Renewable Energy Engineering</strong>{" "}
+            could be good for you.
           </p>
         ) : null}
-        <p>Not {badSpecialty} though! Not that.</p>
         <p>Here is how you scored on our algorithm!</p>
         <div className="quiz-result-graph">
           <Line
@@ -205,8 +194,29 @@ function QuizContainer() {
             }}
           />
         </div>
+        <button
+          onClick={() => {
+            window.scrollTo(0, 0);
+            window.location.reload();
+          }}
+        >
+          Retake the quiz
+        </button>
       </>
     );
+  };
+
+  const generateAnswers = async () => {
+    // Admin only function
+    for (var i = 0; i < questionList.length; i++) {
+      var randomNumber = Math.floor(Math.random() * 5);
+      document.getElementsByName(questionList[i].number)[
+        randomNumber
+      ].checked = true;
+    }
+    document
+      .getElementById("quiz-submit-button")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   React.useEffect(() => {
@@ -228,6 +238,13 @@ function QuizContainer() {
         </>
       )}
       <div className="quiz-container">
+        {isSubmitted ? null : isAdmin ? (
+          <button onClick={generateAnswers}>
+            Admin Only Button
+            <br />
+            Generate Answer
+          </button>
+        ) : null}
         {isSubmitted ? <Results /> : showQuestionList}
         {isSubmitted ? null : (
           <button id="quiz-submit-button" onClick={submit}>
