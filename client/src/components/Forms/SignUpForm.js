@@ -78,14 +78,7 @@ function SignUpForm(props) {
           <input type="text" name="iLastName" placeholder="Last Name.."></input>
           <br></br>
           <label htmlFor="iUniversityYear">University Year :</label>
-          <select
-            name="iUniversityYear"
-            style={{
-              width: "230px",
-              marginTop: "30px",
-              marginLeft: "10px",
-            }}
-          >
+          <select name="iUniversityYear">
             <option value="Freshman">Freshman year</option>
             <option value="Sophomore">Sophomore year</option>
             <option value="Junior">Junior year</option>

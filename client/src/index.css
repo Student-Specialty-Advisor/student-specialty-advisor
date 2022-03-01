@@ -601,7 +601,9 @@ body {
   border-style: none;
 }
 .sign-up-form-container select {
-  position: relative;
+  width: 50%;
+  margin-top: 5vh;
+  margin-left: 1%;
 }
 
 /*#endregion login page*/
