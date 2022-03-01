@@ -62,63 +62,66 @@ function SignUpForm(props) {
 
   const Form = (
     <div className="sign-up-background">
-    <div className="sign-up-form-container">
-    <form id="signUpForm">
-      <h3>Create your account in a few steps!</h3>
-      <label htmlFor="iFirstName"></label>
-      <br></br>
-      <input
-      type="text" 
-      name="iFirstName"
-      placeholder="First Name.."
-      ></input>
-      <br></br>
-      <label htmlFor="iLastName"></label>
-      <br></br>
-      <input 
-      type="text" 
-      name="iLastName"
-      placeholder="Last Name.."
-      ></input>
-      <br></br>
-      <label htmlFor="iUniversityYear">University Year:</label> <br></br>
-      <select name="iUniversityYear">
-        <option value="Freshman">Freshman year</option>
-        <option value="Sophomore">Sophomore year</option>
-        <option value="Junior">Junior year</option>
-        <option value="Senior">Senior year</option>
-        <option value="Final">Final year</option>
-      </select>
-      <br></br>
-      <label htmlFor="iEmail"></label>
-      <br></br>
-      <input
-       type="text" 
-       name="iEmail"
-       placeholder="E-mail Address.."
-      ></input>
-      <br></br>
-      <label htmlFor="iPassword"></label>
-      <br></br>
-      <input
-      type="password" 
-      name="iPassword"
-      placeholder="Password.."
-      ></input>
-      <br></br>
-      <label htmlFor="iPassword2"></label>
-      <br></br>
-      <input 
-      type="password" 
-      name="iPassword2"
-      placeholder="Confirm Password.."
-      ></input>
-      <br></br>
-      <button id="taskButton" onClick={task}>
-        SIGN UP
-      </button>
-    </form>
-    </div>
+      <div className="sign-up-form-container">
+        <form id="signUpForm">
+          <h3>Create your account in a few steps!</h3>
+          <label htmlFor="iFirstName"></label>
+          <br></br>
+          <input
+            type="text"
+            name="iFirstName"
+            placeholder="First Name.."
+          ></input>
+          <br></br>
+          <label htmlFor="iLastName"></label>
+          <br></br>
+          <input type="text" name="iLastName" placeholder="Last Name.."></input>
+          <br></br>
+          <label htmlFor="iUniversityYear">University Year :</label>
+          <select
+            name="iUniversityYear"
+            style={{
+              width: "230px",
+              marginTop: "30px",
+              marginLeft: "10px",
+            }}
+          >
+            <option value="Freshman">Freshman year</option>
+            <option value="Sophomore">Sophomore year</option>
+            <option value="Junior">Junior year</option>
+            <option value="Senior">Senior year</option>
+            <option value="Final">Final year</option>
+          </select>
+          <br></br>
+          <label htmlFor="iEmail"></label>
+          <br></br>
+          <input
+            type="text"
+            name="iEmail"
+            placeholder="E-mail Address.."
+          ></input>
+          <br></br>
+          <label htmlFor="iPassword"></label>
+          <br></br>
+          <input
+            type="password"
+            name="iPassword"
+            placeholder="Password.."
+          ></input>
+          <br></br>
+          <label htmlFor="iPassword2"></label>
+          <br></br>
+          <input
+            type="password"
+            name="iPassword2"
+            placeholder="Confirm Password.."
+          ></input>
+          <br></br>
+          <button id="taskButton" onClick={task}>
+            SIGN UP
+          </button>
+        </form>
+      </div>
     </div>
   );
 
