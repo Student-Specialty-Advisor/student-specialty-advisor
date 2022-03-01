@@ -602,7 +602,7 @@ body {
   border-style: none;
 }
 .sign-up-form-container select {
-  width: 50%;
+  width: 33%;
   margin-top: 5vh;
   margin-left: 1%;
 }
