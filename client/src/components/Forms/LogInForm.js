@@ -1,10 +1,12 @@
 import utils from "../utils";
-import AuthSerice from "../../services/AuthService";
+import AuthService from "../../services/AuthService";
+import React from "react";
+import alertify from "alertifyjs";
 
 function LogInForm(props) {
   const defaultRedirectPath = "/";
 
-  const isLoggedIn = AuthSerice.isLoggedIn();
+  const isLoggedIn = AuthService.isLoggedIn();
 
   const getFormData = () => {
     var form = document.getElementById("signInForm").elements;
@@ -26,23 +28,26 @@ function LogInForm(props) {
     e.preventDefault(); // Prevent form from refreshing the page on button click
     var data = getFormData();
     if (data === utils.invalidEmail) {
-      alert("Error: Make sure to enter a valid e-mail!");
+      alertify.warning("Make sure to enter a valid SMU / MEDTECH e-mail!");
     } else if (data === utils.invalidPassword) {
-      alert("Error: No password was given!");
+      alertify.warning("Hey! No password was given!");
     } else {
-      AuthSerice.login(data).then((response) => {
+      AuthService.login(data).then((response) => {
         if (response.keyPattern) {
-          alert(
-            "Error: Invalid Credentials. Make sure you have written your e-mail and password correctly!"
+          alertify.error(
+            "Invalid Credentials..   Make sure you have written your e-mail and password correctly!"
           );
         } else {
           try {
             var customRedirectPath = props.location.state.from.pathname;
           } catch (error) {
             props.history.push(defaultRedirectPath);
+            window.location.reload();
+            return;
           }
           props.history.push(customRedirectPath);
           window.location.reload();
+          return;
         }
       });
     }
@@ -65,7 +70,7 @@ function LogInForm(props) {
 
   const AlreadyLoggedIn = () => {
     const logout = () => {
-      AuthSerice.logout();
+      AuthService.logout();
       props.history.push(defaultRedirectPath);
       window.location.reload();
     };
@@ -73,7 +78,7 @@ function LogInForm(props) {
       props.history.push(defaultRedirectPath);
       window.location.reload();
     };
-    var email = AuthSerice.getCurrentUser().email;
+    var email = AuthService.getCurrentUser().email;
     return (
       <div>
         <p>
@@ -87,20 +92,33 @@ function LogInForm(props) {
   };
 
   const Form = (
-    <form id="signInForm">
-      <h3>Sign into your account!</h3>
-      <label htmlFor="iEmail">E-mail Address:</label>
-      <br></br>
-      <input type="text" name="iEmail"></input>
-      <br></br>
-      <label htmlFor="iPassword">Password:</label>
-      <br></br>
-      <input type="password" name="iPassword"></input>
-      <br></br>
-      <button id="taskButton" onClick={task}>
-        Sign In now!
-      </button>
-    </form>
+    <div className="sign-in-background">
+      <div className="sign-in-form-container">
+        <form id="signInForm">
+          <h3>Please type your account information:</h3>
+          <label htmlFor="iEmail"></label>
+          <br></br>
+          <input
+            type="text"
+            name="iEmail"
+            placeholder="E-mail Address.."
+          ></input>
+          <br />
+          <br />
+          <label htmlFor="iPassword"></label>
+          <br></br>
+          <input
+            type="password"
+            name="iPassword"
+            placeholder="Password.."
+          ></input>
+          <br /> <br /> <br /> <br />
+          <button id="taskButton" onClick={task}>
+            LOGIN
+          </button>
+        </form>
+      </div>
+    </div>
   );
 
   return isLoggedIn ? <AlreadyLoggedIn /> : Form;

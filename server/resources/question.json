@@ -1,0 +1,141 @@
+[
+  {
+    "question": "The deadline of a project I am working on is approaching. I decide to work longer and harder to deliver it on time with a good quality, instead of rushing through some parts.",
+    "number": "0",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "I decide to go to Starbucks to get my daily latte. Somehow, there is a huge and long queue in front of me. I decide to be patient instead of trying to cut the line or find a shortcut.",
+    "number": "1",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "When I am feeling creative, I usually enjoy drawing / scheming my ideas.",
+    "number": "2",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "I like to spend time alone with my thoughts, rather than sharing them directly with others.",
+    "number": "3",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "I like to engage in social gatherings, and feel like I communicate well with people from different backgrounds.",
+    "number": "4",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "I enjoy working with theories and hypotheses.",
+    "number": "5",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "I don't feel confused when working on multiple tasks simultaniously.",
+    "number": "6",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "The lights of my fridge stop working. I would rather fix them myself than call an electrician.",
+    "number": "7",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "I don't find performing scientific research boring.",
+    "number": "8",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "I am not easily convinced by what others tell me unless I have a look at it myself.",
+    "number": "9",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "Winning a robotics competition is more relevant than winning a coding only competition.",
+    "number": "10",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "If I was working as a salesman, I would probably know how to sell you this pen.",
+    "number": "11",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "When I find myself under high-pressure, or facing conflicts, I may seem introverted.",
+    "number": "12",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "One day I want to have a private workbench at home.",
+    "number": "13",
+    "type": "CSE",
+    "multi": "1"
+  },
+  {
+    "question": "I am environmentally conscious and I usually try to save resources such as water and power.",
+    "number": "14",
+    "type": "RE",
+    "multi": "1"
+  },
+  {
+    "question": "I want to spend more time working on a task than on discussing it.",
+    "number": "15",
+    "type": "SE",
+    "multi": "1"
+  },
+  {
+    "question": "My team is working on a smart smoke detector. Everyone must work on both hardware and software aspects of the project, but I think I can contribute better if I spend more time on the hardware part.",
+    "number": "16",
+    "type": "CSE",
+    "multi": "1"
+  },
+
+  {
+    "question": "When using my computer, driving my car, watching my TV or listening to music through my headphones, I sometimes wonder how these devices work.",
+    "number": "17",
+    "type": "CSE",
+    "multi": "2"
+  },
+  {
+    "question": "I would be more comfortable working outside and being present on a project's field than working in a closed office.",
+    "number": "18",
+    "type": "RE",
+    "multi": "2"
+  },
+  {
+    "question": "When I play a video game, watch a youtube video or use social media, I sometimes wonder how that works behind the scenes.",
+    "number": "19",
+    "type": "SE",
+    "multi": "2"
+  },
+  {
+    "question": "I enjoy courses about circuits, electricity, and operating systems.",
+    "number": "20",
+    "type": "CSE",
+    "multi": "2"
+  },
+  {
+    "question": "I enjoy courses about electricity, physics, chemistry and lab experiments.",
+    "number": "21",
+    "type": "RE",
+    "multi": "2"
+  },
+  {
+    "question": "I enjoy courses about programming and conceptualization.",
+    "number": "22",
+    "type": "SE",
+    "multi": "2"
+  }
+]

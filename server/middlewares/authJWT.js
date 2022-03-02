@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const User = require("../db/User");
 
-const tokenNotFound = { error: "Token was not found / not provided!" };
-const invalidToken = { error: "Token is invalid!" };
-const unauthorized = { error: "Unauthorized action!" };
-const userNotFound = { error: "User was not found!" };
+const tokenNotFound = { tokenError: "Token was not found / not provided!" };
+const invalidToken = { tokenError: "Token is invalid!" };
+const unauthorized = { tokenError: "Unauthorized action!" };
+const userNotFound = { tokenError: "User was not found!" };
 
 const verifyToken = (req, res, next) => {
   let token = req.headers["x-access-token"];

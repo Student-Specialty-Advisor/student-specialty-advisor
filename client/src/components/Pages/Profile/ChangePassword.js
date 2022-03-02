@@ -1,3 +1,4 @@
+import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
 
 function ChangePassword(props) {
@@ -5,6 +6,10 @@ function ChangePassword(props) {
     const currentPassword = document.getElementById("currentPassword").value;
     const newPassword = document.getElementById("newPassword").value;
     const newPassword2 = document.getElementById("newPassword2").value;
+    if (newPassword === "" || newPassword2 === "" || currentPassword === "") {
+      alertify.warning("Hey! Some important fields were left empty!");
+      return;
+    }
     if (newPassword === newPassword2) {
       const userData = AuthService.getCurrentUser();
       const passwordJson = {
@@ -23,16 +28,32 @@ function ChangePassword(props) {
         }
       );
       const json = await response.json();
-      if (json.keyPattern) {
-        alert("The given current password is incorrect. Try again!");
+      if (json.tokenError) {
+        alertify.alert(
+          "Your 24H session expired. Please login again to continue!",
+          function () {
+            AuthService.logout();
+            props.history.push("/login");
+            window.location.reload();
+          }
+        );
+      } else if (json.keyPattern) {
+        alertify.error("The given current password is incorrect. Try again!");
       } else {
-        alert("Password was changed successfully. Please re-login!");
-        AuthService.logout();
-        props.history.push("/login");
-        window.location.reload();
+        window.addEventListener("beforeunload", () => {
+          AuthService.logout();
+        });
+        alertify.alert(
+          "Password was changed successfully. Please re-login!",
+          function () {
+            AuthService.logout();
+            props.history.push("/login");
+            window.location.reload();
+          }
+        );
       }
     } else {
-      alert("New Password fields are not matching!");
+      alertify.warning("New Password fields are not matching!");
     }
   };
 

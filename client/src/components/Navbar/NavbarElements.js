@@ -1,12 +1,16 @@
-import { NavLink as Link } from "react-router-dom"; // npm install -S react-router-dom
-import styled from "styled-components"; // npm i styled-components
+import { NavLink as Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background: #203549;
-  height: 100px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgb(32, 53, 73);
+  height: 11.5vh;
   display: flex;
   justify-content: space-between;
-  padding: 0.2rem calc((100vw - 1000px) / 2);
+  padding: 0.2rem;
   z-index: 12;
 `;
 
@@ -18,7 +22,13 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    opacity: 0.7;
+    color: #ffffff;
+  }
   &.active {
+    opacity: 1;
     color: #ffffff;
   }
 `;
@@ -31,6 +41,7 @@ export const NavLogo = styled(Link)`
   height: 100%;
   cursor: pointer;
   margin-right: 50px;
+  margin-left: 50px;
 `;
 
 export const NavMenu = styled.div`
@@ -42,9 +53,6 @@ export const NavMenu = styled.div`
   /* Third Nav */
   /* width: 100vw;
 white-space: nowrap; */
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const NavBtn = styled.nav`
@@ -54,13 +62,10 @@ export const NavBtn = styled.nav`
   /* Third Nav */
   /* justify-content: flex-end;
 width: 100vw; */
-  @media screen and (max-width: 768px) {
-    display: none;
   }
 `;
 
 export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
   background: #f39313;
   padding: 10px 22px;
   color: #000000;

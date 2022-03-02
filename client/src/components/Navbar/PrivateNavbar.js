@@ -1,5 +1,5 @@
 import React from "react";
-import Authservice from "../../services/AuthService";
+import AuthService from "../../services/AuthService";
 import {
   Nav,
   NavLink,
@@ -11,10 +11,11 @@ import {
 
 function PrivateNavbar(props) {
   const logout = () => {
-    Authservice.logout();
+    AuthService.logout();
     props.history.push("/login");
     window.location.reload();
   };
+  const isAdmin = AuthService.isAdmin();
   return (
     <>
       <Nav>
@@ -33,6 +34,7 @@ function PrivateNavbar(props) {
           <NavLink to="/videos">Videos</NavLink>
           <NavLink to="/meeting">Meeting</NavLink>
           <NavLink to="/forum">Forum</NavLink>
+          {isAdmin ? <NavLink to="/statistics">Statistics</NavLink> : null}
         </NavMenu>
         <NavBtn>
           <NavBtn>
