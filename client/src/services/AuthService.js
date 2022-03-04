@@ -1,3 +1,5 @@
+import alertify from "alertifyjs";
+
 class AuthService {
   async login(data) {
     const response = await fetch(process.env.REACT_APP_API_URL + "log-in", {
@@ -51,6 +53,15 @@ class AuthService {
     if (json.accessToken) {
       localStorage.setItem("user", JSON.stringify(json));
     }
+  }
+  alertifyInvalidToken() {
+    alertify.alert(
+      "Your 24H session expired. Please login again to continue!",
+      () => {
+        this.logout();
+        window.location.href = "/login";
+      }
+    );
   }
 }
 

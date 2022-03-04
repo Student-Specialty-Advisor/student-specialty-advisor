@@ -29,14 +29,7 @@ function ChangePassword(props) {
       );
       const json = await response.json();
       if (json.tokenError) {
-        alertify.alert(
-          "Your 24H session expired. Please login again to continue!",
-          function () {
-            AuthService.logout();
-            props.history.push("/login");
-            window.location.reload();
-          }
-        );
+        AuthService.alertifyInvalidToken();
       } else if (json.keyPattern) {
         alertify.error("The given current password is incorrect. Try again!");
       } else {
@@ -47,8 +40,7 @@ function ChangePassword(props) {
           "Password was changed successfully. Please re-login!",
           function () {
             AuthService.logout();
-            props.history.push("/login");
-            window.location.reload();
+            window.location.href = "/login";
           }
         );
       }

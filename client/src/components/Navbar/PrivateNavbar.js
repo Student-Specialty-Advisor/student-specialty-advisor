@@ -12,8 +12,7 @@ import {
 function PrivateNavbar(props) {
   const logout = () => {
     AuthService.logout();
-    props.history.push("/login");
-    window.location.reload();
+    window.location.href = "/login";
   };
   const isAdmin = AuthService.isAdmin();
   return (
@@ -41,7 +40,7 @@ function PrivateNavbar(props) {
             <NavBtnLink to="/profile">Profile</NavBtnLink>
           </NavBtn>
           <NavBtn>
-            <NavBtnLink to="/" onClick={logout}>
+            <NavBtnLink to="/login" onClick={logout}>
               Log Out
             </NavBtnLink>
           </NavBtn>

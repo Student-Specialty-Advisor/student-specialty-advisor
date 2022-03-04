@@ -28,14 +28,7 @@ function Profile(props) {
     );
     const json = await response.json();
     if (json.tokenError) {
-      alertify.alert(
-        "Your 24H session expired. Please login again to continue!",
-        function () {
-          AuthService.logout();
-          props.history.push("/login");
-          window.location.reload();
-        }
-      );
+      AuthService.alertifyInvalidToken();
       throw utils.emptyInput;
     } else if (json.keyPattern) {
       if (json.keyPattern.email) {

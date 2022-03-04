@@ -113,6 +113,10 @@ function QuizContainer() {
           document.getElementById("quiz-submit-button").disabled = false;
           return;
         }
+        if (result.tokenError) {
+          AuthService.alertifyInvalidToken();
+          return;
+        }
         setResults(result);
         setIsSubmitted(true);
         window.scrollTo(0, 0);
