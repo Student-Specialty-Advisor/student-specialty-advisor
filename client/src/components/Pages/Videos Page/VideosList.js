@@ -85,6 +85,7 @@ function VideosList(props) {
     } else if (easterEggCounter < 160) {
       document.getElementById("popcorn-text").innerHTML =
         "I don't have to deal with this!";
+      document.getElementById("popcorn-image").classList.add("popcorn-done");
       alertify
         .alert(
           "Your session expired because you tried to steal <strong>someone else's popcorn</strong>. Please login again to continue!",

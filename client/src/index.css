@@ -1045,6 +1045,11 @@ body {
   height: 50%;
   cursor: pointer;
 }
+.videos-container .side-bar .popcorn div.popcorn-done {
+  content: url("./assets/art/gif/popcorn.gif");
+  margin-top: -10%;
+  height: 60%;
+}
 .videos-container .side-bar .popcorn div:active {
   transform: rotateZ(10deg);
 }
