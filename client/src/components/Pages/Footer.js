@@ -1,6 +1,6 @@
-function Footer() {
+function Footer(props) {
   return (
-    <div className="public-footer">
+    <div className="public-footer" id={props.id}>
       <br />
       <div className="public-footer-logo"></div>
       <ul>
