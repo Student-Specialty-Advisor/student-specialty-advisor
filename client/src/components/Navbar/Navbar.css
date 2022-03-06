@@ -71,97 +71,129 @@
 .nav-item {
   display: flex;
   align-items: center;
-  height: 10vh;
+  text-align: center;
+  height: 11.5vh;
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 .nav-item a {
   text-decoration: none;
   color: white;
   font-size: 1.1rem;
-  margin-right: 2rem;
   padding: 6px 16px;
   border-radius: 5px;
+  transition: 0.5s;
 }
-.nav-item a:hover {
-  background: rgb(0, 212, 212);
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  height: 25%;
+  border-left: 2px solid white;
+  transition: 0.5s;
+}
+.nav-item:hover a {
+  color: cyan;
+}
+.nav-item:hover::before {
+  border-left: 4px solid cyan;
 }
 
 .services-subMenu {
-  width: 10rem;
+  width: 10vw;
   position: absolute;
   top: 78px;
-  left: 300px;
+  left: 420px;
   list-style: none;
   text-align: start;
+  box-shadow: 0px 0px 10px 2px rgba(0, 255, 255, 0.5);
+  padding: 0 !important;
+  animation: fadeIn 0.3s;
 }
 .services-subMenu li {
-  background-color: rgb(0, 212, 212);
+  background-color: rgb(32, 53, 73);
   cursor: pointer;
 }
 .services-subMenu li a:hover {
-  background: rgb(0, 175, 175);
+  background: rgba(255, 255, 255);
+  transition: 0.5s;
+  color: rgb(32, 53, 73) !important;
 }
 .services-subMenu.clicked {
   display: none;
 }
 .subMenu-item {
   display: block;
-  width: 80%;
+  width: 79%;
   height: 100%;
   text-decoration: none;
-  color: white;
+  color: white !important;
   padding: 16px;
+  border-radius: 0 !important;
 }
 
 .services-subMenu2 {
-  width: 20rem;
+  width: 18vw;
   position: absolute;
   top: 78px;
-  left: 400px;
+  left: 590px;
   list-style: none;
   text-align: start;
+  box-shadow: 0px 0px 10px 2px rgba(0, 255, 255, 0.5);
+  padding: 0 !important;
+  animation: fadeIn 0.3s;
 }
 .services-subMenu2 li {
-  background-color: rgb(0, 212, 212);
+  background-color: rgb(32, 53, 73);
   cursor: pointer;
 }
 .services-subMenu2 li a:hover {
-  background: rgb(0, 175, 175);
+  background: rgba(255, 255, 255);
+  transition: 0.5s;
+  color: rgb(32, 53, 73) !important;
 }
 .services-subMenu.clicked2 {
   display: none;
 }
 .subMenu-item2 {
   display: block;
-  width: 90%;
+  width: 89%;
   height: 100%;
   text-decoration: none;
-  color: white;
+  color: white !important;
   padding: 16px;
+  border-radius: 0 !important;
 }
 
 .services-subMenu3 {
-  width: 10rem;
+  width: 10vw;
   position: absolute;
   top: 78px;
-  left: 550px;
+  left: 740px;
   list-style: none;
   text-align: start;
+  box-shadow: 0px 0px 10px 2px rgba(0, 255, 255, 0.5);
+  padding: 0 !important;
+  animation: fadeIn 0.3s;
 }
 .services-subMenu3 li {
-  background-color: rgb(0, 212, 212);
+  background-color: rgb(32, 53, 73);
   cursor: pointer;
 }
 .services-subMenu3 li a:hover {
-  background: rgb(0, 175, 175);
+  background: rgba(255, 255, 255);
+  transition: 0.5s;
+  color: rgb(32, 53, 73) !important;
 }
 .services-subMenu.clicked3 {
   display: none;
 }
 .subMenu-item3 {
   display: block;
-  width: 80%;
+  width: 79%;
   height: 100%;
   text-decoration: none;
-  color: white;
+  color: white !important;
   padding: 16px;
+  border-radius: 0 !important;
 }

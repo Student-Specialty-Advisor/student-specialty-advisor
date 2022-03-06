@@ -60,7 +60,7 @@ export const DropDownElements2 = [
   },
   {
     id: 3,
-    title: "Renewable Engineering",
+    title: "Renewable Energy Engineering",
     path: "./renewableEngineering",
     cName: "subMenu-item2",
   },
