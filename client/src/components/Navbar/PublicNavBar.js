@@ -14,12 +14,18 @@ function PublicNavbar(props) {
             ></img>
           </div>
         </Link>
-        <Link to="/login">
-          <button className="btn">Login</button>
-        </Link>
-        <Link to="/signup">
-          <button className="btn">Sign Up</button>
-        </Link>
+        <div className="btn-container">
+          <div className="btn-container">
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          </div>
+          <div className="btn-container">
+            <Link to="/signup" className="btn">
+              Sign Up
+            </Link>
+          </div>
+        </div>
       </nav>
     </>
   );

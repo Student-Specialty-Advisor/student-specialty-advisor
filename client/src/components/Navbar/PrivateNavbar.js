@@ -82,13 +82,18 @@ function PrivateNavbar(props) {
             </li>
           ) : null}
         </ul>
-
-        <Link to="/profile">
-          <button className="btn">Profile</button>
-        </Link>
-        <button className="btn" onClick={logout}>
-          Log Out
-        </button>
+        <div className="btn-container">
+          <div className="btn-container">
+            <Link to="/profile" className="btn">
+              Profile
+            </Link>
+          </div>
+          <div className="btn-container">
+            <Link to="/login" className="btn" onClick={logout}>
+              Log Out
+            </Link>
+          </div>
+        </div>
       </nav>
     </>
   );
