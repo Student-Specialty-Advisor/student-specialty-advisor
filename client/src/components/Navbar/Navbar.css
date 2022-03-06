@@ -1,0 +1,131 @@
+.navbar {
+  height: 15vh;
+  background: #1b1919;
+  display: flex;
+  color: white;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  background: transparent;
+  padding: 6px 16px;
+  font-size: 1.1rem;
+  color: white;
+  justify-content: space-between;
+  background: rgb(0, green, blue);
+  border-radius: 5px;
+  transition: 0.3s all ease-out;
+  cursor: pointer;
+}
+.btn:hover {
+  color: rgb(0, 212, 212);
+  background: white;
+}
+
+.nav-items {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: flex-start;
+  margin-right: 2rem;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+}
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  margin-right: 2rem;
+  padding: 6px 16px;
+  border-radius: 5px;
+}
+.nav-item a:hover {
+  background: rgb(0, 212, 212);
+}
+
+.services-subMenu {
+  width: 10rem;
+  position: absolute;
+  top: 78px;
+  left: 300px;
+  list-style: none;
+  text-align: start;
+}
+.services-subMenu li {
+  background-color: rgb(0, 212, 212);
+  cursor: pointer;
+}
+.services-subMenu li a:hover {
+  background: rgb(0, 175, 175);
+}
+.services-subMenu.clicked {
+  display: none;
+}
+.subMenu-item {
+  display: block;
+  width: 80%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  padding: 16px;
+}
+
+.services-subMenu2 {
+  width: 20rem;
+  position: absolute;
+  top: 78px;
+  left: 400px;
+  list-style: none;
+  text-align: start;
+}
+.services-subMenu2 li {
+  background-color: rgb(0, 212, 212);
+  cursor: pointer;
+}
+.services-subMenu2 li a:hover {
+  background: rgb(0, 175, 175);
+}
+.services-subMenu.clicked2 {
+  display: none;
+}
+.subMenu-item2 {
+  display: block;
+  width: 90%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  padding: 16px;
+}
+
+.services-subMenu3 {
+  width: 10rem;
+  position: absolute;
+  top: 78px;
+  left: 550px;
+  list-style: none;
+  text-align: start;
+}
+.services-subMenu3 li {
+  background-color: rgb(0, 212, 212);
+  cursor: pointer;
+}
+.services-subMenu3 li a:hover {
+  background: rgb(0, 175, 175);
+}
+.services-subMenu.clicked3 {
+  display: none;
+}
+.subMenu-item3 {
+  display: block;
+  width: 80%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  padding: 16px;
+}
