@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Authservice from "../../services/AuthService";
+import AuthService from "../../services/AuthService";
 import Dropdown from "./Dropdown";
 import Dropdown2 from "./Dropdown2";
 import Dropdown3 from "./Dropdown3";

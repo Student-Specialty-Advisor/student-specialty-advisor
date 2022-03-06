@@ -1,5 +1,8 @@
 .navbar {
+  top: 0;
+  position: fixed;
   height: 15vh;
+  width: 100%;
   background: #1b1919;
   display: flex;
   color: white;
@@ -10,11 +13,11 @@
 .btn {
   border: none;
   background: transparent;
-  padding: 6px 16px;
+  padding: 6px 20px;
   font-size: 1.1rem;
   color: white;
   justify-content: space-between;
-  background: rgb(0, green, blue);
+  background: rgb(0, 212, 212);
   border-radius: 5px;
   transition: 0.3s all ease-out;
   cursor: pointer;
