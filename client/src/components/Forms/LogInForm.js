@@ -41,12 +41,10 @@ function LogInForm(props) {
           try {
             var customRedirectPath = props.location.state.from.pathname;
           } catch (error) {
-            props.history.push(defaultRedirectPath);
-            window.location.reload();
+            window.location.href = defaultRedirectPath;
             return;
           }
-          props.history.push(customRedirectPath);
-          window.location.reload();
+          window.location.href = customRedirectPath;
           return;
         }
       });
@@ -71,12 +69,10 @@ function LogInForm(props) {
   const AlreadyLoggedIn = () => {
     const logout = () => {
       AuthService.logout();
-      props.history.push(defaultRedirectPath);
-      window.location.reload();
+      window.location.href = defaultRedirectPath;
     };
     const cancel = () => {
-      props.history.push(defaultRedirectPath);
-      window.location.reload();
+      window.location.href = defaultRedirectPath;
     };
     var email = AuthService.getCurrentUser().email;
     return (

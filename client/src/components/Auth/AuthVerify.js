@@ -22,8 +22,7 @@ function AuthVerify(props) {
           function () {
             if (window.location.pathname === "/") {
               AuthService.logout();
-              props.history.push("/login");
-              window.location.reload();
+              window.location.href = "/login";
             } else {
               AuthService.logout();
               window.location.reload();

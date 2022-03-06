@@ -135,9 +135,10 @@ function Home(props) {
   const PrivatePage = () => {
     return (
       <>
-        <div>
+        <div className="home-private">
           <h1>
-            Welcome to MedTech Student Specialty Advisor (MEMBER IS SIGNED IN)
+            Hey there, {AuthService.getCurrentUser().firstName}! <br />
+            Welcome to MedTech Student Specialty Advisor!
           </h1>
         </div>
       </>
