@@ -16,6 +16,7 @@ function PrivateNavbar(props) {
     props.history.push("/login");
     window.location.reload();
   };
+  const isAdmin = AuthService.isAdmin();
 
   return (
     <>
@@ -75,6 +76,11 @@ function PrivateNavbar(props) {
               </li>
             );
           })}
+          {isAdmin ? (
+            <li className="nav-item">
+              <Link to="/statistics">Statistics</Link>
+            </li>
+          ) : null}
         </ul>
 
         <Link to="/profile">
