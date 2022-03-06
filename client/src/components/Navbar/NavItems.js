@@ -2,32 +2,32 @@ export const NavItems = [
   {
     id: 1,
     title: "Quiz",
-    path: "./quiz",
+    path: "/quiz",
     cName: "nav-item",
   },
   {
     id: 2,
     title: "Programs",
-    path: "./programs",
+    path: "/programs",
     cName: "nav-item",
   },
   {
     id: 3,
     title: "Videos",
-    path: "./videos",
+    path: "/videos",
     cName: "nav-item",
   },
   {
     id: 4,
     title: "Meeting",
-    path: "./meeting",
+    path: "/meeting",
     cName: "nav-item",
   },
 
   {
     id: 5,
     title: "Forum",
-    path: "./forum",
+    path: "/forum",
     cName: "nav-item",
   },
 ];
@@ -35,13 +35,13 @@ export const DropDownElements1 = [
   {
     id: 1,
     title: "Description",
-    path: "./description",
+    path: "/description",
     cName: "subMenu-item",
   },
   {
     id: 2,
     title: "Curriculum",
-    path: "./curriculum",
+    path: "/curriculum",
     cName: "subMenu-item",
   },
 ];
@@ -49,19 +49,19 @@ export const DropDownElements2 = [
   {
     id: 1,
     title: "Software Engineering",
-    path: "./softwareEngineering",
+    path: "/videos/se",
     cName: "subMenu-item2",
   },
   {
     id: 2,
     title: "Computer Systems Engineering",
-    path: "./computerSystemsEngineering",
+    path: "/videos/cse",
     cName: "subMenu-item2",
   },
   {
     id: 3,
     title: "Renewable Energy Engineering",
-    path: "./renewableEngineering",
+    path: "/videos/re",
     cName: "subMenu-item2",
   },
 ];
@@ -69,13 +69,13 @@ export const DropDownElements3 = [
   {
     id: 1,
     title: "About",
-    path: "./about",
+    path: "/about",
     cName: "subMenu-item3",
   },
   {
     id: 2,
     title: "Contact",
-    path: "./contact",
+    path: "/contact",
     cName: "subMenu-item3",
   },
 ];

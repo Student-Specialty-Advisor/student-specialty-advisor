@@ -462,7 +462,7 @@ body {
 
 /*Sign in Page*/
 .sign-in-background {
-  background: url("./assets/art/klouzWhite.JPG");
+  background: url("./assets/art/klouzWhite.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 100% 50%;
