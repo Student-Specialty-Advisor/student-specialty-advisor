@@ -1,30 +1,32 @@
 import React from "react";
-import { Nav, NavLogo, NavMenu, NavBtn, NavBtnLink } from "./NavbarElements";
+import { Link } from "react-router-dom";
 
 function PublicNavbar(props) {
   return (
     <>
-      <Nav>
-        <NavMenu>
-          <NavLogo to="/">
-            <div className="navbar-logo-container">
-              <img
-                className="navbar-logo"
-                src={props.logo}
-                alt="logo is still loading.."
-              ></img>
-            </div>
-          </NavLogo>
-        </NavMenu>
-        <NavBtn>
-          <NavBtn>
-            <NavBtnLink to="/login">Login</NavBtnLink>
-          </NavBtn>
-          <NavBtn>
-            <NavBtnLink to="/signup">Sign Up</NavBtnLink>
-          </NavBtn>
-        </NavBtn>
-      </Nav>
+      <nav className="navbar">
+        <Link to="/">
+          <div className="navbar-logo-container">
+            <img
+              className="navbar-logo"
+              src={props.logo}
+              alt="logo is still loading.."
+            ></img>
+          </div>
+        </Link>
+        <div className="btn-container">
+          <div className="btn-container">
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          </div>
+          <div className="btn-container">
+            <Link to="/signup" className="btn">
+              Sign Up
+            </Link>
+          </div>
+        </div>
+      </nav>
     </>
   );
 }
