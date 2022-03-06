@@ -1080,6 +1080,74 @@ body {
 
 /*#endregion videos page*/
 
+/*#region profile page*/
+
+.profile-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-top: 18vh;
+}
+.profile-container h1 {
+  color: var(--mydarkerblue);
+  font-size: 56px;
+  text-align: center;
+  margin-bottom: 8vh;
+}
+.profile-container ul {
+  width: 40%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profile-container ul li {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 100%;
+}
+.profile-container ul li label {
+  color: var(--myblue);
+  font-size: 20px;
+  width: 28%;
+  display: inline-block;
+  margin-left: 7%;
+}
+.profile-container ul li input {
+  width: 60%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.profile-container select {
+  width: 61%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.profile-button-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 10vh;
+}
+.profile-button-container button {
+  background-color: var(--myorange);
+  padding: 1% 2%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.profile-button-container button:hover {
+  background-color: rgb(240, 154, 42);
+}
+.profile-button-container button:active {
+  background-color: rgb(226, 128, 0);
+}
+
+/*#endregion profile page*/
+
 /*#region media / exceptions*/
 
 @media only screen and (min-width: 1280px) and (max-width: 1366px) {

@@ -91,7 +91,7 @@ function Profile(props) {
   };
 
   const showInfo = (
-    <div>
+    <div className="profile-button-container">
       <button onClick={() => changingState(true)}>Change Information</button>
       <button onClick={() => props.history.push(changePasswordPath)}>
         Change Password
@@ -99,7 +99,7 @@ function Profile(props) {
     </div>
   );
   const changeInfo = (
-    <div>
+    <div className="profile-button-container">
       <button onClick={submit}>Submit</button>
       <button onClick={cancel}>Cancel</button>
     </div>
@@ -107,7 +107,7 @@ function Profile(props) {
 
   return (
     <>
-      <div>
+      <div className="profile-container">
         <h1>Welcome to Your Profile!</h1>
         {isChanging ? (
           <h4>
@@ -115,40 +115,46 @@ function Profile(props) {
             button to confirm your changes!
           </h4>
         ) : null}
-        <label>First Name: </label>
-        <input
-          defaultValue={userData.firstName}
-          id="firstName"
-          readOnly={isReadOnly}
-        ></input>
-        <br></br> <br></br>
-        <label>Last Name: </label>
-        <input
-          defaultValue={userData.lastName}
-          id="lastName"
-          readOnly={isReadOnly}
-        ></input>
-        <br></br> <br></br>
-        <label>Email: </label>
-        <input
-          defaultValue={userData.email}
-          id="email"
-          readOnly={isReadOnly}
-        ></input>
-        <br></br> <br></br>
-        <label>University Year: </label>
-        <select
-          defaultValue={userData.universityYear}
-          id="university year"
-          disabled={isReadOnly}
-        >
-          <option value="Freshman">Freshman year</option>
-          <option value="Sophomore">Sophomore year</option>
-          <option value="Junior">Junior year</option>
-          <option value="Senior">Senior year</option>
-          <option value="Final">Final year</option>
-        </select>
-        <br></br> <br></br>
+        <ul>
+          <li>
+            <label>First Name: </label>
+            <input
+              defaultValue={userData.firstName}
+              id="firstName"
+              readOnly={isReadOnly}
+            ></input>
+          </li>
+          <li>
+            <label>Last Name: </label>
+            <input
+              defaultValue={userData.lastName}
+              id="lastName"
+              readOnly={isReadOnly}
+            ></input>
+          </li>
+          <li>
+            <label>Email: </label>
+            <input
+              defaultValue={userData.email}
+              id="email"
+              readOnly={isReadOnly}
+            ></input>
+          </li>
+          <li>
+            <label>University Year: </label>
+            <select
+              defaultValue={userData.universityYear}
+              id="university year"
+              disabled={isReadOnly}
+            >
+              <option value="Freshman">Freshman year</option>
+              <option value="Sophomore">Sophomore year</option>
+              <option value="Junior">Junior year</option>
+              <option value="Senior">Senior year</option>
+              <option value="Final">Final year</option>
+            </select>
+          </li>
+        </ul>
       </div>
       {isChanging ? changeInfo : showInfo}
     </>
