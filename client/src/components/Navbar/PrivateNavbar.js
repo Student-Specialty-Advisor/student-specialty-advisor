@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 import Dropdown from "./Dropdown";
-import Dropdown2 from "./Dropdown2";
-import Dropdown3 from "./Dropdown3";
+import {
+  NavItems,
+  DropDownElements1,
+  DropDownElements2,
+  DropDownElements3,
+} from "./NavItems";
 
-import { NavItems } from "./NavItems";
-import { Link } from "react-router-dom";
 function PrivateNavbar(props) {
   const [dropDown, showDropDown] = useState(false);
   const [dropDown2, showDropDown2] = useState(false);
@@ -40,7 +43,13 @@ function PrivateNavbar(props) {
                   onMouseLeave={() => showDropDown(false)}
                 >
                   <Link to={item.path}>{item.title}</Link>
-                  {dropDown && <Dropdown />}
+                  {dropDown && (
+                    <Dropdown
+                      elements={DropDownElements1}
+                      classClicked="services-subMenu clicked"
+                      classSubMenu="services-subMenu"
+                    />
+                  )}
                 </li>
               );
             } else if (item.title === "Videos") {
@@ -52,7 +61,13 @@ function PrivateNavbar(props) {
                   onMouseLeave={() => showDropDown2(false)}
                 >
                   <Link to={item.path}>{item.title}</Link>
-                  {dropDown2 && <Dropdown2 />}
+                  {dropDown2 && (
+                    <Dropdown
+                      elements={DropDownElements2}
+                      classClicked="services-subMenu clicked2"
+                      classSubMenu="services-subMenu2"
+                    />
+                  )}
                 </li>
               );
             } else if (item.title === "Meeting") {
@@ -64,7 +79,13 @@ function PrivateNavbar(props) {
                   onMouseLeave={() => showDropDown3(false)}
                 >
                   <Link to={item.path}>{item.title}</Link>
-                  {dropDown3 && <Dropdown3 />}
+                  {dropDown3 && (
+                    <Dropdown
+                      elements={DropDownElements3}
+                      classClicked="services-subMenu clicked3"
+                      classSubMenu="services-subMenu3"
+                    />
+                  )}
                 </li>
               );
             }

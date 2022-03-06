@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import { DropDownElements1 } from "./NavItems";
-
 import { Link } from "react-router-dom";
-import "./Navbar.css";
-const Dropdown = () => {
+
+const Dropdown = (props) => {
   const [dropDown, setDropDown] = useState(false);
 
   return (
     <>
       <ul
-        className={dropDown ? "services-subMenu clicked" : "services-subMenu"}
+        className={dropDown ? props.classClicked : props.classSubMenu}
         onClick={() => setDropDown(!dropDown)}
       >
-        {DropDownElements1.map((item) => {
+        {props.elements.map((item) => {
           return (
             <li key={item.id}>
               <Link
