@@ -24,6 +24,9 @@ ChartJS.register(
 );
 
 function Statistics() {
+  React.useEffect(() => {
+    document.title = "Statistics - Student Specialty Advisor";
+  }, []);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [percentageSE, setPercentageSE] = React.useState(null);
   const [percentageCSE, setPercentageCSE] = React.useState(null);

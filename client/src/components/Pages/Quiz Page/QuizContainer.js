@@ -26,6 +26,10 @@ ChartJS.register(
 );
 
 function QuizContainer() {
+  React.useEffect(() => {
+    document.title = "Personality Quiz - Student Specialty Advisor";
+  }, []);
+
   const [questionList, setQuestionList] = React.useState([]);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [results, setResults] = React.useState({});

@@ -8,6 +8,9 @@ import videosCSE from "../../../assets/art/json/videos_cse.json";
 import videosRE from "../../../assets/art/json/videos_re.json";
 
 function VideosList(props) {
+  React.useEffect(() => {
+    document.title = "Videos - Student Specialty Advisor";
+  }, []);
   let { specialty } = useParams();
   let easterEggCounter = 0;
   let easterEggTimer;

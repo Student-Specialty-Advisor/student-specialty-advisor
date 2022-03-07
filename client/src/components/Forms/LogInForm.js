@@ -4,6 +4,10 @@ import React from "react";
 import alertify from "alertifyjs";
 
 function LogInForm(props) {
+  React.useEffect(() => {
+    document.title = "Login - Student Specialty Advisor";
+  }, []);
+
   const defaultRedirectPath = "/";
 
   const isLoggedIn = AuthService.isLoggedIn();
@@ -69,20 +73,24 @@ function LogInForm(props) {
   const AlreadyLoggedIn = () => {
     const logout = () => {
       AuthService.logout();
-      window.location.href = defaultRedirectPath;
+      window.location.href = "/login";
     };
     const cancel = () => {
       window.location.href = defaultRedirectPath;
     };
     var email = AuthService.getCurrentUser().email;
     return (
-      <div>
-        <p>
-          You are already logged in as {email}'s account. You need to logout if
-          you wish to use another account!
-        </p>
-        <button onClick={logout}>Logout</button>
-        <button onClick={cancel}>Cancel</button>
+      <div className="sign-in-background">
+        <div className="sign-in-form-container">
+          <div className="already-logged-in">
+            <p>
+              You are already logged in as <strong>{email}</strong>'s account.
+              You need to logout if you wish to use another account!
+            </p>
+            <button onClick={logout}>Logout</button>
+            <button onClick={cancel}>Cancel</button>
+          </div>
+        </div>
       </div>
     );
   };

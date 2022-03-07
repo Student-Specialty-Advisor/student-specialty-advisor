@@ -4,6 +4,10 @@ import MemberCard from "../Team/MemberCard";
 import Footer from "./Footer";
 
 function Home(props) {
+  React.useEffect(() => {
+    document.title = "Student Specialty Advisor";
+  }, []);
+
   const isLoggedIn = AuthService.isLoggedIn();
 
   const PublicPage = () => {

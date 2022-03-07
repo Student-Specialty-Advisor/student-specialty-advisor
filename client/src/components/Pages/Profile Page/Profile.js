@@ -4,6 +4,10 @@ import AuthService from "../../../services/AuthService";
 import utils from "../../utils";
 
 function Profile(props) {
+  React.useEffect(() => {
+    document.title = "My Profile - Student Specialty Advisor";
+  }, []);
+
   const [isChanging, setIsChanging] = React.useState(false);
   const [isReadOnly, setIsReadOnly] = React.useState(true);
   const [userData, setUserData] = React.useState(AuthService.getCurrentUser());

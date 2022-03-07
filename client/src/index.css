@@ -202,6 +202,9 @@ body {
   background: rgb(241, 166, 66);
   color: rgb(22, 22, 22);
 }
+.home-public-head button:active {
+  background: rgb(211, 127, 17);
+}
 
 .home-public-mid {
   width: 40%;
@@ -743,6 +746,32 @@ body {
   border-style: none;
 }
 
+.sign-in-form-container .already-logged-in {
+  margin-left: 15%;
+  background-color: rgba(255, 255, 255, 0.63);
+  height: 69vh; /*nice!*/
+  width: 28vw;
+  border-radius: 15px;
+  border-style: solid;
+  text-align: center;
+  border-color: var(--mydarkblue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sign-in-form-container .already-logged-in p {
+  font-size: 16px;
+  color: var(--myblue);
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.sign-in-form-container .already-logged-in button {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
+
 /*Sign up Page */
 .sign-up-background {
   background: url("./assets/art/klouz_white.jpg");
@@ -1160,12 +1189,11 @@ body {
   margin-top: 12vh;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--mydarkerblue);
   display: flex;
 }
 
 .videos-container .side-bar {
-  background-color: rgb(0, 0, 60);
+  background-color: rgb(23, 38, 53);
   width: 20%;
   height: inherit;
   padding: 0;
@@ -1204,7 +1232,7 @@ body {
   color: cyan;
 }
 .videos-container .side-bar li.active {
-  background-color: rgb(0, 0, 100);
+  background-color: rgb(0, 85, 110);
 }
 .videos-container .side-bar li a.active {
   transition: 0s;
