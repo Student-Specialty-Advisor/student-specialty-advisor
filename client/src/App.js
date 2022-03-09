@@ -13,12 +13,13 @@ import Videos from "./components/Pages/Videos Page/Videos";
 import Profile from "./components/Pages/Profile Page/Profile";
 import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
-import Programs from "./components/Pages/Programs";
+import Programs from "./components/Pages/Programs/Programs";
 import Forum from "./components/Pages/Forum";
 import Meeting from "./components/Pages/Meeting";
 import Statistics from "./components/Pages/Statistics";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
+import ProgramsDetails from "./components/Pages/Programs/ProgramsDetails";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <PrivateRoute exact path="/quiz" component={Quiz} />
         <PrivateRoute exact path="/quiz/started" component={QuizContainer} />
         <PrivateRoute exact path="/programs" component={Programs} />
+        <PrivateRoute exact path="/programs/:specialty" component={ProgramsDetails}/>
         <PrivateRoute exact path="/videos" component={Videos} />
         <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
         <PrivateRoute exact path="/meeting" component={Meeting} />
