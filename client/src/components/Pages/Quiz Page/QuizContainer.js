@@ -27,7 +27,7 @@ ChartJS.register(
 
 function QuizContainer() {
   React.useEffect(() => {
-    document.title = "Personality Quiz - Student Specialty Advisor";
+    document.title = "Program Compatibility Quiz - Student Specialty Advisor";
   }, []);
 
   const [questionList, setQuestionList] = React.useState([]);

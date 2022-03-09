@@ -37,7 +37,7 @@ app.put(
   accountSystemController.EditAccount
 );
 
-// Personality Quiz
+// Program Compatibility Quiz
 app.get(
   "/ssa-api/quiz-questions",
   [authJWT.verifyToken],
