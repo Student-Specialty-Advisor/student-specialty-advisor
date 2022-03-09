@@ -6,6 +6,7 @@ import alertify from "alertifyjs";
 import videosSE from "../../../assets/art/json/videos_se.json";
 import videosCSE from "../../../assets/art/json/videos_cse.json";
 import videosRE from "../../../assets/art/json/videos_re.json";
+import VideoContainer from "./VideoContainer";
 
 function VideosList(props) {
   React.useEffect(() => {
@@ -24,17 +25,17 @@ function VideosList(props) {
     // Take into consideration <li>, props.key, props.id, props.className when implementing VideoContainer.
     if (specialty === "se") {
       const list = videosSE.map((video) => {
-        return <li key={video.number}></li>;
+        return <VideoContainer key={video.code} code={video.code} />;
       });
       return list;
     } else if (specialty === "cse") {
       const list = videosCSE.map((video) => {
-        return <li key={video.number}></li>;
+        return <VideoContainer key={video.code} code={video.code} />;
       });
       return list;
     } else if (specialty === "re") {
       const list = videosRE.map((video) => {
-        return <li key={video.number}></li>;
+        return <VideoContainer key={video.code} code={video.code} />;
       });
       return list;
     }
