@@ -1,7 +1,12 @@
 import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
+import React from "react";
 
 function ChangePassword(props) {
+  React.useEffect(() => {
+    document.title = "My Profile - Student Specialty Advisor";
+  }, []);
+
   const updatePassword = async () => {
     const currentPassword = document.getElementById("currentPassword").value;
     const newPassword = document.getElementById("newPassword").value;
@@ -50,26 +55,32 @@ function ChangePassword(props) {
   };
 
   return (
-    <div>
+    <div className="profile-container">
       <h1>Welcome to Your Profile!</h1>
       <h4>
         You are changing your password. Click on the submit button to confirm
         your changes!
       </h4>
-      <label>Current Password: </label>
-      <input type="password" id="currentPassword"></input>
-      <br></br>
-      <br></br>
-      <label>New Password: </label>
-      <input type="password" id="newPassword"></input>
-      <br></br>
-      <br></br>
-      <label>Repeat New Password: </label>
-      <input type="password" id="newPassword2"></input>
-      <br></br>
-      <br></br>
-      <button onClick={updatePassword}>Submit</button>
-      <button onClick={() => props.history.push("/profile")}>Cancel</button>
+      <ul>
+        <li>
+          <label>Current Password: </label>
+          <input type="password" id="currentPassword"></input>
+        </li>
+        <br />
+
+        <li>
+          <label>New Password: </label>
+          <input type="password" id="newPassword"></input>
+        </li>
+        <li>
+          <label>Confirm Password: </label>
+          <input type="password" id="newPassword2"></input>
+        </li>
+      </ul>
+      <div className="profile-button-container">
+        <button onClick={updatePassword}>Submit</button>
+        <button onClick={() => props.history.push("/profile")}>Cancel</button>
+      </div>
     </div>
   );
 }

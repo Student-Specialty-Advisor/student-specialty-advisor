@@ -2,8 +2,13 @@ import { Redirect } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 import utils from "../utils";
 import alertify from "alertifyjs";
+import React from "react";
 
 function SignUpForm(props) {
+  React.useEffect(() => {
+    document.title = "Sign Up - Student Specialty Advisor";
+  }, []);
+
   const loginPagePath = "/login";
 
   const isLoggedIn = AuthService.isLoggedIn();
