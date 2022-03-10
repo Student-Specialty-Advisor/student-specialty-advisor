@@ -1,5 +1,4 @@
 function VideoContainer(props) {
-  console.log(props);
   return (
     <li key={props.code}>
       <p>Video is loading!</p>

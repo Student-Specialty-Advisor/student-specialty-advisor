@@ -42,9 +42,7 @@ function PrivateNavbar(props) {
                   onMouseEnter={() => showDropDown(true)}
                   onMouseLeave={() => showDropDown(false)}
                 >
-                  <Link className="nav-item-link" to={item.path}>
-                    {item.title}
-                  </Link>
+                  <p>{item.title}</p>
                   {dropDown && (
                     <Dropdown
                       elements={DropDownElements1}
@@ -62,9 +60,7 @@ function PrivateNavbar(props) {
                   onMouseEnter={() => showDropDown2(true)}
                   onMouseLeave={() => showDropDown2(false)}
                 >
-                  <Link className="nav-item-link" to={item.path}>
-                    {item.title}
-                  </Link>
+                  <p>{item.title}</p>
                   {dropDown2 && (
                     <Dropdown
                       elements={DropDownElements2}
@@ -82,9 +78,7 @@ function PrivateNavbar(props) {
                   onMouseEnter={() => showDropDown3(true)}
                   onMouseLeave={() => showDropDown3(false)}
                 >
-                  <Link className="nav-item-link" to={item.path}>
-                    {item.title}
-                  </Link>
+                  <Link to={item.path}>{item.title}</Link>
                   {dropDown3 && (
                     <Dropdown
                       elements={DropDownElements3}

@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import AdminRoute from "./components/Auth/AdminRoute";
 import AuthVerify from "./components/Auth/AuthVerify";
@@ -9,7 +14,6 @@ import LogInForm from "./components/Forms/LogInForm";
 import SignUpForm from "./components/Forms/SignUpForm";
 
 import Home from "./components/Pages/Home";
-import Videos from "./components/Pages/Videos Page/Videos";
 import Profile from "./components/Pages/Profile Page/Profile";
 import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
@@ -19,7 +23,6 @@ import Meeting from "./components/Pages/Meeting";
 import Statistics from "./components/Pages/Statistics";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
-import ProgramsDetails from "./components/Pages/Programs/ProgramsDetails";
 
 function App() {
   return (
@@ -30,10 +33,10 @@ function App() {
         <Route exact path="/" component={Home} />
         <PrivateRoute exact path="/quiz" component={Quiz} />
         <PrivateRoute exact path="/quiz/started" component={QuizContainer} />
-        <PrivateRoute exact path="/programs" component={Programs} />
-        <PrivateRoute exact path="/programs/:specialty" component={ProgramsDetails}/>
-        <PrivateRoute exact path="/videos" component={Videos} />
+        <PrivateRoute exact path="/programs/:section" component={Programs} />
+        <Redirect exact from="/programs" to="/programs/overview" />
         <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
+        <Redirect exact from="/videos" to="/videos/se" />
         <PrivateRoute exact path="/meeting" component={Meeting} />
         <PrivateRoute exact path="/forum" component={Forum} />
         <AdminRoute exact path="/statistics" component={Statistics} />
