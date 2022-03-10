@@ -13,7 +13,7 @@ function Programs() {
       </h1>
       
         <>
-          <div className="progemas-container">
+          <div className="programs-container">
               <li id="se">
                 <NavLink to="/programs/se" text="Software Engineering">
                   Software Engineering
@@ -25,13 +25,15 @@ function Programs() {
                 </NavLink>
               </li>
               <li id="re">
+                <button>
                 <NavLink to="/programs/re" text="Renewable Energy Engineering">
                   Renewable Energy Engineering
                 </NavLink>
+                </button>
               </li>
           
           </div>
-          {/* <Footer id="no-margin" /> */}
+          { <Footer id="no-margin" /> }
         </>
       
     </div>
