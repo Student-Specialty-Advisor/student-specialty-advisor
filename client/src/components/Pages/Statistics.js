@@ -114,6 +114,7 @@ function Statistics() {
       <div className="statistics-loading">
         <h1>Loading Statistics...</h1>
       </div>
+      <Footer id="no-margin" />
     </>
   ) : (
     <>
@@ -127,7 +128,7 @@ function Statistics() {
               plugins: {
                 title: {
                   display: true,
-                  text: "Personality Quiz Results in %",
+                  text: "Program Compatibility Quiz Results in %",
                   position: "top",
                   padding: 20,
                   font: { size: 20 },
@@ -156,7 +157,7 @@ function Statistics() {
               plugins: {
                 title: {
                   display: true,
-                  text: "Personality Quiz Results in numbers",
+                  text: "Program Compatibility Quiz Results in numbers",
                   position: "top",
                   padding: 20,
                   font: { size: 20 },
