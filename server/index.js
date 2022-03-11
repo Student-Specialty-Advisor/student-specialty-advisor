@@ -41,7 +41,7 @@ app.put(
 app.get(
   "/ssa-api/quiz-questions",
   [authJWT.verifyToken],
-  quizController.sendQuestionList
+  quizController.getQuestionList
 );
 
 app.post(

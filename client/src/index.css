@@ -1288,7 +1288,6 @@ body {
 .videos-container .side-bar .popcorn div:active {
   transform: rotateZ(10deg);
 }
-
 .videos-container .side-bar .popcorn p {
   color: white;
   height: 10%;
@@ -1311,25 +1310,30 @@ body {
   margin-right: 2.5%;
   border-color: var(--mydarkblue);
   border-style: solid;
-  background-color: #000000;
+  background-color: var(--mydarkerblue);
   color: white;
   position: relative;
   box-shadow: 0px 0px 4px 8px rgba(0, 85, 110, 0.8);
-  transition: 0.5s;
+  transition: 0.2s;
 }
 .videos-container .videos-list li:hover {
   box-shadow: 0px 0px 4px 4px rgba(0, 85, 110, 0.8);
+  border-color: var(--mydarkerblue);
 }
 .videos-container .videos-list li p {
+  height: 30%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   position: absolute;
   z-index: 0;
-  top: 37%;
-  left: 33.4%;
   font-style: italic;
   font-size: large;
+  text-align: center;
 }
 .videos-container .videos-list li iframe {
-  z-index: 1 !important;
   position: relative;
 }
 
