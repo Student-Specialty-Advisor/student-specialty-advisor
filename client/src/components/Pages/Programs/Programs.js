@@ -144,21 +144,11 @@ function Programs() {
           </>
         ) : null}
 
-        {section === "objectives" ? (
+        {section === "objectives" ||
+        section === "opportunities" ||
+        section === "requirements" ? (
           <>
-            <p>objectives</p>
-          </>
-        ) : null}
-
-        {section === "opportunities" ? (
-          <>
-            <p>opportunities</p>
-          </>
-        ) : null}
-
-        {section === "requirements" ? (
-          <>
-            <p>requirements</p>
+            <p>{details[props.id][section]}</p>
           </>
         ) : null}
       </li>
