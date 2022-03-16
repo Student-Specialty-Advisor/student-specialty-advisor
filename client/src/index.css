@@ -392,7 +392,7 @@ body {
   content: "All about your personality type and what specialty might suit you";
 }
 .home-public-bot .feature-desc li:hover#featureTwo::before {
-  content: "All the info you need about a specialty: Videos, Programs, Curricilums..";
+  content: "All the info you need about a specialty: Videos, Programs, Curriculums..";
 }
 .home-public-bot .feature-desc li:hover#featureThree::before {
   content: "Meet with people who can answer your in-depth questions";
@@ -1205,7 +1205,7 @@ body {
 /*#region videos page*/
 .videos-container {
   width: 100%;
-  height: 88.5vh;
+  height: 88vh;
   margin-top: 12vh;
   margin-left: auto;
   margin-right: auto;
@@ -1300,6 +1300,7 @@ body {
   padding: 0;
   margin: 0;
   list-style-type: none;
+  overflow: auto;
 }
 .videos-container .videos-list li {
   display: inline-block;
@@ -1313,11 +1314,11 @@ body {
   background-color: var(--mydarkerblue);
   color: white;
   position: relative;
-  box-shadow: 0px 0px 4px 8px rgba(0, 85, 110, 0.8);
+  box-shadow: 0px 0px 4px 8px rgba(0, 85, 110, 0.7);
   transition: 0.2s;
 }
 .videos-container .videos-list li:hover {
-  box-shadow: 0px 0px 4px 4px rgba(0, 85, 110, 0.8);
+  box-shadow: 0px 0px 4px 4px rgba(0, 85, 110, 0.7);
   border-color: var(--mydarkerblue);
 }
 .videos-container .videos-list li p {
@@ -1336,54 +1337,28 @@ body {
 .videos-container .videos-list li iframe {
   position: relative;
 }
+.videos-container .videos-list .to-be-continued {
+  display: inline-block;
+  position: relative;
+  border-style: solid;
+  border-color: transparent;
+  width: 23%;
+  height: 10%;
+  margin-top: 2.5%;
+  margin-left: 2.7%;
+  margin-right: 2.5%;
+  background-image: url("./assets/art/icon/to_be_continued.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  filter: drop-shadow(8px 8px 10px rgba(0, 85, 110));
+  transition: 0.5s;
+}
+.videos-container .videos-list .to-be-continued:hover {
+  filter: drop-shadow(4px 4px 5px rgba(0, 85, 110));
+}
 
 /*#endregion videos page*/
-
-/*#region program page*/
-.programs-container {
-  margin-left: 5vw;
-  font-size: 2vw;
-  color: var(--mydarkblue);
-}
-.programs-container li {
-  color: var(--mydarkblue);
-}
-.programs-container button {
-  border-radius: 10%;
-}
-/*#endregion program page*/
-
-/*#region program details page*/
-.program-details-container {
-  width: 69%;
-  margin-top: 12vh;
-  margin-left: 15vw;
-  margin-right: auto;
-  display: block;
-}
-.program-details-container h2 {
-  color: var(--mydarkblue);
-  font-size: 3vw;
-  font-weight: bold;
-  margin-bottom: 3%;
-}
-.program-details-container h3 {
-  color: var(--myblue);
-  margin-left: 2vw;
-  font-size: 1.4vw;
-}
-.program-details-container p {
-  margin-left: 0.6vw;
-  font-size: 1.1vw;
-}
-.program-details-container li {
-  margin-left: 4vw;
-  font-size: 1.2vw;
-}
-.program-details-container h4 {
-  margin-top: 5vw;
-}
-/*#endregion program details page*/
 
 /*#region profile page*/
 
@@ -1467,6 +1442,253 @@ body {
 }
 
 /*#endregion profile page*/
+
+/*#region program page*/
+
+.program-info-container {
+  width: 100%;
+  margin-top: 13vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 13vh;
+}
+
+.program-info-navbar {
+  width: inherit;
+  height: 9vh;
+  background-color: rgb(23, 38, 53);
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.program-info-navbar li {
+  height: 100%;
+  flex-grow: 1;
+  border: solid white;
+}
+.program-info-navbar li a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: cyan;
+  text-decoration: underline transparent;
+  text-underline-offset: 10px;
+  transition: 0.2s;
+}
+.program-info-navbar li a:hover {
+  background-color: rgb(11, 61, 81);
+}
+.program-info-navbar li a.active {
+  background-color: rgb(0, 85, 110);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: bold;
+}
+
+.program-info-view {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.program-info-view p {
+  margin-left: 1%;
+  margin-right: 1%;
+  font-weight: bold;
+}
+.program-info-view button {
+  margin-right: 1%;
+  background-color: var(--mylightblue);
+  border-color: var(--mydarkblue);
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+.program-info-view button:hover {
+  background-color: rgb(0, 225, 225);
+}
+.program-info-view button:active {
+  background-color: rgb(0, 195, 195);
+}
+.program-info-view a {
+  position: absolute;
+  right: 2%;
+}
+.program-info-view a:hover {
+  font-weight: 550;
+}
+.program-info-view a:visited {
+  color: inherit;
+}
+
+.program-info-content {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.program-info-content li.hidden {
+  display: none;
+}
+.program-info-content li.visible {
+  margin-top: 0.5%;
+  margin-right: 0.25%;
+  margin-left: 0.25%;
+  border: solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  min-height: 65vh;
+  flex-grow: 1;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+.program-info-content li.visible-alone {
+  margin-top: 0.5%;
+  margin-right: 0.25%;
+  margin-left: 0.25%;
+  border: solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  min-height: 65vh;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+.program-info-content li ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.program-info-content li.visible-alone ul .nav-arrow {
+  background-image: url("./assets/art/icon/nav_arrow.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.program-info-content li.visible-alone ul .nav-arrow:hover {
+  background-image: url("./assets/art/icon/nav_arrow_full.png");
+}
+.program-info-content li.visible-alone ul .nav-arrow:active {
+  background-image: url("./assets/art/icon/nav_arrow_full.png");
+  opacity: 0.8;
+}
+.program-info-content li h4 {
+  text-align: center;
+  font-size: 18px;
+}
+.program-info-content li.visible-alone h4 {
+  width: 40%;
+}
+.program-info-content li p {
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 16px;
+  flex-grow: 1;
+}
+.program-info-content li a {
+  text-decoration: none;
+  text-align: center;
+  margin-top: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 3%;
+  font-weight: 550;
+  border-style: double;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+.program-info-content li a:hover {
+  text-decoration: underline;
+}
+.program-info-content li a:visited {
+  color: inherit;
+}
+.program-info-content li.visible-alone h4 {
+  font-size: 24px;
+}
+.program-info-content li.visible-alone p {
+  font-size: 20px;
+}
+.program-info-content li.visible-alone .course-title {
+  font-size: 24px;
+}
+.program-info-content li.visible-alone a {
+  font-size: 20px;
+}
+.program-info-content li:hover {
+  filter: drop-shadow(0px 0px 6px);
+}
+.program-info-content li#se {
+  border-color: rgb(255, 29, 67);
+  color: rgb(255, 29, 67);
+  background-color: pink;
+}
+.program-info-content li#cse {
+  border-color: var(--mydarkblue);
+  color: var(--mydarkerblue);
+  background-color: rgb(54, 162, 235);
+}
+.program-info-content li#re {
+  border-color: chocolate;
+  color: chocolate;
+  background-color: rgb(255, 255, 200);
+}
+.program-info-content li .course-title {
+  width: 79%;
+  margin-bottom: 0;
+  padding-left: 1%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  flex-grow: 0;
+}
+.program-info-content li .course-body {
+  width: 80%;
+  margin-bottom: 3%;
+}
+.program-info-content li#se .course-title {
+  background-color: rgb(255, 225, 230);
+  border: solid pink;
+}
+.program-info-content li#se .course-body {
+  background-color: rgb(255, 225, 230);
+}
+.program-info-content li#cse .course-title {
+  background-color: rgb(121, 197, 248);
+  border: solid rgb(54, 162, 235);
+}
+.program-info-content li#cse .course-body {
+  background-color: rgb(121, 197, 248);
+}
+.program-info-content li#re .course-title {
+  background-color: rgb(255, 235, 220);
+  border: solid rgb(255, 255, 200);
+}
+.program-info-content li#re .course-body {
+  background-color: rgb(255, 235, 220);
+}
+/*#endregion program page*/
 
 /*#region media / exceptions*/
 

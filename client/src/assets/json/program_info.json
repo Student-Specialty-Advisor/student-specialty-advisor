@@ -1,0 +1,109 @@
+{
+  "se": {
+    "overview": "MedTech's Software Engineering (SWE) program provides a combination of advanced technical and theoretical knowledge, best engineering practices, and emerging technologies to develop software that meet high quality standards.\n\nThe SE program is based on real-world learning experiences through team-centered, and hands-on projects to prepare students to become software architects and development team leaders. Moreover, the program helps students to acquire an entrepreneurial mindset by providing them with the required theoretical and practical knowledge of the entrepreneurial process and the practical steps to identify opportunities.",
+    "curriculum": [
+      {
+        "subject": "Web Development",
+        "desc": "Learn about full-stack development: learn to implement the website, its server and data base using the latest technology.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Operating Systems",
+        "desc": "Learn how operating systems manage to make your computer work. This course has some hardware aspects to it.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Global Software Development",
+        "desc": "Learn the history and the mindset behind open-source. Learn about open-source contributions, licensing, business models and more. Course offers several workshops.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Startup Engineering",
+        "desc": "Ever wondered how to launch a successful startup or start your own innovative business? This course if for you.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Introduction to Software Engineering",
+        "desc": "Learn about the discipline of software engineering: What's the job of a SE? What's expected of a SE? what are the techniques, methodologies and designs a SE should know?",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Introduction to Management",
+        "desc": "Learn how to be a good project manager. Management is the act of getting people together to accomplish desired goals and objectives using available resources efficiently and effectively.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Graph Theory & Applications",
+        "desc": "Learn to use the power of graph theory to optimize any situation.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Database Management Systems",
+        "desc": "Learn to work with databases and how to integrate them in your projects.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Mobile Software Development",
+        "desc": "Learn to create websites suitable for smart phones, and mobile applications.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Requirements & User Experience",
+        "desc": "This is what comes after 'Introduction to Software Engineering' and the next step in you becoming a SE.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Governance & Citizenship",
+        "desc": "Improve your writing skills and introduce yourself to governance, citizenship and constitutional laws.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Junior Project",
+        "desc": "Use all what you learn during your junior year to make the best project you can.",
+        "when": "Junior Year"
+      }
+    ],
+
+    "objectives": "Objectives SE",
+    "opportunities": "Opportunities SE",
+    "requirements": "Requirements SE"
+  },
+
+  "cse": {
+    "overview": "The CSE program is based on real-world learning experiences through team-centered and hands-on projects to provide students with the required knowledge and skills. Moperreover, the program helps students to acquire an entrepreneurial mindset by providing them with the required theoretical and practical knowledge of the entrepreneurial process and the practical steps to identify opportunities.\n\nAfter the completion of the program with 210 credits of which 126 credits are in the main field of study, an engineering degree certificate is issued with a major in Computer Systems.",
+    "curriculum": [
+      {
+        "subject": "subject name",
+        "desc": "important 8 credits",
+        "when": "junior year"
+      },
+      {
+        "subject": "subject name",
+        "desc": "important 8 credits",
+        "when": "junior year"
+      }
+    ],
+    "objectives": "Objectives CSE",
+    "opportunities": "Opportunities CSE",
+    "requirements": "Requirements CSE"
+  },
+
+  "re": {
+    "overview": "MedTech's Renewable Energy Engineering (REE) program provides a combination of advanced technical and theoretical knowledge in the rapidly expanding area of renewable energy engineering with a clear Electrical Engineering focus.\n\nThe REE program is based on real-world learning experiences through team-centered, and hands-on projects to provide students with the required knowledge and skills to assess renewable energy resources, design appropriate renewable energy systems, evaluate the performance of these systems and assess the wider impacts of renewable energy development. Moreover, the program helps students to acquire an entrepreneurial mindset by providing them with the required theoretical and practical knowledge of the entrepreneurial process and the practical steps to identify opportunities.",
+    "curriculum": [
+      {
+        "subject": "subject name",
+        "desc": "important 8 credits",
+        "when": "junior year"
+      },
+      {
+        "subject": "subject name",
+        "desc": "important 8 credits",
+        "when": "junior year"
+      }
+    ],
+    "objectives": "Objectives RE",
+    "opportunities": "Opportunities RE",
+    "requirements": "Requirements RE"
+  }
+}
