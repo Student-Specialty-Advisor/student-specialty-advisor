@@ -61,7 +61,68 @@
         "subject": "Junior Project",
         "desc": "Use all what you learn during your junior year to make the best project you can.",
         "when": "Junior Year"
+      },
+      {
+        "subject": "Computer Networks",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Analysis & Design",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Effective Technical Communication",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Introduction to Finance",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Distributed Systems",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Senior Project",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Architecture",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Development Methodologies",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Engineering Ethics & Professional Pratice",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Artificial Intelligence",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Quality and Testing",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Programming Language Design & Implementation",
+        "desc": "",
+        "when": "Senior Year"
       }
+     
     ],
 
     "objectives": "Objectives SE",
@@ -131,8 +192,57 @@
         "subject": "Junior Project",
         "desc": "Use all what you learn during your junior year to make the best project you can.",
         "when": "junior year"
+      },
+      {
+        "subject": "Effective Technical Communication",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Introduction to Finance",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Distributed Systems",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Senior Project",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Engineering Ethics & Professional Pratice",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Digital Signal Processing",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Programming Language Design & Implementation",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Computer Networks",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Advanced Digital Systems",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": " Microprocessor, Embedded & Real-time Systems",
+        "desc": "",
+        "when": "Senior Year"
       }
-
     ],
     "objectives": "Objectives CSE",
     "opportunities": "Opportunities CSE",
@@ -164,7 +274,7 @@
       },
       {
         "subject": "Startup Engineering",
-        "desc": "important 8 credits",
+        "desc": "Ever wondered how to launch a successful startup or start your own innovative business? This course if for you.",
         "when": "junior year"
       },
       {
@@ -201,7 +311,68 @@
         "subject": "Junior Project",
         "desc": "Use all what you learn during your junior year to make the best project you can.",
         "when": "junior year"
+      },
+      {
+        "subject": "Effective Technical Communication",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Introduction to Finance",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Senior Project",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Engineering Ethics & Professional Pratice",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Biomass & Bioenergy Systems",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Power Electronics",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Fluid Mechanics",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Energy Management & Analysis",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Solar Energy Systems",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Wind Energy",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Feedback Control Systems",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Materials for Renewable Energy",
+        "desc": "",
+        "when": "Senior Year"
       }
+
     ],
     "objectives": "Objectives RE",
     "opportunities": "Opportunities RE",
