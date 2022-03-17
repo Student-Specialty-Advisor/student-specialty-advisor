@@ -121,8 +121,37 @@
         "subject": "Programming Language Design & Implementation",
         "desc": "",
         "when": "Senior Year"
-      }
-     
+      },
+      {
+        "subject": "Cyber Security Assessment & Management",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Data Analytics",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Pervasive Computing & Cloud",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Research Methods",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Machine Learning",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Capstone Project",
+        "desc": "",
+        "when": "Final Year"
+      }  
     ],
 
     "objectives": "Objectives SE",
@@ -242,7 +271,42 @@
         "subject": " Microprocessor, Embedded & Real-time Systems",
         "desc": "",
         "when": "Senior Year"
-      }
+      },
+      {
+        "subject": "Artificial Intelligence",
+        "desc": "",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Cyber Security Assessment & Management",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Data Analytics",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Robotics Engineering",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Pervasive Computing & Cloud",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Research Methods",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Capstone Project",
+        "desc": "",
+        "when": "Final Year"
+      }  
     ],
     "objectives": "Objectives CSE",
     "opportunities": "Opportunities CSE",
@@ -371,8 +435,43 @@
         "subject": "Materials for Renewable Energy",
         "desc": "",
         "when": "Senior Year"
-      }
+      },
+      {
+        "subject": "Energy, Environment & Sustainability",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Energy Conversion & Storage",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Artificial Intelligence",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Data Analytics",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Research Methods",
+        "desc": "",
+        "when": "Final Year"
+      },
 
+      {
+        "subject": "Power Systems & Smart Grid",
+        "desc": "",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Capstone Project",
+        "desc": "",
+        "when": "Final Year"
+      }    
     ],
     "objectives": "Objectives RE",
     "opportunities": "Opportunities RE",
