@@ -119,6 +119,19 @@ function Programs() {
     );
   };
 
+  const Opportunities = (props) => {
+    return (
+      <>
+        <h4 style={{ textAlign: "left", width: "90%", marginBottom: 0 }}>
+          {"// Possible Industries:"}
+        </h4>
+        <p style={{ width: "90%", lineHeight: "200%" }}>
+          {details[props.id][section]}
+        </p>
+      </>
+    );
+  };
+
   const Content = (props) => {
     return (
       <li ref={props.myRef} id={props.id} className="visible">
@@ -144,13 +157,9 @@ function Programs() {
           </>
         ) : null}
 
-        {section === "objectives" ||
-        section === "opportunities" ||
-        section === "requirements" ? (
-          <>
-            <p>{details[props.id][section]}</p>
-          </>
-        ) : null}
+        {section === "objectives" ? <></> : null}
+        {section === "opportunities" ? <Opportunities id={props.id} /> : null}
+        {section === "requirements" ? <></> : null}
       </li>
     );
   };

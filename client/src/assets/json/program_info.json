@@ -153,9 +153,8 @@
         "when": "Final Year"
       }
     ],
-
     "objectives": "Objectives SE",
-    "opportunities": "Opportunities SE",
+    "opportunities": "- Applications & Web Development.\n- The 'Internet Of Things' field.\n- Artificial Intelligence.\n- Security, Cloud and Data Science.\n- Game Development.\n- Research & Testing of Software Systems.\n- Freelancing and Consulting.",
     "requirements": "Requirements SE"
   },
 
@@ -309,7 +308,7 @@
       }
     ],
     "objectives": "Objectives CSE",
-    "opportunities": "Opportunities CSE",
+    "opportunities": "- Hardware & Embedded System Development.\n- The 'Internet Of Things' field.\n- Automation & Robotics.\n- Security, Cloud and Data Science.\n- Networks & Telecommunications.\n- Research & System Integration.",
     "requirements": "Requirements CSE"
   },
 
@@ -474,7 +473,7 @@
       }
     ],
     "objectives": "Objectives RE",
-    "opportunities": "Opportunities RE",
+    "opportunities": "- Design & Development of renewable energy technologies.\n- Site and ground condition inspections renewable energy sites.\n- Lab experiments & Research.\n- Usage of mathematical modelling to produce estimates.\n- Environmental project plans & environmental laws.\n- Testing, Technical Writing & Consulting.\n- Business, Management & Negotiations with providers, contractors.",
     "requirements": "Requirements RE"
   }
 }
