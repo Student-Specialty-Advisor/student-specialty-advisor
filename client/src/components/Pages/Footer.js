@@ -31,6 +31,15 @@ function Footer(props) {
             Contact the team
           </a>
         </li>
+        <li>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            GitHub Page
+          </a>
+        </li>
       </ul>
     </div>
   );

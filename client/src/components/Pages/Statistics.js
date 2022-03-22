@@ -24,6 +24,9 @@ ChartJS.register(
 );
 
 function Statistics() {
+  React.useEffect(() => {
+    document.title = "Statistics - Student Specialty Advisor";
+  }, []);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [percentageSE, setPercentageSE] = React.useState(null);
   const [percentageCSE, setPercentageCSE] = React.useState(null);
@@ -111,6 +114,7 @@ function Statistics() {
       <div className="statistics-loading">
         <h1>Loading Statistics...</h1>
       </div>
+      <Footer id="no-margin" />
     </>
   ) : (
     <>
@@ -124,7 +128,7 @@ function Statistics() {
               plugins: {
                 title: {
                   display: true,
-                  text: "Personality Quiz Results in %",
+                  text: "Program Compatibility Quiz Results in %",
                   position: "top",
                   padding: 20,
                   font: { size: 20 },
@@ -153,7 +157,7 @@ function Statistics() {
               plugins: {
                 title: {
                   display: true,
-                  text: "Personality Quiz Results in numbers",
+                  text: "Program Compatibility Quiz Results in numbers",
                   position: "top",
                   padding: 20,
                   font: { size: 20 },

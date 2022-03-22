@@ -1,6 +1,9 @@
 import React from "react";
 
 function Forum() {
+  React.useEffect(() => {
+    document.title = "Community Forum - Student Specialty Advisor";
+  }, []);
   return (
     <div>
       <h1>

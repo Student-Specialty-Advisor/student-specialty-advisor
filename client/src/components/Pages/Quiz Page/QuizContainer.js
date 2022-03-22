@@ -26,6 +26,10 @@ ChartJS.register(
 );
 
 function QuizContainer() {
+  React.useEffect(() => {
+    document.title = "Program Compatibility Quiz - Student Specialty Advisor";
+  }, []);
+
   const [questionList, setQuestionList] = React.useState([]);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [results, setResults] = React.useState({});
@@ -109,7 +113,9 @@ function QuizContainer() {
     sendQuizAnswers(answerList)
       .then((result) => {
         if (result.retry) {
-          alertify.warning("decisive questions needed");
+          alertify.warning(
+            "Oops! Looks like we need you to answer questions more accurately to be able to handle this one!"
+          );
           document.getElementById("quiz-submit-button").disabled = false;
           return;
         }

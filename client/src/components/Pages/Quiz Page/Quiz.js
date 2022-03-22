@@ -2,6 +2,10 @@ import React from "react";
 import Footer from "../Footer";
 
 function Quiz(props) {
+  React.useEffect(() => {
+    document.title = "Program Compatibility Quiz - Student Specialty Advisor";
+  }, []);
+
   return (
     <>
       <div id="n1"></div>
@@ -11,7 +15,7 @@ function Quiz(props) {
       <div id="n5"></div>
       <div id="n6"></div>
       <div className="quiz-intro">
-        <h1>Welcome to Personality Quiz!</h1>
+        <h1>Welcome to Program Compatibility Quiz!</h1>
         <p id="subtitle">
           Your starting point to determine which MedTech engineering program may
           be the right fit for you!

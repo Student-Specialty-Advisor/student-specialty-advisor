@@ -1,7 +1,12 @@
 import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
+import React from "react";
 
 function ChangePassword(props) {
+  React.useEffect(() => {
+    document.title = "My Profile - Student Specialty Advisor";
+  }, []);
+
   const updatePassword = async () => {
     const currentPassword = document.getElementById("currentPassword").value;
     const newPassword = document.getElementById("newPassword").value;
