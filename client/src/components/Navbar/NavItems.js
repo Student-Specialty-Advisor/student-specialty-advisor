@@ -46,8 +46,8 @@ export const DropDownElements1 = [
   },
   {
     id: 3,
-    title: "Objectives",
-    path: "/programs/objectives",
+    title: "Outcomes",
+    path: "/programs/outcomes",
     cName: "subMenu-item",
   },
   {

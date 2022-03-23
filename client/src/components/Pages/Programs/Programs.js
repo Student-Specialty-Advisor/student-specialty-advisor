@@ -132,6 +132,21 @@ function Programs() {
     );
   };
 
+  const Outcomes = (props) => {
+    return (
+      <>
+        <p>{details[props.id][section]}</p>
+        <a
+          href="https://www.abet.org/accreditation/accreditation-criteria/criteria-for-accrediting-engineering-programs-2019-2020/#GC3"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          What's ABET Student Outcomes? ↗
+        </a>
+      </>
+    );
+  };
+
   const Content = (props) => {
     return (
       <li ref={props.myRef} id={props.id} className="visible">
@@ -157,7 +172,7 @@ function Programs() {
           </>
         ) : null}
 
-        {section === "objectives" ? <></> : null}
+        {section === "outcomes" ? <Outcomes id={props.id} /> : null}
         {section === "opportunities" ? <Opportunities id={props.id} /> : null}
         {section === "requirements" ? <></> : null}
       </li>
@@ -174,8 +189,8 @@ function Programs() {
           <li id="curriculum">
             <NavLink to="/programs/curriculum">Curriculum</NavLink>
           </li>
-          <li id="objectives">
-            <NavLink to="/programs/objectives">Objectives</NavLink>
+          <li id="outcomes">
+            <NavLink to="/programs/outcomes">Outcomes</NavLink>
           </li>
           <li id="opportunities">
             <NavLink to="/programs/opportunities">Opportunities</NavLink>
