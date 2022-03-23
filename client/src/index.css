@@ -1453,6 +1453,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 13vh;
+  background-color: white;
 }
 
 .program-info-navbar {
@@ -1510,8 +1511,9 @@ body {
 .program-info-view button {
   margin-right: 1%;
   background-color: var(--mylightblue);
-  border-color: var(--mydarkblue);
+  border: none;
   border-radius: 25px;
+  box-shadow: 2px 2px 0px 1px var(--mydarkblue);
   padding: 5px 10px;
 }
 .program-info-view button:hover {
@@ -1547,7 +1549,8 @@ body {
   margin-top: 0.5%;
   margin-right: 0.25%;
   margin-left: 0.25%;
-  border: solid 2px;
+  border: solid 3px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1561,7 +1564,8 @@ body {
   margin-top: 0.5%;
   margin-right: 0.25%;
   margin-left: 0.25%;
-  border: solid 2px;
+  border: solid 3px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1643,12 +1647,12 @@ body {
 .program-info-content li#se {
   border-color: rgb(255, 29, 67);
   color: rgb(255, 29, 67);
-  background-color: pink;
+  background-color: rgb(255, 240, 210);
 }
 .program-info-content li#cse {
   border-color: var(--mydarkblue);
   color: var(--mydarkerblue);
-  background-color: rgb(54, 162, 235);
+  background-color: rgb(240, 240, 255);
 }
 .program-info-content li#re {
   border-color: chocolate;
@@ -1668,25 +1672,31 @@ body {
   margin-bottom: 3%;
 }
 .program-info-content li#se .course-title {
-  background-color: rgb(255, 225, 230);
-  border: solid pink;
+  background-color: pink;
+  border: solid rgb(255, 240, 210);
+  border-radius: 5px;
 }
 .program-info-content li#se .course-body {
-  background-color: rgb(255, 225, 230);
+  background-color: pink;
+  border-radius: 5px;
 }
 .program-info-content li#cse .course-title {
   background-color: rgb(121, 197, 248);
-  border: solid rgb(54, 162, 235);
+  border: solid rgb(240, 240, 255);
+  border-radius: 5px;
 }
 .program-info-content li#cse .course-body {
   background-color: rgb(121, 197, 248);
+  border-radius: 5px;
 }
 .program-info-content li#re .course-title {
-  background-color: rgb(255, 235, 220);
+  background-color: rgb(255, 212, 173);
   border: solid rgb(255, 255, 200);
+  border-radius: 5px;
 }
 .program-info-content li#re .course-body {
-  background-color: rgb(255, 235, 220);
+  background-color: rgb(255, 212, 173);
+  border-radius: 5px;
 }
 /*#endregion program page*/
 
