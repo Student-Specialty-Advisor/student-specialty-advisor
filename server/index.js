@@ -7,6 +7,7 @@ require("./db/User");
 const accountSystemController = require("./controllers/accountSystemController.js");
 const statisticsController = require("./controllers/statisticsController.js");
 const quizController = require("./controllers/quizController.js");
+const meetingController = require("./controllers/meetingController.js");
 const authJWT = require("./middlewares/authJWT");
 
 const app = express();
@@ -55,6 +56,18 @@ app.get(
   "/ssa-api/statistics",
   [authJWT.verifyToken, authJWT.isAdmin],
   statisticsController.GetStats
+);
+
+//Meeting
+app.get(
+  "/ssa-api/meeting",
+  [authJWT.verifyToken],
+  meetingController.getListOfAdvisors
+);
+app.post(
+  "/ssa-api/meeting",
+  [authJWT.verifyToken],
+  meetingController.requestMeeting
 );
 
 app.listen(PORT, () => {
