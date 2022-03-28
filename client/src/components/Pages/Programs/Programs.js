@@ -147,6 +147,17 @@ function Programs() {
     );
   };
 
+  const Requirements = (props) => {
+    return (
+      <>
+        <p>{details[props.id][section]}</p>
+        <a href="/quiz" target="_blank" rel="noreferrer noopener">
+          Program Compatibility Quiz ↗
+        </a>
+      </>
+    );
+  };
+
   const Content = (props) => {
     return (
       <li ref={props.myRef} id={props.id} className="visible">
@@ -174,7 +185,7 @@ function Programs() {
 
         {section === "outcomes" ? <Outcomes id={props.id} /> : null}
         {section === "opportunities" ? <Opportunities id={props.id} /> : null}
-        {section === "requirements" ? <></> : null}
+        {section === "requirements" ? <Requirements id={props.id} /> : null}
       </li>
     );
   };
