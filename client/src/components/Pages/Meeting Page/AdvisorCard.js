@@ -4,9 +4,12 @@ function AdvisorCard(props) {
   return (
     <li id={props.id}>
       <div></div>
-      <p>{props.fullname}</p>
-      <p>{props.profession}</p>
-      <p>{props.quote}</p>
+      <p>
+        {props.fullname}
+        <br />
+        {props.profession}
+      </p>
+      <p id="quote">{props.quote}</p>
     </li>
   );
 }

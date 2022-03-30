@@ -92,8 +92,8 @@ export const DropDownElements3 = [
   },
   {
     id: 2,
-    title: "Contact",
-    path: "/contact",
+    title: "Advisors",
+    path: "/meetings/advisors",
     cName: "subMenu-item3",
   },
 ];

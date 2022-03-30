@@ -343,7 +343,7 @@ body {
   text-align: right;
 }
 .home-public-bot .feature-desc li {
-  background-color: bisque;
+  background-color: white;
   color: var(--myblue);
   font-size: 15px;
   border: 0.3em solid var(--myorange);
@@ -448,7 +448,7 @@ body {
   margin-bottom: 2.5%;
 }
 .home-public-team li div {
-  background-color: bisque;
+  background-color: white;
   width: auto;
   height: inherit;
   padding-top: 100%;
@@ -1704,11 +1704,14 @@ body {
   color: var(--mydarkerblue);
 }
 .meetings-advisors-list ul {
+  display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 100%;
   text-align: center;
+  justify-content: center;
 }
 .meetings-advisors-list li {
   display: inline-block;
@@ -1723,7 +1726,7 @@ body {
   margin-bottom: 2.5%;
 }
 .meetings-advisors-list li div {
-  background-color: bisque;
+  background-color: white;
   width: auto;
   height: inherit;
   padding-top: 100%;
@@ -1735,6 +1738,11 @@ body {
   height: auto;
   margin-right: 2.5%;
   margin-left: 2.5%;
+}
+.meetings-advisors-list li #quote {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--myblue);
 }
 /*#endregion meetings-advisors page*/
 
