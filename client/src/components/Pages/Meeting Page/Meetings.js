@@ -1,6 +1,6 @@
 import React from "react";
 
-function Meeting() {
+function Meetings() {
   React.useEffect(() => {
     document.title = "Meetings - Student Specialty Advisor";
   }, []);
@@ -11,4 +11,4 @@ function Meeting() {
   );
 }
 
-export default Meeting;
+export default Meetings;

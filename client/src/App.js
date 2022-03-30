@@ -19,8 +19,8 @@ import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
 import Programs from "./components/Pages/Programs/Programs";
 import Forum from "./components/Pages/Forum";
-import Meeting from "./components/Pages/Meeting Page/Meeting";
-import About from "./components/Pages/Meeting Page/About";
+import Meetings from "./components/Pages/Meeting Page/Meetings";
+import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
 import Statistics from "./components/Pages/Statistics";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
@@ -34,24 +34,12 @@ function App() {
         <Route exact path="/" component={Home} />
         <PrivateRoute exact path="/quiz" component={Quiz} />
         <PrivateRoute exact path="/quiz/started" component={QuizContainer} />
-<<<<<<< HEAD
-        <PrivateRoute exact path="/programs" component={Programs} />
-        <PrivateRoute
-          exact
-          path="/programs/:specialty"
-          component={ProgramsDetails}
-        />
-        <PrivateRoute exact path="/videos" component={Videos} />
-        <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
-        <PrivateRoute exact path="/meetings" component={Meeting} />
-        <PrivateRoute exact path="/meetings/about" component={About} />
-=======
         <PrivateRoute exact path="/programs/:section" component={Programs} />
         <Redirect exact from="/programs" to="/programs/overview" />
         <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
         <Redirect exact from="/videos" to="/videos/se" />
-        <PrivateRoute exact path="/meeting" component={Meeting} />
->>>>>>> 4be13666b7940322a6a12db9d7a50e8557a2e028
+        <PrivateRoute exact path="/meetings" component={Meetings} />
+        <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
         <PrivateRoute exact path="/forum" component={Forum} />
         <AdminRoute exact path="/statistics" component={Statistics} />
         <Route exact path="/login" component={LogInForm} />
