@@ -3,9 +3,9 @@ import { NavLink, useParams } from "react-router-dom";
 import React from "react";
 import AuthService from "../../../services/AuthService";
 import alertify from "alertifyjs";
-import videosSE from "../../../assets/art/json/videos_se.json";
-import videosCSE from "../../../assets/art/json/videos_cse.json";
-import videosRE from "../../../assets/art/json/videos_re.json";
+import videosSE from "../../../assets/json/videos_se.json";
+import videosCSE from "../../../assets/json/videos_cse.json";
+import videosRE from "../../../assets/json/videos_re.json";
 import VideoContainer from "./VideoContainer";
 
 function VideosList(props) {
@@ -27,17 +27,32 @@ function VideosList(props) {
       const list = videosSE.map((video) => {
         return <VideoContainer key={video.code} code={video.code} />;
       });
-      return list;
+      return (
+        <>
+          {list}
+          <div className="to-be-continued"></div>
+        </>
+      );
     } else if (specialty === "cse") {
       const list = videosCSE.map((video) => {
         return <VideoContainer key={video.code} code={video.code} />;
       });
-      return list;
+      return (
+        <>
+          {list}
+          <div className="to-be-continued"></div>
+        </>
+      );
     } else if (specialty === "re") {
       const list = videosRE.map((video) => {
         return <VideoContainer key={video.code} code={video.code} />;
       });
-      return list;
+      return (
+        <>
+          {list}
+          <div className="to-be-continued"></div>
+        </>
+      );
     }
   };
 
@@ -47,10 +62,6 @@ function VideosList(props) {
     var se = document.getElementById("se");
     var cse = document.getElementById("cse");
     var re = document.getElementById("re");
-    if (specialty !== "se" && specialty !== "re" && specialty !== "cse") {
-      props.history.push("/videos");
-      return;
-    }
     if (specialty === "se") {
       se.className = "active";
       cse.className = "";

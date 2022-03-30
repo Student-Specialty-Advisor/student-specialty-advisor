@@ -6,7 +6,7 @@ try {
   var questions = null;
 }
 
-var sendQuestionList = (req, res) => {
+var getQuestionList = (req, res) => {
   if (questions === null) {
     res.status(500).send({ error: "questions.json file was not found." });
   } else {
@@ -75,5 +75,5 @@ var sendQuestionAnswer = (req, res) => {
   }
 };
 
-exports.sendQuestionList = sendQuestionList;
+exports.getQuestionList = getQuestionList;
 exports.sendQuestionAnswer = sendQuestionAnswer;

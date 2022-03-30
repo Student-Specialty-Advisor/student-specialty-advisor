@@ -34,14 +34,32 @@ export const NavItems = [
 export const DropDownElements1 = [
   {
     id: 1,
-    title: "Description",
-    path: "/description",
+    title: "Overview",
+    path: "/programs/overview",
     cName: "subMenu-item",
   },
   {
     id: 2,
     title: "Curriculum",
-    path: "/curriculum",
+    path: "/programs/curriculum",
+    cName: "subMenu-item",
+  },
+  {
+    id: 3,
+    title: "Objectives",
+    path: "/programs/objectives",
+    cName: "subMenu-item",
+  },
+  {
+    id: 4,
+    title: "Opportunities",
+    path: "/programs/opportunities",
+    cName: "subMenu-item",
+  },
+  {
+    id: 5,
+    title: "Requirements",
+    path: "/programs/requirements",
     cName: "subMenu-item",
   },
 ];

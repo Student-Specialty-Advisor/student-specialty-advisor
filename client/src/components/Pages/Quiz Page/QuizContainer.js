@@ -113,7 +113,9 @@ function QuizContainer() {
     sendQuizAnswers(answerList)
       .then((result) => {
         if (result.retry) {
-          alertify.warning("decisive questions needed");
+          alertify.warning(
+            "Oops! Looks like we need you to answer questions more accurately to be able to handle this one!"
+          );
           document.getElementById("quiz-submit-button").disabled = false;
           return;
         }
