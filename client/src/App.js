@@ -21,6 +21,7 @@ import Programs from "./components/Pages/Programs/Programs";
 import Forum from "./components/Pages/Forum";
 import Meetings from "./components/Pages/Meeting Page/Meetings";
 import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
+import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdvisorsList";
 import Statistics from "./components/Pages/Statistics";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
@@ -39,6 +40,11 @@ function App() {
         <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
         <Redirect exact from="/videos" to="/videos/se" />
         <PrivateRoute exact path="/meetings" component={Meetings} />
+        <PrivateRoute
+          exact
+          path="/meetings/advisors"
+          component={MeetingsAdvisorsList}
+        />
         <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
         <PrivateRoute exact path="/forum" component={Forum} />
         <AdminRoute exact path="/statistics" component={Statistics} />

@@ -1353,51 +1353,6 @@ body {
 }
 /*#endregion meetings/about page*/
 
-/*#region program page*/
-.programs-container {
-  margin-left: 5vw;
-  font-size: 2vw;
-  color: var(--mydarkblue);
-}
-.programs-container li {
-  color: var(--mydarkblue);
-}
-.programs-container button {
-  border-radius: 10%;
-}
-
-/*#region program details page*/
-.program-details-container {
-  width: 69%;
-  margin-top: 12vh;
-  margin-left: 15vw;
-  margin-right: auto;
-  display: block;
-}
-.program-details-container h2 {
-  color: var(--mydarkblue);
-  font-size: 3vw;
-  font-weight: bold;
-  margin-bottom: 3%;
-}
-.program-details-container h3 {
-  color: var(--myblue);
-  margin-left: 2vw;
-  font-size: 1.4vw;
-}
-.program-details-container p {
-  margin-left: 0.6vw;
-  font-size: 1.1vw;
-}
-.program-details-container li {
-  margin-left: 4vw;
-  font-size: 1.2vw;
-}
-.program-details-container h4 {
-  margin-top: 5vw;
-}
-/*#endregion program details page*/
-
 /*#region profile page*/
 
 .profile-container {
@@ -1727,6 +1682,51 @@ body {
   background-color: rgb(255, 235, 220);
 }
 /*#endregion program page*/
+
+/*#region meetings-advisors page*/
+.meetings-advisors-list {
+  width: 100%;
+  margin-top: 16.26vh;
+}
+.meetings-advisors-list h1 {
+  text-align: center;
+  font-size: 60px;
+  color: var(--mydarkerblue);
+}
+.meetings-advisors-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+.meetings-advisors-list li {
+  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+  color: var(--mydarkblue);
+  width: 16%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 2.5%;
+  font-weight: 550;
+  margin-bottom: 2.5%;
+}
+.meetings-advisors-list li div {
+  background-color: bisque;
+  width: auto;
+  height: inherit;
+  padding-top: 100%;
+  border-radius: 50%;
+  border-style: solid;
+}
+.meetings-advisors-list li img {
+  width: 15%;
+  height: auto;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+/*#endregion meetings-advisors page*/
 
 /*#region media / exceptions*/
 
