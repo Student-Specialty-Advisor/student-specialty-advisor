@@ -153,9 +153,9 @@
         "when": "Final Year"
       }
     ],
-    "objectives": "Objectives SE",
+    "outcomes": "As a SE Student, you should expect to gain:\n\n   - Ability to understand and work with multiple programming languages, frameworks and libraries.\n\n   - Ability to work in one or more significant application domains.\n\n   - Ability to apply the software engineering lifecycle by demonstrating competence in communication, planning, analysis, design, construction, and deployment.\n\n   - Ability to work as an individual and as part of a multidisciplinary team.\n\n   - Ability to demonstrate agility in solving software challenges.\n\n   - An ability to identify, formulate, and solve CSE problems.\n\n   - An ability to lead a team and function within a team.\n\n   - An understanding of professional and ethical responsibility.\n\n   - An ability to communicate effectively.\n\n   - All ABET Student Outcomes.",
     "opportunities": "- Applications & Web Development.\n- The 'Internet Of Things' field.\n- Artificial Intelligence.\n- Security, Cloud and Data Science.\n- Game Development.\n- Research & Testing of Software Systems.\n- Freelancing and Consulting.",
-    "requirements": "Requirements SE"
+    "requirements": "To enroll in this program, you should have completed the common core pre-engineering program, or have completed an equivalent level of study such as: License, Two years of preparatory studies...\n\nIf you want to excel at this program, you should have relatively good grades in Mathematics and coding courses like Object Oriented Programming. Consider taking our Program Compatibility Quiz to know which programs may suit you and your personality."
   },
 
   "cse": {
@@ -307,9 +307,9 @@
         "when": "Final Year"
       }
     ],
-    "objectives": "Objectives CSE",
+    "outcomes": "As a CSE Student, you should expect to gain:\n\n   - An ability to apply knowledge of mathematics, science and engineering.\n\n   - An ability to design and conduct experiments, as well as to analyze and interpret data.\n\n   - An ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability.\n\n   - An ability to coordinate between Software & Hardware components.\n\n   - An ability to identify, formulate, and solve CSE problems.\n\n   - An ability to lead a team and function within a team.\n\n   - An understanding of professional and ethical responsibility.\n\n   - An ability to communicate effectively.\n\n   - All ABET Student Outcomes.",
     "opportunities": "- Hardware & Embedded System Development.\n- The 'Internet Of Things' field.\n- Automation & Robotics.\n- Security, Cloud and Data Science.\n- Networks & Telecommunications.\n- Research & System Integration.",
-    "requirements": "Requirements CSE"
+    "requirements": "To enroll in this program, you should have completed the common core pre-engineering program, or have completed an equivalent level of study such as: License, Two years of preparatory studies...\n\nIf you want to excel at this program, you should have relatively good grades in Mathematics and Electrical/Computer related courses and lab sessions. A decent programming knowledge is a plus. Consider taking our Program Compatibility Quiz to know which programs may suit you and your personality."
   },
 
   "re": {
@@ -472,8 +472,8 @@
         "when": "Final Year"
       }
     ],
-    "objectives": "Objectives RE",
+    "outcomes": "As a RE Student, you should expect to gain:\n\n   - An ability to apply knowledge of mathematics, physics, chemistry and electrical engineering.\n\n   - An ability to work on and conduct experiments, as well as to analyze and interpret data.\n\n   - An ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability.\n\n   - An ability to conduct research and produce technical reports and writings.\n\n   - An ability to negotiate and communicate with people from different educational backgrounds.\n\n   - An ability to lead a team and function within a team.\n\n   - An understanding of professional and ethical responsibility.\n\n   - An ability to communicate effectively.\n\n   - All ABET Student Outcomes.",
     "opportunities": "- Design & Development of renewable energy technologies.\n- Site and ground condition inspections renewable energy sites.\n- Lab experiments & Research.\n- Usage of mathematical modelling to produce estimates.\n- Environmental project plans & environmental laws.\n- Testing, Technical Writing & Consulting.\n- Business, Management & Negotiations with providers, contractors.",
-    "requirements": "Requirements RE"
+    "requirements": "To enroll in this program, you should have completed the common core pre-engineering program, or have completed an equivalent level of study such as: License, Two years of preparatory studies...\n\nIf you want to excel at this program, you should have relatively good grades in Mathematics, Physics and Chemistry. A good understanding of electrical circuits is a plus. Consider taking our Program Compatibility Quiz to know what programs may suit you and your personality."
   }
 }
