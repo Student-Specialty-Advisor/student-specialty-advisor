@@ -1,4 +1,4 @@
-import emailIcon from "../../../assets/art/icon/email.png";
+/*import emailIcon from "../../../assets/art/icon/email.png";*/
 
 function AdvisorCard(props) {
   return (

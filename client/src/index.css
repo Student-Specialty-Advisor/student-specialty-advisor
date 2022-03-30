@@ -1445,7 +1445,7 @@ body {
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 13vh;
+  padding-bottom: 13vh;
   background-color: white;
 }
 
