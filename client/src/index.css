@@ -1328,50 +1328,62 @@ body {
 
 /*#endregion videos page*/
 
+/*#region meetings/about page*/
+.about-container-test h1 {
+  color: var(--mydarkerblue);
+  font-size: 60px;
+}
+.about-container h1 {
+  text-align: center;
+  font-size: 60px;
+  color: var(--mydarkerblue);
+  animation: fadeInWithTranslateY 1s;
+}
+/*#endregion meetings/about page*/
+
 /*#region program page*/
-.programs-container{
+.programs-container {
   margin-left: 5vw;
   font-size: 2vw;
   color: var(--mydarkblue);
 }
-.programs-container li{
+.programs-container li {
   color: var(--mydarkblue);
 }
-.programs-container button{
+.programs-container button {
   border-radius: 10%;
-  
 }
 /*#endregion program page*/
 
 /*#region program details page*/
-.program-details-container{
+.program-details-container {
   width: 69%;
   margin-top: 12vh;
   margin-left: 15vw;
   margin-right: auto;
   display: block;
 }
-.program-details-container h2{
+.program-details-container h2 {
   color: var(--mydarkblue);
   font-size: 3vw;
   font-weight: bold;
   margin-bottom: 3%;
 }
-.program-details-container h3{
+.program-details-container h3 {
   color: var(--myblue);
   margin-left: 2vw;
   font-size: 1.4vw;
 }
-.program-details-container p{
+.program-details-container p {
   margin-left: 0.6vw;
   font-size: 1.1vw;
 }
-.program-details-container li{
+.program-details-container li {
   margin-left: 4vw;
   font-size: 1.2vw;
 }
-.program-details-container h4{
-  margin-top: 5vw ;
+.program-details-container h4 {
+  margin-top: 5vw;
 }
 /*#endregion program details page*/
 

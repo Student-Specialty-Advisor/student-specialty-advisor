@@ -19,7 +19,7 @@ export const NavItems = [
   },
   {
     id: 4,
-    title: "Meeting",
+    title: "Meetings",
     path: "/meeting",
     cName: "nav-item",
   },
@@ -69,7 +69,7 @@ export const DropDownElements3 = [
   {
     id: 1,
     title: "About",
-    path: "/about",
+    path: "/meetings/about",
     cName: "subMenu-item3",
   },
   {

@@ -74,7 +74,7 @@ function PrivateNavbar(props) {
                   )}
                 </li>
               );
-            } else if (item.title === "Meeting") {
+            } else if (item.title === "Meetings") {
               return (
                 <li
                   key={item.id}
