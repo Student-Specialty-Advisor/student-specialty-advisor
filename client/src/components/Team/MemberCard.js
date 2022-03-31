@@ -8,13 +8,13 @@ function MemberCard(props) {
       <div></div>
       <p>{props.fullname}</p>
       <a href={props.email} target="_blank" rel="noreferrer noopener">
-        <img src={emailIcon} alt={props.fullname}></img>
+        <img src={emailIcon} alt=""></img>
       </a>
       <a href={props.github} target="_blank" rel="noreferrer noopener">
-        <img src={githubIcon} alt={props.fullname}></img>
+        <img src={githubIcon} alt=""></img>
       </a>
       <a href={props.fb} target="_blank" rel="noreferrer noopener">
-        <img src={fbIcon} alt={props.fullname}></img>
+        <img src={fbIcon} alt=""></img>
       </a>
     </li>
   );

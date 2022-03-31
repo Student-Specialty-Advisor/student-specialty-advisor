@@ -69,12 +69,15 @@ function Programs() {
   const Curriculum = (props) => {
     const course = details[props.id][section].map((c) => {
       return (
-        /*<>
-          <p>{"subject: " + c.subject}</p>
-          <p>{"type: " + c.desc}</p>
-          <p>{"when: " + c.when}</p>
-        </>*/
-        <>
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          key={props.id + c.subject}
+        >
           <p className="course-title">
             <strong>Subject: </strong>
             {c.subject}
@@ -89,10 +92,9 @@ function Programs() {
               {c.when}
             </p>
           </div>
-        </>
+        </div>
       );
     });
-
     return course;
   };
 
@@ -160,7 +162,7 @@ function Programs() {
 
   const Content = (props) => {
     return (
-      <li ref={props.myRef} id={props.id} className="visible">
+      <li key={props.id} ref={props.myRef} id={props.id} className="visible">
         <ul>
           <div
             onClick={leftArrow}

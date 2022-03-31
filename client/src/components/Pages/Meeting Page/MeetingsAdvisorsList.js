@@ -1,5 +1,6 @@
 import React from "react";
 import AdvisorCard from "./AdvisorCard";
+import testPicture from "../../../assets/art/klouz_white.jpg";
 
 function MeetingsAdvisorsList() {
   React.useEffect(() => {
@@ -15,33 +16,11 @@ function MeetingsAdvisorsList() {
         <ul>
           <AdvisorCard
             fullname="Advisor's Name"
+            picture={testPicture}
             profession="Senior Student"
             quote="'Quote or smthg qsdq sdq q sd q d qsd qs d qd s'"
-          />
-          <AdvisorCard
-            fullname="Advisor"
-            profession="Profession"
-            quote="'Quote or smthg'"
-          />
-          <AdvisorCard
-            fullname="Advisor"
-            profession="Profession"
-            quote="'Quote or smthg'"
-          />
-          <AdvisorCard
-            fullname="Advisor"
-            profession="Profession"
-            quote="'Quote or smthg'"
-          />
-          <AdvisorCard
-            fullname="Advisor"
-            profession="Profession"
-            quote="'Quote or smthg'"
-          />
-          <AdvisorCard
-            fullname="Advisor"
-            profession="Profession"
-            quote="'Quote or smthg'"
+            email="https://www.outlook.com"
+            linkedin="https://www.linkedin.com/"
           />
         </ul>
       </div>

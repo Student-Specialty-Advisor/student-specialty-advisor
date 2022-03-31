@@ -312,8 +312,8 @@ body {
 .home-public-bot .feature-img li {
   width: 3.66vw;
   height: 3.66vw;
-  margin-top: 0.9em;
-  margin-bottom: 2.3em;
+  margin-top: 2vh;
+  margin-bottom: 5.7vh;
   margin-left: 80%;
 }
 .home-public-bot .feature-img li#featureOne {
@@ -460,6 +460,10 @@ body {
   height: auto;
   margin-right: 2.5%;
   margin-left: 2.5%;
+  transition: 0.2s;
+}
+.home-public-team li img:hover {
+  scale: 110%;
 }
 
 /*#endregion public home page*/
@@ -1612,6 +1616,7 @@ body {
 }
 .program-info-view button:active {
   background-color: rgb(0, 195, 195);
+  box-shadow: 1px 1px 0px 1px var(--mydarkblue);
 }
 .program-info-view a {
   position: absolute;
@@ -1823,14 +1828,53 @@ body {
   font-weight: 550;
   margin-bottom: 2.5%;
 }
-.meetings-advisors-list li div {
-  background-color: white;
+.meetings-advisors-list li .picture-container {
+  position: relative;
+  background-color: var(--myblue);
   width: auto;
   height: inherit;
   padding-top: 100%;
   border-radius: 50%;
   border-style: solid;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+.meetings-advisors-list li .picture-container .picture-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: auto;
+  height: inherit;
+  padding-top: 100%;
+  border-radius: 50%;
+  border-style: none;
+  scale: 101%;
+  transition: 0.5s;
+}
+.meetings-advisors-list li .picture-container .picture-overlay:hover {
+  opacity: 1;
+}
+.meetings-advisors-list li .picture-container .picture-overlay #email {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  transition: 0.2s;
+}
+.meetings-advisors-list li .picture-container .picture-overlay #linkedin {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transition: 0.2s;
+}
+.meetings-advisors-list li .picture-container .picture-overlay img:hover {
+  scale: 120%;
+}
+
 .meetings-advisors-list li img {
   width: 15%;
   height: auto;
