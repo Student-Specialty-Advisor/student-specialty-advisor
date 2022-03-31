@@ -1,5 +1,5 @@
 import emailIcon from "../../../assets/art/icon/email.png";
-import linkedinIcon from "../../../assets/art/icon/email.png";
+import linkedinIcon from "../../../assets/art/icon/linkedin.png";
 
 function AdvisorCard(props) {
   return (
