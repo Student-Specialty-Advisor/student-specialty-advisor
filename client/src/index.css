@@ -1343,13 +1343,111 @@ body {
 /*#region meetings/about page*/
 .about-container-test h1 {
   color: var(--mydarkerblue);
-  font-size: 60px;
+  font-size: 2vw;
 }
 .about-container h1 {
   text-align: center;
   font-size: 60px;
   color: var(--mydarkerblue);
   animation: fadeInWithTranslateY 1s;
+}
+.about-container h3 {
+  margin-left: 12ch;
+  margin-top: 5ch;
+  margin-bottom: 0.8ch;
+  font-size: 33px;
+  color: var(--mydarkerblue);
+}
+.about-container h4 {
+  margin: 5% 8% 10% 8%;
+  border: solid 2px;
+  border-radius: 2vh;
+  border-color: var(--myblue);
+  height: 3vw;
+  line-height: 2.5vw;
+  text-align: center;
+  font-size: 20px;
+  color: var(--myblue);
+}
+.about-container-img {
+  width: 30%;
+  height: 19.85vw;
+  margin-top: -15%;
+  margin-left: 60%;
+  background-image: url("./assets/art/meetings_about.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  box-shadow: -2.125rem -2.125rem 0 -1.5rem var(--mydarkblue),
+    2.125rem 2.125rem 0 -1.5rem var(--mydarkblue);
+  transition: filter 0.5s ease-in-out;
+  animation: loopFrame 5s infinite;
+}
+.about-container li {
+  margin-left: 25ch;
+  color: var(--mydarkblue);
+  font-size: 2.5ch;
+}
+.about-container-mid {
+  margin-top: 5%;
+  margin-bottom: 10%;
+  align-items: flex-end;
+}
+.about-container-mid h3 {
+  font-size: 33px;
+  margin-top: 5%;
+  margin-left: 12ch;
+}
+.about-container-mid li {
+  margin-left: 25ch;
+  color: var(--mydarkblue);
+  font-size: 2.5ch;
+}
+.about-container-mid-button {
+  margin-left: 70%;
+  margin-top: -2%;
+  height: 15vh;
+  width: 12vw;
+  border-radius: 0.8cm;
+  background-color: var(--myorange);
+  font-weight: bolder;
+  font-size: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.about-container-mid-button:hover,
+.about-container-mid-button:focus {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.about-container-bottom {
+  font-size: 33px;
+  margin-top: 5%;
+  margin-left: 12ch;
+}
+.about-container-bottom-button {
+  font-size: 4.5vw;
+  border-radius: 5vw;
+  height: 15vh;
+  width: 80vw;
+  background-color: var(--myorange);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.about-container-bottom-button:hover,
+.about-container-bottom-button:focus {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 /*#endregion meetings/about page*/
 
