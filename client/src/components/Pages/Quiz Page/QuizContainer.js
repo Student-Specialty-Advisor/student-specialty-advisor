@@ -14,6 +14,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import fetchService from "../../../services/fetchService";
 
 ChartJS.register(
   CategoryScale,
@@ -47,17 +48,7 @@ function QuizContainer() {
   });
 
   const getQuizJson = async () => {
-    var user = AuthService.getCurrentUser();
-    const response = await fetch(
-      process.env.REACT_APP_API_URL + "quiz-questions",
-      {
-        method: "GET",
-        headers: {
-          "x-access-token": user.accessToken,
-        },
-      }
-    );
-    const json = await response.json();
+    const json = await fetchService.doGET("quiz-questions");
     if (json.error) {
       document.getElementById("n3 text").innerText =
         "Error while retrieving quiz :( Try refreshing the page.";
@@ -71,23 +62,6 @@ function QuizContainer() {
       document.getElementById("n5").className = "quiz-transition-end";
       document.getElementById("n6").className = "quiz-transition-end";
     }
-  };
-
-  const sendQuizAnswers = async (data) => {
-    var user = AuthService.getCurrentUser();
-    const response = await fetch(
-      process.env.REACT_APP_API_URL + "quiz-questions",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "x-access-token": user.accessToken,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const json = await response.json();
-    return json;
   };
 
   const submit = () => {
@@ -110,7 +84,8 @@ function QuizContainer() {
       return;
     }
     document.getElementById("quiz-submit-button").disabled = true;
-    sendQuizAnswers(answerList)
+    fetchService
+      .doPOST("quiz-questions", answerList)
       .then((result) => {
         if (result.retry) {
           alertify.warning(
@@ -196,6 +171,12 @@ function QuizContainer() {
           <Line
             data={graphData}
             options={{
+              scales: {
+                y: {
+                  suggestedMin: -10,
+                  suggestedMax: 10,
+                },
+              },
               plugins: {
                 legend: {
                   display: false,

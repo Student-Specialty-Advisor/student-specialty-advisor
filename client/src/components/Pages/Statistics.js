@@ -1,5 +1,4 @@
 import React from "react";
-import AuthService from "../../services/AuthService";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -12,6 +11,7 @@ import {
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
 import Footer from "./Footer";
+import fetchService from "../../services/fetchService";
 
 ChartJS.register(
   ArcElement,
@@ -37,14 +37,7 @@ function Statistics() {
   const [countRE, setCountRE] = React.useState(null);
 
   const getQuizJson = async () => {
-    var user = AuthService.getCurrentUser();
-    const response = await fetch(process.env.REACT_APP_API_URL + "statistics", {
-      method: "GET",
-      headers: {
-        "x-access-token": user.accessToken,
-      },
-    });
-    const json = await response.json();
+    const json = await fetchService.doGET("statistics");
     setPercentageSE(json.percentageSE);
     setPercentageCSE(json.percentageCSE);
     setPercentageRE(json.percentageRE);

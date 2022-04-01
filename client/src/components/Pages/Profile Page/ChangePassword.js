@@ -1,6 +1,7 @@
 import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
 import React from "react";
+import fetchService from "../../../services/fetchService";
 
 function ChangePassword(props) {
   React.useEffect(() => {
@@ -16,23 +17,11 @@ function ChangePassword(props) {
       return;
     }
     if (newPassword === newPassword2) {
-      const userData = AuthService.getCurrentUser();
       const passwordJson = {
         currentPassword: currentPassword,
         password: newPassword,
       };
-      const response = await fetch(
-        process.env.REACT_APP_API_URL + "edit-profile",
-        {
-          method: "PUT",
-          body: JSON.stringify(passwordJson),
-          headers: {
-            "x-access-token": userData.accessToken,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const json = await response.json();
+      const json = await fetchService.doPUT("edit-profile", passwordJson);
       if (json.tokenError) {
         AuthService.alertifyInvalidToken();
       } else if (json.keyPattern) {

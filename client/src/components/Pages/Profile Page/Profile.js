@@ -1,6 +1,7 @@
 import alertify from "alertifyjs";
 import React from "react";
 import AuthService from "../../../services/AuthService";
+import fetchService from "../../../services/fetchService";
 import utils from "../../utils";
 
 function Profile(props) {
@@ -19,18 +20,7 @@ function Profile(props) {
   };
 
   const updateInfo = async (newData) => {
-    const response = await fetch(
-      process.env.REACT_APP_API_URL + "edit-profile",
-      {
-        method: "PUT",
-        body: JSON.stringify(newData),
-        headers: {
-          "x-access-token": userData.accessToken,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const json = await response.json();
+    const json = await fetchService.doPUT("edit-profile", newData);
     if (json.tokenError) {
       AuthService.alertifyInvalidToken();
       throw utils.emptyInput;
