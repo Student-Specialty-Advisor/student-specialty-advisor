@@ -1,5 +1,5 @@
 import Footer from "../Footer";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, Redirect, useParams } from "react-router-dom";
 import React from "react";
 import AuthService from "../../../services/AuthService";
 import alertify from "alertifyjs";
@@ -8,13 +8,16 @@ import videosCSE from "../../../assets/json/videos_cse.json";
 import videosRE from "../../../assets/json/videos_re.json";
 import VideoContainer from "./VideoContainer";
 
+const SPECIALTIES = ["se", "cse", "re"];
+
 function VideosList(props) {
-  React.useEffect(() => {
-    document.title = "Videos - Student Specialty Advisor";
-  }, []);
   let { specialty } = useParams();
   let easterEggCounter = 0;
   let easterEggTimer;
+  React.useEffect(() => {
+    document.title =
+      specialty.toUpperCase() + " - Videos - Student Specialty Advisor";
+  }, [specialty]);
 
   const [initialHTML] = React.useState(
     "Buckle up &<br/>Get <strong>your popcorn</strong> ready!"
@@ -127,7 +130,7 @@ function VideosList(props) {
 
   React.useEffect(setupSideBar);
 
-  return (
+  return SPECIALTIES.includes(specialty) ? (
     <>
       <div className="videos-container">
         <ul className="side-bar">
@@ -158,6 +161,8 @@ function VideosList(props) {
       </div>
       <Footer id="no-margin" />
     </>
+  ) : (
+    <Redirect to="/videos/se" />
   );
 }
 

@@ -35,8 +35,15 @@ function App() {
         <Route exact path="/" component={Home} />
         <PrivateRoute exact path="/quiz" component={Quiz} />
         <PrivateRoute exact path="/quiz/started" component={QuizContainer} />
-        <PrivateRoute exact path="/programs/:section" component={Programs} />
-        <Redirect exact from="/programs" to="/programs/overview" />
+        <PrivateRoute
+          exact
+          path="/programs/:specialty/:section/"
+          component={Programs}
+        />
+        <Redirect exact from="/programs/se" to="/programs/se/overview" />
+        <Redirect exact from="/programs/cse" to="/programs/cse/overview" />
+        <Redirect exact from="/programs/re" to="/programs/re/overview" />
+        <Redirect exact from="/programs/*" to="/programs/se/overview" />
         <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
         <Redirect exact from="/videos" to="/videos/se" />
         <PrivateRoute exact path="/meetings" component={Meetings} />

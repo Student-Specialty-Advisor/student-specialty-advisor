@@ -1,83 +1,43 @@
 import React from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, Redirect, useParams } from "react-router-dom";
 import details from "../../../assets/json/program_info.json";
 import Footer from "../Footer";
 
+const SECTIONS = [
+  "overview",
+  "curriculum",
+  "outcomes",
+  "opportunities",
+  "requirements",
+];
+
 function Programs() {
-  let { section } = useParams();
-  const elementSE = React.useRef(null);
-  const elementCSE = React.useRef(null);
-  const elementRE = React.useRef(null);
+  let { specialty, section } = useParams();
+  const [title, setTitle] = React.useState("");
 
   React.useEffect(() => {
     document.title =
+      specialty.toUpperCase() +
+      " - " +
       section[0].toUpperCase() +
       section.slice(1) +
       " - Student Specialty Advisor";
-  }, [section]);
+  }, [specialty, section]);
 
-  const changeToViewAll = () => {
-    elementSE.current.className = "visible";
-    elementCSE.current.className = "visible";
-    elementRE.current.className = "visible";
-  };
-  const changeToViewOne = () => {
-    if (
-      elementSE.current.className === "hidden" ||
-      elementCSE.current.className === "hidden" ||
-      elementRE.current.className === "hidden"
-    ) {
-      return;
+  React.useEffect(() => {
+    if (specialty === "se") {
+      setTitle("Software Engineering >");
+    } else if (specialty === "cse") {
+      setTitle("Computer Systems Engineering >");
+    } else if (specialty === "re") {
+      setTitle("Renewable Energy Engineering >");
     }
-    elementSE.current.className = "visible-alone";
-    elementCSE.current.className = "hidden";
-    elementRE.current.className = "hidden";
-  };
-
-  const leftArrow = () => {
-    if (elementSE.current.className === "visible-alone") {
-      elementSE.current.className = "hidden";
-      elementCSE.current.className = "hidden";
-      elementRE.current.className = "visible-alone";
-    } else if (elementCSE.current.className === "visible-alone") {
-      elementSE.current.className = "visible-alone";
-      elementCSE.current.className = "hidden";
-      elementRE.current.className = "hidden";
-    } else if (elementRE.current.className === "visible-alone") {
-      elementSE.current.className = "hidden";
-      elementCSE.current.className = "visible-alone";
-      elementRE.current.className = "hidden";
-    }
-  };
-
-  const rightArrow = () => {
-    if (elementSE.current.className === "visible-alone") {
-      elementSE.current.className = "hidden";
-      elementCSE.current.className = "visible-alone";
-      elementRE.current.className = "hidden";
-    } else if (elementCSE.current.className === "visible-alone") {
-      elementSE.current.className = "hidden";
-      elementCSE.current.className = "hidden";
-      elementRE.current.className = "visible-alone";
-    } else if (elementRE.current.className === "visible-alone") {
-      elementSE.current.className = "visible-alone";
-      elementCSE.current.className = "hidden";
-      elementRE.current.className = "hidden";
-    }
-  };
+  }, [specialty]);
 
   const Curriculum = (props) => {
     const course = details[props.id][section].map((c) => {
       return (
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-          key={props.id + c.subject}
-        >
+        <div className="course-container" key={props.id + c.subject}>
           <p className="course-title">
             <strong>Subject: </strong>
             {c.subject}
@@ -104,17 +64,21 @@ function Programs() {
         <p>{details[props.id][section]}</p>
         {props.id === "se" ? (
           <NavLink to="/videos/se">
-            {"Watch the introductory video about Software Eng."}
+            {"Watch the introductory video about Software Engineering ↗"}
           </NavLink>
         ) : null}
         {props.id === "cse" ? (
           <NavLink to="/videos/cse">
-            {"Watch the introductory video about Computer Systems Eng."}
+            {
+              "Watch the introductory video about Computer Systems Engineering ↗"
+            }
           </NavLink>
         ) : null}
         {props.id === "re" ? (
           <NavLink to="/videos/re">
-            {"Watch the introductory video about Renewable Energy Eng."}
+            {
+              "Watch the introductory video about Renewable Energy Engineering ↗"
+            }
           </NavLink>
         ) : null}
       </>
@@ -124,10 +88,9 @@ function Programs() {
   const Opportunities = (props) => {
     return (
       <>
-        <h4 style={{ textAlign: "left", width: "90%", marginBottom: 0 }}>
-          {"// Possible Industries:"}
-        </h4>
         <p style={{ width: "90%", lineHeight: "200%" }}>
+          <strong>These are some possible industries you could work in:</strong>
+          <br />
           {details[props.id][section]}
         </p>
       </>
@@ -162,17 +125,7 @@ function Programs() {
 
   const Content = (props) => {
     return (
-      <li key={props.id} ref={props.myRef} id={props.id} className="visible">
-        <ul>
-          <div
-            onClick={leftArrow}
-            style={{ transform: "scaleX(-1)" }}
-            className="nav-arrow"
-          ></div>
-          <h4>{props.title}</h4>
-          <div onClick={rightArrow} className="nav-arrow"></div>
-        </ul>
-
+      <li key={props.id} ref={props.myRef} id={props.id}>
         {section === "overview" ? (
           <>
             <Overview id={props.id} />
@@ -192,54 +145,53 @@ function Programs() {
     );
   };
 
-  return (
+  return SECTIONS.includes(section) ? (
     <>
-      <div className="program-info-container">
+      <div key={"container of " + specialty} className="program-info-container">
+        <a
+          className="program-info-brochure"
+          href="https://www.smu.tn/storage/app/media/brochures/Medtech/catalogue_MedTech_2021.pdf"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Check out the official MedTech Brochure ↗
+        </a>
+        <h1 className="program-info-container-title">{title}</h1>
         <ul className="program-info-navbar">
           <li id="overview">
-            <NavLink to="/programs/overview">Overview</NavLink>
+            <NavLink to={"/programs/" + specialty + "/overview"}>
+              Overview
+            </NavLink>
           </li>
           <li id="curriculum">
-            <NavLink to="/programs/curriculum">Curriculum</NavLink>
+            <NavLink to={"/programs/" + specialty + "/curriculum"}>
+              Curriculum
+            </NavLink>
           </li>
           <li id="outcomes">
-            <NavLink to="/programs/outcomes">Outcomes</NavLink>
+            <NavLink to={"/programs/" + specialty + "/outcomes"}>
+              Outcomes
+            </NavLink>
           </li>
           <li id="opportunities">
-            <NavLink to="/programs/opportunities">Opportunities</NavLink>
+            <NavLink to={"/programs/" + specialty + "/opportunities"}>
+              Opportunities
+            </NavLink>
           </li>
           <li id="requirements">
-            <NavLink to="/programs/requirements">Requirements</NavLink>
+            <NavLink to={"/programs/" + specialty + "/requirements"}>
+              Requirements
+            </NavLink>
           </li>
         </ul>
-        <ul className="program-info-view">
-          <p>Change View:</p>
-          <button onClick={changeToViewAll}>View All</button>
-          <button onClick={changeToViewOne}>View 1 by 1</button>
-          <a
-            href="https://www.smu.tn/storage/app/media/brochures/Medtech/catalogue_MedTech_2021.pdf"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Check out the official MedTech Brochure ↗
-          </a>
-        </ul>
         <ul className="program-info-content">
-          <Content myRef={elementSE} id="se" title="Software Engineering" />
-          <Content
-            myRef={elementCSE}
-            id="cse"
-            title="Computer Systems Engineering"
-          />
-          <Content
-            myRef={elementRE}
-            id="re"
-            title="Renewable Energy Engineering"
-          />
+          <Content id={specialty} title="Software Engineering" />
         </ul>
       </div>
       <Footer id="no-margin" />
     </>
+  ) : (
+    <Redirect to={"/programs/" + specialty + "/overview"} />
   );
 }
 
