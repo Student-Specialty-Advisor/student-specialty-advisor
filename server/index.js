@@ -60,12 +60,17 @@ app.get(
 
 //Meeting
 app.get(
-  "/ssa-api/meeting",
+  "/ssa-api/meeting/advisors",
   [authJWT.verifyToken],
   meetingController.getListOfAdvisors
 );
 app.post(
-  "/ssa-api/meeting",
+  "/ssa-api/meeting/advisors",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  meetingController.postAdvisor
+);
+app.post(
+  "/ssa-api/meeting/request",
   [authJWT.verifyToken],
   meetingController.requestMeeting
 );
