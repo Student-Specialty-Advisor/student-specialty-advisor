@@ -2,6 +2,11 @@ import React from "react";
 import { NavLink, Redirect, useParams } from "react-router-dom";
 import details from "../../../assets/json/program_info.json";
 import Footer from "../Footer";
+import Curriculum from "./Curriculum";
+import Overview from "./Overview";
+import Opportunities from "./Opportunities";
+import Outcomes from "./Outcomes";
+import Requirements from "./Requirements";
 
 const SECTIONS = [
   "overview",
@@ -34,113 +39,24 @@ function Programs() {
     }
   }, [specialty]);
 
-  const Curriculum = (props) => {
-    const course = details[props.id][section].map((c) => {
-      return (
-        <div className="course-container" key={props.id + c.subject}>
-          <p className="course-title">
-            <strong>Subject: </strong>
-            {c.subject}
-          </p>
-          <div className="course-body">
-            <p>
-              <strong>Description: </strong>
-              {c.desc}
-            </p>
-            <p>
-              <strong>When: </strong>
-              {c.when}
-            </p>
-          </div>
-        </div>
-      );
-    });
-    return course;
-  };
-
-  const Overview = (props) => {
-    return (
-      <>
-        <p>{details[props.id][section]}</p>
-        {props.id === "se" ? (
-          <NavLink to="/videos/se">
-            {"Watch the introductory video about Software Engineering ↗"}
-          </NavLink>
-        ) : null}
-        {props.id === "cse" ? (
-          <NavLink to="/videos/cse">
-            {
-              "Watch the introductory video about Computer Systems Engineering ↗"
-            }
-          </NavLink>
-        ) : null}
-        {props.id === "re" ? (
-          <NavLink to="/videos/re">
-            {
-              "Watch the introductory video about Renewable Energy Engineering ↗"
-            }
-          </NavLink>
-        ) : null}
-      </>
-    );
-  };
-
-  const Opportunities = (props) => {
-    return (
-      <>
-        <p style={{ width: "90%", lineHeight: "200%" }}>
-          <strong>These are some possible industries you could work in:</strong>
-          <br />
-          {details[props.id][section]}
-        </p>
-      </>
-    );
-  };
-
-  const Outcomes = (props) => {
-    return (
-      <>
-        <p>{details[props.id][section]}</p>
-        <a
-          href="https://www.abet.org/accreditation/accreditation-criteria/criteria-for-accrediting-engineering-programs-2019-2020/#GC3"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          What's ABET Student Outcomes? ↗
-        </a>
-      </>
-    );
-  };
-
-  const Requirements = (props) => {
-    return (
-      <>
-        <p>{details[props.id][section]}</p>
-        <a href="/quiz" target="_blank" rel="noreferrer noopener">
-          Program Compatibility Quiz ↗
-        </a>
-      </>
-    );
-  };
-
   const Content = (props) => {
     return (
       <li key={props.id} ref={props.myRef} id={props.id}>
         {section === "overview" ? (
-          <>
-            <Overview id={props.id} />
-          </>
+          <Overview id={props.id} section={section} details={details} />
         ) : null}
-
         {section === "curriculum" ? (
-          <>
-            <Curriculum id={props.id} />
-          </>
+          <Curriculum id={props.id} section={section} details={details} />
         ) : null}
-
-        {section === "outcomes" ? <Outcomes id={props.id} /> : null}
-        {section === "opportunities" ? <Opportunities id={props.id} /> : null}
-        {section === "requirements" ? <Requirements id={props.id} /> : null}
+        {section === "outcomes" ? (
+          <Outcomes id={props.id} section={section} details={details} />
+        ) : null}
+        {section === "opportunities" ? (
+          <Opportunities id={props.id} section={section} details={details} />
+        ) : null}
+        {section === "requirements" ? (
+          <Requirements id={props.id} section={section} details={details} />
+        ) : null}
       </li>
     );
   };
