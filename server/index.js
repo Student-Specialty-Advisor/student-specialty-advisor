@@ -58,7 +58,8 @@ app.get(
   statisticsController.GetStats
 );
 
-//Meeting
+//Meeting:
+//advisors
 app.get(
   "/ssa-api/meeting/advisors",
   [authJWT.verifyToken],
@@ -69,6 +70,18 @@ app.post(
   [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postAdvisor
 );
+//meetings
+app.get(
+  "/ssa-api/meeting/schedule",
+  [authJWT.verifyToken],
+  meetingController.getListOfMeetings
+);
+app.post(
+  "/ssa-api/meeting/schedule",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  meetingController.postMeeting
+);
+
 app.post(
   "/ssa-api/meeting/request",
   [authJWT.verifyToken],

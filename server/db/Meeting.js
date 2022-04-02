@@ -5,7 +5,7 @@ const MeetingSchema = new Schema({
   day: String,
   from: String,
   to: String,
-  advisorName: String,
+  advisorName: { type: Schema.Types.ObjectId, ref: "Advisor" },
 });
 MeetingSchema.index(
   { day: 1, from: 1, to: 1, advisorName: 1 },
