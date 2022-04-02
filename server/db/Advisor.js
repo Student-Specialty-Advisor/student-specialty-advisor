@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
 const Advisor = mongoose.model("Advisor", {
-  firstName: String,
-  lastName: String,
+  fullName: String,
   email: { type: String, unique: true },
   profession: String,
   linkedinUrl: { type: String, unique: true },
