@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
 });
 
-const sendEmail = (to, subject, text, html) => {
+const sendEmail = (to, subject, text, html, res) => {
   const mailData = {
     from: process.env.AUTH_EMAIL_USER,
     to: to,
@@ -19,9 +19,11 @@ const sendEmail = (to, subject, text, html) => {
   };
   transporter.sendMail(mailData, (error, info) => {
     if (error) {
-      return error;
+      res.status(500).send(error);
     }
-    return { message: "Email was sent successfully.", id: info.messageId };
+    res
+      .status(200)
+      .send({ message: "Email was sent successfully.", id: info.messageId });
   });
 };
 

@@ -41,7 +41,10 @@ var postMeeting = (req, res) => {
     });
 };
 
-var requestMeeting = (req, res) => {};
+var requestMeeting = (req, res) => {
+  const data = req.body;
+  sendEmail(data.to, data.subject, data.text, data.html, res);
+};
 
 exports.getListOfAdvisors = getListOfAdvisors;
 exports.postAdvisor = postAdvisor;
