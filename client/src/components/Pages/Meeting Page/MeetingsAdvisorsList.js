@@ -1,6 +1,5 @@
 import React from "react";
 import AdvisorCard from "./AdvisorCard";
-import testPicture from "../../../assets/art/klouz_white.jpg";
 import fetchService from "../../../services/fetchService";
 function MeetingsAdvisorsList() {
   React.useEffect(() => {
@@ -16,9 +15,9 @@ function MeetingsAdvisorsList() {
     return (
       <AdvisorCard
         fullname={advisor.fullName}
-        picture={testPicture}
+        picture={advisor.imageUrl}
         profession={advisor.profession}
-        quote=""
+        quote={advisor.quote}
         email={advisor.email}
         linkedin={advisor.linkedinUrl}
       />
@@ -27,9 +26,6 @@ function MeetingsAdvisorsList() {
 
   return (
     <>
-      <p style={{ fontSize: "16px", position: "absolute" }}>
-        TEMPORARY PAGE WITH ADVISOR CARD COMPONENT
-      </p>
       <div className="meetings-advisors-list">
         <ul>{advisorList}</ul>
       </div>
