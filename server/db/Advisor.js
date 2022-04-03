@@ -6,6 +6,7 @@ const Advisor = mongoose.model("Advisor", {
   profession: String,
   linkedinUrl: { type: String, unique: true },
   imageUrl: { type: String, unique: true },
+  quote: String,
 });
 
 module.exports = Advisor;

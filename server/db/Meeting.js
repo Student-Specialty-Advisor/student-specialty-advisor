@@ -6,10 +6,8 @@ const MeetingSchema = new Schema({
   from: String,
   to: String,
   advisorName: String,
+  email: String,
 });
-MeetingSchema.index(
-  { day: 1, from: 1, to: 1, advisorName: 1 },
-  { unique: true }
-);
+MeetingSchema.index({ day: 1, from: 1, to: 1, email: 1 }, { unique: true });
 const Meeting = mongoose.model("Meeting", MeetingSchema);
 module.exports = Meeting;
