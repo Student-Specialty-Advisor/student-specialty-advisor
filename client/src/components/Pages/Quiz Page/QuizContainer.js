@@ -1,4 +1,5 @@
 import QuizQuestion from "./QuizQuestion";
+import QuizGraphTheory from "./QuizGraphTheory";
 import Footer from "../Footer";
 import React from "react";
 import AuthService from "../../../services/AuthService";
@@ -13,7 +14,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
 import fetchService from "../../../services/fetchService";
 
 ChartJS.register(
@@ -112,21 +112,6 @@ function QuizContainer() {
   };
 
   const Results = () => {
-    const graphData = {
-      labels: [
-        "Software Engineering",
-        "Computer Systems Engineering",
-        "Renewable Energy Engineering",
-      ],
-      datasets: [
-        {
-          data: [results.x, results.z, results.y],
-          fill: false,
-          borderColor: "rgb(75, 192, 192)",
-          tension: 0.1,
-        },
-      ],
-    };
     return (
       <>
         <h1>Your results are in!</h1>
@@ -150,41 +135,28 @@ function QuizContainer() {
         ) : null}
         {results.secondResult === "SE" ? (
           <p>
-            But we also think <strong>Software Engineering</strong> could be
-            good for you.
+            But we also think that <strong>Software Engineering</strong> could
+            be good for you.
           </p>
         ) : null}
         {results.secondResult === "CSE" ? (
           <p>
-            But we also think <strong>Computer Systems Engineering</strong>{" "}
+            But we also think that <strong>Computer Systems Engineering</strong>{" "}
             could be good for you.
           </p>
         ) : null}
         {results.secondResult === "RE" ? (
           <p>
-            But we also think <strong>Renewable Energy Engineering</strong>{" "}
+            But we also think that <strong>Renewable Energy Engineering</strong>{" "}
             could be good for you.
           </p>
         ) : null}
-        <p>Here is how you scored on our algorithm!</p>
-        <div className="quiz-result-graph">
-          <Line
-            data={graphData}
-            options={{
-              scales: {
-                y: {
-                  suggestedMin: -10,
-                  suggestedMax: 10,
-                },
-              },
-              plugins: {
-                legend: {
-                  display: false,
-                },
-              },
-            }}
-          />
-        </div>
+        <p>Here is how you scored on our weighted graph!</p>
+        <QuizGraphTheory
+          weightSE={results.weightSE}
+          weightCSE={results.weightCSE}
+          weightRE={results.weightRE}
+        />
         <button
           onClick={() => {
             window.scrollTo(0, 0);
