@@ -1,5 +1,6 @@
 const Advisor = require("../db/Advisor");
 const Meeting = require("../db/Meeting");
+const { sendEmail } = require("../middlewares/emailSender");
 
 var getListOfAdvisors = (req, res) => {
   Advisor.find({})
