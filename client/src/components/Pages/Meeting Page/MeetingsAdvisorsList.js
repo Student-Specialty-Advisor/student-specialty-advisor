@@ -1,11 +1,29 @@
 import React from "react";
 import AdvisorCard from "./AdvisorCard";
 import testPicture from "../../../assets/art/klouz_white.jpg";
-
+import fetchService from "../../../services/fetchService";
 function MeetingsAdvisorsList() {
   React.useEffect(() => {
     document.title = "Meetings - Advisors - Student Specialty Advisor";
+    getAdvisorsList();
   }, []);
+  const [advisors, setAdvisors] = React.useState([]);
+  const getAdvisorsList = async () => {
+    const json = await fetchService.doGET("meeting/advisors");
+    setAdvisors(json);
+  };
+  const advisorList = advisors.map((advisor) => {
+    return (
+      <AdvisorCard
+        fullname={advisor.fullName}
+        picture={testPicture}
+        profession={advisor.profession}
+        quote=""
+        email={advisor.email}
+        linkedin={advisor.linkedinUrl}
+      />
+    );
+  });
 
   return (
     <>
@@ -13,17 +31,7 @@ function MeetingsAdvisorsList() {
         TEMPORARY PAGE WITH ADVISOR CARD COMPONENT
       </p>
       <div className="meetings-advisors-list">
-        <ul>
-          <AdvisorCard
-            /*You can use style={{}} here to override default CSS for resizing/positioning purposes*/
-            fullname="Advisor's Name"
-            picture={testPicture}
-            profession="Senior Student"
-            quote="'Quote or smthg qsdq sdq q sd q d qsd qs d q'"
-            email="https://www.outlook.com"
-            linkedin="https://www.linkedin.com/"
-          />
-        </ul>
+        <ul>{advisorList}</ul>
       </div>
     </>
   );
