@@ -3,7 +3,7 @@ import linkedinIcon from "../../../assets/art/icon/linkedin.png";
 
 function AdvisorCard(props) {
   return (
-    <li id={props.id}>
+    <li id={props.id} style={props.style}>
       <div
         className="picture-container"
         style={{ backgroundImage: "url(" + props.picture + ")" }}
@@ -17,12 +17,14 @@ function AdvisorCard(props) {
           </a>
         </div>
       </div>
-      <p>
-        {props.fullname}
-        <br />
-        {props.profession}
-      </p>
-      <p id="quote">{props.quote}</p>
+      <div className="description-container">
+        <p>
+          <strong>{props.fullname}</strong>
+          <br />
+          {props.profession}
+        </p>
+        <p id="quote">{props.quote}</p>
+      </div>
     </li>
   );
 }

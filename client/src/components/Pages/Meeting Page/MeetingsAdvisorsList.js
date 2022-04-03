@@ -15,10 +15,11 @@ function MeetingsAdvisorsList() {
       <div className="meetings-advisors-list">
         <ul>
           <AdvisorCard
+            /*You can use style={{}} here to override default CSS for resizing/positioning purposes*/
             fullname="Advisor's Name"
             picture={testPicture}
             profession="Senior Student"
-            quote="'Quote or smthg qsdq sdq q sd q d qsd qs d qd s'"
+            quote="'Quote or smthg qsdq sdq q sd q d qsd qs d q'"
             email="https://www.outlook.com"
             linkedin="https://www.linkedin.com/"
           />

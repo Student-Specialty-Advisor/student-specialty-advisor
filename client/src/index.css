@@ -1744,32 +1744,46 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  text-align: center;
   justify-content: center;
 }
 .meetings-advisors-list li {
-  display: inline-block;
-  text-align: center;
+  display: flex;
   font-size: 18px;
   color: var(--mydarkblue);
-  width: 16%;
+  width: 8vw;
   margin-right: 5%;
   margin-left: 5%;
   margin-top: 2.5%;
   font-weight: 550;
   margin-bottom: 2.5%;
+  padding-top: 0.1%;
+  padding-left: 0.1%;
+  padding-right: 0.5%;
+  gap: 12%;
+  border: solid var(--mydarkblue);
+  background-color: white;
+  height: 18vh;
+  transition: 0.2s;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.meetings-advisors-list li:hover {
+  width: 20vw;
+  border-radius: 25px;
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 70px;
 }
 .meetings-advisors-list li .picture-container {
   position: relative;
   background-color: var(--myblue);
-  width: auto;
-  height: inherit;
-  padding-top: 100%;
+  width: 8vw;
+  height: 8vw;
   border-radius: 50%;
   border-style: solid;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  flex-shrink: 0;
 }
 .meetings-advisors-list li .picture-container .picture-overlay {
   position: absolute;
@@ -1779,42 +1793,49 @@ body {
   right: 0;
   opacity: 0;
   background-color: rgba(255, 255, 255, 0.7);
-  width: auto;
-  height: inherit;
-  padding-top: 100%;
+  width: 8vw;
+  height: 8vw;
   border-radius: 50%;
   border-style: none;
-  scale: 101%;
   transition: 0.5s;
 }
-.meetings-advisors-list li .picture-container .picture-overlay:hover {
+.meetings-advisors-list li:hover .picture-container .picture-overlay {
   opacity: 1;
 }
 .meetings-advisors-list li .picture-container .picture-overlay #email {
   position: absolute;
-  top: 40%;
-  left: 30%;
+  top: 35%;
+  left: 15%;
   transition: 0.2s;
 }
 .meetings-advisors-list li .picture-container .picture-overlay #linkedin {
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transition: 0.2s;
 }
 .meetings-advisors-list li .picture-container .picture-overlay img:hover {
   scale: 120%;
 }
+.meetings-advisors-list li .description-container {
+  width: 70%;
+  margin-left: -4%;
+  margin-top: 3%;
+}
+.meetings-advisors-list li .description-container p {
+  margin: 0;
+  margin-bottom: 10%;
+}
 
 .meetings-advisors-list li img {
-  width: 15%;
+  width: 30%;
   height: auto;
   margin-right: 2.5%;
   margin-left: 2.5%;
 }
 .meetings-advisors-list li #quote {
   font-style: italic;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--myblue);
 }
 /*#endregion meetings-advisors page*/
