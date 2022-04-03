@@ -5,34 +5,34 @@ import React from "react";
 function QuizGraphTheory(props) {
   const FIRST_COLOR = "black";
   const SECOND_COLOR = "grey";
-  const THIRD_COLOR = "grey";
+  const THIRD_COLOR = "lightgrey";
   const DISTANCE = 1;
 
   const graph = new Graph();
 
   React.useEffect(() => {
     graph.addNode("Student", {
-      size: 15,
+      size: 20,
       color: "blue",
       x: 0,
       y: 0.3,
     });
     graph.addNode("SE", {
-      size: 15,
+      size: 20,
       label: "  SWE: ≈ " + props.weightSE + " Weight",
       color: "yellow",
       x: DISTANCE,
       y: 0,
     });
     graph.addNode("CSE", {
-      size: 15,
+      size: 20,
       label: "  CSE: ≈ " + props.weightCSE + " Weight",
       color: "red",
       x: DISTANCE,
       y: 0.3,
     });
     graph.addNode("RE", {
-      size: 15,
+      size: 20,
       label: "  REE: ≈ " + props.weightRE + " Weight",
       color: "green",
       x: DISTANCE,
@@ -50,16 +50,17 @@ function QuizGraphTheory(props) {
     weights[0].value = weights[0].value > 1 ? weights[0].value : 2;
     weights[1].value = weights[1].value > 0 ? weights[1].value : 1;
     weights[2].value = weights[2].value > 0 ? weights[2].value : 1;
+
     graph.addEdge("Student", weights[0].vertex, {
-      size: weights[0].value,
+      size: weights[0].value + 4,
       color: FIRST_COLOR,
     });
     graph.addEdge("Student", weights[1].vertex, {
-      size: weights[1].value,
+      size: weights[1].value + 3,
       color: SECOND_COLOR,
     });
     graph.addEdge("Student", weights[2].vertex, {
-      size: weights[2].value,
+      size: weights[2].value + 2,
       color: THIRD_COLOR,
     });
   });
