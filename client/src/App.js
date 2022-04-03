@@ -19,7 +19,7 @@ import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
 import Programs from "./components/Pages/Programs/Programs";
 import Forum from "./components/Pages/Forum";
-import Meetings from "./components/Pages/Meeting Page/Meetings";
+import MeetingsRequest from "./components/Pages/Meeting Page/MeetingsRequest";
 import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
 import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdvisorsList";
 import Statistics from "./components/Pages/Statistics";
@@ -46,7 +46,11 @@ function App() {
         <Redirect exact from="/programs/*" to="/programs/se/overview" />
         <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
         <Redirect exact from="/videos" to="/videos/se" />
-        <PrivateRoute exact path="/meetings" component={Meetings} />
+        <PrivateRoute
+          exact
+          path="/meetings/request"
+          component={MeetingsRequest}
+        />
         <PrivateRoute
           exact
           path="/meetings/advisors"

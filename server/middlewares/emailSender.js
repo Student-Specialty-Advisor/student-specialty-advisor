@@ -19,7 +19,7 @@ const sendEmail = (to, subject, text, html, res) => {
   };
   transporter.sendMail(mailData, (error, info) => {
     if (error) {
-      res.status(500).send(error);
+      res.status(500).send({ error: 1, errorObject: error });
     }
     res
       .status(200)

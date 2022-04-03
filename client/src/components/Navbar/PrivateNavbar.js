@@ -78,7 +78,7 @@ function PrivateNavbar(props) {
                   onMouseEnter={() => showDropDown3(true)}
                   onMouseLeave={() => showDropDown3(false)}
                 >
-                  <Link to={item.path}>{item.title}</Link>
+                  <p>{item.title}</p>
                   {dropDown3 && (
                     <Dropdown
                       elements={DropDownElements3}
