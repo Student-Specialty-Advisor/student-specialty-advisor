@@ -18,12 +18,16 @@ const sendEmail = (to, subject, text, html, res) => {
     html: html,
   };
   transporter.sendMail(mailData, (error, info) => {
-    if (error) {
-      res.status(500).send({ error: 1, errorObject: error });
+    try {
+      if (error) {
+        res.status(500).send({ error: 1, errorObject: error });
+      }
+      res
+        .status(200)
+        .send({ message: "Email was sent successfully.", id: info.messageId });
+    } catch (exception) {
+      console.log(exception);
     }
-    res
-      .status(200)
-      .send({ message: "Email was sent successfully.", id: info.messageId });
   });
 };
 
