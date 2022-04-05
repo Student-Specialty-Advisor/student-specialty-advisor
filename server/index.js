@@ -16,8 +16,6 @@ const PORT = process.env.PORT || 8000;
 /*const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.static(buildPath)); LEAVE THIS COMMENTED*/
 
-/* use app.put / app.get ... here without a router class. It's necessary for heroku deployment */
-
 app.use(express.json());
 app.use(cors());
 
@@ -59,6 +57,7 @@ app.get(
 );
 
 //Meeting:
+
 //advisors
 app.get(
   "/ssa-api/meeting/advisors",
@@ -70,18 +69,18 @@ app.post(
   [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postAdvisor
 );
-//meetings
+//meetings schedule
 app.get(
   "/ssa-api/meeting/schedule",
-  [authJWT.verifyToken],
+  /*[authJWT.verifyToken],*/
   meetingController.getListOfMeetings
 );
 app.post(
   "/ssa-api/meeting/schedule",
-  [authJWT.verifyToken, authJWT.isAdmin],
+  /*[authJWT.verifyToken, authJWT.isAdmin],*/
   meetingController.postMeeting
 );
-
+//meetings reservation/requests
 app.post(
   "/ssa-api/meeting/request",
   [authJWT.verifyToken],

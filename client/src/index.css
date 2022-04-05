@@ -1838,6 +1838,35 @@ body {
 }
 /*#endregion meetings-advisors page*/
 
+/*#region meetings-request page*/
+.meetings-request-container {
+  margin-top: 15vh;
+}
+.meetings-request-title {
+  text-align: center;
+  font-size: 40px;
+  color: var(--mydarkerblue);
+}
+.meetings-request-table {
+  width: 90%;
+  height: 70vh;
+  margin-left: 3%;
+  margin-right: 7%;
+}
+.meetings-request-table th {
+  color: var(--myblue);
+}
+.meetings-request-table td {
+  border-style: solid;
+  width: 15%;
+  background-color: white;
+}
+.meetings-request-table td:hover {
+  background-color: bisque;
+}
+
+/*#endregion meetings-request page*/
+
 /*#region media / exceptions*/
 
 @media only screen and (min-width: 1280px) and (max-width: 1366px) {

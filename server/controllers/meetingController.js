@@ -1,6 +1,15 @@
 const Advisor = require("../db/Advisor");
 const Meeting = require("../db/Meeting");
 const { sendEmail } = require("../middlewares/emailSender");
+const scheduleRows = ["8", "9", "10", "11", "12", "1", "2", "3", "4"];
+const scheduleCols = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 var getListOfAdvisors = (req, res) => {
   Advisor.find({})
@@ -30,15 +39,26 @@ var getListOfMeetings = (req, res) => {
 };
 
 var postMeeting = (req, res) => {
-  const newMeeting = new Meeting(req.body);
-  newMeeting
-    .save()
-    .then(() => {
-      res.status(200).send({ success: 1 });
-    })
-    .catch((error) => {
-      res.status(500).send(error);
-    });
+  const meetingData = {
+    ...req.body,
+    row: scheduleRows.indexOf(req.body.from),
+    col: scheduleCols.indexOf(req.body.day),
+  };
+  if (meetingData.row === -1 || meetingData.col === -1) {
+    res
+      .status(500)
+      .send({ error: "Invalid request: check format of day or time." });
+  } else {
+    const newMeeting = new Meeting(meetingData);
+    newMeeting
+      .save()
+      .then((saved) => {
+        res.status(200).send({ success: 1, meeting: saved });
+      })
+      .catch((error) => {
+        res.status(500).send({ error: 1, errorObject: error });
+      });
+  }
 };
 
 var requestMeeting = (req, res) => {
