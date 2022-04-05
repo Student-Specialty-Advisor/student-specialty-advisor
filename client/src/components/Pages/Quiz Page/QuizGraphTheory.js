@@ -5,7 +5,7 @@ import React from "react";
 function QuizGraphTheory(props) {
   const FIRST_COLOR = "black";
   const SECOND_COLOR = "grey";
-  const THIRD_COLOR = "lightgrey";
+  const THIRD_COLOR = "grey";
   const DISTANCE = 1;
 
   const graph = new Graph();
@@ -54,14 +54,17 @@ function QuizGraphTheory(props) {
     graph.addEdge("Student", weights[0].vertex, {
       size: weights[0].value + 4,
       color: FIRST_COLOR,
+      type: "arrow",
     });
     graph.addEdge("Student", weights[1].vertex, {
       size: weights[1].value + 3,
       color: SECOND_COLOR,
+      type: "arrow",
     });
     graph.addEdge("Student", weights[2].vertex, {
       size: weights[2].value + 2,
       color: THIRD_COLOR,
+      type: "arrow",
     });
   });
 

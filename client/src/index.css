@@ -1770,8 +1770,6 @@ body {
 .meetings-advisors-list li:hover {
   width: 20vw;
   border-radius: 25px;
-  border-top-left-radius: 70px;
-  border-bottom-left-radius: 70px;
 }
 .meetings-advisors-list li .picture-container {
   position: relative;

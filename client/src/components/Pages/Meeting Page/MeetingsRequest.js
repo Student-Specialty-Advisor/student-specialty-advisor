@@ -32,7 +32,9 @@ function MeetingsRequest() {
       <h1>You can request meetings and view advisors here</h1>
       <h1>You can request meetings and view advisors here</h1>
       <h1>You can request meetings and view advisors here</h1>
-      <button onClick={task}>Click!</button>
+      <button disabled="true" onClick={task}>
+        Send test email (disabled to avoid spam)
+      </button>
     </div>
   );
 }
