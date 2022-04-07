@@ -4,6 +4,7 @@
   --myblue: rgb(5, 121, 153); /*in white background*/
   --mylightblue: rgb(0, 255, 255);
   --mydarkerblue: rgb(0, 0, 40);
+  --mybgcolor: rgb(220, 250, 250);
 }
 
 body {
@@ -153,10 +154,24 @@ body {
 
 /*#region public home page*/
 .home-public-head {
+  position: relative;
   width: 100%;
-  padding-top: 20vh;
+  height: 100vh;
+  margin-bottom: 10%;
+  background-color: rgba(220, 250, 250, 0.5);
+}
+.home-public-head-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("./assets/art/smu.jpg");
 }
 .home-public-head h1 {
+  margin: 0;
+  padding-top: 20vh;
   text-align: center;
   font-size: 60px;
   color: var(--mydarkerblue);
@@ -172,7 +187,7 @@ body {
 .home-public-head p {
   text-align: center;
   font-size: 30px;
-  color: var(--myblue);
+  color: rgb(3, 65, 82);
   font-style: oblique;
   animation: fadeInWithTranslateY 2s;
 }
@@ -181,8 +196,8 @@ body {
   background: var(--myorange);
   padding: 10px 20px;
   color: black;
-  border-style: solid;
-  border-color: black;
+  border: none;
+  border-radius: 10px;
   position: absolute;
   left: 50%;
   -ms-transform: translateX(-50%);
@@ -191,6 +206,8 @@ body {
   font-size: 20px;
   letter-spacing: 0.1em;
   animation: fadeIn 2s;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 5px var(--mydarkerblue));
   /*top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -198,8 +215,8 @@ body {
 }
 .home-public-head button:hover {
   transition: all 0.2s ease-in-out;
-  background: rgb(241, 166, 66);
-  color: rgb(22, 22, 22);
+  background: white;
+  color: grey;
 }
 .home-public-head button:active {
   background: rgb(211, 127, 17);
@@ -207,7 +224,7 @@ body {
 
 .home-public-mid {
   width: 40%;
-  padding-top: 20px;
+  padding-top: 5%;
   margin-left: 5%;
   float: left;
 }
@@ -440,7 +457,7 @@ body {
   text-align: center;
   font-size: 18px;
   color: var(--mydarkblue);
-  width: 16%;
+  width: 15%;
   margin-right: 5%;
   margin-left: 5%;
   margin-top: 2.5%;
@@ -1373,16 +1390,6 @@ body {
   transition: filter 0.5s ease-in-out;
   animation: loopFrame 5s infinite;
 }
-/* .about-container-body h1 {
-  color: var(--mydarkerblue);
-  max-width: 700px;
-  margin-top: -2%;
-  margin-left: 35vw;
-  margin-right: 15vw;
-  margin-bottom: 0;
-  font-size: 70px;
-  font-weight: 500;
-} */
 .about-container-body-text {
   margin-left: -15%;
   margin-top: -15%;
@@ -1404,42 +1411,38 @@ body {
 }
 .about-container-header {
   position: relative;
-  z-index: 1;
+  margin-top: 12vh;
   width: 100%;
-  height: 5.5vw;
-  background-color: #0e314c;
+  height: 50vh;
+  background-color: rgba(220, 250, 250, 0.3);
   background-position: center center;
   background-repeat: no-repeat;
-  padding-top: 200px;
-  padding-bottom: 120px;
 }
 .about-container-header::before {
   content: "";
   background-image: url("./assets/art/meetings_about.jpg");
   background-size: cover;
+  background-position: center 90%;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.85;
-  filter: blur(5px);
+  z-index: -1;
 }
 .about-container-header h1 {
-  margin-top: -5%;
-  margin-bottom: -0.2%;
+  padding-top: 5vh;
+  margin-bottom: 0;
   color: var(--mydarkerblue);
-  font-size: 90px;
+  font-size: 80px;
   line-height: 0.9;
   text-align: center;
   animation: fadeInWithTranslateY 1.5s forwards;
 }
 .about-container-header h4 {
-  height: 3vw;
-  line-height: 2.5vw;
   text-align: center;
   font-size: 20px;
-  color: var(--mydarkblue);
+  color: var(--mydarkerblue);
   margin-bottom: 20vw;
   animation: fadeInWithTranslateY 1.5s forwards;
 }
@@ -1936,7 +1939,7 @@ body {
 }
 .meetings-request-title {
   text-align: center;
-  font-size: 40px;
+  font-size: 50px;
   color: var(--mydarkerblue);
 }
 .meetings-request-table {
@@ -2059,6 +2062,12 @@ body {
 #meetings-request-popup div button:active {
   background-color: grey;
 }
+#meetings-request-popup p {
+  padding-bottom: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
+  font-size: 14px;
+}
 /*#endregion meetings-request page*/
 
 /*#region media / exceptions*/
@@ -2070,14 +2079,20 @@ body {
   .sign-up-form-container form {
     height: 80vh;
   }
-  .home-public-head {
-    padding-top: 10vh;
+  .home-public-head p {
+    font-size: 24px;
   }
   .quiz-transition-start#n6 {
     height: 21vh;
   }
   .videos-container .side-bar li a {
     font-size: 90%;
+  }
+  #meetings-request-popup.forLeft {
+    height: 150%;
+  }
+  #meetings-request-popup.forRight {
+    height: 150%;
   }
 }
 
