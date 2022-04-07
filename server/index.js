@@ -76,7 +76,7 @@ app.get(
   meetingController.getListOfMeetings
 );
 app.post(
-  "/ssa-api/meeting/schedule",
+  "/ssa-api/meeting/schedule/:id",
   [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postMeeting
 );
