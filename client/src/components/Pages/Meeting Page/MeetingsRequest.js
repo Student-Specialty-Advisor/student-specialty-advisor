@@ -85,20 +85,19 @@ function MeetingsRequest() {
             }}
           >
             <p>
-              Advisor's Name:
+              <strong>{element.advisor.fullName}</strong>
               <br />
-              <strong>{element.advisorName}</strong>
-            </p>
-            <p>
-              Specialty: <strong>{element.specialty}</strong>
+              {element.advisor.profession}
+              <br />
+              Advisor for {element.advisor.specialty}
             </p>
             <button
               onClick={() => {
                 setPopupShowNext(false);
                 setPopupInfo({
                   col: col,
-                  name: element.advisorName,
-                  specialty: element.specialty,
+                  name: element.advisor.fullName,
+                  specialty: element.advisor.specialty,
                 });
                 document
                   .getElementById("r" + row + "c" + col)

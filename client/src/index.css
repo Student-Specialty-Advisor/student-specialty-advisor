@@ -2011,12 +2011,14 @@ body {
   text-align: center;
 }
 .meetings-request-table .has-meeting button:enabled {
+  font-size: 13px;
   padding: 5px 10px;
   outline: none;
-  border: solid 1px;
+  border: none;
   background-color: #ffce94;
   border-radius: 25px;
   cursor: pointer;
+  filter: drop-shadow(0px 0px 3px);
   transition: 0.2s;
 }
 .meetings-request-table .has-meeting button:enabled:hover {
@@ -2072,20 +2074,22 @@ body {
   margin-bottom: 10%;
   padding: 5px 0px;
   outline: none;
-  border: solid black 1px;
+  border: none;
   text-align: center;
   background-color: white;
   font-weight: bold;
-  transition: 0.2s;
+  filter: drop-shadow(0px 0px 3px);
 }
 #meetings-request-popup select:hover {
   background-color: lightgrey;
 }
 #meetings-request-popup div {
+  position: absolute;
   display: flex;
   width: 90%;
   justify-content: right;
   gap: 3%;
+  bottom: 10%;
 }
 #meetings-request-popup div button {
   background-color: white;
