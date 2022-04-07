@@ -4,16 +4,11 @@ import Footer from "../Footer";
 function MeetingsAbout(props) {
   return (
     <>
-      <div className="about-container-test">
-        <h1>What are the meetings that you can book</h1>
-      </div>
-
       <div className="about-container-header">
-        <h1>What are Meetings?</h1>
-
+        <h1>Still need help?</h1>
         <h4>
-          In this page students will find the description of this feature and
-          how to use it
+          Meet with the community's advisors and discuss any concerns on your
+          mind!
         </h4>
       </div>
       <div className="about-container-body">
