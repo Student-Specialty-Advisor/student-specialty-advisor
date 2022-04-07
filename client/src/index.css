@@ -1823,6 +1823,42 @@ body {
 /*#endregion program page*/
 
 /*#region meetings-advisors page*/
+.advisors-page-container {
+  margin-top: 11%;
+  margin-left: 1%;
+}
+.advisors-page-container .advisors-about-container {
+  padding-left: 2%;
+  width: 32%;
+  border-bottom-width: 5px;
+  border-bottom-style: outset;
+  border-bottom-color: var(--mydarkblue);
+  border-radius: 34px 0px 0px 35px;
+  border-left-width: 6px;
+  border-left-style: outset;
+  border-left-color: var(--mydarkblue);
+  border-right-width: 1px;
+  border-right-color: var(--mydarkblue);
+  border-radius: 1px 0px 28px 40px;
+}
+.advisors-page-container button {
+  background-color: var(--myorange);
+  padding: 1% 2%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 44%;
+  font-family: inherit;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 650;
+}
+.advisors-page-container button:hover {
+  background-color: rgb(240, 154, 42);
+}
+.advisors-page-container button:active {
+  background-color: rgb(226, 128, 0);
+}
 .meetings-advisors-list {
   width: 100%;
   margin-top: 16.26vh;
