@@ -7,6 +7,7 @@ const MeetingSchema = new Schema({
   to: String,
   advisorName: String,
   email: String,
+  specialty: String,
   row: Number,
   col: Number,
 });

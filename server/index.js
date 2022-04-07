@@ -72,12 +72,12 @@ app.post(
 //meetings schedule
 app.get(
   "/ssa-api/meeting/schedule",
-  /*[authJWT.verifyToken],*/
+  [authJWT.verifyToken],
   meetingController.getListOfMeetings
 );
 app.post(
   "/ssa-api/meeting/schedule",
-  /*[authJWT.verifyToken, authJWT.isAdmin],*/
+  [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postMeeting
 );
 //meetings reservation/requests

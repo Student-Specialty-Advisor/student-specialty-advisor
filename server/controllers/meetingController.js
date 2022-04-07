@@ -1,6 +1,7 @@
 const Advisor = require("../db/Advisor");
 const Meeting = require("../db/Meeting");
 const { sendEmail } = require("../middlewares/emailSender");
+const specialties = ["SE", "CSE", "REE"];
 const scheduleRows = ["8", "9", "10", "11", "12", "1", "2", "3", "4"];
 const scheduleCols = [
   "Monday",
@@ -34,8 +35,12 @@ var postAdvisor = (req, res) => {
 };
 var getListOfMeetings = (req, res) => {
   Meeting.find({})
-    .then((meetings) => res.status(200).send(meetings))
-    .catch((error) => res.status(500).send(error));
+    .then((meetings) => {
+      res.status(200).send({ success: 1, meetings: meetings });
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
 };
 
 var postMeeting = (req, res) => {
@@ -44,10 +49,20 @@ var postMeeting = (req, res) => {
     row: scheduleRows.indexOf(req.body.from),
     col: scheduleCols.indexOf(req.body.day),
   };
-  if (meetingData.row === -1 || meetingData.col === -1) {
+  if (specialties.indexOf(meetingData.specialty) === -1) {
     res
       .status(500)
-      .send({ error: "Invalid request: check format of day or time." });
+      .send({
+        error:
+          "Invalid request: check format of specialty ('SE', 'CSE', 'REE').",
+      });
+  } else if (meetingData.row === -1 || meetingData.col === -1) {
+    res
+      .status(500)
+      .send({
+        error:
+          "Invalid request: check format of day or time.(Monday..Saturday | 8..12, 1..4)",
+      });
   } else {
     const newMeeting = new Meeting(meetingData);
     newMeeting
