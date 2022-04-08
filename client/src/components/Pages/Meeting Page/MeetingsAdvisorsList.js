@@ -1,6 +1,7 @@
 import React from "react";
 import AdvisorCard from "./AdvisorCard";
 import fetchService from "../../../services/fetchService";
+import Footer from "../Footer";
 function MeetingsAdvisorsList() {
   React.useEffect(() => {
     document.title = "Meetings - Advisors - Student Specialty Advisor";
@@ -11,7 +12,8 @@ function MeetingsAdvisorsList() {
     const json = await fetchService.doGET("meeting/advisors");
     setAdvisors(json);
   };
-  const advisorList = advisors.map((advisor) => {
+
+  const mappingFunction = (advisor) => {
     return (
       <AdvisorCard
         fullname={advisor.fullName}
@@ -22,41 +24,35 @@ function MeetingsAdvisorsList() {
         linkedin={advisor.linkedinUrl}
       />
     );
+  };
+
+  const advisorsSE = advisors.filter((advisor) => {
+    return advisor.specialty === "SE";
+  });
+  const advisorsCSE = advisors.filter((advisor) => {
+    return advisor.specialty === "CSE";
+  });
+  const advisorsREE = advisors.filter((advisor) => {
+    return advisor.specialty === "REE";
   });
 
   return (
-    <div className="advisors-page-container">
-      <div className="advisors-about-container">
-        <h2> What does an advisor do ?</h2>
-        <p>
-          Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-          Blah Blah Blah Blah Blah Blah Blah Blah
-        </p>
-        <h2> Can I be an advisor ?</h2>
-        <p>
-          Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-          Blah Blah Blah Blah Blah Blah Blah Blah
-        </p>
+    <>
+      <h1>SE</h1>
+      <div className="meetings-advisors-list">
+        <ul>{advisorsSE.map(mappingFunction)}</ul>
       </div>
-      <button>Apply now!</button>
-    </div>
+      <h1>CSE</h1>
+      <div className="meetings-advisors-list">
+        <ul>{advisorsCSE.map(mappingFunction)}</ul>
+      </div>
+      <h1>REE</h1>
+      <div className="meetings-advisors-list">
+        <ul>{advisorsREE.map(mappingFunction)}</ul>
+      </div>
+      <Footer />
+    </>
   );
 }
 
 export default MeetingsAdvisorsList;
-/*
-<p style={{ fontSize: "16px", position: "absolute" }}>
-        TEMPORARY PAGE WITH ADVISOR CARD COMPONENT
-      </p>
-      <div className="meetings-advisors-list">
-        <ul>
-          <AdvisorCard
-            fullname="Advisor's Name"
-            picture={testPicture}
-            profession="Senior Student"
-            quote="'Quote or smthg qsdq sdq q sd q d qsd qs d qd s'"
-            email="https://www.outlook.com"
-            linkedin="https://www.linkedin.com/"
-          />
-        </ul>
-      </div> */
