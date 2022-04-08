@@ -66,24 +66,24 @@ app.get(
 );
 app.post(
   "/ssa-api/meeting/advisors",
-  [authJWT.verifyToken, authJWT.isAdmin],
+
   meetingController.postAdvisor
 );
 //meetings schedule
 app.get(
   "/ssa-api/meeting/schedule",
-  [authJWT.verifyToken],
+
   meetingController.getListOfMeetings
 );
 app.post(
-  "/ssa-api/meeting/schedule/:id",
-  [authJWT.verifyToken, authJWT.isAdmin],
+  "/ssa-api/meeting/schedule",
+
   meetingController.postMeeting
 );
 //meetings reservation/requests
 app.post(
   "/ssa-api/meeting/request",
-  [authJWT.verifyToken],
+
   meetingController.requestMeeting
 );
 

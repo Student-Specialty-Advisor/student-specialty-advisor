@@ -44,41 +44,34 @@ var getListOfMeetings = (req, res) => {
 };
 
 var postMeeting = (req, res) => {
-  Advisor.findOne(req.params)
-    .then((advisor) => {
-      if (advisor === null) {
-        res
-          .status(500)
-          .send({ error: "Advisor not found , Check the parameters !" });
-        return;
-      }
-      const meetingData = {
-        ...req.body,
-        advisor: advisor,
-        row: scheduleRows.indexOf(req.body.from),
-        col: scheduleCols.indexOf(req.body.day),
-      };
+  const meetingData = {
+    ...req.body,
+    row: scheduleRows.indexOf(req.body.from),
+    col: scheduleCols.indexOf(req.body.day),
+  };
 
-      if (meetingData.row === -1 || meetingData.col === -1) {
-        res.status(500).send({
-          error:
-            "Invalid request: check format of day or time.(Monday..Saturday | 8..12, 1..4)",
-        });
-      } else {
-        const newMeeting = new Meeting(meetingData);
-        newMeeting
-          .save()
-          .then((saved) => {
-            res.status(200).send({ success: 1, meeting: saved });
-          })
-          .catch((error) => {
-            res.status(500).send({ error: 1, errorObject: error });
-          });
-      }
-    })
-    .catch((error) => {
-      res.status(500).send(error);
+  if (meetingData.row === -1 || meetingData.col === -1) {
+    res.status(500).send({
+      error:
+        "Invalid request: check format of day or time.(Monday..Saturday | 8..12, 1..4)",
     });
+  } else {
+    const newMeeting = new Meeting(meetingData);
+    newMeeting
+      .save()
+      .then((saved) => {
+        Meeting.populate(saved, { path: "advisor" }, function (err, meeting) {
+          if (err) {
+            res.status(500).send({ error: 1, errorObject: error });
+            return;
+          }
+          res.status(200).send({ success: 1, meeting: meeting });
+        });
+      })
+      .catch((error) => {
+        res.status(500).send({ error: 1, errorObject: error });
+      });
+  }
 };
 
 var requestMeeting = (req, res) => {
