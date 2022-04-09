@@ -25,7 +25,7 @@ import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdviso
 import Statistics from "./components/Pages/Statistics";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
-
+import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
 function App() {
   return (
     <Router>
@@ -33,6 +33,8 @@ function App() {
       <AuthVerify />
       <Switch>
         <Route exact path="/" component={Home} />
+        <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
+        <Redirect exact from="/dashboard" to="/dashboard/statistics" />
         <PrivateRoute exact path="/quiz" component={Quiz} />
         <PrivateRoute exact path="/quiz/started" component={QuizContainer} />
         <PrivateRoute

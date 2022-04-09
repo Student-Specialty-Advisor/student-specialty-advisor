@@ -164,7 +164,6 @@ function Statistics() {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 }
