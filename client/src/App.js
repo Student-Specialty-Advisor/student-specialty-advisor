@@ -22,7 +22,6 @@ import Forum from "./components/Pages/Forum";
 import MeetingsRequest from "./components/Pages/Meeting Page/MeetingsRequest";
 import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
 import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdvisorsList";
-import Statistics from "./components/Pages/Statistics";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
@@ -60,7 +59,6 @@ function App() {
         />
         <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
         <PrivateRoute exact path="/forum" component={Forum} />
-        <AdminRoute exact path="/statistics" component={Statistics} />
         <Route exact path="/login" component={LogInForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <PrivateRoute exact path="/profile" component={Profile} />

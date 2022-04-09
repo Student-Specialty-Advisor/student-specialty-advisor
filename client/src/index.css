@@ -27,6 +27,15 @@ body {
   overflow: hidden;
 }*/
 
+/*#region loading component*/
+.loading-component h1 {
+  text-align: center;
+  font-size: 60px;
+  color: var(--mydarkerblue);
+  animation: fadeIn 1s;
+}
+/*#endregion loading component*/
+
 /*#region keyframes*/
 
 @keyframes fadeInWithTranslateY {
@@ -509,14 +518,14 @@ body {
   top: 0;
   left: 0;
   position: fixed;
-  height: 11.5vh;
+  height: 12vh;
   width: 100%;
   background: rgb(32, 53, 73);
   z-index: 12;
 }
 .navbar-flex {
   margin: auto;
-  height: 11.5vh;
+  height: 12vh;
   width: 90%;
   display: flex;
   align-items: center;
@@ -543,7 +552,7 @@ body {
 
 .navbar-logo-container {
   text-decoration: none;
-  height: 100%;
+  height: 90%;
   cursor: pointer;
 }
 
@@ -1204,28 +1213,9 @@ body {
 
 /*#region statistics page*/
 
-.statistics-loading {
-  margin-top: 14vh;
-  margin-bottom: 76vh;
-}
-.statistics-loading h1 {
-  text-align: center;
-  font-size: 60px;
-  color: var(--mydarkerblue);
-  animation: fadeIn 1s;
-}
-
-.statistics-loaded {
-  margin-top: 14vh;
-}
-.statistics-loaded h1 {
-  text-align: center;
-  font-size: 60px;
-  color: rgb(0, 0, 40);
-  animation: fadeInWithTranslateY 1s;
-}
 .statistics-loaded div {
-  margin-bottom: 7%;
+  margin-top: 2%;
+  margin-bottom: 8%;
 }
 
 /*#endregion statistics page*/
@@ -1998,11 +1988,11 @@ body {
   text-align: center;
   font-size: 50px;
   color: var(--mydarkerblue);
+  animation: fadeInWithTranslateY 0.5s;
 }
 .meetings-request-table {
   width: 90%;
   height: 70vh;
-
   table-layout: fixed;
 }
 .meetings-request-table th {
@@ -2135,6 +2125,96 @@ body {
   font-size: 14px;
 }
 /*#endregion meetings-request page*/
+
+/*#region dashboard page*/
+.dashboard-container {
+  width: 100%;
+  height: 88vh;
+  margin-top: 12vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.dashboard-container .side-bar {
+  background-color: rgb(23, 38, 53);
+  width: 20%;
+  height: inherit;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.dashboard-container .side-bar h1 {
+  color: cyan;
+  margin-left: 5%;
+  font-size: 30px;
+  font-style: italic;
+}
+.dashboard-container .side-bar li {
+  position: relative;
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.dashboard-container .side-bar li#statistics {
+  margin-top: 10%;
+}
+.dashboard-container .side-bar li a::before {
+  position: absolute;
+  content: "";
+  left: -0.75rem;
+  width: 0.25rem;
+  height: 100%;
+  background: cyan;
+  transition: 0.5s;
+}
+.dashboard-container .side-bar li a {
+  margin-left: 10%;
+  text-decoration: none;
+  position: relative;
+  color: white;
+  transition: color 0.45s 0.04s;
+}
+.dashboard-container .side-bar a:hover::before {
+  left: calc(100% + 0.75rem);
+}
+.dashboard-container .side-bar li a:hover {
+  color: cyan;
+}
+.dashboard-container .side-bar li.active {
+  background-color: rgb(0, 85, 110);
+}
+.dashboard-container .side-bar li a.active {
+  transition: 0s;
+  font-weight: bolder;
+  color: cyan;
+  pointer-events: none;
+}
+.dashboard-container .side-bar li a.active::before {
+  transition: 0s;
+  left: calc(100% + 0.75rem);
+}
+.dashboard-container .dashboard-options {
+  width: 80%;
+  height: inherit;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  overflow: auto;
+}
+
+.dashboard-options-list {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding: 0;
+  margin: auto;
+  list-style-type: none;
+}
+.dashboard-options-list li {
+  margin-top: 2%;
+}
+/*#endregion dashboard page*/
 
 /*#region media / exceptions*/
 

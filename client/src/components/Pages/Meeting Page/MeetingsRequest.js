@@ -1,5 +1,6 @@
 import React from "react";
 import fetchService from "../../../services/fetchService";
+import Loading from "../../Loading";
 import Footer from "../Footer";
 import MeetingsRequestPopup from "./MeetingsRequestPopup";
 
@@ -164,9 +165,9 @@ function MeetingsRequest() {
 
   return (
     <div className="meetings-request-container">
-      <h1 className="meetings-request-title">Current Meetings Schedule</h1>
       {isLoaded ? (
         <>
+          <h1 className="meetings-request-title">Current Meetings Schedule</h1>
           <table className="meetings-request-table">
             <thead>
               <tr>
@@ -230,9 +231,7 @@ function MeetingsRequest() {
         </>
       ) : (
         <>
-          <div>
-            <p>Loading</p>
-          </div>
+          <Loading />
         </>
       )}
     </div>

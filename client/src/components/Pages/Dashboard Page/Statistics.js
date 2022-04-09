@@ -10,8 +10,8 @@ import {
   BarElement,
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
-import Footer from "./Footer";
-import fetchService from "../../services/fetchService";
+import fetchService from "../../../services/fetchService";
+import Loading from "../../Loading";
 
 ChartJS.register(
   ArcElement,
@@ -104,15 +104,11 @@ function Statistics() {
   }, []);
   return !isLoaded ? (
     <>
-      <div className="statistics-loading">
-        <h1>Loading Statistics...</h1>
-      </div>
-      <Footer id="no-margin" />
+      <Loading />
     </>
   ) : (
     <>
       <div className="statistics-loaded">
-        <h1>Statistics Page</h1>
         <div>
           <Doughnut
             data={percentageData}

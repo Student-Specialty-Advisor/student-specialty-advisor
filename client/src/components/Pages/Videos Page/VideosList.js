@@ -65,19 +65,24 @@ function VideosList(props) {
     var se = document.getElementById("se");
     var cse = document.getElementById("cse");
     var re = document.getElementById("re");
-    if (specialty === "se") {
-      se.className = "active";
-      cse.className = "";
-      re.className = "";
-      se.children[0].disabled = true;
-    } else if (specialty === "cse") {
-      se.className = "";
-      cse.className = "active";
-      re.className = "";
-    } else if (specialty === "re") {
-      se.className = "";
-      cse.className = "";
-      re.className = "active";
+    switch (specialty) {
+      case "se":
+        se.className = "active";
+        cse.className = "";
+        re.className = "";
+        break;
+      case "cse":
+        se.className = "";
+        cse.className = "active";
+        re.className = "";
+        break;
+      case "re":
+        se.className = "";
+        cse.className = "";
+        re.className = "active";
+        break;
+      default:
+        break;
     }
   };
 
