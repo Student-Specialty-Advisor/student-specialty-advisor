@@ -66,25 +66,30 @@ app.get(
 );
 app.post(
   "/ssa-api/meeting/advisors",
-
+  [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postAdvisor
 );
 //meetings schedule
 app.get(
   "/ssa-api/meeting/schedule",
-
+  [authJWT.verifyToken],
   meetingController.getListOfMeetings
 );
 app.post(
   "/ssa-api/meeting/schedule",
-
+  [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postMeeting
 );
 //meetings reservation/requests
-app.post(
+app.put(
   "/ssa-api/meeting/request",
-
+  [authJWT.verifyToken],
   meetingController.requestMeeting
+);
+app.get(
+  "/ssa-api/meeting/request/unlock",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  meetingController.unlockRequestedMeetings
 );
 
 app.listen(PORT, () => {

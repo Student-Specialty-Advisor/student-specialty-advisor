@@ -35,6 +35,7 @@ var postAdvisor = (req, res) => {
 };
 var getListOfMeetings = (req, res) => {
   Meeting.find({})
+    .populate("advisor")
     .then((meetings) => {
       res.status(200).send({ success: 1, meetings: meetings });
     })
@@ -75,7 +76,7 @@ var postMeeting = (req, res) => {
 };
 
 var requestMeeting = (req, res) => {
-  const data = req.body; // to, day, at, userName, userEmail, universityYear, reason
+  const data = req.body; // to, day, from, userName, userEmail, universityYear, reason
   const email = {
     subject:
       "Student Specialty Advisor: " +
@@ -90,7 +91,7 @@ var requestMeeting = (req, res) => {
       "</strong> has requested a meeting with you on <strong>" +
       data.day +
       " at " +
-      data.at +
+      data.from +
       "</strong>." +
       "<br/><br/><strong>" +
       data.userName +
@@ -109,7 +110,58 @@ var requestMeeting = (req, res) => {
       "<a href='https://student-specialty-advisor.herokuapp.com/' target='_blank' rel='noreferrer noopener'><div style='width:100%; background-color: rgb(15, 25,33); padding-top: 2%; padding-bottom: 2%;'><img style='width:25%;' src= https://i.imgur.com/9oEMMqC.png alt=''/></div></a>" +
       "</div></div>",
   };
-  sendEmail(data.to, email.subject, email.text, email.html, res);
+  Meeting.findById(data.meetingID).then((meeting) => {
+    if (meeting === null) {
+      res.status(500).send({ error: 1, message: "Meeting was not found" });
+      return;
+    }
+    if (meeting.isAvailable === false) {
+      res.status(500).send({ unavailable: 1 });
+      return;
+    } else if (meeting.isAvailable === true) {
+      const status = sendEmail(data.to, email.subject, email.text, email.html);
+      if (status === null) {
+        res.status(500).send({
+          error: 1,
+          message: "Aborted request because email was not sent",
+        });
+        return;
+      }
+      if (status.success === null) {
+        res.status(500).send({
+          error: 1,
+          message: "Aborted request because email was not sent",
+        });
+        return;
+      }
+      Meeting.findByIdAndUpdate(
+        data.meetingID,
+        { isAvailable: false },
+        { new: true }
+      )
+        .then((meeting) => {
+          res
+            .status(200)
+            .send({ success: 1, message: status.message, meeting: meeting });
+        })
+        .catch((error) => {
+          res.status(500).send(error);
+        });
+    } else {
+      res.status(500).send({ error: 1 });
+      return;
+    }
+  });
+};
+
+var unlockRequestedMeetings = (req, res) => {
+  Meeting.updateMany({}, { isAvailable: true })
+    .then(() => {
+      res.status(200).send({ success: 1 });
+    })
+    .catch((error) => {
+      res.status(500).send({ error: 1, errorObject: error });
+    });
 };
 
 exports.getListOfAdvisors = getListOfAdvisors;
@@ -117,3 +169,4 @@ exports.postAdvisor = postAdvisor;
 exports.getListOfMeetings = getListOfMeetings;
 exports.postMeeting = postMeeting;
 exports.requestMeeting = requestMeeting;
+exports.unlockRequestedMeetings = unlockRequestedMeetings;
