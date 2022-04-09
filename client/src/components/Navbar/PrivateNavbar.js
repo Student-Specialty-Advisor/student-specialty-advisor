@@ -33,6 +33,11 @@ function PrivateNavbar(props) {
           </div>
         </Link>
         <ul className="nav-items">
+          {isAdmin ? (
+            <li className="nav-item">
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          ) : null}
           {NavItems.map((item) => {
             if (item.title === "Programs") {
               return (
@@ -98,11 +103,6 @@ function PrivateNavbar(props) {
               </li>
             );
           })}
-          {isAdmin ? (
-            <li className="nav-item">
-              <Link to="/statistics">Statistics</Link>
-            </li>
-          ) : null}
         </ul>
         <div className="btn-container">
           <div className="btn-container">
