@@ -111,9 +111,9 @@ function PrivateNavbar(props) {
             </Link>
           </div>
           <div className="btn-container">
-            <Link to="/login" className="btn" onClick={logout}>
+            <button className="btn" onClick={logout}>
               Log Out
-            </Link>
+            </button>
           </div>
         </div>
       </nav>

@@ -26,7 +26,11 @@ function MeetingsRequest() {
   const [popupInfo, setPopupInfo] = React.useState({
     col: 0,
     name: "",
+    day: "",
+    from: "",
     specialty: "",
+    email: "",
+    meetingID: "",
   });
 
   const fetchSchedule = () => {
@@ -75,7 +79,10 @@ function MeetingsRequest() {
         <td
           key={"r" + row + "c" + col}
           id={"r" + row + "c" + col}
-          className="has-meeting"
+          className={
+            "has-meeting " +
+            (element.isAvailable === true ? "available" : "unavailable")
+          }
         >
           <div
             style={{
@@ -91,24 +98,32 @@ function MeetingsRequest() {
               <br />
               Advisor for {element.advisor.specialty}
             </p>
-            <button
-              onClick={() => {
-                setPopupShowNext(false);
-                setPopupInfo({
-                  col: col,
-                  name: element.advisor.fullName,
-                  specialty: element.advisor.specialty,
-                });
-                document
-                  .getElementById("r" + row + "c" + col)
-                  .appendChild(
-                    document.getElementById("meetings-request-popup")
-                  );
-                setPopupIsShown(true);
-              }}
-            >
-              Request Meeting
-            </button>
+            {element.isAvailable === true ? (
+              <button
+                onClick={() => {
+                  setPopupShowNext(false);
+                  setPopupInfo({
+                    col: col,
+                    name: element.advisor.fullName,
+                    day: element.day,
+                    from: element.from,
+                    specialty: element.advisor.specialty,
+                    email: element.advisor.email,
+                    meetingID: element._id,
+                  });
+                  document
+                    .getElementById("r" + row + "c" + col)
+                    .appendChild(
+                      document.getElementById("meetings-request-popup")
+                    );
+                  setPopupIsShown(true);
+                }}
+              >
+                Request Meeting
+              </button>
+            ) : (
+              <button disabled>Already Reserved</button>
+            )}
           </div>
         </td>
       );
@@ -205,9 +220,11 @@ function MeetingsRequest() {
           </table>
           <MeetingsRequestPopup
             isShown={popupIsShown}
+            setIsShown={setPopupIsShown}
             showNext={popupShowNext}
             setShowNext={setPopupShowNext}
             info={popupInfo}
+            fetchSchedule={fetchSchedule}
           />
           <Footer />
         </>

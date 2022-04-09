@@ -150,6 +150,11 @@ body {
   border-radius: 10px;
 }
 
+.ajs-message {
+  background-color: beige;
+  border-radius: 10px;
+}
+
 /*#endregion AlertifyJS*/
 
 /*#region public home page*/
@@ -550,6 +555,8 @@ body {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   margin-left: 24px;
+  font-family: inherit;
+  font-size: inherit;
 }
 .btn-container {
   margin-right: 24px;
@@ -2018,24 +2025,28 @@ body {
 .meetings-request-table .has-meeting {
   background-color: var(--myorange);
 }
-.meetings-request-table .has-meeting:hover {
+.meetings-request-table .has-meeting.unavailable {
+  background-color: rgb(241, 167, 69);
+  pointer-events: none;
+}
+.meetings-request-table .has-meeting.available:hover {
   background-color: var(--myorange);
 }
 .meetings-request-table .has-meeting p {
   margin: 0;
   margin-bottom: 6%;
+  font-size: 15px;
   text-align: center;
 }
 .meetings-request-table .has-meeting button:enabled {
+  color: var(--mydarkblue);
   font-size: 13px;
   padding: 5px 10px;
   outline: none;
-  border: none;
-  background-color: #ffce94;
   border-radius: 25px;
+  background-color: white;
   cursor: pointer;
-  filter: drop-shadow(0px 0px 3px);
-  transition: 0.2s;
+  border: solid 1px;
 }
 .meetings-request-table .has-meeting button:enabled:hover {
   background-color: rgb(214, 191, 163);
@@ -2044,10 +2055,11 @@ body {
   background-color: rgb(180, 161, 138);
 }
 .meetings-request-table .has-meeting button:disabled {
+  color: darkred;
   padding: 5px 10px;
   outline: none;
-  border: solid 1px;
-  background-color: lightgrey;
+  border: none;
+  background-color: transparent;
   border-radius: 25px;
 }
 #meetings-request-popup.forLeft {
@@ -2058,6 +2070,7 @@ body {
   width: 180%;
   height: 120%;
   background-color: #ffce94;
+  border: solid 1px;
   border-radius: 10px;
   top: 12%;
   left: 115%;
@@ -2073,6 +2086,7 @@ body {
   width: 180%;
   height: 120%;
   background-color: #ffce94;
+  border: solid 1px;
   border-radius: 10px;
   top: 12%;
   right: 115%;
@@ -2086,18 +2100,16 @@ body {
   font-size: 16px;
 }
 #meetings-request-popup select {
+  color: var(--mydarkblue);
   width: 70%;
   margin-bottom: 10%;
   padding: 5px 0px;
   outline: none;
-  border: none;
+  border: solid 1px;
   text-align: center;
   background-color: white;
   font-weight: bold;
-  filter: drop-shadow(0px 0px 3px);
-}
-#meetings-request-popup select:hover {
-  background-color: lightgrey;
+  border-radius: 5px;
 }
 #meetings-request-popup div {
   position: absolute;
