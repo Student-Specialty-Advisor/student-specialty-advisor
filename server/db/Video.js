@@ -5,4 +5,4 @@ const Video = mongoose.model("Video", {
   specialty: String,
 });
 
-module.exports = User;
+module.exports = Video;

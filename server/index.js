@@ -8,6 +8,7 @@ const accountSystemController = require("./controllers/accountSystemController.j
 const statisticsController = require("./controllers/statisticsController.js");
 const quizController = require("./controllers/quizController.js");
 const meetingController = require("./controllers/meetingController.js");
+const videoController = require("./controllers/videoController.js");
 const authJWT = require("./middlewares/authJWT");
 
 const app = express();
@@ -90,6 +91,31 @@ app.get(
   "/ssa-api/meeting/request/unlock",
   [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.unlockRequestedMeetings
+);
+
+//Videos
+app.post(
+  "/ssa-api/videos",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  videoController.postVideo
+);
+//to delete a video using its ID
+app.delete(
+  "/ssa-api/videos/:id",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  videoController.deleteVideo
+);
+//to get all videos
+app.get(
+  "/ssa-api/videos",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  videoController.getListOfVideos
+);
+//to get one video using specialty
+app.get(
+  "/ssa-api/videos/:specialty",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  videoController.getAVideo
 );
 
 app.listen(PORT, () => {
