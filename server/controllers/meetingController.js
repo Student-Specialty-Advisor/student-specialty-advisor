@@ -65,6 +65,16 @@ var getListOfMeetings = (req, res) => {
     });
 };
 
+var deleteMeeting = (req, res) => {
+  Meeting.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.status(200).send({ success: 1 });
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+};
+
 var postMeeting = (req, res) => {
   const meetingData = {
     ...req.body,
@@ -191,5 +201,6 @@ exports.deleteAdvisor = deleteAdvisor;
 exports.updateAdvisor = updateAdvisor;
 exports.getListOfMeetings = getListOfMeetings;
 exports.postMeeting = postMeeting;
+exports.deleteMeeting = deleteMeeting;
 exports.requestMeeting = requestMeeting;
 exports.unlockRequestedMeetings = unlockRequestedMeetings;

@@ -92,6 +92,11 @@ app.post(
   [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postMeeting
 );
+app.delete(
+  "/ssa-api/meeting/schedule/:id",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  meetingController.deleteMeeting
+);
 //meetings reservation/requests
 app.put(
   "/ssa-api/meeting/request",
