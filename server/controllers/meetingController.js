@@ -40,17 +40,17 @@ var deleteAdvisor = (req, res) => {
       res.status(200).send({ success: 1 });
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(500).send({ error: 1, errorObject: error });
     });
 };
 
 var updateAdvisor = (req, res) => {
   Advisor.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((newAdvisor) => {
-      res.status(200).send(newAdvisor);
+      res.status(200).send({ success: 1, advisor: newAdvisor });
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(500).send({ error: 1, errorObject: error });
     });
 };
 
@@ -71,7 +71,7 @@ var deleteMeeting = (req, res) => {
       res.status(200).send({ success: 1 });
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(500).send({ error: 1, errorObject: error });
     });
 };
 

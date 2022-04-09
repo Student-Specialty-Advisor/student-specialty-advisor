@@ -1,6 +1,6 @@
 const Video = require("../db/Video");
 
-var getListOfVideos = (req, res) => {
+var getListOfAllVideos = (req, res) => {
   Video.find({})
     .then((videos) => {
       res.status(200).send(videos);
@@ -10,10 +10,10 @@ var getListOfVideos = (req, res) => {
     });
 };
 
-var getAVideo = (req, res) => {
+var getListOfVideosBySpecialty = (req, res) => {
   Video.find(req.params)
-    .then((video) => {
-      res.status(200).send(video);
+    .then((videos) => {
+      res.status(200).send(videos);
     })
     .catch((error) => {
       res.status(500).send(error);
@@ -28,7 +28,7 @@ var postVideo = (req, res) => {
       res.status(200).send({ success: 1 });
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(500).send({ error: 1, errorObject: error });
     });
 };
 
@@ -38,11 +38,11 @@ var deleteVideo = (req, res) => {
       res.status(200).send({ success: 1 });
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(500).send({ error: 1, errorObject: error });
     });
 };
 
-exports.getListOfVideos = getListOfVideos;
-exports.getAVideo = getAVideo;
+exports.getListOfAllVideos = getListOfAllVideos;
+exports.getListOfVideosBySpecialty = getListOfVideosBySpecialty;
 exports.postVideo = postVideo;
 exports.deleteVideo = deleteVideo;
