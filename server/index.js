@@ -59,7 +59,7 @@ app.get(
 
 //Meeting:
 
-//advisors
+//advisors:
 app.get(
   "/ssa-api/meeting/advisors",
   [authJWT.verifyToken],
@@ -69,6 +69,17 @@ app.post(
   "/ssa-api/meeting/advisors",
   [authJWT.verifyToken, authJWT.isAdmin],
   meetingController.postAdvisor
+);
+//to delete an advisor using his ID
+app.delete(
+  "/ssa-api/meeting/advisors/:id",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  meetingController.deleteAdvisor
+);
+app.put(
+  "/ssa-api/meeting/advisors/:id",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  meetingController.updateAdvisor
 );
 //meetings schedule
 app.get(

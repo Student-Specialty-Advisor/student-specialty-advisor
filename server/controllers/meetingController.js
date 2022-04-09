@@ -33,6 +33,27 @@ var postAdvisor = (req, res) => {
       res.status(500).send(error);
     });
 };
+
+var deleteAdvisor = (req, res) => {
+  Advisor.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.status(200).send({ success: 1 });
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+};
+
+var updateAdvisor = (req, res) => {
+  Advisor.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((newAdvisor) => {
+      res.status(200).send(newAdvisor);
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+};
+
 var getListOfMeetings = (req, res) => {
   Meeting.find({})
     .populate("advisor")
@@ -166,6 +187,8 @@ var unlockRequestedMeetings = (req, res) => {
 
 exports.getListOfAdvisors = getListOfAdvisors;
 exports.postAdvisor = postAdvisor;
+exports.deleteAdvisor = deleteAdvisor;
+exports.updateAdvisor = updateAdvisor;
 exports.getListOfMeetings = getListOfMeetings;
 exports.postMeeting = postMeeting;
 exports.requestMeeting = requestMeeting;
