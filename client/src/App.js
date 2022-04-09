@@ -19,11 +19,12 @@ import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
 import Programs from "./components/Pages/Programs/Programs";
 import Forum from "./components/Pages/Forum";
-import Meeting from "./components/Pages/Meeting";
-import Statistics from "./components/Pages/Statistics";
+import MeetingsRequest from "./components/Pages/Meeting Page/MeetingsRequest";
+import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
+import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdvisorsList";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
-
+import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
 function App() {
   return (
     <Router>
@@ -31,15 +32,33 @@ function App() {
       <AuthVerify />
       <Switch>
         <Route exact path="/" component={Home} />
+        <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
+        <Redirect exact from="/dashboard" to="/dashboard/statistics" />
         <PrivateRoute exact path="/quiz" component={Quiz} />
         <PrivateRoute exact path="/quiz/started" component={QuizContainer} />
-        <PrivateRoute exact path="/programs/:section" component={Programs} />
-        <Redirect exact from="/programs" to="/programs/overview" />
+        <PrivateRoute
+          exact
+          path="/programs/:specialty/:section/"
+          component={Programs}
+        />
+        <Redirect exact from="/programs/se" to="/programs/se/overview" />
+        <Redirect exact from="/programs/cse" to="/programs/cse/overview" />
+        <Redirect exact from="/programs/re" to="/programs/re/overview" />
+        <Redirect exact from="/programs/*" to="/programs/se/overview" />
         <PrivateRoute exact path="/videos/:specialty" component={VideosList} />
         <Redirect exact from="/videos" to="/videos/se" />
-        <PrivateRoute exact path="/meeting" component={Meeting} />
+        <PrivateRoute
+          exact
+          path="/meetings/request"
+          component={MeetingsRequest}
+        />
+        <PrivateRoute
+          exact
+          path="/meetings/advisors"
+          component={MeetingsAdvisorsList}
+        />
+        <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
         <PrivateRoute exact path="/forum" component={Forum} />
-        <AdminRoute exact path="/statistics" component={Statistics} />
         <Route exact path="/login" component={LogInForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <PrivateRoute exact path="/profile" component={Profile} />

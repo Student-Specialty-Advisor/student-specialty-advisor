@@ -19,7 +19,7 @@ export const NavItems = [
   },
   {
     id: 4,
-    title: "Meeting",
+    title: "Meetings",
     path: "/meeting",
     cName: "nav-item",
   },
@@ -34,32 +34,20 @@ export const NavItems = [
 export const DropDownElements1 = [
   {
     id: 1,
-    title: "Overview",
-    path: "/programs/overview",
+    title: "Software Engineering",
+    path: "/programs/se/overview",
     cName: "subMenu-item",
   },
   {
     id: 2,
-    title: "Curriculum",
-    path: "/programs/curriculum",
+    title: "Computer Systems Engineering",
+    path: "/programs/cse/overview",
     cName: "subMenu-item",
   },
   {
     id: 3,
-    title: "Outcomes",
-    path: "/programs/outcomes",
-    cName: "subMenu-item",
-  },
-  {
-    id: 4,
-    title: "Opportunities",
-    path: "/programs/opportunities",
-    cName: "subMenu-item",
-  },
-  {
-    id: 5,
-    title: "Requirements",
-    path: "/programs/requirements",
+    title: "Renewable Energy Engineering",
+    path: "/programs/re/overview",
     cName: "subMenu-item",
   },
 ];
@@ -87,13 +75,19 @@ export const DropDownElements3 = [
   {
     id: 1,
     title: "About",
-    path: "/about",
+    path: "/meetings/about",
     cName: "subMenu-item3",
   },
   {
     id: 2,
-    title: "Contact",
-    path: "/contact",
+    title: "Advisors",
+    path: "/meetings/advisors",
+    cName: "subMenu-item3",
+  },
+  {
+    id: 3,
+    title: "Request",
+    path: "/meetings/request",
     cName: "subMenu-item3",
   },
 ];

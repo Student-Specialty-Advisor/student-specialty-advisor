@@ -18,7 +18,7 @@ function AuthVerify(props) {
       const decodedToken = parseToken(user.accessToken);
       if (decodedToken.exp * 1000 < Date.now()) {
         alertify.alert(
-          "Your 24H session expired. Please login again to continue!",
+          "Your session expired. Please login again to continue!",
           function () {
             if (window.location.pathname === "/") {
               AuthService.logout();

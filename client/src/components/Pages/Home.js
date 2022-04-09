@@ -14,8 +14,9 @@ function Home(props) {
     return (
       <>
         <div className="home-public-head">
+          <img className="home-public-head-bg" alt=""></img>
           <h1>Student Specialty Advisor</h1>
-          <h2>By Students. For Students.</h2>
+          <h2>By Students, For Students.</h2>
           <br />
           <p>
             Free, Reliable & Safe. Let us help you get things done. Join the
@@ -119,12 +120,6 @@ function Home(props) {
             />
             <MemberCard
               fullname="Mahdi KLOUZ"
-              email="contact"
-              fb="https://www.facebook.com"
-              github="https://www.github.com"
-            />
-            <MemberCard
-              fullname="Amir MEKNI"
               email="contact"
               fb="https://www.facebook.com"
               github="https://www.github.com"

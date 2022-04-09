@@ -3,6 +3,7 @@
   "version": "3.0.5",
   "private": true,
   "dependencies": {
+    "@react-sigma/core": "^2.0.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

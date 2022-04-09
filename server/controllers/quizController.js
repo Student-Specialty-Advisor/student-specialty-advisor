@@ -20,43 +20,43 @@ var sendQuestionAnswer = (req, res) => {
   } else if (req.body === null || req.body.length !== questions.length) {
     res.status(500).send({ error: "answers received are invalid." });
   } else {
-    var x = 0; // SE
-    var y = 0; // RE
-    var z = 0; // CSE
+    var weightSE = 0;
+    var weightRE = 0;
+    var weightCSE = 0;
     for (var i = 0; i < questions.length; i++) {
       if (questions[i].type === "SE") {
-        x = x + req.body[i] * questions[i].multi;
+        weightSE = weightSE + req.body[i] * questions[i].multi;
       } else if (questions[i].type === "CSE") {
-        z = z + req.body[i] * questions[i].multi;
+        weightCSE = weightCSE + req.body[i] * questions[i].multi;
       } else {
-        y = y + req.body[i] * questions[i].multi;
+        weightRE = weightRE + req.body[i] * questions[i].multi;
       }
     }
-    if (x === y && y === z) {
+    if (weightSE === weightRE && weightRE === weightCSE) {
       res.status(200).send({ retry: "IDK" });
     } else {
       var bestResult = "";
       var secondBestResult = "";
-      if (Math.max(x, y, z) === x) {
+      if (Math.max(weightSE, weightRE, weightCSE) === weightSE) {
         bestResult = "SE";
-        if (y > z) {
+        if (weightRE > weightCSE) {
           secondBestResult = "RE";
         } else {
           secondBestResult = "CSE";
         }
-      } else if (Math.max(x, y, z) === y) {
-        bestResult = "RE";
-        if (x > z) {
-          secondBestResult = "SE";
-        } else {
-          secondBestResult = "CSE";
-        }
-      } else if (Math.max(x, y, z) === z) {
+      } else if (Math.max(weightSE, weightCSE, weightRE) === weightCSE) {
         bestResult = "CSE";
-        if (x > y) {
+        if (weightSE > weightRE) {
           secondBestResult = "SE";
         } else {
           secondBestResult = "RE";
+        }
+      } else if (Math.max(weightSE, weightCSE, weightRE) === weightRE) {
+        bestResult = "RE";
+        if (weightSE > weightCSE) {
+          secondBestResult = "SE";
+        } else {
+          secondBestResult = "CSE";
         }
       }
       try {
@@ -65,9 +65,9 @@ var sendQuestionAnswer = (req, res) => {
         console.log(error);
       }
       res.status(200).send({
-        x: x,
-        y: y,
-        z: z,
+        weightSE: weightSE,
+        weightRE: weightRE,
+        weightCSE: weightCSE,
         result: bestResult,
         secondResult: secondBestResult,
       });

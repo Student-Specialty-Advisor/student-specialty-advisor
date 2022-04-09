@@ -56,7 +56,7 @@ class AuthService {
   }
   alertifyInvalidToken() {
     alertify.alert(
-      "Your 24H session expired. Please login again to continue!",
+      "Your session expired. Please login again to continue!",
       () => {
         this.logout();
         window.location.href = "/login";
