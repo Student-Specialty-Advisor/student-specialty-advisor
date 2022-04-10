@@ -51,6 +51,9 @@ function MeetingsRequest() {
             Array(6).fill(""),
           ];
           for (var i = 0; i < response.meetings.length; i++) {
+            if (response.meetings[i].col < response.currentDayIndex) {
+              response.meetings[i].isAvailable = false;
+            }
             array[response.meetings[i].row][response.meetings[i].col] =
               response.meetings[i];
           }
@@ -123,7 +126,7 @@ function MeetingsRequest() {
                 Request Meeting
               </button>
             ) : (
-              <button disabled>Already Reserved</button>
+              <button disabled>Unavailable OR Reserved</button>
             )}
           </div>
         </td>

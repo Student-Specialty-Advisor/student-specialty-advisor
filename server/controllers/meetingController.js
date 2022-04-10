@@ -34,12 +34,10 @@ var postAdvisor = (req, res) => {
         res.status(500).send({ error: 1, errorObject: error });
       });
   } else {
-    res
-      .status(500)
-      .send({
-        error: 1,
-        errorObject: "Invalid specialty format: can only accept SE/CSE/REE",
-      });
+    res.status(500).send({
+      error: 1,
+      errorObject: "Invalid specialty format: can only accept SE/CSE/REE",
+    });
   }
 };
 
@@ -67,7 +65,12 @@ var getListOfMeetings = (req, res) => {
   Meeting.find({})
     .populate("advisor")
     .then((meetings) => {
-      res.status(200).send({ success: 1, meetings: meetings });
+      const currentDay = new Date();
+      res.status(200).send({
+        success: 1,
+        currentDayIndex: currentDay.getDay(),
+        meetings: meetings,
+      });
     })
     .catch((error) => {
       res.status(500).send(error);

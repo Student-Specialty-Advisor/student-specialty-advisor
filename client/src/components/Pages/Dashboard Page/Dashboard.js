@@ -4,6 +4,7 @@ import Statistics from "./Statistics";
 import AdvisorsOptions from "./AdvisorsOptions";
 import MeetingsOptions from "./MeetingsOptions";
 import VideosOptions from "./VideosOptions";
+import fetchService from "../../../services/fetchService";
 
 const STATISTICS = "statistics";
 const ADVISORS = "advisors";
@@ -20,6 +21,19 @@ const Dashboard = () => {
       parameter.slice(1) +
       " - Student Specialty Advisor";
   }, [parameter]);
+
+  const [advisorsList, setAdvisorsList] = React.useState([]);
+  const [meetingsList, setMeetingsList] = React.useState([]);
+  const [videosList, setVideosList] = React.useState([]);
+
+  const fetchLists = async () => {
+    const al = await fetchService.doGET("meeting/advisors");
+    const ml = await fetchService.doGET("meeting/schedule");
+    const vl = await fetchService.doGET("videos");
+    setAdvisorsList(al);
+    setMeetingsList(ml);
+    setVideosList(vl);
+  };
 
   const setupSideBar = () => {
     var statistics = document.getElementById(STATISTICS);
@@ -55,6 +69,11 @@ const Dashboard = () => {
         break;
     }
   };
+
+  React.useEffect(() => {
+    fetchLists();
+  }, []);
+
   React.useEffect(setupSideBar);
 
   return PARAMETERS.includes(parameter) ? (
@@ -103,11 +122,14 @@ const Dashboard = () => {
           {parameter === STATISTICS ? (
             <Statistics />
           ) : parameter === ADVISORS ? (
-            <AdvisorsOptions />
+            <AdvisorsOptions advisorsList={advisorsList} />
           ) : parameter === MEETINGS ? (
-            <MeetingsOptions />
+            <MeetingsOptions
+              advisorsList={advisorsList}
+              meetingsList={meetingsList}
+            />
           ) : parameter === VIDEOS ? (
-            <VideosOptions />
+            <VideosOptions videosList={videosList} />
           ) : null}
         </ul>
       </div>
