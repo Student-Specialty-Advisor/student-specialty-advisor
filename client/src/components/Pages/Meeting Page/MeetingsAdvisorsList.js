@@ -16,6 +16,7 @@ function MeetingsAdvisorsList() {
   const mappingFunction = (advisor) => {
     return (
       <AdvisorCard
+        key={advisor._id}
         fullname={advisor.fullName}
         picture={advisor.imageUrl}
         profession={advisor.profession}
