@@ -3,10 +3,8 @@ import { NavLink, Redirect, useParams } from "react-router-dom";
 import React from "react";
 import AuthService from "../../../services/AuthService";
 import alertify from "alertifyjs";
-import videosSE from "../../../assets/json/videos_se.json";
-import videosCSE from "../../../assets/json/videos_cse.json";
-import videosRE from "../../../assets/json/videos_re.json";
 import VideoContainer from "./VideoContainer";
+import fetchService from "../../../services/fetchService";
 
 const SPECIALTIES = ["se", "cse", "re"];
 
@@ -19,6 +17,19 @@ function VideosList(props) {
       specialty.toUpperCase() + " - Videos - Student Specialty Advisor";
   }, [specialty]);
 
+  const [videosSE, setVideosSE] = React.useState([]);
+  const [videosCSE, setVideosCSE] = React.useState([]);
+  const [videosRE, setVideosRE] = React.useState([]);
+
+  const fetchAll = async () => {
+    const listSE = await fetchService.doGET("videos/SE");
+    const listCSE = await fetchService.doGET("videos/CSE");
+    const listRE = await fetchService.doGET("videos/REE");
+    setVideosSE(listSE);
+    setVideosCSE(listCSE);
+    setVideosRE(listRE);
+  };
+
   const [initialHTML] = React.useState(
     "Buckle up &<br/>Get <strong>your popcorn</strong> ready!"
   );
@@ -28,7 +39,7 @@ function VideosList(props) {
     // Take into consideration <li>, props.key, props.id, props.className when implementing VideoContainer.
     if (specialty === "se") {
       const list = videosSE.map((video) => {
-        return <VideoContainer key={video.code} code={video.code} />;
+        return <VideoContainer key={video.link} code={video.link} />;
       });
       return (
         <>
@@ -38,7 +49,7 @@ function VideosList(props) {
       );
     } else if (specialty === "cse") {
       const list = videosCSE.map((video) => {
-        return <VideoContainer key={video.code} code={video.code} />;
+        return <VideoContainer key={video.link} code={video.link} />;
       });
       return (
         <>
@@ -48,7 +59,8 @@ function VideosList(props) {
       );
     } else if (specialty === "re") {
       const list = videosRE.map((video) => {
-        return <VideoContainer key={video.code} code={video.code} />;
+        console.log(video);
+        return <VideoContainer key={video.link} code={video.link} />;
       });
       return (
         <>
@@ -132,6 +144,10 @@ function VideosList(props) {
     }, 500);
     easterEggCounter = easterEggCounter + 1;
   };
+
+  React.useEffect(() => {
+    fetchAll();
+  }, []);
 
   React.useEffect(setupSideBar);
 
