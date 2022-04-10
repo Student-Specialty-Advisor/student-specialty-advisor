@@ -1,8 +1,10 @@
+import AddMeeting from "./Meetings Options/AddMeeting";
+
 function MeetingsOptions(props) {
   return (
     <ul className="dashboard-options-list">
       <li>
-        <p>Your component goes here inside the li</p>
+        <AddMeeting advisorsList={props.advisorsList} />
       </li>
       <li>
         <p>Your component goes here inside the li</p>

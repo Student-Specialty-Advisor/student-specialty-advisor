@@ -36,7 +36,7 @@ function AddVideo() {
         })
         .catch(() => {
           alertify.error(
-            "Please try later , an error has occurred while posting the advisor"
+            "Please try later , an error has occurred while posting the video"
           );
         });
     } else {
