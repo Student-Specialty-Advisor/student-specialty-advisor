@@ -43,7 +43,9 @@ const AddAdvisor = () => {
           alertify.success("Advisor Added Successfully");
         } else {
           alertify.warning(
-            "Please re-type the " + Object.keys(response.errorObject.keyPattern)
+            "An Advisor with this " +
+              Object.keys(response.errorObject.keyPattern) +
+              " already exists"
           );
         }
       })

@@ -1,8 +1,10 @@
+import AddVideo from "./Videos Options/AddVideo";
+
 function VideosOptions(props) {
   return (
     <ul className="dashboard-options-list">
       <li>
-        <p>Your component goes here inside the li</p>
+        <AddVideo />
       </li>
       <li>
         <p>Your component goes here inside the li</p>
