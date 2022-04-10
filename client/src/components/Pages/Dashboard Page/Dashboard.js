@@ -26,13 +26,23 @@ const Dashboard = () => {
   const [meetingsList, setMeetingsList] = React.useState([]);
   const [videosList, setVideosList] = React.useState([]);
 
-  const fetchLists = async () => {
-    const al = await fetchService.doGET("meeting/advisors");
-    const ml = await fetchService.doGET("meeting/schedule");
-    const vl = await fetchService.doGET("videos");
-    setAdvisorsList(al);
-    setMeetingsList(ml);
-    setVideosList(vl);
+  const fetchAdvisors = async () => {
+    const list = await fetchService.doGET("meeting/advisors");
+    setAdvisorsList(list);
+  };
+  const fetchMeetings = async () => {
+    const list = await fetchService.doGET("meeting/schedule");
+    setMeetingsList(list);
+  };
+  const fetchVideos = async () => {
+    const list = await fetchService.doGET("videos");
+    setVideosList(list);
+  };
+
+  const fetchAll = () => {
+    fetchAdvisors();
+    fetchMeetings();
+    fetchVideos();
   };
 
   const setupSideBar = () => {
@@ -70,9 +80,7 @@ const Dashboard = () => {
     }
   };
 
-  React.useEffect(() => {
-    fetchLists();
-  }, []);
+  React.useEffect(fetchAll, []);
 
   React.useEffect(setupSideBar);
 
@@ -122,14 +130,21 @@ const Dashboard = () => {
           {parameter === STATISTICS ? (
             <Statistics />
           ) : parameter === ADVISORS ? (
-            <AdvisorsOptions advisorsList={advisorsList} />
+            <AdvisorsOptions
+              advisorsList={advisorsList}
+              setAdvisorsList={fetchAdvisors}
+            />
           ) : parameter === MEETINGS ? (
             <MeetingsOptions
               advisorsList={advisorsList}
               meetingsList={meetingsList}
+              setMeetingsList={fetchMeetings}
             />
           ) : parameter === VIDEOS ? (
-            <VideosOptions videosList={videosList} />
+            <VideosOptions
+              videosList={videosList}
+              setVideosList={fetchVideos}
+            />
           ) : null}
         </ul>
       </div>
