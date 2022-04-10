@@ -1,8 +1,11 @@
+import React from "react";
+import AddAdvisor from "./Advisors Options/AddAdvisor";
+
 function AdvisorsOptions(props) {
   return (
     <ul className="dashboard-options-list">
       <li>
-        <p>Your component goes here inside the li</p>
+        <AddAdvisor />
       </li>
       <li>
         <p>Your component goes here inside the li</p>

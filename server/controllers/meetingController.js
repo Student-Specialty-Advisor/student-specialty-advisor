@@ -30,7 +30,7 @@ var postAdvisor = (req, res) => {
       res.status(200).send({ success: 1 });
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(500).send({ error: 1, errorObject: error });
     });
 };
 
