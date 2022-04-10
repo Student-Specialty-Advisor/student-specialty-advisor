@@ -2,12 +2,17 @@ import alertify from "alertifyjs";
 import React from "react";
 import fetchService from "../../../../services/fetchService";
 
-function AddVideo() {
+function AddVideo(props) {
+  const videoTitle = React.useRef();
   const videoLink = React.useRef();
   const specialty = React.useRef();
   const [isDisabled, setIsDisabled] = React.useState(true);
   const handleChange = () => {
-    if (videoLink.current.value !== "" && specialty.current.value !== "") {
+    if (
+      videoTitle.current.value !== "" &&
+      videoLink.current.value !== "" &&
+      specialty.current.value !== ""
+    ) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
@@ -17,6 +22,7 @@ function AddVideo() {
     if (videoLink.current.value.includes("www.youtube.com")) {
       const code = videoLink.current.value.split("=")[1].substr(0, 11);
       const data = {
+        title: videoTitle.current.value,
         link: code,
         specialty: specialty.current.value,
       };
@@ -25,6 +31,7 @@ function AddVideo() {
         .then((response) => {
           if (response.success) {
             alertify.success("Video Added Successfully");
+            props.setVideosList();
           } else {
             console.log(response);
             alertify.warning(
@@ -46,6 +53,15 @@ function AddVideo() {
   return (
     <>
       <h1>Add Video :</h1>
+      <label>Video Title: </label>
+      <br />
+      <input
+        type="text"
+        ref={videoTitle}
+        onChange={handleChange}
+        maxLength="25"
+      />
+      <br />
       <label>Video Link: </label>
       <br />
       <input type="text" ref={videoLink} onChange={handleChange}></input>

@@ -2,7 +2,7 @@ import React from "react";
 import fetchService from "../../../../services/fetchService.js";
 import alertify from "alertifyjs";
 
-const AddAdvisor = () => {
+const AddAdvisor = (props) => {
   const fullName = React.useRef();
   const email = React.useRef();
   const profession = React.useRef();
@@ -41,6 +41,7 @@ const AddAdvisor = () => {
       .then((response) => {
         if (response.success) {
           alertify.success("Advisor Added Successfully");
+          props.setAdvisorsList();
         } else {
           alertify.warning(
             "An Advisor with this " +
