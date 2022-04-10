@@ -23,15 +23,24 @@ var getListOfAdvisors = (req, res) => {
 };
 
 var postAdvisor = (req, res) => {
-  const newAdvisor = new Advisor(req.body);
-  newAdvisor
-    .save()
-    .then(() => {
-      res.status(200).send({ success: 1 });
-    })
-    .catch((error) => {
-      res.status(500).send({ error: 1, errorObject: error });
-    });
+  if (specialties.includes(req.body.specialty)) {
+    const newAdvisor = new Advisor(req.body);
+    newAdvisor
+      .save()
+      .then(() => {
+        res.status(200).send({ success: 1 });
+      })
+      .catch((error) => {
+        res.status(500).send({ error: 1, errorObject: error });
+      });
+  } else {
+    res
+      .status(500)
+      .send({
+        error: 1,
+        errorObject: "Invalid specialty format: can only accept SE/CSE/REE",
+      });
+  }
 };
 
 var deleteAdvisor = (req, res) => {

@@ -61,7 +61,6 @@ const AddAdvisor = () => {
       <input
         placeholder="Full Name"
         type="text"
-        id="fullName"
         onChange={handleChange}
         ref={fullName}
       ></input>
@@ -71,7 +70,6 @@ const AddAdvisor = () => {
       <input
         placeholder="Email"
         type="text"
-        id="email"
         onChange={handleChange}
         ref={email}
       ></input>
@@ -81,27 +79,23 @@ const AddAdvisor = () => {
       <input
         placeholder="Profession"
         type="text"
-        id="profession"
         onChange={handleChange}
         ref={profession}
       ></input>
       <br />
       <label>Specialty :</label>
       <br />
-      <input
-        placeholder="Specialty"
-        type="text"
-        id="specialty"
-        onChange={handleChange}
-        ref={specialty}
-      ></input>
+      <select ref={specialty}>
+        <option value="SE">Software Engineering</option>
+        <option value="CSE">Computer Systems Engineering</option>
+        <option value="REE">Renewable Energy Engineering</option>
+      </select>
       <br />
       <label>Linkedin Url :</label>
       <br />
       <input
         placeholder="Linkedin Url"
         type="text"
-        id="linkedinUrl"
         onChange={handleChange}
         ref={linkedinUrl}
       ></input>
@@ -111,7 +105,6 @@ const AddAdvisor = () => {
       <input
         placeholder="Image Url"
         type="text"
-        id="imageUrl"
         onChange={handleChange}
         ref={imageUrl}
       ></input>
@@ -121,12 +114,11 @@ const AddAdvisor = () => {
       <input
         placeholder="Quote"
         type="text"
-        id="quote"
         onChange={handleChange}
         ref={quote}
       ></input>
       <br />
-      <button onClick={task} disabled={isDisabled} id="button">
+      <button onClick={task} disabled={isDisabled}>
         Submit
       </button>
     </>
