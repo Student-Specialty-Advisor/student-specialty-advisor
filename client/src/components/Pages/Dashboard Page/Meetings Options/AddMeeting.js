@@ -19,7 +19,6 @@ function AddMeeting(props) {
         if (response.success) {
           alertify.success("Meeting was added Successfully");
         } else {
-          console.log(response);
           alertify.warning("This meeting's time slot already exists ");
         }
       })
@@ -31,7 +30,11 @@ function AddMeeting(props) {
   };
 
   const mapping = props.advisorsList.map((advisor) => {
-    return <option value={advisor._id}>{advisor.fullName}</option>;
+    return (
+      <option key={advisor._id} value={advisor._id}>
+        {advisor.fullName}
+      </option>
+    );
   });
   return (
     <>

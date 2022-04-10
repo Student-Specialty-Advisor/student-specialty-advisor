@@ -4,17 +4,14 @@ import DeleteVideo from "./Videos Options/DeleteVideo";
 function VideosOptions(props) {
   return (
     <ul className="dashboard-options-list">
-      <li>
+      <li key="v0">
         <AddVideo setVideosList={props.setVideosList} />
       </li>
-      <li>
+      <li key="v1">
         <DeleteVideo
           videosList={props.videosList}
           setVideosList={props.setVideosList}
         />
-      </li>
-      <li>
-        <p>Your component goes here inside the li</p>
       </li>
     </ul>
   );

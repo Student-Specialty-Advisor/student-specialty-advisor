@@ -23,7 +23,11 @@ function DeleteVideo(props) {
       });
   };
   const mapping = props.videosList.map((video) => {
-    return <option value={video._id}>{video.title}</option>;
+    return (
+      <option key={video._id} value={video._id}>
+        {video.title}
+      </option>
+    );
   });
   return (
     <>

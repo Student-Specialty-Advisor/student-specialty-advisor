@@ -33,7 +33,6 @@ function AddVideo(props) {
             alertify.success("Video Added Successfully");
             props.setVideosList();
           } else {
-            console.log(response);
             alertify.warning(
               "This video " +
                 Object.keys(response.errorObject.keyPattern) +

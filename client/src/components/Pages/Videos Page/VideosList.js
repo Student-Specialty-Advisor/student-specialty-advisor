@@ -59,7 +59,6 @@ function VideosList(props) {
       );
     } else if (specialty === "re") {
       const list = videosRE.map((video) => {
-        console.log(video);
         return <VideoContainer key={video.link} code={video.link} />;
       });
       return (

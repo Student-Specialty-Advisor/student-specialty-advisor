@@ -24,7 +24,11 @@ function DeleteAdvisor(props) {
       });
   };
   const mapping = props.advisorsList.map((advisor) => {
-    return <option value={advisor._id}>{advisor.fullName}</option>;
+    return (
+      <option key={advisor._id} value={advisor._id}>
+        {advisor.fullName}
+      </option>
+    );
   });
   return (
     <>

@@ -1931,6 +1931,12 @@ body {
   color: var(--mydarkerblue);
   animation: fadeInWithTranslateY 0.5s;
 }
+.meetings-request-subtitle {
+  text-align: center;
+  color: var(--mydarkblue);
+  font-size: 18px;
+  animation: fadeInWithTranslateY 0.5s;
+}
 .meetings-request-table {
   width: 90%;
   height: 70vh;
@@ -1999,12 +2005,11 @@ body {
   width: 180%;
   height: 120%;
   background-color: #ffce94;
-  border: solid 1px;
-  border-radius: 10px;
   top: 12%;
   left: 115%;
   z-index: 5;
-  filter: drop-shadow(0px 0px 10px);
+  border-radius: 10px;
+  filter: drop-shadow(0px 0px 5px);
   animation: fadeInWithTranslateY 0.3s;
 }
 #meetings-request-popup.forRight {
@@ -2015,12 +2020,11 @@ body {
   width: 180%;
   height: 120%;
   background-color: #ffce94;
-  border: solid 1px;
-  border-radius: 10px;
   top: 12%;
   right: 115%;
   z-index: 5;
-  filter: drop-shadow(0px 0px 10px);
+  border-radius: 10px;
+  filter: drop-shadow(0px 0px 5px);
   animation: fadeInWithTranslateY 0.3s;
 }
 #meetings-request-popup h3 {

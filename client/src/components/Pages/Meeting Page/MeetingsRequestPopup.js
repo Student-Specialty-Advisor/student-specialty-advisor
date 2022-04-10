@@ -27,7 +27,6 @@ function MeetingsRequestPopup(props) {
     fetchService
       .doPUT("meeting/request", data)
       .then((response) => {
-        console.log(response);
         if (response.tokenError) {
           AuthService.alertifyInvalidToken();
           return;

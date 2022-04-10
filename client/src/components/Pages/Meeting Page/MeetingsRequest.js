@@ -171,6 +171,10 @@ function MeetingsRequest() {
       {isLoaded ? (
         <>
           <h1 className="meetings-request-title">Current Meetings Schedule</h1>
+          <p className="meetings-request-subtitle">
+            Below are all the meetings for this week. All the meetings will be
+            reset back to available on Saturday at Midnight.
+          </p>
           <table className="meetings-request-table">
             <thead>
               <tr>
