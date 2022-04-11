@@ -199,12 +199,17 @@ app.get(
 // REQUIRES Authentication
 app.get(
   "/ssa-api/achievements/:userID",
+  [authJWT.verifyToken],
   achievementsController.getAchievements
 );
 
 // Use this endpoint to update a certain field in a user's achievement using their MongoDB ObjectID
 // REQUIRES Authentication
-app.put("/ssa-api/achievements/:userID", achievementsController.setAchievement);
+app.put(
+  "/ssa-api/achievements/:userID",
+  [authJWT.verifyToken],
+  achievementsController.setAchievement
+);
 //#endregion
 
 app.listen(PORT, () => {
