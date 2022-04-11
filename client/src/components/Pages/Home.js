@@ -3,6 +3,8 @@ import AuthService from "../../services/AuthService";
 import MemberCard from "../Team/MemberCard";
 import Footer from "./Footer";
 import LinearProgress from "@mui/material/LinearProgress";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import fetchService from "../../services/fetchService";
 
 function Home(props) {
   React.useEffect(() => {
@@ -133,6 +135,48 @@ function Home(props) {
   };
 
   const PrivatePage = () => {
+    const [progress, setProgress] = React.useState(0);
+    const TOTAL_ACHIEVEMENTS = 6;
+
+    const calculateProgress = (response) => {
+      var completed = 0;
+      if (response.achievements.quizCompletion === true) {
+        completed++;
+      }
+      if (response.achievements.infoSectionCompletion === true) {
+        completed++;
+      }
+      if (response.achievements.videosCompletion === true) {
+        completed++;
+      }
+      if (response.achievements.meetingsSectionCompletion === true) {
+        completed++;
+      }
+      if (response.achievements.meetingsRequestCompletion === true) {
+        completed++;
+      }
+      if (response.achievements.forumCompletion === true) {
+        completed++;
+      }
+      var percentage = (completed / TOTAL_ACHIEVEMENTS) * 100;
+      return Math.floor(percentage);
+    };
+
+    React.useEffect(() => {
+      const fetchProgress = async () => {
+        const response = await fetchService.doGET(
+          "achievements/" + AuthService.getCurrentUser().id
+        );
+        if (response.success) {
+          var progress = calculateProgress(response);
+          setProgress(progress);
+        } else {
+          console.log(response.errorObject);
+        }
+      };
+      fetchProgress();
+    }, []);
+
     return (
       <>
         <div className="home-private">
@@ -143,13 +187,33 @@ function Home(props) {
               AuthService.getCurrentUser().firstName.slice(1)}
             !
           </h1>
-          <div></div>
-          <LinearProgress
-            className="achievements-progress-bar"
-            variant="determinate"
-            color="inherit"
-            value={0}
-          />
+          <h2>
+            Explore the web app, and your progress points will increase!
+            <br />
+            At 100%, you will have all the information you need to make the
+            right choice!
+          </h2>
+          <div
+            style={{
+              display: "flex",
+              width: "78%",
+              justifyContent: "space-between",
+              margin: "auto",
+              paddingBottom: "0.5%",
+            }}
+          >
+            <h4>Your progress:</h4>
+            <h4>{progress}%</h4>
+          </div>
+          <div style={{ position: "relative", width: "80%", margin: "auto" }}>
+            <LinearProgress
+              className="achievements-progress-bar"
+              variant="determinate"
+              color="inherit"
+              value={progress}
+            />
+            <EmojiEventsIcon className="achievements-emoji" />
+          </div>
         </div>
       </>
     );

@@ -504,20 +504,37 @@ body {
 /*#region private home page*/
 
 .home-private {
-  padding-top: 10vh;
+  padding-top: 12vh;
 }
 .home-private h1 {
   text-align: center;
   font-size: 50px;
   color: var(--mydarkerblue);
+  animation: fadeInWithTranslateY 1s;
+}
+.home-private .achievements-emoji {
+  position: absolute;
+  top: 15%;
+  left: 1%;
+  color: brown;
 }
 .home-private .achievements-progress-bar {
   border-radius: 25px;
-  border: solid chocolate;
-  margin: auto;
+  border: solid brown;
   color: var(--myorange);
-  height: 5vh;
-  width: 80%;
+  height: 4vh;
+  width: 100%;
+}
+
+.home-private h2 {
+  color: var(--myblue);
+  text-align: center;
+  animation: fadeInWithTranslateY 1s;
+}
+.home-private h4 {
+  color: var(--mydarkerblue);
+  margin-bottom: 0;
+  font-size: 20px;
 }
 
 /*#endregion private home page*/

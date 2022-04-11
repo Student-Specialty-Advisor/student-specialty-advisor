@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const Achievements = mongoose.model("Achievements", {
   quizCompletion: { type: Boolean, default: false },

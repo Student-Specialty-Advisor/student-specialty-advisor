@@ -9,6 +9,7 @@ const statisticsController = require("./controllers/statisticsController.js");
 const quizController = require("./controllers/quizController.js");
 const meetingController = require("./controllers/meetingController.js");
 const videoController = require("./controllers/videoController.js");
+const achievementsController = require("./controllers/achievementsController.js");
 const authJWT = require("./middlewares/authJWT");
 
 const app = express();
@@ -190,6 +191,20 @@ app.get(
   [authJWT.verifyToken],
   videoController.getListOfVideosBySpecialty
 );
+//#endregion
+
+//#region Achievements
+
+// Use this endpoint to get the achievements of the user using their MongoDB ObjectID
+// REQUIRES Authentication
+app.get(
+  "/ssa-api/achievements/:userID",
+  achievementsController.getAchievements
+);
+
+// Use this endpoint to update a certain field in a user's achievement using their MongoDB ObjectID
+// REQUIRES Authentication
+app.put("/ssa-api/achievements/:userID", achievementsController.setAchievement);
 //#endregion
 
 app.listen(PORT, () => {
