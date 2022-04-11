@@ -2,6 +2,7 @@ import React from "react";
 import AuthService from "../../services/AuthService";
 import MemberCard from "../Team/MemberCard";
 import Footer from "./Footer";
+import LinearProgress from "@mui/material/LinearProgress";
 
 function Home(props) {
   React.useEffect(() => {
@@ -136,9 +137,19 @@ function Home(props) {
       <>
         <div className="home-private">
           <h1>
-            Hey there, {AuthService.getCurrentUser().firstName}! <br />
-            Welcome to MedTech Student Specialty Advisor!
+            Welcome to the family,
+            {" " +
+              AuthService.getCurrentUser().firstName[0].toUpperCase() +
+              AuthService.getCurrentUser().firstName.slice(1)}
+            !
           </h1>
+          <div></div>
+          <LinearProgress
+            className="achievements-progress-bar"
+            variant="determinate"
+            color="inherit"
+            value={0}
+          />
         </div>
       </>
     );
