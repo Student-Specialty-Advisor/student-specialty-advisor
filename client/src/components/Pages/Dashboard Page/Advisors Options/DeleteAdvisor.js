@@ -32,9 +32,17 @@ function DeleteAdvisor(props) {
   });
   return (
     <>
-      <h1>Delete Advisor :</h1>
-      <select ref={select}>{mapping}</select>
-      <button onClick={task}>Submit</button>
+      <h1>Delete An Advisor :</h1>
+      {props.advisorsList.length === 0 ? (
+        <p>
+          <strong> There are no advisors in the database yet.</strong>
+        </p>
+      ) : (
+        <>
+          <select ref={select}>{mapping}</select>
+          <button onClick={task}>Submit</button>
+        </>
+      )}
     </>
   );
 }

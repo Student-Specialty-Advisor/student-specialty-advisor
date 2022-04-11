@@ -1,6 +1,7 @@
 import React from "react";
 import AddAdvisor from "./Advisors Options/AddAdvisor";
 import DeleteAdvisor from "./Advisors Options/DeleteAdvisor";
+import UpdateAdvisor from "./Advisors Options/UpdateAdvisor";
 
 function AdvisorsOptions(props) {
   return (
@@ -15,7 +16,10 @@ function AdvisorsOptions(props) {
         />
       </li>
       <li key="a2">
-        <p>Your component goes here inside the li</p>
+        <UpdateAdvisor
+          setAdvisorsList={props.setAdvisorsList}
+          advisorsList={props.advisorsList}
+        />
       </li>
     </ul>
   );

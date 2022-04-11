@@ -58,7 +58,7 @@ const AddAdvisor = (props) => {
   };
   return (
     <>
-      <h1>Add Advisor : </h1>
+      <h1>Add An Advisor : </h1>
       <label>Full Name :</label>
       <br />
       <input

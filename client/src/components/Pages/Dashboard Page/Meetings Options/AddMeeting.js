@@ -38,7 +38,7 @@ function AddMeeting(props) {
   });
   return (
     <>
-      <h1>Add Meeting :</h1>
+      <h1>Add A Meeting :</h1>
       <label>Day : </label>
       <br />
       <select ref={day}>

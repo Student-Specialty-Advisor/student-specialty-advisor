@@ -51,7 +51,7 @@ function AddVideo(props) {
   };
   return (
     <>
-      <h1>Add Video :</h1>
+      <h1>Add A Video :</h1>
       <label>Video Title: </label>
       <br />
       <input

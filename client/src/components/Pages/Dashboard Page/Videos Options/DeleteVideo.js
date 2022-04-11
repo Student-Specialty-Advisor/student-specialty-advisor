@@ -31,7 +31,7 @@ function DeleteVideo(props) {
   });
   return (
     <>
-      <h1>Delete Video :</h1>
+      <h1>Delete A Video :</h1>
       {props.videosList.length === 0 ? (
         <p>
           <strong> There are no videos in the database yet.</strong>
