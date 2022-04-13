@@ -20,7 +20,13 @@ function AddVideo(props) {
   };
   const task = () => {
     if (videoLink.current.value.includes("www.youtube.com")) {
-      const code = videoLink.current.value.split("=")[1].substr(0, 11);
+      var code;
+      try {
+        code = videoLink.current.value.split("=")[1].substr(0, 11);
+      } catch (error) {
+        alertify.warning("Please enter a valid youtube link");
+        return;
+      }
       const data = {
         title: videoTitle.current.value,
         link: code,

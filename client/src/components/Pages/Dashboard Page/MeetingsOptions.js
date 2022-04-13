@@ -1,4 +1,5 @@
 import AddMeeting from "./Meetings Options/AddMeeting";
+import DeleteMeeting from "./Meetings Options/DeleteMeeting";
 
 function MeetingsOptions(props) {
   return (
@@ -7,7 +8,10 @@ function MeetingsOptions(props) {
         <AddMeeting advisorsList={props.advisorsList} />
       </li>
       <li key="m1">
-        <p>Your component goes here inside the li</p>
+        <DeleteMeeting
+          meetingsList={props.meetingsList}
+          setMeetingsList={props.setMeetingsList}
+        />
       </li>
     </ul>
   );

@@ -23,7 +23,7 @@ const Dashboard = () => {
   }, [parameter]);
 
   const [advisorsList, setAdvisorsList] = React.useState([]);
-  const [meetingsList, setMeetingsList] = React.useState([]);
+  const [meetingsList, setMeetingsList] = React.useState({ meetings: [] });
   const [videosList, setVideosList] = React.useState([]);
 
   const fetchAdvisors = async () => {
