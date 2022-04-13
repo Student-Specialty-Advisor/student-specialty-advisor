@@ -5,6 +5,7 @@ import AuthService from "../../../services/AuthService";
 import alertify from "alertifyjs";
 import VideoContainer from "./VideoContainer";
 import fetchService from "../../../services/fetchService";
+import { completeAchievement } from "../../../services/achievements";
 
 const SPECIALTIES = ["se", "cse", "re"];
 
@@ -146,6 +147,16 @@ function VideosList(props) {
 
   React.useEffect(() => {
     fetchAll();
+  }, []);
+
+  React.useEffect(() => {
+    let achievementTimer = setTimeout(
+      () => completeAchievement("videosCompletion", "Browsing videos"),
+      60000
+    );
+    return () => {
+      clearTimeout(achievementTimer);
+    };
   }, []);
 
   React.useEffect(setupSideBar);

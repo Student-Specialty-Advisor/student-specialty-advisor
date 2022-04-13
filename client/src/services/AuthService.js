@@ -17,6 +17,7 @@ class AuthService {
   }
   logout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("userAchievements");
   }
   async register(data) {
     const response = await fetch(process.env.REACT_APP_API_URL + "sign-up", {

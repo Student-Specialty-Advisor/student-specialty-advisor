@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Redirect, useParams } from "react-router-dom";
 import details from "../../../assets/json/program_info.json";
+import { completeAchievement } from "../../../services/achievements";
 import Footer from "../Footer";
 import Curriculum from "./Curriculum";
 import Overview from "./Overview";
@@ -60,6 +61,20 @@ function Programs() {
       </li>
     );
   };
+
+  React.useEffect(() => {
+    let achievementTimer = setTimeout(
+      () =>
+        completeAchievement(
+          "infoSectionCompletion",
+          "All kinds of information"
+        ),
+      60000
+    );
+    return () => {
+      clearTimeout(achievementTimer);
+    };
+  }, []);
 
   return SECTIONS.includes(section) ? (
     <>

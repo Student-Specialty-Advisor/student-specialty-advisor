@@ -15,6 +15,7 @@ import {
   Legend,
 } from "chart.js";
 import fetchService from "../../../services/fetchService";
+import { completeAchievement } from "../../../services/achievements";
 
 ChartJS.register(
   CategoryScale,
@@ -101,6 +102,7 @@ function QuizContainer() {
         setResults(result);
         setIsSubmitted(true);
         window.scrollTo(0, 0);
+        completeAchievement("quizCompletion", "Program Compatibility Quiz");
       })
       .catch((error) => {
         console.log(error);

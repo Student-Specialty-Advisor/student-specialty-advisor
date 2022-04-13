@@ -136,29 +136,16 @@ function Home(props) {
 
   const PrivatePage = () => {
     const [progress, setProgress] = React.useState(0);
-    const TOTAL_ACHIEVEMENTS = 6;
 
-    const calculateProgress = (response) => {
+    const calculateProgress = (achievements) => {
       var completed = 0;
-      if (response.achievements.quizCompletion === true) {
-        completed++;
+      for (const achievement in achievements) {
+        if (achievements[achievement] === true) {
+          completed++;
+        }
       }
-      if (response.achievements.infoSectionCompletion === true) {
-        completed++;
-      }
-      if (response.achievements.videosCompletion === true) {
-        completed++;
-      }
-      if (response.achievements.meetingsSectionCompletion === true) {
-        completed++;
-      }
-      if (response.achievements.meetingsRequestCompletion === true) {
-        completed++;
-      }
-      if (response.achievements.forumCompletion === true) {
-        completed++;
-      }
-      var percentage = (completed / TOTAL_ACHIEVEMENTS) * 100;
+      var total = Object.keys(achievements).length - 3;
+      var percentage = (completed / total) * 100;
       return Math.floor(percentage);
     };
 
@@ -168,13 +155,26 @@ function Home(props) {
           "achievements/" + AuthService.getCurrentUser().id
         );
         if (response.success) {
-          var progress = calculateProgress(response);
+          localStorage.setItem(
+            "userAchievements",
+            JSON.stringify(response.achievements)
+          );
+          var progress = calculateProgress(response.achievements);
           setProgress(progress);
         } else {
           console.log(response.errorObject);
         }
       };
-      fetchProgress();
+
+      var storedAchievements = JSON.parse(
+        localStorage.getItem("userAchievements")
+      );
+      if (storedAchievements === null) {
+        fetchProgress();
+      } else {
+        var progress = calculateProgress(storedAchievements);
+        setProgress(progress);
+      }
     }, []);
 
     return (

@@ -1,7 +1,19 @@
 import React from "react";
 import Footer from "../Footer";
+import { completeAchievement } from "../../../services/achievements";
 
 function MeetingsAbout(props) {
+  React.useEffect(() => {
+    let achievementTimer = setTimeout(
+      () =>
+        completeAchievement("meetingsSectionCompletion", "Meetings & Advisors"),
+      10000
+    );
+    return () => {
+      clearTimeout(achievementTimer);
+    };
+  }, []);
+
   return (
     <>
       <div className="about-container-header">

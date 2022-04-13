@@ -1,9 +1,14 @@
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
+import { completeAchievement } from "../../services/achievements";
 function Forum() {
   React.useEffect(() => {
     document.title = "Community Forum - Student Specialty Advisor";
   }, []);
+  React.useEffect(() => {
+    completeAchievement("forumCompletion", "Come back soon!");
+  }, []);
+
   return (
     <>
       <div className="forum-constuction-container">
