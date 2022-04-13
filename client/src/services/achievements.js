@@ -27,3 +27,36 @@ export const completeAchievement = (achievementDB, achievementTitle) => {
       });
   }
 };
+export const createAchievementInfo = (achievementDB) => {
+  switch (achievementDB) {
+    case "quizCompletion":
+      return {
+        title: "Compatibility Quiz",
+        description: "Submit the quiz questions and receive the results",
+      };
+    case "infoSectionCompletion":
+      return {
+        title: "Specialty Info",
+        description: "Read the programs infomations for at least 1 minute",
+      };
+    case "videosCompletion":
+      return {
+        title: "Specialty Videos",
+        description: "Watch the videos for at least 1 minute",
+      };
+    case "meetingsSectionCompletion":
+      return {
+        title: "About Meetings",
+        description: "Read about the concept of meetings and adviors",
+      };
+    case "meetingsRequestCompletion":
+      return {
+        title: "Request a Meeting",
+        description: "Request a meeting with an advisor",
+      };
+    case "forumCompletion":
+      return { title: "Community Forum", description: "Come Back Soon!" };
+    default:
+      return { title: "Unknown", description: "how did this happen" };
+  }
+};

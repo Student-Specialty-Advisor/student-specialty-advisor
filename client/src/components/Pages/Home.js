@@ -2,10 +2,11 @@ import React from "react";
 import AuthService from "../../services/AuthService";
 import MemberCard from "../Team/MemberCard";
 import Footer from "./Footer";
-import LinearProgress from "@mui/material/LinearProgress";
+import { LinearProgress } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import fetchService from "../../services/fetchService";
-
+import AchievementsCard from "./AchievementsCard";
+import { createAchievementInfo } from "../../services/achievements";
 function Home(props) {
   React.useEffect(() => {
     document.title = "Student Specialty Advisor";
@@ -136,6 +137,32 @@ function Home(props) {
 
   const PrivatePage = () => {
     const [progress, setProgress] = React.useState(0);
+    const [achievementCards, setAchievementCards] = React.useState([]);
+    const setupCards = (achievementObject) => {
+      const array = [];
+      for (const key in achievementObject) {
+        if (
+          achievementObject[key] === true ||
+          achievementObject[key] === false
+        ) {
+          array.push({
+            ...createAchievementInfo(key),
+            isCompleted: achievementObject[key],
+          });
+        }
+      }
+      setAchievementCards(array);
+    };
+
+    const cardsList = achievementCards.map((achievement) => {
+      return (
+        <AchievementsCard
+          title={achievement.title}
+          description={achievement.description}
+          isCompleted={achievement.isCompleted}
+        />
+      );
+    });
 
     const calculateProgress = (achievements) => {
       var completed = 0;
@@ -161,6 +188,7 @@ function Home(props) {
           );
           var progress = calculateProgress(response.achievements);
           setProgress(progress);
+          setupCards(response.achievements);
         } else {
           console.log(response.errorObject);
         }
@@ -174,6 +202,7 @@ function Home(props) {
       } else {
         var progress = calculateProgress(storedAchievements);
         setProgress(progress);
+        setupCards(storedAchievements);
       }
     }, []);
 
@@ -214,6 +243,18 @@ function Home(props) {
             />
             <EmojiEventsIcon className="achievements-emoji" />
           </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            width: "80%",
+            margin: "auto",
+            marginTop: "8vh",
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
+          }}
+        >
+          {cardsList}
         </div>
       </>
     );
