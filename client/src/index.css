@@ -536,12 +536,12 @@ body {
   position: absolute;
   top: 15%;
   left: 1%;
-  color: brown;
+  color: var(--mydarkerblue);
 }
 .home-private .achievements-progress-bar {
   border-radius: 25px;
-  border: solid brown;
-  color: var(--myorange);
+  border: solid var(--mydarkerblue);
+  color: orange;
   height: 4vh;
   width: 100%;
 }

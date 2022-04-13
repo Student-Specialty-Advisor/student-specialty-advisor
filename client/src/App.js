@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar/Navbar";
 import LogInForm from "./components/Forms/LogInForm";
 import SignUpForm from "./components/Forms/SignUpForm";
 
-import Home from "./components/Pages/Home";
+import Home from "./components/Pages/Home Page/Home";
 import Profile from "./components/Pages/Profile Page/Profile";
 import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";

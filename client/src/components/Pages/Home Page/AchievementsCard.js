@@ -7,45 +7,63 @@ function AchievementsCard(props) {
     <Card
       variant="outlined"
       sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
         width: "30%",
         marginBottom: "3%",
         height: "15vh",
         background: "white",
-        boxShadow: "0px 0px 5px 1px",
+        border: "solid var(--mydarkerblue)",
         borderRadius: "25px",
         position: "relative",
       }}
     >
       {props.isCompleted ? (
         <>
-          <h1
+          <div
             style={{
-              textAlign: "left",
-              color: "var(--mydarkerblue)",
-              marginTop: "0",
-              marginLeft: "5%",
+              height: "90%",
+              width: "80%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              gap: "10%",
             }}
           >
-            {props.title}
-          </h1>
+            <h1
+              style={{
+                fontSize: "28px",
+                textAlign: "left",
+                color: "var(--mydarkerblue)",
+                marginTop: "0",
+                marginBottom: "0",
+                marginLeft: "5%",
+              }}
+            >
+              {props.title}
+            </h1>
+            <p
+              style={{
+                textAlign: "left",
+                color: "var(--mydarkblue)",
+                marginTop: "0",
+                marginBottom: "0",
+                marginLeft: "6%",
+              }}
+            >
+              {props.description}
+            </p>
+          </div>
           <CheckCircleIcon
             sx={{
               position: "absolute",
-              top: "3%",
+              top: "5%",
               right: "2%",
               color: "green",
               fontSize: 35,
             }}
           />
-          <p
-            style={{
-              textAlign: "left",
-              color: "var(--mydarkblue)",
-              marginLeft: "5%",
-            }}
-          >
-            {props.description}
-          </p>
         </>
       ) : (
         <QuestionMarkIcon

@@ -1,12 +1,12 @@
 import React from "react";
-import AuthService from "../../services/AuthService";
-import MemberCard from "../Team/MemberCard";
-import Footer from "./Footer";
+import AuthService from "../../../services/AuthService";
+import MemberCard from "../../Team/MemberCard";
+import Footer from "../Footer";
 import { LinearProgress } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import fetchService from "../../services/fetchService";
+import fetchService from "../../../services/fetchService";
 import AchievementsCard from "./AchievementsCard";
-import { createAchievementInfo } from "../../services/achievements";
+import { createAchievementInfo } from "../../../services/achievements";
 function Home(props) {
   React.useEffect(() => {
     document.title = "Student Specialty Advisor";
@@ -234,7 +234,16 @@ function Home(props) {
             <h4>Your progress:</h4>
             <h4>{progress}%</h4>
           </div>
-          <div style={{ position: "relative", width: "80%", margin: "auto" }}>
+          <div
+            style={{
+              position: "relative",
+              width: "80%",
+              margin: "auto",
+              backgroundColor: "white",
+              paddingRight: "0.4%",
+              borderRadius: "25px",
+            }}
+          >
             <LinearProgress
               className="achievements-progress-bar"
               variant="determinate"
@@ -249,7 +258,7 @@ function Home(props) {
             display: "flex",
             width: "80%",
             margin: "auto",
-            marginTop: "8vh",
+            marginTop: "5.5vh",
             justifyContent: "space-evenly",
             flexWrap: "wrap",
           }}
