@@ -1,7 +1,6 @@
 import React from "react";
 import fetchService from "../../../../services/fetchService.js";
 import alertify from "alertifyjs";
-import { Button } from "@mui/material";
 
 const AddAdvisor = (props) => {
   const fullName = React.useRef();
@@ -125,23 +124,6 @@ const AddAdvisor = (props) => {
       <button onClick={task} disabled={isDisabled}>
         Submit
       </button>
-      <Button
-        onClick={task}
-        disabled={isDisabled}
-        className="orange-button"
-        sx={{
-          color: "black",
-          backgroundColor: "var(--myorange)",
-          borderRadius: "10px",
-          "&:hover": {
-            backgroundColor: "white",
-            color: "grey.600",
-          },
-        }}
-        variant="contained"
-      >
-        Contained
-      </Button>
     </>
   );
 };
