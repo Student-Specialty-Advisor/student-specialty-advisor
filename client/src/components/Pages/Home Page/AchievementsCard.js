@@ -5,6 +5,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 function AchievementsCard(props) {
   const card = (
     <Card
+      className="achievement-card"
       variant="outlined"
       sx={{
         display: "flex",
@@ -12,7 +13,6 @@ function AchievementsCard(props) {
         justifyContent: "center",
         width: "30%",
         marginBottom: "3%",
-        height: "15vh",
         background: "white",
         border: "solid var(--mydarkerblue)",
         borderRadius: "25px",
@@ -33,7 +33,6 @@ function AchievementsCard(props) {
           >
             <h1
               style={{
-                fontSize: "28px",
                 textAlign: "left",
                 color: "var(--mydarkerblue)",
                 marginTop: "0",

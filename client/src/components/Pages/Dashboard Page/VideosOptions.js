@@ -1,18 +1,75 @@
+import React from "react";
 import AddVideo from "./Videos Options/AddVideo";
 import DeleteVideo from "./Videos Options/DeleteVideo";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Typography,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function VideosOptions(props) {
+  const [addKey, setAddKey] = React.useState("addVideo");
+  const [deleteKey, setDeleteKey] = React.useState("deleteVideo");
+
   return (
     <ul className="dashboard-options-list">
-      <li key="v0">
-        <AddVideo setVideosList={props.setVideosList} />
-      </li>
-      <li key="v1">
-        <DeleteVideo
-          videosList={props.videosList}
-          setVideosList={props.setVideosList}
-        />
-      </li>
+      <Accordion
+        sx={{
+          marginBottom: "2%",
+          color: "var(--mydarkblue)",
+        }}
+      >
+        <AccordionSummary
+          sx={{ border: "solid" }}
+          expandIcon={<ExpandMoreIcon />}
+        >
+          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+            <strong>Add a Video</strong>
+          </Typography>
+          <Typography sx={{ color: "inherit" }}>
+            <strong>POST</strong>: /ssa-api/videos
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
+          <AddVideo
+            key={addKey}
+            refresh={() => {
+              setAddKey("addVideo" + new Date().getTime());
+            }}
+            setVideosList={props.setVideosList}
+          />
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: "2%",
+          color: "var(--mydarkblue)",
+        }}
+      >
+        <AccordionSummary
+          sx={{ border: "solid" }}
+          expandIcon={<ExpandMoreIcon />}
+        >
+          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+            <strong>Delete a Video</strong>
+          </Typography>
+          <Typography sx={{ color: "inherit" }}>
+            <strong>DELETE</strong>: /ssa-api/videos/:id
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
+          <DeleteVideo
+            key={deleteKey}
+            refresh={() => {
+              setDeleteKey("deleteVideo" + new Date().getTime());
+            }}
+            videosList={props.videosList}
+            setVideosList={props.setVideosList}
+          />
+        </AccordionDetails>
+      </Accordion>
     </ul>
   );
 }

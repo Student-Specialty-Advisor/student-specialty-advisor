@@ -1,22 +1,31 @@
 import React from "react";
 import fetchService from "../../../../services/fetchService.js";
 import alertify from "alertifyjs";
+import {
+  StyledTextField,
+  StyledMenuItem,
+  StyledButton,
+} from "../../../Basic Elements/StyledBasicElements.js";
 
 const AddAdvisor = (props) => {
   const fullName = React.useRef();
   const email = React.useRef();
   const profession = React.useRef();
-  const specialty = React.useRef();
+  const [specialty, setSpecialty] = React.useState("");
   const linkedinUrl = React.useRef();
   const imageUrl = React.useRef();
   const quote = React.useRef();
   const [isDisabled, setIsDisabled] = React.useState(true);
+
+  const handleSelectChange = (event) => {
+    setSpecialty(event.target.value);
+  };
   const handleChange = () => {
     if (
       fullName.current.value !== "" &&
       email.current.value !== "" &&
       profession.current.value !== "" &&
-      specialty.current.value !== "" &&
+      specialty !== "" &&
       linkedinUrl.current.value !== "" &&
       imageUrl.current.value !== "" &&
       quote.current.value !== ""
@@ -26,12 +35,30 @@ const AddAdvisor = (props) => {
       setIsDisabled(true);
     }
   };
+
+  React.useEffect(() => {
+    if (specialty !== "") {
+      if (
+        fullName.current.value !== "" &&
+        email.current.value !== "" &&
+        profession.current.value !== "" &&
+        linkedinUrl.current.value !== "" &&
+        imageUrl.current.value !== "" &&
+        quote.current.value !== ""
+      ) {
+        setIsDisabled(false);
+      } else {
+        setIsDisabled(true);
+      }
+    }
+  }, [specialty]);
+
   const task = () => {
     const data = {
       fullName: fullName.current.value,
       email: email.current.value,
       profession: profession.current.value,
-      specialty: specialty.current.value,
+      specialty: specialty,
       linkedinUrl: linkedinUrl.current.value,
       imageUrl: imageUrl.current.value,
       quote: quote.current.value,
@@ -42,6 +69,7 @@ const AddAdvisor = (props) => {
         if (response.success) {
           alertify.success("Advisor Added Successfully");
           props.setAdvisorsList();
+          props.refresh();
         } else {
           alertify.warning(
             "An Advisor with this " +
@@ -58,72 +86,87 @@ const AddAdvisor = (props) => {
   };
   return (
     <>
-      <h1>Add An Advisor : </h1>
-      <label>Full Name :</label>
-      <br />
-      <input
-        placeholder="Full Name"
-        type="text"
+      <StyledTextField
+        size="small"
+        label="Full Name"
         onChange={handleChange}
-        ref={fullName}
-      ></input>
+        inputRef={fullName}
+        variant="outlined"
+        margin="dense"
+      />
       <br />
-      <label>Email :</label>
-      <br />
-      <input
-        placeholder="Email"
-        type="text"
+      <StyledTextField
+        size="small"
+        label="Email"
         onChange={handleChange}
-        ref={email}
-      ></input>
+        inputRef={email}
+        variant="outlined"
+        margin="dense"
+      />
       <br />
-      <label>Profession :</label>
-      <br />
-      <input
-        placeholder="Profession"
-        type="text"
+      <StyledTextField
+        size="small"
+        label="Profession"
         onChange={handleChange}
-        ref={profession}
-      ></input>
+        inputRef={profession}
+        variant="outlined"
+        margin="dense"
+      />
       <br />
-      <label>Specialty :</label>
+      <StyledTextField
+        select
+        size="small"
+        label="Specialty"
+        value={specialty}
+        onChange={handleSelectChange}
+        variant="outlined"
+        margin="dense"
+        sx={{ width: 225 }}
+      >
+        <StyledMenuItem value="SE">Software Engineering</StyledMenuItem>
+        <StyledMenuItem value="CSE">
+          Computer Systems Engineering
+        </StyledMenuItem>
+        <StyledMenuItem value="REE">
+          Renewable Energy Engineering
+        </StyledMenuItem>
+      </StyledTextField>
       <br />
-      <select ref={specialty}>
-        <option value="SE">Software Engineering</option>
-        <option value="CSE">Computer Systems Engineering</option>
-        <option value="REE">Renewable Energy Engineering</option>
-      </select>
-      <br />
-      <label>Linkedin Url :</label>
-      <br />
-      <input
-        placeholder="Linkedin Url"
-        type="text"
+      <StyledTextField
+        size="small"
+        label="LinkedIn URL"
         onChange={handleChange}
-        ref={linkedinUrl}
-      ></input>
+        inputRef={linkedinUrl}
+        variant="outlined"
+        margin="dense"
+      />
       <br />
-      <label>Image Url :</label>
-      <br />
-      <input
-        placeholder="Image Url"
-        type="text"
+      <StyledTextField
+        size="small"
+        label="Picture URL"
         onChange={handleChange}
-        ref={imageUrl}
-      ></input>
+        inputRef={imageUrl}
+        variant="outlined"
+        margin="dense"
+      />
       <br />
-      <label>Quote :</label>
-      <br />
-      <input
-        placeholder="Quote"
-        type="text"
+      <StyledTextField
+        size="small"
+        label="Quote"
         onChange={handleChange}
-        ref={quote}
-      ></input>
+        inputRef={quote}
+        variant="outlined"
+        margin="dense"
+      />
       <br />
-      <button onClick={task} disabled={isDisabled}>
+      <StyledButton
+        sx={{ marginTop: "1%" }}
+        variant="contained"
+        onClick={task}
+        disabled={isDisabled}
+      >
         Submit
-      </button>
+      </StyledButton>
     </>
   );
 };

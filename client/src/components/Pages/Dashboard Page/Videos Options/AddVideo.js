@@ -1,23 +1,44 @@
 import alertify from "alertifyjs";
 import React from "react";
 import fetchService from "../../../../services/fetchService";
+import {
+  StyledTextField,
+  StyledButton,
+  StyledMenuItem,
+} from "../../../Basic Elements/StyledBasicElements";
 
 function AddVideo(props) {
   const videoTitle = React.useRef();
   const videoLink = React.useRef();
-  const specialty = React.useRef();
+  const [specialty, setSpecialty] = React.useState("");
   const [isDisabled, setIsDisabled] = React.useState(true);
+
   const handleChange = () => {
     if (
       videoTitle.current.value !== "" &&
       videoLink.current.value !== "" &&
-      specialty.current.value !== ""
+      specialty !== ""
     ) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
   };
+
+  const handleSelectChange = (event) => {
+    setSpecialty(event.target.value);
+  };
+
+  React.useEffect(() => {
+    if (specialty !== "") {
+      if (videoLink.current.value !== "" && videoTitle.current.value !== "") {
+        setIsDisabled(false);
+      } else {
+        setIsDisabled(true);
+      }
+    }
+  }, [specialty]);
+
   const task = () => {
     if (videoLink.current.value.includes("www.youtube.com")) {
       var code;
@@ -30,7 +51,7 @@ function AddVideo(props) {
       const data = {
         title: videoTitle.current.value,
         link: code,
-        specialty: specialty.current.value,
+        specialty: specialty,
       };
       fetchService
         .doPOST("videos", data)
@@ -38,6 +59,7 @@ function AddVideo(props) {
           if (response.success) {
             alertify.success("Video Added Successfully");
             props.setVideosList();
+            props.refresh();
           } else {
             alertify.warning(
               "This video " +
@@ -57,31 +79,51 @@ function AddVideo(props) {
   };
   return (
     <>
-      <h1>Add A Video :</h1>
-      <label>Video Title: </label>
-      <br />
-      <input
-        type="text"
-        ref={videoTitle}
+      <StyledTextField
+        size="small"
+        label="Video Title"
         onChange={handleChange}
-        maxLength="25"
+        inputRef={videoTitle}
+        variant="outlined"
+        margin="dense"
       />
       <br />
-      <label>Video Link: </label>
+      <StyledTextField
+        size="small"
+        label="Video Link"
+        onChange={handleChange}
+        inputRef={videoLink}
+        variant="outlined"
+        margin="dense"
+      />
       <br />
-      <input type="text" ref={videoLink} onChange={handleChange}></input>
+      <StyledTextField
+        select
+        size="small"
+        label="Specialty"
+        value={specialty}
+        onChange={handleSelectChange}
+        variant="outlined"
+        margin="dense"
+        sx={{ width: 225 }}
+      >
+        <StyledMenuItem value="SE">Software Engineering</StyledMenuItem>
+        <StyledMenuItem value="CSE">
+          Computer Systems Engineering
+        </StyledMenuItem>
+        <StyledMenuItem value="REE">
+          Renewable Energy Engineering
+        </StyledMenuItem>
+      </StyledTextField>
       <br />
-      <label>Specialty : </label>
-      <br />
-      <select ref={specialty}>
-        <option value="SE">Software Engineering</option>
-        <option value="CSE">Computer Systems Engineering</option>
-        <option value="REE">Renewable Energy Engineering</option>
-      </select>
-      <br />
-      <button onClick={task} disabled={isDisabled}>
+      <StyledButton
+        sx={{ marginTop: "1%" }}
+        variant="contained"
+        onClick={task}
+        disabled={isDisabled}
+      >
         Submit
-      </button>
+      </StyledButton>
     </>
   );
 }

@@ -545,6 +545,12 @@ body {
   height: 4vh;
   width: 100%;
 }
+.achievement-card {
+  height: 15vh;
+}
+.achievement-card h1 {
+  font-size: 28px;
+}
 
 .home-private h2 {
   color: var(--myblue);
@@ -1840,6 +1846,11 @@ body {
 .advisors-page-container button:active {
   background-color: rgb(226, 128, 0);
 }
+.meetings-advisors-list-title {
+  margin-top: 15vh;
+  text-align: center;
+  color: var(--myblue);
+}
 .meetings-advisors-list {
   width: 100%;
   margin-top: 15vh;
@@ -1878,26 +1889,26 @@ body {
   display: flex;
   font-size: 18px;
   color: var(--mydarkblue);
-  width: 8vw;
+  width: 10vw;
   font-weight: 550;
   gap: 10%;
   border: solid var(--mydarkblue);
   background-color: white;
-  height: 8vw;
+  height: 10vw;
   transition: 0.2s;
   overflow: hidden;
   border-radius: 50%;
   align-items: center;
 }
 .meetings-advisors-list li:hover {
-  width: 20vw;
+  width: 25vw;
   border-radius: 25px;
 }
 .meetings-advisors-list li .picture-container {
   position: relative;
   background-color: var(--myblue);
-  width: 7vw;
-  height: 7vw;
+  width: 9vw;
+  height: 9vw;
   border-radius: 50%;
   border-style: solid;
   background-size: cover;
@@ -1916,8 +1927,8 @@ body {
   right: 0;
   opacity: 0;
   background-color: rgba(255, 255, 255, 0.7);
-  width: 7vw;
-  height: 7vw;
+  width: 9vw;
+  height: 9vw;
   border-radius: 50%;
   border-style: none;
   transition: 0.5s;
@@ -2130,7 +2141,7 @@ body {
 
 .dashboard-container .side-bar {
   background-color: rgb(23, 38, 53);
-  width: 20%;
+  width: 18%;
   height: inherit;
   padding: 0;
   margin: 0;
@@ -2139,8 +2150,7 @@ body {
 .dashboard-container .side-bar h1 {
   color: cyan;
   margin-left: 5%;
-  font-size: 30px;
-  font-style: italic;
+  font-size: 28px;
 }
 .dashboard-container .side-bar li {
   position: relative;
@@ -2187,7 +2197,7 @@ body {
   left: calc(100% + 0.75rem);
 }
 .dashboard-container .dashboard-options {
-  width: 80%;
+  width: 82%;
   height: inherit;
   padding: 0;
   margin: 0;
@@ -2202,11 +2212,10 @@ body {
   padding: 0;
   margin: auto;
   list-style-type: none;
-}
-.dashboard-options-list li {
   margin-top: 2%;
 }
 /*#endregion dashboard page*/
+
 /*#region forum page*/
 .forum-constuction-container {
   width: 100%;
@@ -2249,6 +2258,7 @@ body {
   border-radius: 25%;
 }
 /*#endregion forum page*/
+
 /*#region media*/
 
 /*Exceptions to small laptop resolutions*/
@@ -2273,6 +2283,12 @@ body {
   }
   #meetings-request-popup.forRight {
     height: 150%;
+  }
+  .achievement-card {
+    height: 20vh;
+  }
+  .achievement-card h1 {
+    font-size: 24px;
   }
 }
 

@@ -1,15 +1,20 @@
 import React from "react";
 import fetchService from "../../../../services/fetchService";
 import alertify from "alertifyjs";
+import {
+  StyledButton,
+  StyledMenuItem,
+  StyledTextField,
+} from "../../../Basic Elements/StyledBasicElements";
 const UpdateAdvisor = (props) => {
   const fullName = React.useRef();
   const email = React.useRef();
   const profession = React.useRef();
-  const specialty = React.useRef();
+  const [specialty, setSpecialty] = React.useState("");
   const linkedinUrl = React.useRef();
   const imageUrl = React.useRef();
   const quote = React.useRef();
-  const select = React.useRef();
+  const [select, setSelect] = React.useState("");
   const [isHidden, setIsHidden] = React.useState(true);
   const [currentAdvisor, setCurrentAdvisor] = React.useState({});
 
@@ -24,8 +29,8 @@ const UpdateAdvisor = (props) => {
     if (profession.current.value !== "") {
       json.profession = profession.current.value;
     }
-    if (specialty.current.value !== "") {
-      json.specialty = specialty.current.value;
+    if (specialty !== "") {
+      json.specialty = specialty;
     }
     if (linkedinUrl.current.value !== "") {
       json.linkedinUrl = linkedinUrl.current.value;
@@ -37,14 +42,12 @@ const UpdateAdvisor = (props) => {
       json.quote = quote.current.value;
     }
     fetchService
-      .doPUT(
-        "meeting/advisors/" + props.advisorsList[select.current.value]._id,
-        json
-      )
+      .doPUT("meeting/advisors/" + props.advisorsList[select]._id, json)
       .then((response) => {
         if (response.success) {
           alertify.success("Advisor was updated Successfully");
           props.setAdvisorsList();
+          props.refresh();
         } else {
           alertify.warning(
             "An Advisor with this " +
@@ -61,89 +64,124 @@ const UpdateAdvisor = (props) => {
   };
   const mapping = props.advisorsList.map((advisor, index) => {
     return (
-      <option value={index} key={index}>
+      <StyledMenuItem value={index} key={index}>
         {advisor.fullName}
-      </option>
+      </StyledMenuItem>
     );
   });
 
+  React.useEffect(() => {
+    if (select !== "") {
+      setCurrentAdvisor(props.advisorsList[select]);
+      setSpecialty(props.advisorsList[select].specialty);
+      setIsHidden(false);
+    }
+  }, [select, props.advisorsList]);
+
   return (
     <>
-      <h1>Update An Advisor : </h1>
-      <select
-        onChange={() => {
-          setCurrentAdvisor(props.advisorsList[select.current.value]);
-          setIsHidden(false);
+      <p>Only the fields that you change are going to be updated</p>
+      <StyledTextField
+        select
+        size="small"
+        label="Advisor"
+        value={select}
+        onChange={(event) => {
+          setSelect(event.target.value);
         }}
-        ref={select}
+        variant="outlined"
+        margin="dense"
+        sx={{ width: 225 }}
+        helperText="Please select an advisor to update"
       >
-        <option hidden disabled selected value>
-          Select An Advisor
-        </option>
         {mapping}
-      </select>
-      <br />
-      <br />
-      <br />
+      </StyledTextField>
       {isHidden === true ? null : (
         <>
-          <label>Full Name :</label>
           <br />
-          <input
+          <StyledTextField
+            size="small"
+            label="Full Name"
+            inputRef={fullName}
+            variant="outlined"
+            margin="dense"
             placeholder={currentAdvisor.fullName}
-            type="text"
-            ref={fullName}
-          ></input>
+          />
           <br />
-          <label>Email :</label>
-          <br />
-          <input
+          <StyledTextField
+            size="small"
+            label="Email"
+            inputRef={email}
+            variant="outlined"
+            margin="dense"
             placeholder={currentAdvisor.email}
-            type="text"
-            ref={email}
-          ></input>
+          />
           <br />
-          <label>Profession :</label>
-          <br />
-          <input
+          <StyledTextField
+            size="small"
+            label="Profession"
+            inputRef={profession}
+            variant="outlined"
+            margin="dense"
             placeholder={currentAdvisor.profession}
-            type="text"
-            ref={profession}
-          ></input>
+          />
           <br />
-          <label>Specialty :</label>
+          <StyledTextField
+            select
+            size="small"
+            label="Specialty"
+            value={specialty}
+            onChange={(event) => {
+              setSpecialty(event.target.value);
+            }}
+            variant="outlined"
+            margin="dense"
+            helperText="The initially selected specialty is the currently assigned one."
+            sx={{ width: 225 }}
+          >
+            <StyledMenuItem value="SE">Software Engineering</StyledMenuItem>
+            <StyledMenuItem value="CSE">
+              Computer Systems Engineering
+            </StyledMenuItem>
+            <StyledMenuItem value="REE">
+              Renewable Energy Engineering
+            </StyledMenuItem>
+          </StyledTextField>
           <br />
-          <select ref={specialty}>
-            <option value="SE">Software Engineering</option>
-            <option value="CSE">Computer Systems Engineering</option>
-            <option value="REE">Renewable Energy Engineering</option>
-          </select>
-          <br />
-          <label>Linkedin Url :</label>
-          <br />
-          <input
+          <StyledTextField
+            size="small"
+            label="LinkedIn URL"
+            inputRef={linkedinUrl}
+            variant="outlined"
+            margin="dense"
             placeholder={currentAdvisor.linkedinUrl}
-            type="text"
-            ref={linkedinUrl}
-          ></input>
+          />
           <br />
-          <label>Image Url :</label>
-          <br />
-          <input
+          <StyledTextField
+            size="small"
+            label="Picture URL"
+            inputRef={imageUrl}
+            variant="outlined"
+            margin="dense"
             placeholder={currentAdvisor.imageUrl}
-            type="text"
-            ref={imageUrl}
-          ></input>
+          />
           <br />
-          <label>Quote :</label>
-          <br />
-          <input
+          <StyledTextField
+            size="small"
+            label="Quote"
+            inputRef={quote}
+            variant="outlined"
+            margin="dense"
             placeholder={currentAdvisor.quote}
-            type="text"
-            ref={quote}
-          ></input>
+          />
           <br />
-          <button onClick={task}>Submit</button>
+          <StyledButton
+            sx={{ marginTop: "1%" }}
+            variant="contained"
+            onClick={task}
+          >
+            Submit
+          </StyledButton>
         </>
       )}
     </>

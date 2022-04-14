@@ -39,15 +39,25 @@ function MeetingsAdvisorsList() {
 
   return (
     <>
-      <h1>SE</h1>
+      <div className="about-container-header">
+        <h1>Meet the Team!</h1>
+        <h4>Get the guidance you need from friends and familiar faces</h4>
+      </div>
+      <h1 className="meetings-advisors-list-title">
+        Software Engineering Advisors
+      </h1>
       <div className="meetings-advisors-list">
         <ul>{advisorsSE.map(mappingFunction)}</ul>
       </div>
-      <h1>CSE</h1>
+      <h1 className="meetings-advisors-list-title">
+        Computer Systems Engineering
+      </h1>
       <div className="meetings-advisors-list">
         <ul>{advisorsCSE.map(mappingFunction)}</ul>
       </div>
-      <h1>REE</h1>
+      <h1 className="meetings-advisors-list-title">
+        Renewable Energy Engineering
+      </h1>
       <div className="meetings-advisors-list">
         <ul>{advisorsREE.map(mappingFunction)}</ul>
       </div>

@@ -1,16 +1,22 @@
 import React from "react";
 import fetchService from "../../../../services/fetchService.js";
 import alertify from "alertifyjs";
+import {
+  StyledMenuItem,
+  StyledTextField,
+  StyledButton,
+} from "../../../Basic Elements/StyledBasicElements.js";
 function AddMeeting(props) {
-  const day = React.useRef();
-  const from = React.useRef();
-  const advisor = React.useRef();
+  const [day, setDay] = React.useState("");
+  const [from, setFrom] = React.useState("");
+  const [advisor, setAdvisor] = React.useState("");
+  const [isDisabled, setIsDisabled] = React.useState(true);
 
   const task = () => {
     const data = {
-      day: day.current.value,
-      from: from.current.value,
-      advisor: advisor.current.value,
+      day: day,
+      from: from,
+      advisor: advisor,
       isAvailable: true,
     };
     fetchService
@@ -18,6 +24,8 @@ function AddMeeting(props) {
       .then((response) => {
         if (response.success) {
           alertify.success("Meeting was added Successfully");
+          props.setMeetingsList();
+          props.refresh();
         } else {
           alertify.warning("This meeting's time slot already exists ");
         }
@@ -31,44 +39,91 @@ function AddMeeting(props) {
 
   const mapping = props.advisorsList.map((advisor) => {
     return (
-      <option key={advisor._id} value={advisor._id}>
+      <StyledMenuItem key={advisor._id} value={advisor._id}>
         {advisor.fullName}
-      </option>
+      </StyledMenuItem>
     );
   });
+
+  React.useEffect(() => {
+    if (day !== "" && from !== "" && advisor !== "") {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [day, from, advisor]);
+
   return (
     <>
-      <h1>Add A Meeting :</h1>
-      <label>Day : </label>
+      <StyledTextField
+        select
+        size="small"
+        label="Day"
+        value={day}
+        onChange={(event) => {
+          setDay(event.target.value);
+        }}
+        variant="outlined"
+        margin="dense"
+        sx={{ width: 225 }}
+        helperText="Please select the meeting day"
+      >
+        <StyledMenuItem value="Monday">Monday</StyledMenuItem>
+        <StyledMenuItem value="Tuesday">Tuesday</StyledMenuItem>
+        <StyledMenuItem value="Wednesday">Wednesday</StyledMenuItem>
+        <StyledMenuItem value="Thursday">Thursday</StyledMenuItem>
+        <StyledMenuItem value="Friday">Friday</StyledMenuItem>
+        <StyledMenuItem value="Saturday">Saturday</StyledMenuItem>
+      </StyledTextField>
       <br />
-      <select ref={day}>
-        <option value="Monday">Monday</option>
-        <option value="Tuesday">Tuesday</option>
-        <option value="Wednesday">Wednesday</option>
-        <option value="Thursday">Thursday</option>
-        <option value="Friday">Friday</option>
-        <option value="Saturday">Saturday</option>
-      </select>
+      <StyledTextField
+        select
+        size="small"
+        label="From"
+        value={from}
+        onChange={(event) => {
+          setFrom(event.target.value);
+        }}
+        variant="outlined"
+        margin="dense"
+        sx={{ width: 225 }}
+        helperText="Please select the meeting time"
+      >
+        <StyledMenuItem value="8">8:00 am</StyledMenuItem>
+        <StyledMenuItem value="9">9:00 am</StyledMenuItem>
+        <StyledMenuItem value="10">10:00 am</StyledMenuItem>
+        <StyledMenuItem value="11">11:00 am</StyledMenuItem>
+        <StyledMenuItem value="12">12:00 pm</StyledMenuItem>
+        <StyledMenuItem value="1">1:00 pm</StyledMenuItem>
+        <StyledMenuItem value="2">2:00 pm</StyledMenuItem>
+        <StyledMenuItem value="3">3:00 pm</StyledMenuItem>
+        <StyledMenuItem value="4">4:00 pm</StyledMenuItem>
+      </StyledTextField>
       <br />
-      <label>From</label>
+      <StyledTextField
+        select
+        size="small"
+        label="Advisor"
+        value={advisor}
+        onChange={(event) => {
+          setAdvisor(event.target.value);
+        }}
+        variant="outlined"
+        margin="dense"
+        sx={{ width: 225 }}
+        helperText="Please select the advisor"
+      >
+        {mapping}
+      </StyledTextField>
       <br />
-      <select ref={from}>
-        <option value="8">8:00 am</option>
-        <option value="9">9:00 am</option>
-        <option value="10">10:00 am</option>
-        <option value="11">11:00 am</option>
-        <option value="12">12:00 pm</option>
-        <option value="1">1:00 pm</option>
-        <option value="2">2:00 pm</option>
-        <option value="3">3:00 pm</option>
-        <option value="4">4:00 pm</option>
-      </select>
-      <br />
-      <label>Advisor : </label>
-      <br />
-      <select ref={advisor}>{mapping}</select>
-      <br />
-      <button onClick={task}>Submit</button>
+      <StyledButton
+        sx={{ marginTop: "1%" }}
+        variant="contained"
+        onClick={task}
+        disabled={isDisabled}
+      >
+        Submit
+      </StyledButton>
     </>
   );
 }

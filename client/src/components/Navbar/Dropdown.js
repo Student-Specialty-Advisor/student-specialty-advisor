@@ -16,7 +16,10 @@ const Dropdown = (props) => {
               <Link
                 to={item.path}
                 className={item.cName}
-                onClick={() => setDropDown(false)}
+                onClick={() => {
+                  setDropDown(false);
+                  window.scrollTo(0, 0);
+                }}
               >
                 {item.title}
               </Link>

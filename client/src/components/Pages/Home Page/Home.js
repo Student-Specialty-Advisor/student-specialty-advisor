@@ -157,6 +157,7 @@ function Home(props) {
     const cardsList = achievementCards.map((achievement) => {
       return (
         <AchievementsCard
+          key={achievement.title}
           title={achievement.title}
           description={achievement.description}
           isCompleted={achievement.isCompleted}
