@@ -25,11 +25,14 @@ import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdviso
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
+import ChatBotSSA from "./components/Chat Bot/ChatBotSSA";
+
 function App() {
   return (
     <Router>
       <Navbar />
       <AuthVerify />
+      <ChatBotSSA />
       <Switch>
         <Route exact path="/" component={Home} />
         <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
