@@ -28,9 +28,6 @@ function VideosOptions(props) {
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
             <strong>Add a Video</strong>
           </Typography>
-          <Typography sx={{ color: "inherit" }}>
-            <strong>POST</strong>: /ssa-api/videos
-          </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
           <AddVideo
@@ -54,9 +51,6 @@ function VideosOptions(props) {
         >
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
             <strong>Delete a Video</strong>
-          </Typography>
-          <Typography sx={{ color: "inherit" }}>
-            <strong>DELETE</strong>: /ssa-api/videos/:id
           </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>

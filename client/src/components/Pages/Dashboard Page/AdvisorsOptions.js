@@ -29,9 +29,6 @@ function AdvisorsOptions(props) {
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
             <strong>Add an Advisor</strong>
           </Typography>
-          <Typography sx={{ color: "inherit" }}>
-            <strong>POST</strong>: /ssa-api/meeting/advisors
-          </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
           <AddAdvisor
@@ -55,9 +52,6 @@ function AdvisorsOptions(props) {
         >
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
             <strong>Delete an Advisor</strong>
-          </Typography>
-          <Typography sx={{ color: "inherit" }}>
-            <strong>DELETE</strong>: /ssa-api/meeting/advisors/:id
           </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
@@ -83,9 +77,6 @@ function AdvisorsOptions(props) {
         >
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
             <strong>Update an Advisor</strong>
-          </Typography>
-          <Typography sx={{ color: "inherit" }}>
-            <strong>PUT</strong>: /ssa-api/meeting/advisors/:id
           </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>

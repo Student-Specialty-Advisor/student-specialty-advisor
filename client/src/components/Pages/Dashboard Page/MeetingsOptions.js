@@ -28,9 +28,6 @@ function MeetingsOptions(props) {
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
             <strong>Add a Meeting</strong>
           </Typography>
-          <Typography sx={{ color: "inherit" }}>
-            <strong>POST</strong>: /ssa-api/meeting/schedule
-          </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
           <AddMeeting
@@ -55,9 +52,6 @@ function MeetingsOptions(props) {
         >
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
             <strong>Delete a Meeting</strong>
-          </Typography>
-          <Typography sx={{ color: "inherit" }}>
-            <strong>DELETE</strong>: /ssa-api/meeting/schedule/:id
           </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
