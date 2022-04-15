@@ -16,6 +16,16 @@ function QuizQuestion(props) {
     setSelectedValue(event.target.value);
     scrollToNext();
   };
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  React.useEffect(() => {
+    if (props.generate === true) {
+      setSelectedValue(getRandomIntInclusive(-2, 2).toString());
+    }
+  }, [props.generate]);
 
   return (
     <>

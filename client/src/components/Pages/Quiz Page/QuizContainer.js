@@ -34,6 +34,7 @@ function QuizContainer() {
 
   const [questionList, setQuestionList] = React.useState([]);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [isGenerated, setIsGenerated] = React.useState(false);
   const [results, setResults] = React.useState({});
   var isAdmin = AuthService.isAdmin();
 
@@ -44,6 +45,7 @@ function QuizContainer() {
         key={q.number}
         number={q.number}
         question={q.question}
+        generate={isGenerated}
       />
     );
   });
@@ -171,14 +173,9 @@ function QuizContainer() {
     );
   };
 
-  const generateAnswers = async () => {
+  const generateAnswers = () => {
     // Admin only function
-    for (var i = 0; i < questionList.length; i++) {
-      var randomNumber = Math.floor(Math.random() * 5);
-      document.getElementsByName(questionList[i].number)[
-        randomNumber
-      ].checked = true;
-    }
+    setIsGenerated(true);
     document
       .getElementById("quiz-submit-button")
       .scrollIntoView({ behavior: "smooth", block: "center" });
