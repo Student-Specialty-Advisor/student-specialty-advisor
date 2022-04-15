@@ -18,25 +18,44 @@ function DeleteAdvisor(props) {
     }
   };
 
+  const checkExistantMeetings = () => {
+    for (let i = 0; i < props.meetingsList.meetings.length; i++) {
+      if (props.meetingsList.meetings[i].advisor._id === select) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
   const task = () => {
-    fetchService
-      .doDelete("meeting/advisors/" + select)
-      .then((response) => {
-        if (response.success) {
-          alertify.success("Advisor was deleted Successfully");
-          props.setAdvisorsList();
-          props.refresh();
-        } else {
+    if (checkExistantMeetings() === false) {
+      fetchService
+        .doDelete("meeting/advisors/" + select)
+        .then((response) => {
+          if (response.success) {
+            alertify.success("Advisor was deleted Successfully");
+            props.setAdvisorsList();
+            props.refresh();
+          } else {
+            alertify.error(
+              "Please try later , an error has occurred while deleting the advisor"
+            );
+          }
+        })
+        .catch(() => {
           alertify.error(
             "Please try later , an error has occurred while deleting the advisor"
           );
+        });
+    } else {
+      alertify.alert(
+        "cannot delete this advisor due to meetings bound to them",
+        function () {
+          window.location = "meetings";
         }
-      })
-      .catch(() => {
-        alertify.error(
-          "Please try later , an error has occurred while deleting the advisor"
-        );
-      });
+      );
+    }
   };
   const mapping = props.advisorsList.map((advisor) => {
     return (
