@@ -97,7 +97,7 @@ const UpdateAdvisor = (props) => {
         {mapping}
       </StyledTextField>
       {isHidden === true ? null : (
-        <>
+        <div key={currentAdvisor._id + new Date().getTime()}>
           <br />
           <StyledTextField
             size="small"
@@ -105,7 +105,7 @@ const UpdateAdvisor = (props) => {
             inputRef={fullName}
             variant="outlined"
             margin="dense"
-            placeholder={currentAdvisor.fullName}
+            defaultValue={currentAdvisor.fullName}
           />
           <br />
           <StyledTextField
@@ -114,7 +114,7 @@ const UpdateAdvisor = (props) => {
             inputRef={email}
             variant="outlined"
             margin="dense"
-            placeholder={currentAdvisor.email}
+            defaultValue={currentAdvisor.email}
           />
           <br />
           <StyledTextField
@@ -123,7 +123,7 @@ const UpdateAdvisor = (props) => {
             inputRef={profession}
             variant="outlined"
             margin="dense"
-            placeholder={currentAdvisor.profession}
+            defaultValue={currentAdvisor.profession}
           />
           <br />
           <StyledTextField
@@ -154,7 +154,7 @@ const UpdateAdvisor = (props) => {
             inputRef={linkedinUrl}
             variant="outlined"
             margin="dense"
-            placeholder={currentAdvisor.linkedinUrl}
+            defaultValue={currentAdvisor.linkedinUrl}
           />
           <br />
           <StyledTextField
@@ -163,7 +163,7 @@ const UpdateAdvisor = (props) => {
             inputRef={imageUrl}
             variant="outlined"
             margin="dense"
-            placeholder={currentAdvisor.imageUrl}
+            defaultValue={currentAdvisor.imageUrl}
           />
           <br />
           <StyledTextField
@@ -172,7 +172,7 @@ const UpdateAdvisor = (props) => {
             inputRef={quote}
             variant="outlined"
             margin="dense"
-            placeholder={currentAdvisor.quote}
+            defaultValue={currentAdvisor.quote}
           />
           <br />
           <StyledButton
@@ -182,7 +182,7 @@ const UpdateAdvisor = (props) => {
           >
             Submit
           </StyledButton>
-        </>
+        </div>
       )}
     </>
   );
