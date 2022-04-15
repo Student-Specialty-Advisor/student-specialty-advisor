@@ -133,6 +133,7 @@ const Dashboard = () => {
             <AdvisorsOptions
               advisorsList={advisorsList}
               setAdvisorsList={fetchAdvisors}
+              meetingsList={meetingsList}
             />
           ) : parameter === MEETINGS ? (
             <MeetingsOptions

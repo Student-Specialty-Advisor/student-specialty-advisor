@@ -62,6 +62,7 @@ function AdvisorsOptions(props) {
             }}
             setAdvisorsList={props.setAdvisorsList}
             advisorsList={props.advisorsList}
+            meetingsList={props.meetingsList}
           />
         </AccordionDetails>
       </Accordion>
