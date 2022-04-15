@@ -1114,29 +1114,18 @@ body {
 }
 .quiz-question #text {
   list-style-type: none;
-  margin: 0;
+  margin: auto;
   padding: 0;
-  text-align: center;
-  width: 100%;
+  width: 83%;
   margin-bottom: 2.5%;
+  display: flex;
+  gap : 13% ;
 }
-.quiz-question #radio {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 6%;
-}
-.quiz-question ul li {
-  display: inline-block;
-  width: 33.33%;
-}
-.quiz-question ul input {
-  display: inline-block;
-  scale: 150%;
-  width: 16%;
-  outline: none;
+.quiz-radio {
+ display: flex;
+ justify-content: space-between;
+ margin :auto;
+ width: 70%;
 }
 
 .quiz-transition-start {

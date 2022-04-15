@@ -1,4 +1,8 @@
+import React from "react";
+import { StyledRadio } from "../../Basic Elements/StyledBasicElements";
 function QuizQuestion(props) {
+  const [selectedValue, setSelectedValue] = React.useState("");
+
   const scrollToNext = () => {
     try {
       document
@@ -8,48 +12,56 @@ function QuizQuestion(props) {
       return;
     }
   };
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+    scrollToNext();
+  };
 
   return (
-    <div id={props.id} className="quiz-question">
-      <p>{props.question}</p>
-      <ul id="text">
-        <li>I disagree</li>
-        <li>Neutral</li>
-        <li>I agree</li>
-      </ul>
-      <ul id="radio">
-        <input
-          onClick={scrollToNext}
+    <>
+      <div id={props.id} className="quiz-question">
+        <p>{props.question}</p>
+        <ul id="text">
+          <li>Strongly disagree</li>
+          <li>Disagree</li>
+          <li>Neutral</li>
+          <li style={{ marginLeft: "2%" }}>Agree</li>
+          <li>Strongly agree</li>
+        </ul>
+      </div>
+      <div className="quiz-radio">
+        <StyledRadio
+          checked={selectedValue === "-2"}
           name={props.number}
           value="-2"
-          type="radio"
-        ></input>
-        <input
-          onClick={scrollToNext}
+          onChange={handleChange}
+        />
+        <StyledRadio
+          checked={selectedValue === "-1"}
+          onChange={handleChange}
           name={props.number}
           value="-1"
-          type="radio"
-        ></input>
-        <input
-          onClick={scrollToNext}
+        />
+        <StyledRadio
+          checked={selectedValue === "0"}
+          onChange={handleChange}
           name={props.number}
           value="0"
-          type="radio"
-        ></input>
-        <input
-          onClick={scrollToNext}
+        />
+        <StyledRadio
+          checked={selectedValue === "1"}
           name={props.number}
           value="1"
-          type="radio"
-        ></input>
-        <input
-          onClick={scrollToNext}
+          onChange={handleChange}
+        />
+        <StyledRadio
+          checked={selectedValue === "2"}
           name={props.number}
           value="2"
-          type="radio"
-        ></input>
-      </ul>
-    </div>
+          onChange={handleChange}
+        />
+      </div>
+    </>
   );
 }
 
