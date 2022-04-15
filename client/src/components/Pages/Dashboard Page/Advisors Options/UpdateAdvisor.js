@@ -97,7 +97,7 @@ const UpdateAdvisor = (props) => {
         {mapping}
       </StyledTextField>
       {isHidden === true ? null : (
-        <>
+        <div key={currentAdvisor._id + new Date().getTime()}>
           <br />
           <StyledTextField
             size="small"
@@ -182,7 +182,7 @@ const UpdateAdvisor = (props) => {
           >
             Submit
           </StyledButton>
-        </>
+        </div>
       )}
     </>
   );
