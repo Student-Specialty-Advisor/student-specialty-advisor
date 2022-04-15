@@ -593,6 +593,7 @@ body {
   list-style: none;
   flex-grow: 1;
   justify-content: space-evenly;
+  user-select: none;
 }
 
 .btn-container {
