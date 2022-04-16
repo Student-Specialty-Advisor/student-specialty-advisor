@@ -6,10 +6,12 @@ import {
   StyledMenuItem,
   StyledTextField,
 } from "../../../Basic Elements/StyledBasicElements.js";
+import { useHistory } from "react-router-dom";
 
 function DeleteAdvisor(props) {
   const [select, setSelect] = React.useState("");
   const [isDisabled, setIsDisabled] = React.useState(true);
+  let history = useHistory();
 
   const handleSelectChange = (event) => {
     setSelect(event.target.value);
@@ -49,12 +51,14 @@ function DeleteAdvisor(props) {
           );
         });
     } else {
-      alertify.alert(
-        "cannot delete this advisor due to meetings bound to them",
-        function () {
-          window.location = "meetings";
-        }
-      );
+      alertify
+        .confirm(
+          "Cannot delete this advisor due to meetings bound to them. Please delete their meetings first!",
+          function() {
+            history.push("/dashboard/meetings");
+          }
+        )
+        .set("labels", { ok: "Go to Meetings", cancel: "Cancel" });
     }
   };
   const mapping = props.advisorsList.map((advisor) => {

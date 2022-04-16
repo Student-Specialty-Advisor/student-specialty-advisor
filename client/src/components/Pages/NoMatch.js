@@ -2,6 +2,9 @@ import React from "react";
 import noMatchImage from "../../assets/art/gif/404.gif";
 
 function NoMatch() {
+  React.useEffect(() => {
+    document.title = "404 - Student Specialty Advisor";
+  }, []);
   return (
     <div className="no-match-container">
       <img src={noMatchImage} alt=""></img>
