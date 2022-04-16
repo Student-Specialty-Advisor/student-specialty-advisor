@@ -2268,6 +2268,37 @@ body {
 }
 /*#endregion forum page*/
 
+/*#region 404 page*/
+
+.no-match-container {
+  margin: auto;
+  margin-top: 20vh;
+  display: flex;
+  width: 60%;
+  gap: 5%;
+  align-items: center;
+}
+.no-match-container .no-match-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.no-match-container .no-match-text-container h1 {
+  color: var(--mydarkerblue);
+  font-size: 100px;
+  margin: 0;
+}
+.no-match-container .no-match-text-container h2 {
+  color: var(--mydarkerblue);
+  font-size: 32px;
+  margin-bottom: 0;
+}
+.no-match-container .no-match-text-container p {
+  color: var(--mydarkerblue);
+}
+
+/*#endregion 404 page*/
+
 /*#region media*/
 
 /*Exceptions to small laptop resolutions*/

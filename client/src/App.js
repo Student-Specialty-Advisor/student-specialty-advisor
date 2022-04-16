@@ -25,6 +25,7 @@ import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdviso
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
+import NoMatch from "./components/Pages/NoMatch";
 function App() {
   return (
     <Router>
@@ -67,6 +68,7 @@ function App() {
           path="/profile/password"
           component={ChangePassword}
         />
+        <Route exact path="*" component={NoMatch} />
       </Switch>
     </Router>
   );
