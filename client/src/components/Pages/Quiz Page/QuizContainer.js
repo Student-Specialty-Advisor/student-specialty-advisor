@@ -1,5 +1,4 @@
 import QuizQuestion from "./QuizQuestion";
-import QuizGraphTheory from "./QuizGraphTheory";
 import Footer from "../Footer";
 import React from "react";
 import AuthService from "../../../services/AuthService";
@@ -15,6 +14,8 @@ import {
   Legend,
 } from "chart.js";
 import fetchService from "../../../services/fetchService";
+import { completeAchievement } from "../../../services/achievements";
+import { CircularProgress } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -33,7 +34,10 @@ function QuizContainer() {
 
   const [questionList, setQuestionList] = React.useState([]);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [isGenerated, setIsGenerated] = React.useState(false);
   const [results, setResults] = React.useState({});
+  const [showCircularProgress, setShowCircularProgress] = React.useState(false);
+
   var isAdmin = AuthService.isAdmin();
 
   var showQuestionList = questionList.map((q) => {
@@ -43,9 +47,23 @@ function QuizContainer() {
         key={q.number}
         number={q.number}
         question={q.question}
+        generate={isGenerated}
       />
     );
   });
+
+  const getSpecialtyName = (specialty) => {
+    switch (specialty) {
+      case "RE":
+        return " Renewable Energy Engineering";
+      case "SE":
+        return " Software Engineering";
+      case "CSE":
+        return " Computer systems Engineering";
+      default:
+        return "Unknown";
+    }
+  };
 
   const getQuizJson = async () => {
     const json = await fetchService.doGET("quiz-questions");
@@ -101,6 +119,7 @@ function QuizContainer() {
         setResults(result);
         setIsSubmitted(true);
         window.scrollTo(0, 0);
+        completeAchievement("quizCompletion", "Program Compatibility Quiz");
       })
       .catch((error) => {
         console.log(error);
@@ -115,48 +134,30 @@ function QuizContainer() {
     return (
       <>
         <h1>Your results are in!</h1>
-        {results.result === "SE" ? (
-          <p>
-            The specialty that suits you best would probably be:{" "}
-            <strong>Software Engineering!</strong>
-          </p>
-        ) : null}
-        {results.result === "CSE" ? (
-          <p>
-            The specialty that suits you best would probably be:{" "}
-            <strong>Computer Systems Engineering!</strong>
-          </p>
-        ) : null}
-        {results.result === "RE" ? (
-          <p>
-            The specialty that suits you best would probably be:{" "}
-            <strong>Renewable Energy Engineering!</strong>
-          </p>
-        ) : null}
-        {results.secondResult === "SE" ? (
-          <p>
-            But we also think that <strong>Software Engineering</strong> could
-            be good for you.
-          </p>
-        ) : null}
-        {results.secondResult === "CSE" ? (
-          <p>
-            But we also think that <strong>Computer Systems Engineering</strong>{" "}
-            could be good for you.
-          </p>
-        ) : null}
-        {results.secondResult === "RE" ? (
-          <p>
-            But we also think that <strong>Renewable Energy Engineering</strong>{" "}
-            could be good for you.
-          </p>
-        ) : null}
-        <p>Here is how you scored on our weighted graph!</p>
-        <QuizGraphTheory
-          weightSE={results.weightSE}
-          weightCSE={results.weightCSE}
-          weightRE={results.weightRE}
-        />
+        <p>
+          The specialty that suits you best would probably be:
+          <strong>{getSpecialtyName(results.result)}!</strong>
+        </p>
+        <a
+          href={`http://localhost:3000/programs/${results.result.toLowerCase()}/overview`}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          More about {getSpecialtyName(results.result)}↗
+        </a>
+        <p>
+          But we also think that
+          <strong>{getSpecialtyName(results.secondResult)}</strong> could be
+          good for you.
+        </p>
+        <a
+          href={`http://localhost:3000/programs/${results.secondResult.toLowerCase()}/overview`}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          More about {getSpecialtyName(results.secondResult)}↗
+        </a>
+
         <button
           onClick={() => {
             window.scrollTo(0, 0);
@@ -169,18 +170,21 @@ function QuizContainer() {
     );
   };
 
-  const generateAnswers = async () => {
+  const generateAnswers = () => {
     // Admin only function
-    for (var i = 0; i < questionList.length; i++) {
-      var randomNumber = Math.floor(Math.random() * 5);
-      document.getElementsByName(questionList[i].number)[
-        randomNumber
-      ].checked = true;
-    }
-    document
-      .getElementById("quiz-submit-button")
-      .scrollIntoView({ behavior: "smooth", block: "center" });
+    setShowCircularProgress(true);
+    setIsGenerated(true);
   };
+
+  React.useEffect(() => {
+    if (isGenerated === true) {
+      document
+        .getElementById("quiz-submit-button")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsGenerated(false);
+      setShowCircularProgress(false);
+    }
+  }, [isGenerated]);
 
   React.useEffect(() => {
     getQuizJson();
@@ -202,11 +206,24 @@ function QuizContainer() {
       )}
       <div className="quiz-container">
         {isSubmitted ? null : isAdmin ? (
-          <button onClick={generateAnswers}>
-            Admin Only Button
-            <br />
-            Generate Answer
-          </button>
+          <>
+            <button
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+              onClick={generateAnswers}
+            >
+              Generate Answers
+              {showCircularProgress ? (
+                <CircularProgress
+                  variant="indeterminate"
+                  disableShrink
+                  sx={{ margin: "auto", marginTop: "5%" }}
+                />
+              ) : null}
+            </button>
+          </>
         ) : null}
         {isSubmitted ? <Results /> : showQuestionList}
         {isSubmitted ? null : (

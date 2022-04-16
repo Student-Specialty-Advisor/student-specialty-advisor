@@ -1,4 +1,5 @@
 const User = require("../db/User");
+const Achievements = require("../db/Achievements");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const invalidPassword = { keyPattern: { password: 1 } };
@@ -24,10 +25,22 @@ var SignUp = (req, res) => {
   newUser
     .save()
     .then((newUser) => {
-      res.status(200).send(newUser);
+      const achievements = new Achievements({ user: newUser._id });
+      achievements
+        .save()
+        .then(() => {
+          res.status(200).send({
+            success: 1,
+            message:
+              "User was created, and an achievements document was linked to it",
+          });
+        })
+        .catch((error) => {
+          res.status(500).send({ error: 1, errorObject: error });
+        });
     })
     .catch((error) => {
-      res.status(200).send(error);
+      res.status(500).send(error);
     });
 };
 
@@ -37,7 +50,7 @@ var LogIn = (req, res) => {
   var emailObj = { email: json.email };
   User.findOne(emailObj).then((user) => {
     if (user === null) {
-      res.status(200).send(invalidEmail);
+      res.status(500).send(invalidEmail);
     } else {
       if (bcrypt.compareSync(json.password, user.password)) {
         var token = jwt.sign({ id: user._id }, process.env.TOKEN_KEY, {
@@ -54,7 +67,7 @@ var LogIn = (req, res) => {
         };
         res.status(200).send(userData);
       } else {
-        res.status(200).send(invalidPassword);
+        res.status(500).send(invalidPassword);
       }
     }
   });

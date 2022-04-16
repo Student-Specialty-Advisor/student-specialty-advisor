@@ -3,6 +3,10 @@
   "version": "4.0.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.0",
+    "@mui/material": "^5.6.0",
     "@react-sigma/core": "^2.0.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -15,6 +19,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.0",
+    "react-simple-chatbot": "^0.6.1",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },

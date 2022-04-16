@@ -25,7 +25,12 @@ function PrivateNavbar(props) {
       <nav className="navbar">
         <div className="navbar-flex">
           <div className="navbar-logo-container">
-            <Link to="/">
+            <Link
+              to="/"
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+            >
               <img
                 className="navbar-logo"
                 src={props.logo}
@@ -36,7 +41,14 @@ function PrivateNavbar(props) {
           <ul className="nav-items">
             {isAdmin ? (
               <li className="nav-item">
-                <Link to="/dashboard">Dashboard</Link>
+                <Link
+                  to="/dashboard"
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  Dashboard
+                </Link>
               </li>
             ) : null}
             {NavItems.map((item) => {
@@ -98,7 +110,13 @@ function PrivateNavbar(props) {
 
               return (
                 <li key={item.id} className={item.cName}>
-                  <Link className="nav-item-link" to={item.path}>
+                  <Link
+                    className="nav-item-link"
+                    to={item.path}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}
+                  >
                     {item.title}
                   </Link>
                 </li>
@@ -107,7 +125,13 @@ function PrivateNavbar(props) {
           </ul>
           <div className="btn-container">
             <div className="btn-container">
-              <Link to="/profile" className="btn">
+              <Link
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+                to="/profile"
+                className="btn"
+              >
                 Profile
               </Link>
             </div>

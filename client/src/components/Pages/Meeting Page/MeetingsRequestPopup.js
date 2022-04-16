@@ -1,5 +1,6 @@
 import alertify from "alertifyjs";
 import React from "react";
+import { completeAchievement } from "../../../services/achievements";
 import AuthService from "../../../services/AuthService";
 import fetchService from "../../../services/fetchService";
 
@@ -27,20 +28,15 @@ function MeetingsRequestPopup(props) {
     fetchService
       .doPUT("meeting/request", data)
       .then((response) => {
-        console.log(response);
         if (response.tokenError) {
           AuthService.alertifyInvalidToken();
           return;
         }
         if (response.success) {
           alertify.success(
-            "Your request was sent, and we just informed the advisor!",
-            5
+            "Your request was sent, and we just informed the advisor!"
           );
-          alertify.message(
-            "Tip: Don't hesitate to reach out to the advisor by email!",
-            7
-          );
+          completeAchievement("meetingsRequestCompletion", "Meeting Request");
         } else if (response.unavailable) {
           alertify.warning(
             "Hm.. Unfortunately, this meeting just got reserved by someone else!"

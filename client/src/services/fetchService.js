@@ -46,7 +46,6 @@ const doDelete = async (endpoint) => {
     method: "DELETE",
     headers: {
       "x-access-token": user.accessToken,
-      "Content-Type": "application/json",
     },
   });
   const json = await response.json();

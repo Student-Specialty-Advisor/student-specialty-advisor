@@ -1,7 +1,19 @@
 import React from "react";
 import Footer from "../Footer";
+import { completeAchievement } from "../../../services/achievements";
 
 function MeetingsAbout(props) {
+  React.useEffect(() => {
+    let achievementTimer = setTimeout(
+      () =>
+        completeAchievement("meetingsSectionCompletion", "Meetings & Advisors"),
+      10000
+    );
+    return () => {
+      clearTimeout(achievementTimer);
+    };
+  }, []);
+
   return (
     <>
       <div className="about-container-header">
@@ -13,55 +25,66 @@ function MeetingsAbout(props) {
       </div>
       <div className="about-container-body">
         <div className="about-container-body-text">
-          <h3> The use of this feature </h3>
-          <li>talk to professors about the programs</li>
-          <li>schedule a Meeting with a PASS leader </li>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
+          <h3>Get the advice you need from familiar faces:</h3>
+          <ul>
+            <li>Seek guidance from SMU's experts and professors.</li>
+            <li>Chat with Junior, Senior, Final and Former students.</li>
+            <li>Get an idea about the courses you are going to encounter.</li>
+            <li>Find answers to seemingly difficult questions and thoughts.</li>
+          </ul>
         </div>
         <div className="about-container-body-img"></div>
       </div>
-      <div className="about-container-upper-mid">
-        <div className="about-container-upper-mid-right">
-          <h3> What is the outcome of using this feature?</h3>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-        </div>
-        <div className="about-container-upper-mid-left">
-          <h3> When to schedule a meeting?</h3>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
+      <div className="about-container-body">
+        <div className="about-container-body-img" id="second"></div>
+        <div className="about-container-body-text">
+          <h3>How can I request a meeting?</h3>
+          <div className="about-container-body-steps">
+            <p>
+              <strong>
+                <u>Step 1:</u>
+              </strong>
+              <br />
+              Check out the current meetings schedule
+            </p>
+            <p>
+              <strong>
+                <u>Step 2:</u>
+              </strong>
+              <br />
+              Choose which available meeting you would like to request
+            </p>
+            <p>
+              <strong>
+                <u>Step 3:</u>
+              </strong>
+              <br />
+              We inform the advisor about your request by email
+            </p>
+            <p>
+              <strong>
+                <u>Step 4:</u>
+              </strong>
+              <br />
+              Sit & Relax! The advisor should reach out to you soon
+            </p>
+          </div>
         </div>
       </div>
-      <div className="about-container-lower-mid">
-        <div className="about-container-lower-mid-img"></div>
-        <div className="about-container-lower-mid-right">
-          <h3>Students may find the list of the advisors here </h3>
-          <button
-            className="about-container-lower-mid-button"
-            onClick={() => {
-              props.history.push("/meetings/advisors");
-            }}
-          >
-            Advisors List
-          </button>
-        </div>
-      </div>
-      <div className="about-container-bottom">
-        <h3>Students may requset a meeting here </h3>
+      <div className="about-container-end">
         <button
-          className="about-container-bottom-button"
           onClick={() => {
-            props.history.push("/meetings/request");
+            window.location.href = "/meetings/request";
           }}
         >
-          REQUEST A MEETING!
+          MEETINGS SCHEDULE
+        </button>
+        <button
+          onClick={() => {
+            window.location.href = "/meetings/advisors";
+          }}
+        >
+          THE ADVISORS
         </button>
       </div>
       <Footer />

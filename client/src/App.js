@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar/Navbar";
 import LogInForm from "./components/Forms/LogInForm";
 import SignUpForm from "./components/Forms/SignUpForm";
 
-import Home from "./components/Pages/Home";
+import Home from "./components/Pages/Home Page/Home";
 import Profile from "./components/Pages/Profile Page/Profile";
 import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
@@ -25,11 +25,15 @@ import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdviso
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
+import ChatBotSSA from "./components/Chat Bot/ChatBotSSA";
+import NoMatch from "./components/Pages/NoMatch";
+
 function App() {
   return (
     <Router>
       <Navbar />
       <AuthVerify />
+      <ChatBotSSA />
       <Switch>
         <Route exact path="/" component={Home} />
         <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
@@ -67,6 +71,7 @@ function App() {
           path="/profile/password"
           component={ChangePassword}
         />
+        <Route exact path="*" component={NoMatch} />
       </Switch>
     </Router>
   );

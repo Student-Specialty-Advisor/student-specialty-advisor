@@ -4,6 +4,7 @@ import Statistics from "./Statistics";
 import AdvisorsOptions from "./AdvisorsOptions";
 import MeetingsOptions from "./MeetingsOptions";
 import VideosOptions from "./VideosOptions";
+import fetchService from "../../../services/fetchService";
 
 const STATISTICS = "statistics";
 const ADVISORS = "advisors";
@@ -20,6 +21,29 @@ const Dashboard = () => {
       parameter.slice(1) +
       " - Student Specialty Advisor";
   }, [parameter]);
+
+  const [advisorsList, setAdvisorsList] = React.useState([]);
+  const [meetingsList, setMeetingsList] = React.useState({ meetings: [] });
+  const [videosList, setVideosList] = React.useState([]);
+
+  const fetchAdvisors = async () => {
+    const list = await fetchService.doGET("meeting/advisors");
+    setAdvisorsList(list);
+  };
+  const fetchMeetings = async () => {
+    const list = await fetchService.doGET("meeting/schedule");
+    setMeetingsList(list);
+  };
+  const fetchVideos = async () => {
+    const list = await fetchService.doGET("videos");
+    setVideosList(list);
+  };
+
+  const fetchAll = () => {
+    fetchAdvisors();
+    fetchMeetings();
+    fetchVideos();
+  };
 
   const setupSideBar = () => {
     var statistics = document.getElementById(STATISTICS);
@@ -55,6 +79,9 @@ const Dashboard = () => {
         break;
     }
   };
+
+  React.useEffect(fetchAll, []);
+
   React.useEffect(setupSideBar);
 
   return PARAMETERS.includes(parameter) ? (
@@ -103,11 +130,22 @@ const Dashboard = () => {
           {parameter === STATISTICS ? (
             <Statistics />
           ) : parameter === ADVISORS ? (
-            <AdvisorsOptions />
+            <AdvisorsOptions
+              advisorsList={advisorsList}
+              setAdvisorsList={fetchAdvisors}
+              meetingsList={meetingsList}
+            />
           ) : parameter === MEETINGS ? (
-            <MeetingsOptions />
+            <MeetingsOptions
+              advisorsList={advisorsList}
+              meetingsList={meetingsList}
+              setMeetingsList={fetchMeetings}
+            />
           ) : parameter === VIDEOS ? (
-            <VideosOptions />
+            <VideosOptions
+              videosList={videosList}
+              setVideosList={fetchVideos}
+            />
           ) : null}
         </ul>
       </div>
