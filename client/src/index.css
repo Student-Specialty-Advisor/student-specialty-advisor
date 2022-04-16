@@ -160,30 +160,27 @@ body {
 }
 
 .ajs-error {
-  color: white;
-  background: rgb(233, 47, 48) !important;
+  background: rgb(255, 48, 48) !important;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px 1px;
+  box-shadow: 0px 0px 3px 1px;
 }
 
 .ajs-success {
-  color: #000033;
   background: rgb(128, 175, 114) !important;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px 1px;
+  box-shadow: 0px 0px 3px 1px;
 }
 
 .ajs-warning {
-  color: #000033;
   background: var(--myorange) !important;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px 1px;
+  box-shadow: 0px 0px 3px 1px;
 }
 
 .ajs-message {
   background-color: gold;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px 1px;
+  box-shadow: 0px 0px 3px 1px;
 }
 
 /*#endregion AlertifyJS*/
@@ -793,92 +790,81 @@ body {
 
 /*Sign in Page*/
 .sign-in-background {
-  background: url("./assets/art/klouz_white.jpg");
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 15;
+  display: flex;
+}
+.sign-in-image-container {
+  flex-basis: 58.333333%;
+  background-color: white;
+  flex-grow: 0;
+}
+.sign-in-image-container.image1 {
+  background-image: url("./assets/art/laptop_background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 100% 50%;
-  width: 100%;
-  height: 90.1vh;
-  margin-top: -2%;
+  background-position: 50% 60%;
 }
+.sign-in-image-container.image2 {
+  background-image: url("./assets/art/klouz_white.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.sign-in-image-container.image3 {
+  background-image: url("./assets/art/smu.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 60% 50%;
+}
+
 .sign-in-form-container {
-  margin-top: 6.9%;
-  width: 50%;
+  flex-basis: 41.666667%;
   display: flex;
-  height: 90vh;
-  align-items: center;
-}
-.sign-in-form-container form {
-  margin-left: 15%;
-  background-color: rgba(255, 255, 255, 0.63);
-  height: 69vh; /*nice!*/
-  width: 28vw;
-  border-radius: 15px;
-  border-style: solid;
-  text-align: center;
-  border-color: var(--mydarkblue);
-}
-.sign-in-form-container form h3 {
-  margin-top: 32%;
-  margin-left: 5%;
-  margin-right: 5%;
-  color: var(--mydarkerblue);
-  font-size: 1.4rem;
-  font-weight: normal;
-}
-.sign-in-form-container input {
-  width: 63%;
-  border-color: var(--mydarkblue);
-  border-style: none;
-  background-color: transparent;
-  border-bottom-style: solid;
-  font-size: 15px;
-  color: darkblue;
-  outline: none;
-}
-
-.sign-in-form-container button {
-  border-color: var(--mydarkblue);
-  color: var(--mydarkerblue);
-  font-size: 1rem;
-  font-weight: normal;
-  height: auto;
-  padding: 10px 30%;
-  background-color: var(--myorange);
-  border-radius: 10px;
-  border-style: solid;
-}
-.sign-in-form-container button:hover {
-  background-color: rgb(224, 136, 20);
-}
-.sign-in-form-container button:active {
-  border-color: transparent;
-}
-
-.sign-in-form-container .already-logged-in {
-  margin-left: 15%;
-  background-color: rgba(255, 255, 255, 0.63);
-  height: 69vh; /*nice!*/
-  width: 28vw;
-  border-radius: 15px;
-  border-style: solid;
-  text-align: center;
-  border-color: var(--mydarkblue);
-  display: flex;
-  flex-direction: column;
+  height: 100vh;
+  background-color: white;
+  flex-grow: 0;
+  box-shadow: 0px 0px 3px 1px;
   justify-content: center;
 }
-.sign-in-form-container .already-logged-in p {
-  font-size: 16px;
-  color: var(--myblue);
-  margin-right: 10%;
-  margin-left: 10%;
+.sign-in-form-container form {
+  margin-top: 10%;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.sign-in-form-container .already-logged-in button {
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
+.sign-in-form-container form .logo {
+  width: 64px;
+  height: 64px;
+  background-image: url("./assets/art/logo/logo_black_circle_only.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+.sign-in-form-container form h3 {
+  margin-top: 0;
+  color: var(--mydarkerblue);
+  font-size: 26px;
+  font-weight: normal;
+}
+.sign-in-form-container .signup-link {
+  color: var(--myblue);
+}
+.sign-in-form-container .signup-link:visited {
+  color: var(--myblue);
+}
+.sign-in-form-container .signup-link:hover {
+  text-decoration-thickness: 2px;
+}
+.sign-in-form-container .already-logged-in-text {
+  text-align: center;
+  font-size: 20px;
+  width: 90%;
 }
 
 /*Sign up Page */
@@ -2303,9 +2289,6 @@ body {
 
 /*Exceptions to small laptop resolutions*/
 @media only screen and (max-width: 1366px) {
-  .sign-in-form-container form h3 {
-    margin-top: 21%;
-  }
   .sign-up-form-container form {
     height: 80vh;
   }

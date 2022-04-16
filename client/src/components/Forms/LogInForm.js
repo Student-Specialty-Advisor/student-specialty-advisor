@@ -2,6 +2,10 @@ import utils from "../utils";
 import AuthService from "../../services/AuthService";
 import React from "react";
 import alertify from "alertifyjs";
+import {
+  StyledTextField,
+  StyledButton,
+} from "../Basic Elements/StyledBasicElements";
 
 function LogInForm(props) {
   React.useEffect(() => {
@@ -55,20 +59,13 @@ function LogInForm(props) {
     }
   };
 
-  /*const test = (e) => {
-    e.preventDefault();
-    try {
-      var customRedirectPath = props.location.state.from.pathname;
-    } catch (error) {
-      props.history.push(defaultRedirectPath);
-    }
-    props.history.push(customRedirectPath);
-  };*/
+  const getBackgroundImage = () => {
+    var images = ["image1", "image2", "image3"];
+    var image = images[Math.floor(Math.random() * images.length)];
+    document.getElementById("background-image").classList.add(image);
+  };
 
-  /*const logout = (e) => {
-    e.preventDefault();
-    AuthSerice.logout();
-  };*/
+  React.useEffect(getBackgroundImage, []);
 
   const AlreadyLoggedIn = () => {
     const logout = () => {
@@ -78,54 +75,95 @@ function LogInForm(props) {
     const cancel = () => {
       window.location.href = defaultRedirectPath;
     };
-    var email = AuthService.getCurrentUser().email;
+    var user =
+      AuthService.getCurrentUser().firstName +
+      " " +
+      AuthService.getCurrentUser().lastName;
     return (
-      <div className="sign-in-background">
-        <div className="sign-in-form-container">
-          <div className="already-logged-in">
-            <p>
-              You are already logged in as <strong>{email}</strong>'s account.
-              You need to logout if you wish to use another account!
-            </p>
-            <button onClick={logout}>Logout</button>
-            <button onClick={cancel}>Cancel</button>
-          </div>
-        </div>
-      </div>
+      <>
+        <p className="already-logged-in-text">
+          You are already logged in as <strong>{user}</strong>.
+          <br />
+          You need to logout if you wish to use another account!
+        </p>
+        <StyledButton
+          sx={{ marginTop: "4%" }}
+          size="large"
+          fullWidth
+          variant="contained"
+          onClick={logout}
+        >
+          LOG OUT
+        </StyledButton>
+        <StyledButton
+          sx={{ marginTop: "4%" }}
+          size="large"
+          fullWidth
+          variant="contained"
+          onClick={cancel}
+        >
+          CANCEL
+        </StyledButton>
+      </>
     );
   };
 
-  const Form = (
+  return (
     <div className="sign-in-background">
+      <div className="sign-in-image-container" id="background-image"></div>
       <div className="sign-in-form-container">
         <form id="signInForm">
-          <h3>Please type your account information:</h3>
-          <label htmlFor="iEmail"></label>
-          <br></br>
-          <input
-            type="text"
-            name="iEmail"
-            placeholder="E-mail Address.."
-          ></input>
-          <br />
-          <br />
-          <label htmlFor="iPassword"></label>
-          <br></br>
-          <input
-            type="password"
-            name="iPassword"
-            placeholder="Password.."
-          ></input>
-          <br /> <br /> <br /> <br />
-          <button id="taskButton" onClick={task}>
-            LOGIN
-          </button>
+          <div
+            className="logo"
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          ></div>
+          <h3>Log in</h3>
+          {isLoggedIn ? (
+            <AlreadyLoggedIn />
+          ) : (
+            <>
+              <StyledTextField
+                fullWidth
+                variant="outlined"
+                name="iEmail"
+                label="Email Address"
+                margin="normal"
+              />
+              <StyledTextField
+                fullWidth
+                variant="outlined"
+                name="iPassword"
+                label="Password"
+                margin="normal"
+                type="password"
+              />
+              <StyledButton
+                sx={{ marginTop: "4%" }}
+                size="large"
+                fullWidth
+                variant="contained"
+                onClick={task}
+              >
+                LOG IN
+              </StyledButton>
+              <div>
+                <br />
+                <a
+                  className="signup-link"
+                  href="/signup"
+                  rel="noreferrer noopener"
+                >
+                  Don't have an account? Sign Up
+                </a>
+              </div>
+            </>
+          )}
         </form>
       </div>
     </div>
   );
-
-  return isLoggedIn ? <AlreadyLoggedIn /> : Form;
 }
 
 export default LogInForm;
