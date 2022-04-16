@@ -32,11 +32,19 @@ function QuizQuestion(props) {
       <div id={props.id} className="quiz-question">
         <p>{props.question}</p>
         <ul id="text">
-          <li>Strongly disagree</li>
+          <li>
+            Strongly
+            <br />
+            disagree
+          </li>
           <li>Disagree</li>
           <li>Neutral</li>
-          <li style={{ marginLeft: "2%" }}>Agree</li>
-          <li>Strongly agree</li>
+          <li>Agree</li>
+          <li>
+            Strongly
+            <br />
+            agree
+          </li>
         </ul>
       </div>
       <div className="quiz-radio">

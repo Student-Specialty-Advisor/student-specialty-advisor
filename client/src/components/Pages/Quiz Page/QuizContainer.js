@@ -170,10 +170,15 @@ function QuizContainer() {
   const generateAnswers = () => {
     // Admin only function
     setIsGenerated(true);
-    document
-      .getElementById("quiz-submit-button")
-      .scrollIntoView({ behavior: "smooth", block: "center" });
   };
+
+  React.useEffect(() => {
+    if (isGenerated === true) {
+      document
+        .getElementById("quiz-submit-button")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [isGenerated]);
 
   React.useEffect(() => {
     getQuizJson();

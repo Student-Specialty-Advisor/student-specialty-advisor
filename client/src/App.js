@@ -27,6 +27,7 @@ import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
 import ChatBotSSA from "./components/Chat Bot/ChatBotSSA";
 
+import NoMatch from "./components/Pages/NoMatch";
 function App() {
   return (
     <Router>
@@ -70,6 +71,7 @@ function App() {
           path="/profile/password"
           component={ChangePassword}
         />
+        <Route exact path="*" component={NoMatch} />
       </Switch>
     </Router>
   );

@@ -126,7 +126,7 @@ function MeetingsRequest() {
                 Request Meeting
               </button>
             ) : (
-              <button disabled>Unavailable OR Reserved</button>
+              <button disabled>Unavailable\Reserved</button>
             )}
           </div>
         </td>
