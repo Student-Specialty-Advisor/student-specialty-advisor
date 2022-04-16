@@ -15,6 +15,7 @@ import {
 } from "chart.js";
 import fetchService from "../../../services/fetchService";
 import { completeAchievement } from "../../../services/achievements";
+import { CircularProgress } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -35,6 +36,8 @@ function QuizContainer() {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [isGenerated, setIsGenerated] = React.useState(false);
   const [results, setResults] = React.useState({});
+  const [showCircularProgress, setShowCircularProgress] = React.useState(false);
+
   var isAdmin = AuthService.isAdmin();
 
   var showQuestionList = questionList.map((q) => {
@@ -169,6 +172,7 @@ function QuizContainer() {
 
   const generateAnswers = () => {
     // Admin only function
+    setShowCircularProgress(true);
     setIsGenerated(true);
   };
 
@@ -177,6 +181,8 @@ function QuizContainer() {
       document
         .getElementById("quiz-submit-button")
         .scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsGenerated(false);
+      setShowCircularProgress(false);
     }
   }, [isGenerated]);
 
@@ -200,11 +206,24 @@ function QuizContainer() {
       )}
       <div className="quiz-container">
         {isSubmitted ? null : isAdmin ? (
-          <button onClick={generateAnswers}>
-            Admin Only Button
-            <br />
-            Generate Answer
-          </button>
+          <>
+            <button
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+              onClick={generateAnswers}
+            >
+              Generate Answers
+              {showCircularProgress ? (
+                <CircularProgress
+                  variant="indeterminate"
+                  disableShrink
+                  sx={{ margin: "auto", marginTop: "5%" }}
+                />
+              ) : null}
+            </button>
+          </>
         ) : null}
         {isSubmitted ? <Results /> : showQuestionList}
         {isSubmitted ? null : (

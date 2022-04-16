@@ -8,6 +8,7 @@ function Loading() {
         <CircularProgress
           thickness={8}
           size={60}
+          variant="indeterminate"
           sx={{ margin: "auto", color: "var(--mydarkerblue)" }}
         />
       </div>

@@ -2,6 +2,15 @@ import React from "react";
 import AdvisorCard from "./AdvisorCard";
 import fetchService from "../../../services/fetchService";
 import Footer from "../Footer";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Typography,
+} from "@mui/material";
+import { StyledButton } from "../../Basic Elements/StyledBasicElements";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 function MeetingsAdvisorsList() {
   React.useEffect(() => {
     document.title = "Meetings - Advisors - Student Specialty Advisor";
@@ -42,25 +51,82 @@ function MeetingsAdvisorsList() {
       <div className="about-container-header">
         <h1>Meet the Team!</h1>
         <h4>Get the guidance you need from friends and familiar faces</h4>
+        <p>
+          <strong>Want to be the change?</strong>
+        </p>
+        <StyledButton
+          size="large"
+          sx={{ width: "20%" }}
+          variant="contained"
+          onClick={() => {
+            window.location.href = "the form link";
+          }}
+        >
+          Become an advisor
+        </StyledButton>
       </div>
-      <h1 className="meetings-advisors-list-title">
-        Software Engineering Advisors
-      </h1>
-      <div className="meetings-advisors-list">
-        <ul>{advisorsSE.map(mappingFunction)}</ul>
+      <div className="meetings-advisors-accordion">
+        <Accordion
+          sx={{
+            color: "var(--mydarkblue)",
+          }}
+        >
+          <AccordionSummary
+            sx={{ border: "solid" }}
+            expandIcon={<ExpandMoreIcon />}
+          >
+            <Typography sx={{ width: "33%", flexShrink: 0 }}>
+              <strong>Software Engineering Advisors</strong>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
+            <div className="meetings-advisors-list">
+              {advisorsSE.map(mappingFunction)}
+            </div>
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion
+          sx={{
+            color: "var(--mydarkblue)",
+          }}
+        >
+          <AccordionSummary
+            sx={{ border: "solid", marginTop: "2%" }}
+            expandIcon={<ExpandMoreIcon />}
+          >
+            <Typography sx={{ width: "33%", flexShrink: 0 }}>
+              <strong>Computer Systems Engineering Advisors</strong>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
+            <div className="meetings-advisors-list">
+              {advisorsCSE.map(mappingFunction)}
+            </div>
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion
+          sx={{
+            color: "var(--mydarkblue)",
+          }}
+        >
+          <AccordionSummary
+            sx={{ border: "solid", marginTop: "2%" }}
+            expandIcon={<ExpandMoreIcon />}
+          >
+            <Typography sx={{ width: "33%", flexShrink: 0 }}>
+              <strong>Renewable Energy Engineering Advisors</strong>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
+            <div className="meetings-advisors-list">
+              {advisorsREE.map(mappingFunction)}
+            </div>
+          </AccordionDetails>
+        </Accordion>
       </div>
-      <h1 className="meetings-advisors-list-title">
-        Computer Systems Engineering
-      </h1>
-      <div className="meetings-advisors-list">
-        <ul>{advisorsCSE.map(mappingFunction)}</ul>
-      </div>
-      <h1 className="meetings-advisors-list-title">
-        Renewable Energy Engineering
-      </h1>
-      <div className="meetings-advisors-list">
-        <ul>{advisorsREE.map(mappingFunction)}</ul>
-      </div>
+
       <Footer />
     </>
   );
