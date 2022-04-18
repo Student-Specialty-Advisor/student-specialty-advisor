@@ -13,13 +13,34 @@
   .nav-items {
     display: none;
   }
+  .form-image-container.image2 {
+    background-position: 76%;
+  }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 810px) {
+  .form-image-container {
+    flex-basis: 40%;
+  }
+  .form-container {
+    flex-basis: 60%;
+  }
+  .form-image-container.image1 {
+    background-position: 0%;
+  }
+  .form-image-container.image3 {
+    background-position: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .form-image-container {
+    display: none;
+    flex-basis: 0%;
+  }
+  .form-container {
+    flex-basis: 100%;
+  }
 }
 @media only screen and (max-width: 480px) {
-  .home-private h1 {
-    font-size: 10vw;
-  }
 }
 @media only screen and (max-width: 320px) {
 }
