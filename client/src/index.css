@@ -1422,9 +1422,9 @@ body {
 /*#region profile page*/
 
 .profile-container {
-  width: 100%;
+  width: 50%;
   padding: 0;
-  margin: 0;
+  margin: auto;
   margin-top: 18vh;
 }
 .profile-container h1 {
@@ -1435,71 +1435,13 @@ body {
   animation: fadeInWithTranslateY 0.5s;
 }
 .profile-container h4 {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--mydakblue);
   text-align: center;
   margin-bottom: 8vh;
   font-style: italic;
   animation: fadeInWithTranslateY 0.5s;
 }
-.profile-container ul {
-  width: 40%;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  margin-left: auto;
-  margin-right: auto;
-  animation: fadeInWithTranslateY 0.5s;
-}
-.profile-container ul li {
-  margin-top: 2%;
-  margin-bottom: 2%;
-  width: 100%;
-}
-.profile-container ul li label {
-  color: var(--myblue);
-  font-size: 20px;
-  width: 28%;
-  display: inline-block;
-  margin-left: 7%;
-}
-.profile-container ul li input {
-  width: 60%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.profile-container select {
-  width: 61%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.profile-button-container {
-  width: 100%;
-  text-align: center;
-  margin-top: 10vh;
-  animation: fadeInWithTranslateY 0.5s;
-}
-.profile-button-container button {
-  background-color: var(--myorange);
-  padding: 1% 2%;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-left: 1%;
-  margin-right: 1%;
-  font-family: inherit;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 650;
-}
-.profile-button-container button:hover {
-  background-color: rgb(240, 154, 42);
-}
-.profile-button-container button:active {
-  background-color: rgb(226, 128, 0);
-}
-
 /*#endregion profile page*/
 
 /*#region program page*/
@@ -2266,6 +2208,7 @@ body {
   width: 60%;
   gap: 5%;
   align-items: center;
+  user-select: none;
 }
 .no-match-container .no-match-text-container {
   display: flex;

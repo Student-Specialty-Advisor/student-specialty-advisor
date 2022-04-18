@@ -2,12 +2,16 @@ import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
 import React from "react";
 import fetchService from "../../../services/fetchService";
-
+import {
+  StyledTextField,
+  StyledButton,
+} from "../../Basic Elements/StyledBasicElements";
 function ChangePassword(props) {
   React.useEffect(() => {
     document.title = "My Profile - Student Specialty Advisor";
   }, []);
-
+  const [hasError, setHasError] = React.useState(false);
+  const [isNotMatching, setIsNotMatching] = React.useState(false);
   const updatePassword = async () => {
     const currentPassword = document.getElementById("currentPassword").value;
     const newPassword = document.getElementById("newPassword").value;
@@ -17,6 +21,7 @@ function ChangePassword(props) {
       return;
     }
     if (newPassword === newPassword2) {
+      setIsNotMatching(false);
       const passwordJson = {
         currentPassword: currentPassword,
         password: newPassword,
@@ -26,13 +31,15 @@ function ChangePassword(props) {
         AuthService.alertifyInvalidToken();
       } else if (json.keyPattern) {
         alertify.error("The given current password is incorrect. Try again!");
+        setHasError(true);
       } else {
         window.addEventListener("beforeunload", () => {
           AuthService.logout();
         });
+        setHasError(false);
         alertify.alert(
           "Password was changed successfully. Please re-login!",
-          function () {
+          function() {
             AuthService.logout();
             window.location.href = "/login";
           }
@@ -40,6 +47,7 @@ function ChangePassword(props) {
       }
     } else {
       alertify.warning("New Password fields are not matching!");
+      setIsNotMatching(true);
     }
   };
 
@@ -50,25 +58,57 @@ function ChangePassword(props) {
         You are changing your password. Click on the submit button to confirm
         your changes!
       </h4>
-      <ul>
-        <li>
-          <label>Current Password: </label>
-          <input type="password" id="currentPassword"></input>
-        </li>
-        <br />
 
-        <li>
-          <label>New Password: </label>
-          <input type="password" id="newPassword"></input>
-        </li>
-        <li>
-          <label>Confirm Password: </label>
-          <input type="password" id="newPassword2"></input>
-        </li>
-      </ul>
-      <div className="profile-button-container">
-        <button onClick={updatePassword}>Submit</button>
-        <button onClick={() => props.history.push("/profile")}>Cancel</button>
+      <StyledTextField
+        error={hasError}
+        id="currentPassword"
+        type="password"
+        fullWidth
+        label="Current Password"
+        margin="normal"
+        helperText={hasError ? "Incorrect entry." : ""}
+      />
+      <StyledTextField
+        error={isNotMatching}
+        id="newPassword"
+        type="password"
+        fullWidth
+        label="New Password"
+        margin="normal"
+        helperText={isNotMatching ? "Fields are not matching." : ""}
+      />
+      <StyledTextField
+        error={isNotMatching}
+        id="newPassword2"
+        type="password"
+        fullWidth
+        label="Confirm New Password"
+        margin="normal"
+        helperText={isNotMatching ? "Fields are not matching." : ""}
+      />
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          margin: "auto",
+        }}
+      >
+        <StyledButton
+          onClick={updatePassword}
+          size="large"
+          sx={{ marginTop: "2%" }}
+        >
+          Submit
+        </StyledButton>
+        <StyledButton
+          onClick={() => props.history.push("/profile")}
+          size="large"
+          sx={{ marginTop: "2%" }}
+        >
+          Cancel
+        </StyledButton>
       </div>
     </div>
   );

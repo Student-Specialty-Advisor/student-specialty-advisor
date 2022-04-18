@@ -13,8 +13,10 @@ export const StyledTextField = styled(TextField)({
   },
   "& input.MuiOutlinedInput-input": {
     color: "var(--mydarkerblue)",
+    backgroundColor: "white",
   },
   "& .MuiOutlinedInput-root": {
+    backgroundColor: "white",
     "& fieldset": {
       borderColor: "var(--mydarkblue)",
     },

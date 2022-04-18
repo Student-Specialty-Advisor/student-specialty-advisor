@@ -3,7 +3,11 @@ import React from "react";
 import AuthService from "../../../services/AuthService";
 import fetchService from "../../../services/fetchService";
 import utils from "../../utils";
-
+import {
+  StyledTextField,
+  StyledButton,
+  StyledMenuItem,
+} from "../../Basic Elements/StyledBasicElements";
 function Profile(props) {
   React.useEffect(() => {
     document.title = "My Profile - Student Specialty Advisor";
@@ -12,11 +16,15 @@ function Profile(props) {
   const [isChanging, setIsChanging] = React.useState(false);
   const [isReadOnly, setIsReadOnly] = React.useState(true);
   const [userData, setUserData] = React.useState(AuthService.getCurrentUser());
+  const [universityYear, setUniversityYear] = React.useState("");
+  const [isCanceled, setIsCanceled] = React.useState(false);
+  const [hasError, setHasError] = React.useState(false);
   const changePasswordPath = "/profile/password";
 
   const changingState = (bool) => {
     setIsChanging(bool);
     setIsReadOnly(!bool);
+    setIsCanceled(true);
   };
 
   const updateInfo = async (newData) => {
@@ -44,39 +52,39 @@ function Profile(props) {
   };
 
   const refreshInputFields = () => {
-    document.getElementById("firstName").value =
-      document.getElementById("firstName").defaultValue;
-    document.getElementById("lastName").value =
-      document.getElementById("lastName").defaultValue;
-    document.getElementById("email").value =
-      document.getElementById("email").defaultValue;
-    document.getElementById("university year").value = userData.universityYear;
+    document.getElementById("firstName").value = userData.firstName;
+    document.getElementById("lastName").value = userData.lastName;
+    document.getElementById("email").value = userData.email;
+    setUniversityYear(userData.universityYear);
   };
 
   const cancel = () => {
     refreshInputFields();
     changingState(false);
+    setIsCanceled(false);
+    setHasError(false);
   };
 
   const submit = () => {
     const newFirstName = document.getElementById("firstName").value;
     const newLastName = document.getElementById("lastName").value;
     const newEmail = document.getElementById("email").value;
-    const newUniversityYear = document.getElementById("university year").value;
     if (newFirstName === "" || newLastName === "" || newEmail === "") {
       alertify.warning("Hey! Some important fields were left empty!");
     } else if (!utils.isValidEmail(newEmail)) {
       alertify.warning("Make sure to enter a valid SMU / MEDTECH e-mail!");
+      setHasError(true);
     } else {
       const newData = {
         firstName: newFirstName,
         lastName: newLastName,
         email: newEmail,
-        universityYear: newUniversityYear,
+        universityYear: universityYear,
       };
       updateInfo(newData)
         .then(() => {
           changingState(false);
+          if (hasError) setHasError(false);
         })
         .catch((error) => {
           return;
@@ -85,17 +93,45 @@ function Profile(props) {
   };
 
   const showInfo = (
-    <div className="profile-button-container">
-      <button onClick={() => changingState(true)}>Change Information</button>
-      <button onClick={() => props.history.push(changePasswordPath)}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        margin: "auto",
+      }}
+    >
+      <StyledButton
+        onClick={() => changingState(true)}
+        size="large"
+        sx={{ marginTop: "2%" }}
+      >
+        Change Information
+      </StyledButton>
+      <StyledButton
+        onClick={() => props.history.push(changePasswordPath)}
+        size="large"
+        sx={{ marginTop: "2%" }}
+      >
         Change Password
-      </button>
+      </StyledButton>
     </div>
   );
   const changeInfo = (
-    <div className="profile-button-container">
-      <button onClick={submit}>Submit</button>
-      <button onClick={cancel}>Cancel</button>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        margin: "auto",
+      }}
+    >
+      <StyledButton onClick={submit} size="large" sx={{ marginTop: "2%" }}>
+        Submit
+      </StyledButton>
+      <StyledButton onClick={cancel} size="large" sx={{ marginTop: "2%" }}>
+        Cancel
+      </StyledButton>
     </div>
   );
 
@@ -109,48 +145,66 @@ function Profile(props) {
             button to confirm your changes!
           </h4>
         ) : null}
-        <ul>
-          <li>
-            <label>First Name: </label>
-            <input
-              defaultValue={userData.firstName}
-              id="firstName"
-              readOnly={isReadOnly}
-            ></input>
-          </li>
-          <li>
-            <label>Last Name: </label>
-            <input
-              defaultValue={userData.lastName}
-              id="lastName"
-              readOnly={isReadOnly}
-            ></input>
-          </li>
-          <li>
-            <label>Email: </label>
-            <input
-              defaultValue={userData.email}
-              id="email"
-              readOnly={isReadOnly}
-            ></input>
-          </li>
-          <li>
-            <label>University Year: </label>
-            <select
-              defaultValue={userData.universityYear}
-              id="university year"
-              disabled={isReadOnly}
-            >
-              <option value="Freshman">Freshman year</option>
-              <option value="Sophomore">Sophomore year</option>
-              <option value="Junior">Junior year</option>
-              <option value="Senior">Senior year</option>
-              <option value="Final">Final year</option>
-            </select>
-          </li>
-        </ul>
+
+        <StyledTextField
+          id="firstName"
+          label="First Name"
+          defaultValue={userData.firstName}
+          InputProps={{
+            readOnly: isReadOnly,
+          }}
+          margin="normal"
+          fullWidth
+        />
+        <br />
+        <StyledTextField
+          id="lastName"
+          label="Last Name"
+          defaultValue={userData.lastName}
+          InputProps={{
+            readOnly: isReadOnly,
+          }}
+          margin="normal"
+          fullWidth
+        />
+        <br />
+        <StyledTextField
+          error={hasError}
+          id="email"
+          label="Email"
+          defaultValue={userData.email}
+          InputProps={{
+            readOnly: isReadOnly,
+          }}
+          margin="normal"
+          fullWidth
+          helperText={hasError ? "Incorrect entry." : ""}
+        />
+        <br />
+        <StyledTextField
+          key={isCanceled}
+          select
+          id="university year"
+          label="University Year"
+          defaultValue={userData.universityYear}
+          onChange={(event) => {
+            setUniversityYear(event.target.value);
+          }}
+          variant="outlined"
+          margin="dense"
+          SelectProps={{
+            readOnly: isReadOnly,
+          }}
+          fullWidth
+        >
+          <StyledMenuItem value="Freshman">Freshman year</StyledMenuItem>
+          <StyledMenuItem value="Sophomore">Sophomore year</StyledMenuItem>
+          <StyledMenuItem value="Junior">Junior year</StyledMenuItem>
+          <StyledMenuItem value="Senior">Senior year</StyledMenuItem>
+          <StyledMenuItem value="Final">Final year</StyledMenuItem>
+        </StyledTextField>
+        {isChanging ? changeInfo : showInfo}
       </div>
-      {isChanging ? changeInfo : showInfo}
     </>
   );
 }

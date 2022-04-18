@@ -7,7 +7,7 @@ function NoMatch() {
   }, []);
   return (
     <div className="no-match-container">
-      <img src={noMatchImage} alt=""></img>
+      <img src={noMatchImage} alt="" draggable="false"></img>
       <div className="no-match-text-container">
         <h1>404</h1>
         <h2>UH OH! You're lost.</h2>
