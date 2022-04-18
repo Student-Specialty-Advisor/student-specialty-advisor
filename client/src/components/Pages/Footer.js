@@ -24,7 +24,7 @@ function Footer(props) {
         </li>
         <li>
           <a
-            href="https://www.google.com"
+            href="mailto:studentspecialtyadvisor@outlook.com"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -33,7 +33,7 @@ function Footer(props) {
         </li>
         <li>
           <a
-            href="https://www.google.com"
+            href="https://github.com/SEJG2-MYGROUP"
             target="_blank"
             rel="noreferrer noopener"
           >
