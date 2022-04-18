@@ -162,37 +162,34 @@ var requestMeeting = (req, res) => {
       res.status(500).send({ unavailable: 1 });
       return;
     } else if (meeting.isAvailable === true) {
-      const status = sendEmail(data.to, email.subject, email.text, email.html);
-      if (status === null) {
-        res.status(500).send({
-          error: 1,
-          message: "Aborted request because email was not sent",
-        });
-        return;
-      }
-      if (status.success === null) {
-        res.status(500).send({
-          error: 1,
-          message: "Aborted request because email was not sent",
-        });
-        return;
-      }
-      Meeting.findByIdAndUpdate(
-        data.meetingID,
-        { isAvailable: false },
-        { new: true }
-      )
-        .then((meeting) => {
-          res
-            .status(200)
-            .send({ success: 1, message: status.message, meeting: meeting });
+      sendEmail(data.to, email.subject, email.text, email.html)
+        .then((status) => {
+          Meeting.findByIdAndUpdate(
+            data.meetingID,
+            { isAvailable: false },
+            { new: true }
+          )
+            .then((meeting) => {
+              res.status(200).send({
+                success: 1,
+                message: status.message,
+                meeting: meeting,
+              });
+            })
+            .catch((error) => {
+              res.status(500).send(error);
+            });
         })
         .catch((error) => {
-          res.status(500).send(error);
+          res.status(500).send({
+            error: 1,
+            message: "Aborted request because email was not sent",
+            errorObject: error,
+          });
+          return;
         });
     } else {
       res.status(500).send({ error: 1 });
-      return;
     }
   });
 };
