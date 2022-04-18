@@ -1426,19 +1426,18 @@ body {
   padding: 0;
   margin: auto;
   margin-top: 18vh;
+  animation: fadeIn 0.5s;
 }
 .profile-container h1 {
   color: var(--mydarkerblue);
   font-size: 56px;
   text-align: center;
-  margin-bottom: 8vh;
-  animation: fadeInWithTranslateY 0.5s;
+  margin-bottom: 7vh;
 }
 .profile-container h4 {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--mydakblue);
   text-align: center;
-  margin-bottom: 8vh;
   font-style: italic;
   animation: fadeInWithTranslateY 0.5s;
 }

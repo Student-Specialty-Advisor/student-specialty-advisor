@@ -8,6 +8,8 @@ import {
   StyledButton,
   StyledMenuItem,
 } from "../../Basic Elements/StyledBasicElements";
+import Footer from "../Footer";
+
 function Profile(props) {
   React.useEffect(() => {
     document.title = "My Profile - Student Specialty Advisor";
@@ -104,7 +106,7 @@ function Profile(props) {
       <StyledButton
         onClick={() => changingState(true)}
         size="large"
-        sx={{ marginTop: "2%" }}
+        sx={{ marginTop: "3%" }}
       >
         Change Information
       </StyledButton>
@@ -126,7 +128,7 @@ function Profile(props) {
         margin: "auto",
       }}
     >
-      <StyledButton onClick={submit} size="large" sx={{ marginTop: "2%" }}>
+      <StyledButton onClick={submit} size="large" sx={{ marginTop: "3%" }}>
         Submit
       </StyledButton>
       <StyledButton onClick={cancel} size="large" sx={{ marginTop: "2%" }}>
@@ -205,6 +207,7 @@ function Profile(props) {
         </StyledTextField>
         {isChanging ? changeInfo : showInfo}
       </div>
+      <Footer />
     </>
   );
 }

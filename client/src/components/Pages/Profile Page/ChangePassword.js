@@ -2,6 +2,7 @@ import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
 import React from "react";
 import fetchService from "../../../services/fetchService";
+import Footer from "../Footer";
 import {
   StyledTextField,
   StyledButton,
@@ -52,65 +53,68 @@ function ChangePassword(props) {
   };
 
   return (
-    <div className="profile-container">
-      <h1>Welcome to Your Profile!</h1>
-      <h4>
-        You are changing your password. Click on the submit button to confirm
-        your changes!
-      </h4>
+    <>
+      <div className="profile-container">
+        <h1>Welcome to Your Profile!</h1>
+        <h4>
+          You are changing your password. Click on the submit button to confirm
+          your changes!
+        </h4>
 
-      <StyledTextField
-        error={hasError}
-        id="currentPassword"
-        type="password"
-        fullWidth
-        label="Current Password"
-        margin="normal"
-        helperText={hasError ? "Incorrect entry." : ""}
-      />
-      <StyledTextField
-        error={isNotMatching}
-        id="newPassword"
-        type="password"
-        fullWidth
-        label="New Password"
-        margin="normal"
-        helperText={isNotMatching ? "Fields are not matching." : ""}
-      />
-      <StyledTextField
-        error={isNotMatching}
-        id="newPassword2"
-        type="password"
-        fullWidth
-        label="Confirm New Password"
-        margin="normal"
-        helperText={isNotMatching ? "Fields are not matching." : ""}
-      />
+        <StyledTextField
+          error={hasError}
+          id="currentPassword"
+          type="password"
+          fullWidth
+          label="Current Password"
+          margin="normal"
+          helperText={hasError ? "Incorrect entry." : ""}
+        />
+        <StyledTextField
+          error={isNotMatching}
+          id="newPassword"
+          type="password"
+          fullWidth
+          label="New Password"
+          margin="normal"
+          helperText={isNotMatching ? "Fields are not matching." : ""}
+        />
+        <StyledTextField
+          error={isNotMatching}
+          id="newPassword2"
+          type="password"
+          fullWidth
+          label="Confirm New Password"
+          margin="normal"
+          helperText={isNotMatching ? "Fields are not matching." : ""}
+        />
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          margin: "auto",
-        }}
-      >
-        <StyledButton
-          onClick={updatePassword}
-          size="large"
-          sx={{ marginTop: "2%" }}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            margin: "auto",
+          }}
         >
-          Submit
-        </StyledButton>
-        <StyledButton
-          onClick={() => props.history.push("/profile")}
-          size="large"
-          sx={{ marginTop: "2%" }}
-        >
-          Cancel
-        </StyledButton>
+          <StyledButton
+            onClick={updatePassword}
+            size="large"
+            sx={{ marginTop: "3%" }}
+          >
+            Submit
+          </StyledButton>
+          <StyledButton
+            onClick={() => props.history.push("/profile")}
+            size="large"
+            sx={{ marginTop: "2%" }}
+          >
+            Cancel
+          </StyledButton>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 
