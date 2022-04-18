@@ -105,27 +105,24 @@ function Home(props) {
           <h1>Cooking the website with love:</h1>
           <ul>
             <MemberCard
+              id="aymen"
               fullname="Aymen HAMMAMI"
-              email="contact"
-              fb="https://www.facebook.com"
-              github="https://www.github.com"
+              email="hammami.aym@outlook.com"
+              github="https://www.github.com/aymendps"
             />
             <MemberCard
               fullname="Youssef AYDI"
               email="contact"
-              fb="https://www.facebook.com"
               github="https://www.github.com"
             />
             <MemberCard
               fullname="Aziz MAAZOUZ"
               email="contact"
-              fb="https://www.facebook.com"
               github="https://www.github.com"
             />
             <MemberCard
               fullname="Mahdi KLOUZ"
               email="contact"
-              fb="https://www.facebook.com"
               github="https://www.github.com"
             />
           </ul>

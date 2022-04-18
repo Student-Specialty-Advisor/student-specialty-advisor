@@ -110,8 +110,8 @@ function LogInForm(props) {
 
   return (
     <div className="sign-in-background">
-      <div className="sign-in-image-container" id="background-image"></div>
-      <div className="sign-in-form-container">
+      <div className="form-image-container" id="background-image"></div>
+      <div className="form-container">
         <form id="signInForm">
           <div
             className="logo"
@@ -150,13 +150,20 @@ function LogInForm(props) {
               </StyledButton>
               <div>
                 <br />
-                <a
+                <button
+                  style={{
+                    outline: "none",
+                    backgroundColor: "transparent",
+                    border: "none",
+                  }}
                   className="signup-link"
-                  href="/signup"
-                  rel="noreferrer noopener"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    props.history.push("/signup");
+                  }}
                 >
-                  Don't have an account? Sign Up
-                </a>
+                  Don't have an account? Sign Up!
+                </button>
               </div>
             </>
           )}

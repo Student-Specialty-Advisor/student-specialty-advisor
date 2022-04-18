@@ -94,8 +94,6 @@ function ChatBotSSA() {
       "SSA offers a community forum, a safe space for students to review and discuss the different specialties. Join the family now by signing up and express your opinion freely."
     );
 
-    tree.insert("main", "help", "Of course! Ask away!");
-
     tree.insert("main", "greeting", "What's up!");
 
     tree.insert(
@@ -129,7 +127,8 @@ function ChatBotSSA() {
       value.includes("video") ||
       value.includes("overview") ||
       value.includes("curric") ||
-      value.includes("opportunit")
+      value.includes("opportunit") ||
+      value.includes("program")
     ) {
       return chatBotTree.find("features-package").value;
     }
@@ -195,6 +194,7 @@ function ChatBotSSA() {
     }
     if (
       (value.includes("ssa") ||
+        value.includes("website") ||
         value.includes("specialt") ||
         value.includes("advisor")) &&
       !(
@@ -223,13 +223,6 @@ function ChatBotSSA() {
       !value.includes("robotics")
     ) {
       return chatBotTree.find("robot").value;
-    }
-    if (
-      value.includes("help") ||
-      value.includes("ask") ||
-      value.includes("question")
-    ) {
-      return chatBotTree.find("help").value;
     }
     if (
       value.includes("hi") ||

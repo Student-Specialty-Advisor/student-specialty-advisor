@@ -1,4 +1,4 @@
-import { Button, MenuItem, Radio, TextField } from "@mui/material";
+import { Button, MenuItem, Radio, TextField, Stepper } from "@mui/material";
 import styled from "@emotion/styled";
 
 export const StyledTextField = styled(TextField)({
@@ -26,10 +26,12 @@ export const StyledTextField = styled(TextField)({
     "&.Mui-focused fieldset": {
       borderColor: "var(--myblue)",
     },
+    color: "var(--mydarkerblue)",
   },
 });
 
 export const StyledMenuItem = styled(MenuItem)({
+  color: "var(--mydarkerblue)",
   "&:hover": {
     backgroundColor: "var(--myblue)",
   },
@@ -53,6 +55,16 @@ export const StyledRadio = styled(Radio)({
   color: "white",
 
   "&.Mui-checked": {
+    color: "orange",
+  },
+});
+
+export const StyledStepper = styled(Stepper)({
+  "& .MuiStepIcon-root text": {
+    fill: "black",
+    fontWeight: "bold",
+  },
+  "& .MuiStepIcon-root.Mui-active": {
     color: "orange",
   },
 });

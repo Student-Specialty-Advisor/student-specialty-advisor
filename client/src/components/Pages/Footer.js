@@ -24,7 +24,7 @@ function Footer(props) {
         </li>
         <li>
           <a
-            href="mailto:studentspecialtyadvisor@outlook.com"
+            href="mailto: studentspecialtyadvisor@outlook.com"
             target="_blank"
             rel="noreferrer noopener"
           >
