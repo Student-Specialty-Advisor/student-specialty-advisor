@@ -20,6 +20,30 @@
   .navbar-flex {
     height: 80px;
   }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(40 * 100vw / 992);
+  }
+  .home-public-team h1,
+  .home-public-bot h1 {
+    font-size: calc(46 * 100vw / 992);
+  }
+  .home-public-mid-other p {
+    font-size: calc(18 * 100vw / 992);
+  }
+  .home-public-bot .feature-desc li {
+    pointer-events: none;
+  }
+  .home-public-team ul {
+    flex-wrap: wrap;
+  }
+  .home-public-team li {
+    flex-basis: 34%;
+    margin-bottom: 5%;
+  }
+  .home-public-team h1 {
+    margin-bottom: 10%;
+  }
 }
 @media only screen and (max-width: 810px) {
   .form-image-container {
@@ -37,6 +61,25 @@
   .quiz-container {
     width: 86%;
     margin-top: 12%;
+  }
+  .home-public-mid-other p {
+    font-size: calc(16 * 100vw / 810);
+  }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(42 * 100vw / 992);
+  }
+  .home-public-team h1,
+  .home-public-bot {
+    font-size: calc(42 * 100vw / 810);
+  }
+  .home-public-mid-img {
+    box-shadow: -3.125rem -3.125rem 0 -2.5rem var(--mydarkblue),
+      3.125rem 3.125rem 0 -2.5rem var(--mydarkblue);
+  }
+  .home-public-head p {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -57,6 +100,61 @@
     width: 97%;
     margin-top: 22%;
   }
+  .home-public-head h1 {
+    font-size: calc(58 * 100vw / 600);
+  }
+  .home-public-head h2 {
+    font-size: calc(34 * 100vw / 600);
+  }
+  .home-public-head p {
+    font-size: calc(20 * 100vw / 600);
+  }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(42 * 100vw / 600);
+  }
+  .home-public-bot h1,
+  .home-public-team h1 {
+    font-size: calc(42 * 100vw / 600);
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .home-public-mid p,
+  .home-public-mid-other p {
+    font-size: calc(20 * 100vw / 600);
+  }
+  .home-public-text-with-image {
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+  }
+  .home-public-mid-img {
+    margin-top: 10%;
+    flex-basis: auto;
+    background-size: cover;
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 20%;
+  }
+  .home-public-mid-other-img {
+    margin-top: 10%;
+    flex-basis: auto;
+    background-size: cover;
+    height: 30vh;
+    width: 30vh;
+    order: 2;
+    margin-bottom: 10%;
+  }
+  .home-public-bot .feature-img {
+    display: none;
+  }
+  .home-public-bot .feature-desc {
+    width: 90%;
+    margin: auto;
+  }
+  .home-public-bot .feature-img {
+    margin-left: 8.5%;
+  }
 }
 @media only screen and (max-width: 480px) {
   .quiz-container {
@@ -76,6 +174,21 @@
     margin-left: 4%;
     margin-right: 4%;
   }
+  .home-public-head {
+    gap: 2%;
+  }
+  .home-public-team li {
+    flex-basis: 60%;
+  }
+  .home-public-head p,
+  .home-public-mid p,
+  .home-public-mid-other p {
+    font-size: calc(20 * 100vw / 480);
+  }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(42 * 100vw / 480);
+  }
 }
 @media only screen and (max-width: 360px) {
   .quiz-intro {
@@ -91,5 +204,12 @@
   }
   .quiz-question p {
     font-size: calc(14 * 100vw / 360);
+  }
+  .home-public-head p {
+    font-size: calc(18 * 100vw / 360);
+  }
+  .home-public-mid p,
+  .home-public-mid-other p {
+    font-size: calc(18 * 100vw / 360);
   }
 }

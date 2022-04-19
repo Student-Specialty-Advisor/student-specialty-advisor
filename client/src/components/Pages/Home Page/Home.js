@@ -29,7 +29,7 @@ function Home(props) {
           <StyledButton
             variant="contained"
             size="large"
-            sx={{ width: "20%", animation: "fadeInWithTranslateY 1.5s" }}
+            sx={{ minWidth: "20%", animation: "fadeInWithTranslateY 1.5s" }}
             onClick={() => {
               props.history.push("/signup");
             }}
@@ -49,16 +49,7 @@ function Home(props) {
           </div>
           <div className="home-public-mid-img"></div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            margin: "auto",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-          }}
-        >
+        <div className="home-public-text-with-image">
           <div className="home-public-mid-other-img">
             <div id="side-a"></div>
             <div id="side-b"></div>

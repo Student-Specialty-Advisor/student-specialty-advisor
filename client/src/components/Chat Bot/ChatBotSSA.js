@@ -252,7 +252,7 @@ function ChatBotSSA() {
         floating={true}
         bubbleStyle={{ wordWrap: "break-word" }}
         floatingStyle={{
-          left: "32px",
+          left: "16px",
           bottom: "32px",
           transformOrigin: "bottom left",
         }}
