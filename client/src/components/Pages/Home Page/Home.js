@@ -121,9 +121,10 @@ function Home(props) {
               github="https://www.github.com"
             />
             <MemberCard
+              id="mahdi"
               fullname="Mahdi KLOUZ"
-              email="contact"
-              github="https://www.github.com"
+              email="mahdiklouz@gmail.com"
+              github="https://github.com/mahdi232"
             />
           </ul>
         </div>

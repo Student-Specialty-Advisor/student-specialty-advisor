@@ -141,6 +141,7 @@ function LogInForm(props) {
                 type="password"
               />
               <StyledButton
+                type="submit"
                 sx={{ marginTop: "4%" }}
                 size="large"
                 fullWidth
@@ -152,6 +153,7 @@ function LogInForm(props) {
               <div>
                 <br />
                 <button
+                  type="button"
                   style={{
                     outline: "none",
                     backgroundColor: "transparent",

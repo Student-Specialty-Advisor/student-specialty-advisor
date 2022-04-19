@@ -527,6 +527,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.home-public-team li div#mahdi {
+  background-image: url("./assets/art/team/mahdi_team.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .home-public-team li img {
   width: 15%;
   height: auto;
@@ -591,7 +596,7 @@ body {
   left: 0;
   position: fixed;
   height: 12vh;
-  width: 100%;
+  width: 100vw;
   background: rgb(32, 53, 73);
   z-index: 12;
 }
@@ -810,7 +815,6 @@ body {
 
 /*#region sign-in and sign-up page*/
 
-/*Sign in Page*/
 .sign-in-background {
   width: 100%;
   height: 100vh;
@@ -843,6 +847,7 @@ body {
 }
 
 .form-container {
+  position: relative;
   flex-basis: 41.666667%;
   display: flex;
   height: 100vh;
@@ -852,7 +857,7 @@ body {
   justify-content: center;
 }
 .form-container form {
-  margin-top: 10%;
+  margin-top: 64px;
   width: 90%;
   height: 100%;
   display: flex;
@@ -890,7 +895,6 @@ body {
   width: 90%;
 }
 
-/*Sign up Page */
 .sign-up-background {
   width: 100%;
   height: 100vh;
@@ -899,7 +903,7 @@ body {
   display: flex;
 }
 
-/*#endregion login page*/
+/*#endregion sign-in and sign-up page*/
 
 /*#region page footer*/
 .public-footer {
@@ -1008,6 +1012,7 @@ body {
 
 .quiz-container {
   width: 70%;
+  text-align: center;
   margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
@@ -2100,6 +2105,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.4);
 }
 .forum-constuction-container img {

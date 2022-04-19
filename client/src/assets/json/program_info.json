@@ -64,92 +64,92 @@
       },
       {
         "subject": "Computer Networks",
-        "desc": "",
+        "desc": "Learn how a set of computer connected by network nodes works and learn it's fundimentals.",
         "when": "Senior Year"
       },
       {
         "subject": "Software Analysis & Design",
-        "desc": "",
+        "desc": "It helps you understand the transformation of requirement specification into implementation.",
         "when": "Senior Year"
       },
       {
         "subject": "Effective Technical Communication",
-        "desc": "",
+        "desc": "You will learn tools and techniques that will help you communicate technical information more clearly.",
         "when": "Senior Year"
       },
       {
         "subject": "Introduction to Finance",
-        "desc": "",
+        "desc": "You will be introduced to the basic concepts needed to understand the financial manager's.",
         "when": "Senior Year"
       },
       {
         "subject": "Distributed Systems",
-        "desc": "",
+        "desc": "Get familiar with a computing environment in which various components are spread across multiple computers on a network.",
         "when": "Senior Year"
       },
       {
         "subject": "Senior Project",
-        "desc": "",
+        "desc": "Use all what you learn during your senior year to make the best project you can.",
         "when": "Senior Year"
       },
       {
         "subject": "Software Architecture",
-        "desc": "",
+        "desc": "Simply you will learn the organization of a system.",
         "when": "Senior Year"
       },
       {
         "subject": "Software Development Methodologies",
-        "desc": "",
+        "desc": "learn and get familiar with the methodologies used for software development.",
         "when": "Senior Year"
       },
       {
         "subject": "Engineering Ethics & Professional Pratice",
-        "desc": "",
+        "desc": "Get familiar with the ethics of an engineer and his professional practice.",
         "when": "Senior Year"
       },
       {
         "subject": "Artificial Intelligence",
-        "desc": "",
+        "desc": "Learn the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
         "when": "Senior Year"
       },
       {
         "subject": "Software Quality and Testing",
-        "desc": "",
+        "desc": "Learn the methods of testing and finding out the quality of software.",
         "when": "Senior Year"
       },
       {
         "subject": "Programming Language Design & Implementation",
-        "desc": "",
+        "desc": " To learn the design and implementation of modern programming languages.",
         "when": "Senior Year"
       },
       {
         "subject": "Cyber Security Assessment & Management",
-        "desc": "",
+        "desc": "Learn to examine an organization's IT infrastructure and analyzes the ability of established security controls to remediate vulnerabilities.",
         "when": "Final Year"
       },
       {
         "subject": "Data Analytics",
-        "desc": "",
+        "desc": "Learn the science of analyzing raw data to make conclusions about that information.",
         "when": "Final Year"
       },
       {
         "subject": "Pervasive Computing & Cloud",
-        "desc": "",
+        "desc": "Learn the growing trend of embedding computational capability into everyday objects to make them effectively communicate.",
         "when": "Final Year"
       },
       {
         "subject": "Research Methods",
-        "desc": "",
+        "desc": "Learn a set of procedures or techniques used to identify, select, process, and analyze information about a topic.",
         "when": "Final Year"
       },
       {
         "subject": "Machine Learning",
-        "desc": "",
+        "desc": "Learn a type of artificial intelligence (AI) that allows software applications to become more accurate at predicting outcomes.",
         "when": "Final Year"
       },
       {
         "subject": "Capstone Project",
-        "desc": "",
+        "desc": "Use all what you learn during all years to make the best project you can to graduate.",
         "when": "Final Year"
       }
     ],
@@ -163,12 +163,12 @@
     "curriculum": [
       {
         "subject": "Electronic Devices & Circuits",
-        "desc": "important 8 credits",
+        "desc": "Get familiar with a fundamental course for Electronics Students.",
         "when": "Junior year"
       },
       {
         "subject": "Embedded Systems",
-        "desc": "important 8 credits",
+        "desc": "get familiar with a microcontroller-based, software-driven, reliable, real-time control system, designed to perform a specific task.",
         "when": "Junior year"
       },
       {
@@ -183,7 +183,7 @@
       },
       {
         "subject": "Signals & Systems",
-        "desc": "important 8 credits",
+        "desc": "Covers the fundamentals of signal and system analysis, focusing on representations of discrete-time and continuous-time signals.",
         "when": "Junior year"
       },
       {
@@ -203,12 +203,12 @@
       },
       {
         "subject": "Feedback Control Systems",
-        "desc": "important 8 credits",
+        "desc": "Learn the fundamentals of control design and analysis using state-space methods.",
         "when": "Junior year"
       },
       {
         "subject": "Multivariable Calculus & Numerical",
-        "desc": "important 8 credits",
+        "desc": "Get familiar with an intermediate level mathematics course that builds on the prerequisite courses Calculus and Linear Algebra.",
         "when": "Junior year"
       },
       {
@@ -223,87 +223,87 @@
       },
       {
         "subject": "Effective Technical Communication",
-        "desc": "",
+        "desc": "Learn To communicate effectively with others and to dis- seminate ideas, views, and observations to a broader community.",
         "when": "Senior Year"
       },
       {
         "subject": "Introduction to Finance",
-        "desc": "",
+        "desc": "You will be introduced to the basic concepts needed to understand the financial manager's.",
         "when": "Senior Year"
       },
       {
         "subject": "Distributed Systems",
-        "desc": "",
+        "desc": "Get familiar with a computing environment in which various components are spread across multiple computers on a network.",
         "when": "Senior Year"
       },
       {
         "subject": "Senior Project",
-        "desc": "",
+        "desc": "Use all what you learn during your senior year to make the best project you can.",
         "when": "Senior Year"
       },
       {
         "subject": "Engineering Ethics & Professional Pratice",
-        "desc": "",
+        "desc": "Get familiar with the ethics of an engineer and his professional practice.",
         "when": "Senior Year"
       },
       {
         "subject": "Digital Signal Processing",
-        "desc": "",
+        "desc": "Learn the use of digital processing, such as by computers or more specialized digital signal processors.",
         "when": "Senior Year"
       },
       {
         "subject": "Programming Language Design & Implementation",
-        "desc": "",
+        "desc": "To learn the design and implementation of modern programming languages.",
         "when": "Senior Year"
       },
       {
         "subject": "Computer Networks",
-        "desc": "",
+        "desc": "Learn how a set of computer connected by network nodes works and learn it's fundimentals.",
         "when": "Senior Year"
       },
       {
         "subject": "Advanced Digital Systems",
-        "desc": "",
+        "desc": " Learn to develope the knowledge and skills to design advanced digital processing systems.",
         "when": "Senior Year"
       },
       {
         "subject": " Microprocessor, Embedded & Real-time Systems",
-        "desc": "",
+        "desc": "Get more familiar with the details of microprocessors.",
         "when": "Senior Year"
       },
       {
         "subject": "Artificial Intelligence",
-        "desc": "",
+        "desc": "Learn the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
         "when": "Senior Year"
       },
       {
         "subject": "Cyber Security Assessment & Management",
-        "desc": "",
+        "desc": "Learn to examine an organization's IT infrastructure and analyzes the ability of established security controls to remediate vulnerabilities.",
         "when": "Final Year"
       },
       {
         "subject": "Data Analytics",
-        "desc": "",
+        "desc": "Learn the science of analyzing raw data to make conclusions about that information.",
         "when": "Final Year"
       },
       {
         "subject": "Robotics Engineering",
-        "desc": "",
+        "desc": "Learn the field of engineering which centers on building machines that replicate human actions.",
         "when": "Final Year"
       },
       {
         "subject": "Pervasive Computing & Cloud",
-        "desc": "",
+        "desc": "Learn the growing trend of embedding computational capability into everyday objects to make them effectively communicate.",
         "when": "Final Year"
       },
       {
         "subject": "Research Methods",
-        "desc": "",
+        "desc": "Learn a set of procedures or techniques used to identify, select, process, and analyze information about a topic.",
         "when": "Final Year"
       },
       {
         "subject": "Capstone Project",
-        "desc": "",
+        "desc": "Use all what you learn during all years to make the best project you can to graduate.",
         "when": "Final Year"
       }
     ],
@@ -317,22 +317,22 @@
     "curriculum": [
       {
         "subject": "Thermodynamics",
-        "desc": "important 8 credits",
+        "desc": "Get familiar with an introduction to the most powerful engineering principles you will ever learn",
         "when": "Junior year"
       },
       {
         "subject": "Electrical Power Systems",
-        "desc": "important 8 credits",
+        "desc": "Get familiar with standards and policies of the electric utility industry, and provides you with basic vocabulary used in the business.",
         "when": "Junior year"
       },
       {
         "subject": "Chemistry II",
-        "desc": "important 8 credits",
+        "desc": "Include acids and bases, kinetics and equilibria of chemical reactions, properties of gases and solutions, electrochemistry, and nuclear chemistry.",
         "when": "Junior year"
       },
       {
         "subject": "Signals & Systems",
-        "desc": "important 8 credits",
+        "desc": "Covers the fundamentals of signal and system analysis, focusing on representations of discrete-time and continuous-time signals.",
         "when": "Junior year"
       },
       {
@@ -347,7 +347,7 @@
       },
       {
         "subject": "Electromechanical Conversion Systems",
-        "desc": "important 8 credits",
+        "desc": "Get familiar with a good understanding of electrical energy conversion techniques and equipment.",
         "when": "Junior year"
       },
       {
@@ -357,7 +357,7 @@
       },
       {
         "subject": "Multivariable Calculus & Numerical ",
-        "desc": "important 8 credits",
+        "desc": "Get familiar with an intermediate level mathematics course that builds on the prerequisite courses Calculus and Linear Algebra.",
         "when": "Junior year"
       },
       {
@@ -372,98 +372,98 @@
       },
       {
         "subject": "Effective Technical Communication",
-        "desc": "",
+        "desc": "Learn To communicate effectively with others and to dis- seminate ideas, views, and observations to a broader community.",
         "when": "Senior Year"
       },
       {
         "subject": "Introduction to Finance",
-        "desc": "",
+        "desc": "You will be introduced to the basic concepts needed to understand the financial manager's.",
         "when": "Senior Year"
       },
       {
         "subject": "Senior Project",
-        "desc": "",
+        "desc": "Use all what you learn during your senior year to make the best project you can.",
         "when": "Senior Year"
       },
       {
         "subject": "Engineering Ethics & Professional Pratice",
-        "desc": "",
+        "desc": "Get familiar with the ethics of an engineer and his professional practice.",
         "when": "Senior Year"
       },
       {
         "subject": "Biomass & Bioenergy Systems",
-        "desc": "",
+        "desc": "Get familiar with a renewable energy resource derived from living organisms and/or their byproducts.",
         "when": "Senior Year"
       },
       {
         "subject": "Power Electronics",
-        "desc": "",
+        "desc": "Learn the basic concepts of switched-mode converter circuits for controlling and converting electrical power with high efficiency.",
         "when": "Senior Year"
       },
       {
         "subject": "Fluid Mechanics",
-        "desc": "",
+        "desc": "The study of fluid behavior (liquids, gases, blood, and plasmas) at rest and in motion.",
         "when": "Senior Year"
       },
       {
         "subject": "Energy Management & Analysis",
-        "desc": "",
+        "desc": " Gather as much data on electric power, solar power, gas and water and display it graphically.",
         "when": "Senior Year"
       },
       {
         "subject": "Solar Energy Systems",
-        "desc": "",
+        "desc": "Get to explore economic considerations, touching on solar PV costs for residential and commercial use, incentives.",
         "when": "Senior Year"
       },
       {
         "subject": "Wind Energy",
-        "desc": "",
+        "desc": "Get familiar with key aspects in wind energy engineering",
         "when": "Senior Year"
       },
       {
         "subject": "Feedback Control Systems",
-        "desc": "",
+        "desc": "Learn the fundamentals of control design and analysis using state-space methods.",
         "when": "Senior Year"
       },
       {
         "subject": "Materials for Renewable Energy",
-        "desc": "",
+        "desc": "You will explore the vital role that new materials play in ensuring life on Earth is sustainable.",
         "when": "Senior Year"
       },
       {
         "subject": "Energy, Environment & Sustainability",
-        "desc": "",
+        "desc": "The course is an introduction to further studies in energy and environment.",
         "when": "Final Year"
       },
       {
         "subject": "Energy Conversion & Storage",
-        "desc": "",
+        "desc": "You will study the conversion of energy from one form to another for storage.",
         "when": "Final Year"
       },
       {
         "subject": "Artificial Intelligence",
-        "desc": "",
+        "desc": "Learn the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
         "when": "Final Year"
       },
       {
         "subject": "Data Analytics",
-        "desc": "",
+        "desc": "Learn the science of analyzing raw data to make conclusions about that information.",
         "when": "Final Year"
       },
       {
         "subject": "Research Methods",
-        "desc": "",
+        "desc": "Learn a set of procedures or techniques used to identify, select, process, and analyze information about a topic.",
         "when": "Final Year"
       },
 
       {
         "subject": "Power Systems & Smart Grid",
-        "desc": "",
+        "desc": "You will be able to Understand the technical and economic challenges for electrical power systems.",
         "when": "Final Year"
       },
       {
         "subject": "Capstone Project",
-        "desc": "",
+        "desc": "Use all what you learn during all years to make the best project you can to graduate.",
         "when": "Final Year"
       }
     ],

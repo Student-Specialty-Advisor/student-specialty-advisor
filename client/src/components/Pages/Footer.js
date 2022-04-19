@@ -6,7 +6,7 @@ function Footer(props) {
       <ul>
         <li>
           <a
-            href="https://www.google.com"
+            href="https://forms.gle/NXtPETbeWrwZ223p8"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -15,7 +15,7 @@ function Footer(props) {
         </li>
         <li>
           <a
-            href="https://www.google.com"
+            href="https://forms.gle/222PYbZPwL5AKXnP7"
             target="_blank"
             rel="noreferrer noopener"
           >
