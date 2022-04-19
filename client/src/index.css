@@ -527,6 +527,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.home-public-team li div#mahdi {
+  background-image: url("./assets/art/team/mahdi_team.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .home-public-team li img {
   width: 15%;
   height: auto;
