@@ -202,6 +202,10 @@ body {
 /*#region public home page*/
 .home-public-head {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
   margin-bottom: 10%;
@@ -219,7 +223,6 @@ body {
 }
 .home-public-head h1 {
   margin: 0;
-  padding-top: 20vh;
   text-align: center;
   font-size: 60px;
   color: var(--mydarkerblue);
@@ -239,42 +242,17 @@ body {
   font-style: oblique;
   animation: fadeInWithTranslateY 2s;
 }
-.home-public-head button {
-  border-radius: 4px;
-  background: var(--myorange);
-  padding: 10px 20px;
-  color: black;
-  border: none;
-  border-radius: 10px;
-  position: absolute;
-  left: 50%;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  transition: all 0.2s ease-in-out;
-  font-size: 20px;
-  letter-spacing: 0.1em;
-  animation: fadeIn 2s;
-  cursor: pointer;
-  filter: drop-shadow(0px 0px 5px var(--mydarkerblue));
-  /*top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);*/
-}
-.home-public-head button:hover {
-  transition: all 0.2s ease-in-out;
-  background: white;
-  color: grey;
-}
-.home-public-head button:active {
-  background: rgb(211, 127, 17);
+
+.home-public-text-with-image {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 10%;
 }
 
 .home-public-mid {
-  width: 40%;
-  padding-top: 5%;
-  margin-left: 5%;
-  float: left;
+  flex-basis: 40%;
 }
 .home-public-mid h1 {
   text-align: center;
@@ -287,9 +265,8 @@ body {
   color: var(--myblue);
 }
 .home-public-mid-img {
-  width: 40%;
+  flex-basis: 40%;
   height: 26.35vw;
-  margin-left: 55%;
   background-image: url("./assets/art/klouz.jpg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -301,15 +278,13 @@ body {
 }
 
 .home-public-mid-other {
-  width: 40%;
-  padding-top: 20vh;
-  margin-left: 55%;
-  float: left;
+  flex-basis: 40%;
 }
 .home-public-mid-other h1 {
   text-align: center;
   font-size: 60px;
   color: var(--mydarkerblue);
+  margin: 0;
 }
 .home-public-mid-other p {
   text-align: center;
@@ -317,8 +292,7 @@ body {
   color: var(--myblue);
 }
 .home-public-mid-other-img {
-  margin-left: 10%;
-  width: 25.6vw;
+  flex-basis: 25.6%;
   height: 25.6vw;
 }
 .home-public-mid-other-img div {
@@ -360,7 +334,7 @@ body {
 
 .home-public-bot {
   width: 100%;
-  margin-top: 24vh;
+  margin-top: 10%;
 }
 .home-public-bot h1 {
   text-align: center;
@@ -368,18 +342,21 @@ body {
   color: var(--mydarkerblue);
 }
 .home-public-bot .feature-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
   float: left;
   width: 20%;
+  height: 55vh;
+  margin-left: 6.5%;
 }
 .home-public-bot .feature-img li {
-  width: 3.66vw;
-  height: 3.66vw;
-  margin-top: 2vh;
-  margin-bottom: 5.7vh;
-  margin-left: 80%;
+  width: 8vh;
+  height: 8vh;
 }
 .home-public-bot .feature-img li#featureOne {
   background-image: url("./assets/art/icon/quiz.png");
@@ -402,10 +379,16 @@ body {
   background-size: contain;
 }
 .home-public-bot .feature-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
   list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: right;
+  width: 60%;
+  height: 55vh;
 }
 .home-public-bot .feature-desc li {
   background-color: white;
@@ -414,20 +397,18 @@ body {
   border: 0.3em solid var(--myorange);
   border-radius: 0.5em;
   display: inline-block;
-  width: 60%;
-  height: 7.8vh;
+  width: 100%;
+  height: 8vh;
+  line-height: 8vh;
   text-transform: uppercase;
   font-weight: bold;
   font-family: sans-serif;
   letter-spacing: 0.1em;
   text-align: center;
-  line-height: 7.8vh;
   position: relative;
   overflow: hidden;
   z-index: 1;
   transition: 1s;
-  margin: 1em;
-  margin-right: 13em;
 }
 .home-public-bot .feature-desc li span {
   position: absolute;
@@ -486,7 +467,7 @@ body {
 
 .home-public-team {
   width: 100%;
-  margin-top: 16.26vh;
+  margin-top: 10%;
 }
 .home-public-team h1 {
   text-align: center;
@@ -494,20 +475,21 @@ body {
   color: var(--mydarkerblue);
 }
 .home-public-team ul {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 100%;
   text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .home-public-team li {
   display: inline-block;
   text-align: center;
   font-size: 18px;
   color: var(--mydarkblue);
-  width: 15%;
-  margin-right: 5%;
-  margin-left: 5%;
+  flex-basis: 15%;
   margin-top: 2.5%;
   font-weight: 550;
   margin-bottom: 2.5%;

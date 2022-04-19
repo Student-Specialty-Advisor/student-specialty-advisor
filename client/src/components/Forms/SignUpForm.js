@@ -150,7 +150,7 @@ function SignUpForm(props) {
           <div
             className="logo"
             onClick={() => {
-              window.location.href = "/";
+              props.history.push("/");
             }}
           ></div>
           <h3>Sign Up</h3>
@@ -211,15 +211,38 @@ function SignUpForm(props) {
                   <StyledMenuItem value="Senior">Senior year</StyledMenuItem>
                   <StyledMenuItem value="Final">Final year</StyledMenuItem>
                 </StyledTextField>
-                <StyledButton
-                  sx={{ marginTop: "2%" }}
-                  size="large"
-                  variant="contained"
-                  onClick={handleNext}
-                  disabled={continueDisabled}
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "space-between",
+                  }}
                 >
-                  Continue
-                </StyledButton>
+                  <StyledButton
+                    sx={{ marginTop: "2%" }}
+                    size="large"
+                    variant="contained"
+                    onClick={handleNext}
+                    disabled={continueDisabled}
+                  >
+                    Continue
+                  </StyledButton>
+                  <button
+                    type="button"
+                    style={{
+                      outline: "none",
+                      backgroundColor: "transparent",
+                      border: "none",
+                    }}
+                    className="signup-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.history.push("/login");
+                    }}
+                  >
+                    Already have an account? Log in!
+                  </button>
+                </div>
               </StepContent>
             </Step>
             <Step key={steps[1]}>

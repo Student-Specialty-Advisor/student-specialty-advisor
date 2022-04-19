@@ -116,7 +116,7 @@ function LogInForm(props) {
           <div
             className="logo"
             onClick={() => {
-              window.location.href = "/";
+              props.history.push("/");
             }}
           ></div>
           <h3>Log in</h3>
