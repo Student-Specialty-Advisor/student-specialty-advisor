@@ -21,7 +21,7 @@ var SignUp = (req, res) => {
     email: json.email,
     password: hashedPassword,
     role: "Member",
-    isVerified: process.env.SHOULD_SEND_EMAIL === "YES" ? false : true,
+    isVerified: process.env.SHOULD_VERIFY === "YES" ? false : true,
   };
   const newUser = new User(userData);
   newUser
@@ -38,7 +38,7 @@ var SignUp = (req, res) => {
               <div style='text-align: center; background-color: rgb(32, 53, 73);' >
               <br/><p style='text-align:left; margin-left:5%; margin-right:5%; color:white;'><span style='font-style: bold'>Dear
               <strong>${newUser.firstName}</strong> ,</span><br/><br/>We wanted to let you know that you should verify your email </p> <br/> <br/>           
-              <a href='https://student-specialty-advisor.herokuapp.com/verify/${newUser._id}' target='_blank' rel='noreferrer noopener' style = "background-color : cyan ; padding : 10px 20px ; color : rgb(15, 25,33) ; text-decoration : none ; text-align :center ;">Verify Email</a>
+              <a href='http://localhost:3000/verify/${newUser._id}' target='_blank' rel='noreferrer noopener' style = "background-color : cyan ; padding : 10px 20px ; color : rgb(15, 25,33) ; text-decoration : none ; text-align :center ;">Verify Email</a>
               <br/><br/><p style='text-align:left; margin-left:5%; margin-right:5%; color:white;'><span style='font-style: bold'>If you have any concerns, please contact us at studentspecialtyadvisor@outlook.com
               <br/><br/>As always, we are extremely grateful for your effort as an advisor to the South Mediterranean University community and we thank you for your time and understanding.
               <br/><br/><br/><i>By Students, For Students,<br/>The Student Specialty Advisor Team</i>

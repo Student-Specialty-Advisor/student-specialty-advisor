@@ -27,7 +27,7 @@ import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
 import ChatBotSSA from "./components/Chat Bot/ChatBotSSA";
 import NoMatch from "./components/Pages/NoMatch";
-
+import VerifyAccount from "./components/VerifyAccount";
 function App() {
   return (
     <Router>
@@ -36,6 +36,7 @@ function App() {
       <ChatBotSSA />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/verify/:id" component={VerifyAccount} />
         <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
         <Redirect exact from="/dashboard" to="/dashboard/statistics" />
         <PrivateRoute exact path="/quiz" component={Quiz} />
