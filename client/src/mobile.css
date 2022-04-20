@@ -20,6 +20,9 @@
   .navbar-flex {
     height: 80px;
   }
+  .btn-container {
+    display: none;
+  }
   .home-public-mid h1,
   .home-public-mid-other h1 {
     font-size: calc(40 * 100vw / 992);
@@ -43,6 +46,9 @@
   }
   .home-public-team h1 {
     margin-bottom: 10%;
+  }
+  .form-container .login-link {
+    font-size: 12px;
   }
 }
 @media only screen and (max-width: 810px) {
@@ -211,5 +217,8 @@
   .home-public-mid p,
   .home-public-mid-other p {
     font-size: calc(18 * 100vw / 360);
+  }
+  .form-container .login-link {
+    font-size: 10px;
   }
 }

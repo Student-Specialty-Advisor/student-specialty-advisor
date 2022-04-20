@@ -593,6 +593,9 @@ body {
   justify-content: space-between;
   gap: 6%;
 }
+.nav-drawer {
+  width: 250px;
+}
 
 .nav-items {
   margin: 0;
@@ -610,11 +613,12 @@ body {
   justify-content: flex-end;
   gap: 15%;
   height: 100%;
+  white-space: nowrap;
 }
 
 .navbar-logo-container {
   text-decoration: none;
-  height: 90%;
+  height: 80%;
   cursor: pointer;
 }
 
@@ -624,29 +628,6 @@ body {
 }
 .navbar-logo:hover {
   opacity: 0.6;
-}
-
-.btn {
-  text-decoration: none;
-  padding: 1.4vh 1.4vw;
-  color: #000000;
-  background: #f39313;
-  text-transform: uppercase;
-  white-space: nowrap;
-  outline: none;
-  border: none;
-  font-weight: 550;
-  border-radius: 10px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-}
-
-.btn:hover {
-  color: #808080;
-  background: #fff;
-  transition: all 0.2s ease-in-out;
 }
 
 .nav-item {
@@ -863,14 +844,16 @@ body {
   font-size: 26px;
   font-weight: normal;
 }
-.form-container .signup-link {
+.form-container .signup-link,
+.form-container .login-link {
   color: var(--myblue);
   cursor: pointer;
   text-decoration: underline;
   font-family: inherit;
   font-size: 14px;
 }
-.form-container .signup-link:hover {
+.form-container .signup-link:hover,
+.form-container .login-link:hover {
   text-decoration-thickness: 2px;
 }
 .form-container .already-logged-in-text {
@@ -2187,5 +2170,18 @@ body {
 }
 
 @media only screen and (max-width: 1280px) {
+}
+
+@media only screen and (max-width: 1080px) {
+  .nav-items {
+    display: none;
+  }
+  .navbar,
+  .navbar-flex {
+    height: 80px;
+  }
+  .btn-container {
+    display: none;
+  }
 }
 /*#endregion media*/

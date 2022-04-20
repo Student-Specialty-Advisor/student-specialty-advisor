@@ -1,7 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  StyledButton,
+  StyledListItem,
+} from "../Basic Elements/StyledBasicElements";
+import {
+  Drawer,
+  IconButton,
+  List,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import LoginIcon from "@mui/icons-material/Login";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 function PublicNavbar(props) {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
       <nav className="navbar">
@@ -15,19 +30,75 @@ function PublicNavbar(props) {
               ></img>
             </Link>
           </div>
-
-          <div className="btn-container">
+          {props.isMobile ? (
+            <>
+              <IconButton
+                color="inherit"
+                sx={{ color: "white", display: isOpen ? "none" : null }}
+                onClick={() => {
+                  setIsOpen(true);
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                PaperProps={{ sx: { backgroundColor: "var(--mydarkblue)" } }}
+                anchor="right"
+                open={isOpen}
+                onClose={() => {
+                  setIsOpen(false);
+                }}
+              >
+                <List className="nav-drawer">
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/login");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <LoginIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Login" />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/signup");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <AccountBoxIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Sign Up" />
+                  </StyledListItem>
+                </List>
+              </Drawer>
+            </>
+          ) : (
             <div className="btn-container">
-              <Link to="/login" className="btn">
+              <StyledButton
+                variant="contained"
+                size="large"
+                onClick={() => {
+                  props.history.push("/login");
+                }}
+              >
                 Login
-              </Link>
-            </div>
-            <div className="btn-container">
-              <Link to="/signup" className="btn">
+              </StyledButton>
+              <StyledButton
+                variant="contained"
+                size="large"
+                onClick={() => {
+                  props.history.push("/signup");
+                }}
+              >
                 Sign Up
-              </Link>
+              </StyledButton>
             </div>
-          </div>
+          )}
         </div>
       </nav>
     </>

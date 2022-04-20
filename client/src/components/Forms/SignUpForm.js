@@ -234,7 +234,7 @@ function SignUpForm(props) {
                       backgroundColor: "transparent",
                       border: "none",
                     }}
-                    className="signup-link"
+                    className="login-link"
                     onClick={(e) => {
                       e.preventDefault();
                       props.history.push("/login");

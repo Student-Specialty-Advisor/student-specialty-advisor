@@ -1,4 +1,11 @@
-import { Button, MenuItem, Radio, TextField, Stepper } from "@mui/material";
+import {
+  Button,
+  MenuItem,
+  Radio,
+  TextField,
+  Stepper,
+  ListItem,
+} from "@mui/material";
 import styled from "@emotion/styled";
 
 export const StyledTextField = styled(TextField)({
@@ -66,5 +73,12 @@ export const StyledStepper = styled(Stepper)({
   },
   "& .MuiStepIcon-root.Mui-active": {
     color: "orange",
+  },
+});
+
+export const StyledListItem = styled(ListItem)({
+  color: "white",
+  "&:hover": {
+    backgroundColor: "rgba(255,255,255,0.2)",
   },
 });
