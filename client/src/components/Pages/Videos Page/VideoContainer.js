@@ -10,7 +10,7 @@ function VideoContainer(props) {
           props.code +
           "?wmode=transparent&vq=hd1080"
         }
-        title="YouTube video player"
+        title={props.title}
         frameBorder="0"
         allowFullScreen
       ></iframe>

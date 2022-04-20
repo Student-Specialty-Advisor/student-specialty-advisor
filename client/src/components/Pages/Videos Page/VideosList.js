@@ -6,6 +6,7 @@ import alertify from "alertifyjs";
 import VideoContainer from "./VideoContainer";
 import fetchService from "../../../services/fetchService";
 import { completeAchievement } from "../../../services/achievements";
+import { Typography } from "@mui/material";
 
 const SPECIALTIES = ["se", "cse", "re"];
 
@@ -21,6 +22,7 @@ function VideosList(props) {
   const [videosSE, setVideosSE] = React.useState([]);
   const [videosCSE, setVideosCSE] = React.useState([]);
   const [videosRE, setVideosRE] = React.useState([]);
+  const [isLoaded, setIsLoaded] = React.useState(false);
 
   const fetchAll = async () => {
     const listSE = await fetchService.doGET("videos/SE");
@@ -29,10 +31,24 @@ function VideosList(props) {
     setVideosSE(listSE);
     setVideosCSE(listCSE);
     setVideosRE(listRE);
+    setIsLoaded(true);
   };
 
   const [initialHTML] = React.useState(
     "Buckle up &<br/>Get <strong>your popcorn</strong> ready!"
+  );
+
+  const emptyList = (
+    <>
+      <div className="empty-videos-list">
+        <Typography variant="h3">
+          There are no videos yet for this specialty!
+        </Typography>
+        <Typography variant="h5">
+          Make sure to check again later, you don't want to miss it!
+        </Typography>
+      </div>
+    </>
   );
 
   const setupList = () => {
@@ -40,34 +56,37 @@ function VideosList(props) {
     // Take into consideration <li>, props.key, props.id, props.className when implementing VideoContainer.
     if (specialty === "se") {
       const list = videosSE.map((video) => {
-        return <VideoContainer key={video.link} code={video.link} />;
+        return (
+          <VideoContainer
+            key={video.link}
+            code={video.link}
+            title={video.title}
+          />
+        );
       });
-      return (
-        <>
-          {list}
-          <div className="to-be-continued"></div>
-        </>
-      );
+      return list;
     } else if (specialty === "cse") {
       const list = videosCSE.map((video) => {
-        return <VideoContainer key={video.link} code={video.link} />;
+        return (
+          <VideoContainer
+            key={video.link}
+            code={video.link}
+            title={video.title}
+          />
+        );
       });
-      return (
-        <>
-          {list}
-          <div className="to-be-continued"></div>
-        </>
-      );
+      return list;
     } else if (specialty === "re") {
       const list = videosRE.map((video) => {
-        return <VideoContainer key={video.link} code={video.link} />;
+        return (
+          <VideoContainer
+            key={video.link}
+            code={video.link}
+            title={video.title}
+          />
+        );
       });
-      return (
-        <>
-          {list}
-          <div className="to-be-continued"></div>
-        </>
-      );
+      return list;
     }
   };
 
@@ -188,7 +207,10 @@ function VideosList(props) {
             </p>
           </div>
         </ul>
-        <ul className="videos-list">{showVideosList}</ul>
+        <ul className="videos-list">
+          {showVideosList}
+          {showVideosList.length === 0 && isLoaded ? emptyList : null}
+        </ul>
       </div>
       <Footer id="no-margin" />
     </>

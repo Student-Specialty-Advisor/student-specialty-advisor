@@ -232,7 +232,7 @@ function QuizContainer() {
           </button>
         )}
       </div>
-      <Footer />
+      <Footer id="no-margin" />
     </>
   );
 }
