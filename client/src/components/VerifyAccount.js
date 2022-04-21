@@ -12,6 +12,9 @@ function VerifyAccount(props) {
   const [error, setIsError] = React.useState(false);
   const [noResponse, setNoResponse] = React.useState(false);
   React.useEffect(() => {
+    document.title = "Verification - Student Specialty Advisor";
+  }, []);
+  React.useEffect(() => {
     AuthService.verifyAccount(id)
       .then((response) => {
         if (response.success) {

@@ -45,7 +45,9 @@ function LogInForm(props) {
             "Invalid Credentials..   Make sure you have written your e-mail and password correctly!"
           );
         } else if (response.notVerified) {
-          alertify.warning("You need to verify first");
+          alertify.warning(
+            "You need to verify your email before you can access your account!"
+          );
         } else {
           try {
             var customRedirectPath = props.location.state.from.pathname;

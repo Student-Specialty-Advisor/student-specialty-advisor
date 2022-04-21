@@ -93,6 +93,11 @@ function ChatBotSSA() {
       "features-forum",
       "SSA offers a community forum, a safe space for students to review and discuss the different specialties. Join the family now by signing up and express your opinion freely."
     );
+    tree.insert(
+      "main",
+      "verification",
+      "Once you create an account, we will send a verification email to the address you used while signing up. Once you verify your email, you can start to access your account. If you face any problem with this process, do not hesitate to contact us!"
+    );
 
     tree.insert("main", "greeting", "What's up!");
 
@@ -241,6 +246,12 @@ function ChatBotSSA() {
       value.includes("opensource")
     ) {
       return chatBotTree.find("github").value;
+    }
+    if (
+      value.includes("verif") &&
+      (value.includes("account") || value.includes("email"))
+    ) {
+      return chatBotTree.find("verification").value;
     }
     return "Hmm.. I had trouble understanding your question 🤔";
   };
