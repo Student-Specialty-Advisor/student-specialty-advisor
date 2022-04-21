@@ -226,9 +226,9 @@ function Home(props) {
             right choice!
           </h2>
           <div
+            className="achivements-progress-bar-label"
             style={{
               display: "flex",
-              width: "78%",
               justifyContent: "space-between",
               margin: "auto",
               paddingBottom: "0.5%",
@@ -238,9 +238,9 @@ function Home(props) {
             <h4>{progress}%</h4>
           </div>
           <div
+            className="achievements-progress-bar-wrapper"
             style={{
               position: "relative",
-              width: "80%",
               margin: "auto",
               backgroundColor: "white",
               paddingRight: "0.4%",

@@ -551,14 +551,48 @@ body {
   border-radius: 25px;
   border: solid var(--mydarkerblue);
   color: orange;
-  height: 4vh;
+  height: 32px;
   width: 100%;
 }
+.achievements-progress-bar-wrapper {
+  width: 80%;
+}
+.achivements-progress-bar-label {
+  width: 78%;
+}
 .achievement-card {
-  height: 15vh;
+  position: relative;
+  flex-basis: 30%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 3%;
+  background: white;
+  border-radius: 25px !important;
+  border: solid var(--mydarkerblue) !important;
+}
+.achievement-card .question-mark-icon {
+  position: absolute;
+  font-size: 100px;
+  top: 12%;
+  right: 36.5%;
+  color: var(--mydarkerblue);
 }
 .achievement-card h1 {
   font-size: 28px;
+  text-align: left;
+  color: var(--mydarkerblue);
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 5%;
+}
+.achievement-card p {
+  text-align: left;
+  color: var(--mydarkerblue);
+  margin-top: 2%;
+  margin-bottom: 0;
+  margin-left: 5%;
 }
 
 .home-private h2 {
@@ -2179,12 +2213,6 @@ body {
   }
   #meetings-request-popup.forRight {
     height: 150%;
-  }
-  .achievement-card {
-    height: 20vh;
-  }
-  .achievement-card h1 {
-    font-size: 24px;
   }
 }
 

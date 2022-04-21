@@ -4,60 +4,26 @@ import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 function AchievementsCard(props) {
   const card = (
-    <Card
-      className="achievement-card"
-      variant="outlined"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        width: "30%",
-        marginBottom: "3%",
-        background: "white",
-        border: "solid var(--mydarkerblue)",
-        borderRadius: "25px",
-        position: "relative",
-      }}
-    >
+    <Card className="achievement-card" variant="outlined">
       {props.isCompleted ? (
         <>
           <div
             style={{
               height: "90%",
-              width: "80%",
+              width: "85%",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
               gap: "10%",
             }}
           >
-            <h1
-              style={{
-                textAlign: "left",
-                color: "var(--mydarkerblue)",
-                marginTop: "0",
-                marginBottom: "0",
-                marginLeft: "5%",
-              }}
-            >
-              {props.title}
-            </h1>
-            <p
-              style={{
-                textAlign: "left",
-                color: "var(--mydarkblue)",
-                marginTop: "0",
-                marginBottom: "0",
-                marginLeft: "6%",
-              }}
-            >
-              {props.description}
-            </p>
+            <h1>{props.title}</h1>
+            <p>{props.description}</p>
           </div>
           <CheckCircleIcon
             sx={{
               position: "absolute",
-              top: "5%",
+              top: "5.5%",
               right: "2%",
               color: "green",
               fontSize: 35,
@@ -65,15 +31,7 @@ function AchievementsCard(props) {
           />
         </>
       ) : (
-        <QuestionMarkIcon
-          sx={{
-            position: "absolute",
-            fontSize: 100,
-            top: "5%",
-            right: "35%",
-            color: "var(--mydarkerblue)",
-          }}
-        />
+        <QuestionMarkIcon className="question-mark-icon" />
       )}
     </Card>
   );
