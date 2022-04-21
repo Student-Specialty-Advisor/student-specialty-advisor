@@ -5,6 +5,7 @@ import {
   TextField,
   Stepper,
   ListItem,
+  BottomNavigation,
 } from "@mui/material";
 import styled from "@emotion/styled";
 
@@ -81,4 +82,8 @@ export const StyledListItem = styled(ListItem)({
   "&:hover": {
     backgroundColor: "rgba(255,255,255,0.2)",
   },
+});
+
+export const StyledBottomNavigation = styled(BottomNavigation)({
+  backgroundColor: "var(--mydarkblue)",
 });

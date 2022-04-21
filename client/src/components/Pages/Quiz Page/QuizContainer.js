@@ -72,7 +72,7 @@ function QuizContainer() {
         "Error while retrieving quiz :( Try refreshing the page.";
     } else {
       setQuestionList(json);
-      document.getElementById("n3 text").innerText = "Done Loading :D";
+      document.getElementById("n3 text").innerText = "Done :D";
       document.getElementById("n1").className = "quiz-transition-end";
       document.getElementById("n2").className = "quiz-transition-end";
       document.getElementById("n3").className = "quiz-transition-end";

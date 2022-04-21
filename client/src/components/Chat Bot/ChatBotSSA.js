@@ -254,6 +254,7 @@ function ChatBotSSA() {
         floatingStyle={{
           left: "16px",
           bottom: "32px",
+          zIndex: "10",
           transformOrigin: "bottom left",
         }}
         height="450px"

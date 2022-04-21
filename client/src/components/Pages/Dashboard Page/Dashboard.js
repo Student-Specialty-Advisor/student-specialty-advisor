@@ -5,6 +5,12 @@ import AdvisorsOptions from "./AdvisorsOptions";
 import MeetingsOptions from "./MeetingsOptions";
 import VideosOptions from "./VideosOptions";
 import fetchService from "../../../services/fetchService";
+import { BottomNavigationAction, Paper, useMediaQuery } from "@mui/material";
+import VideosIcon from "@mui/icons-material/VideoLibrary";
+import StatIcon from "@mui/icons-material/BarChart";
+import AdvisorsIcon from "@mui/icons-material/Groups";
+import MeetingsIcon from "@mui/icons-material/CalendarMonth";
+import { StyledBottomNavigation } from "../../Basic Elements/StyledBasicElements";
 
 const STATISTICS = "statistics";
 const ADVISORS = "advisors";
@@ -12,8 +18,14 @@ const MEETINGS = "meetings";
 const VIDEOS = "videos";
 const PARAMETERS = [STATISTICS, ADVISORS, MEETINGS, VIDEOS];
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   let { parameter } = useParams();
+  const [advisorsList, setAdvisorsList] = React.useState([]);
+  const [meetingsList, setMeetingsList] = React.useState({ meetings: [] });
+  const [videosList, setVideosList] = React.useState([]);
+  const [mobileBarValue, setMobileBarValue] = React.useState(0);
+  const isMobile = useMediaQuery("(max-width:1080px)");
+
   React.useEffect(() => {
     document.title =
       "Dashboard - " +
@@ -21,10 +33,6 @@ const Dashboard = () => {
       parameter.slice(1) +
       " - Student Specialty Advisor";
   }, [parameter]);
-
-  const [advisorsList, setAdvisorsList] = React.useState([]);
-  const [meetingsList, setMeetingsList] = React.useState({ meetings: [] });
-  const [videosList, setVideosList] = React.useState([]);
 
   const fetchAdvisors = async () => {
     const list = await fetchService.doGET("meeting/advisors");
@@ -82,50 +90,111 @@ const Dashboard = () => {
 
   React.useEffect(fetchAll, []);
 
-  React.useEffect(setupSideBar);
+  React.useEffect(() => {
+    if (!isMobile) {
+      setupSideBar();
+    }
+  });
 
   return PARAMETERS.includes(parameter) ? (
     <>
       <div className="dashboard-container">
-        <ul className="side-bar">
-          <h1>
-            ADMIN
-            <br />
-            DASHBOARD
-          </h1>
-          <li id={STATISTICS}>
-            <NavLink
-              to={"/dashboard/" + STATISTICS}
-              text={STATISTICS[0].toUpperCase() + STATISTICS.slice(1)}
+        {isMobile ? (
+          <>
+            <Paper
+              sx={{
+                position: "fixed",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                zIndex: 12,
+              }}
             >
-              {STATISTICS[0].toUpperCase() + STATISTICS.slice(1)}
-            </NavLink>
-          </li>
-          <li id={ADVISORS}>
-            <NavLink
-              to={"/dashboard/" + ADVISORS}
-              text={ADVISORS[0].toUpperCase() + ADVISORS.slice(1)}
-            >
-              {ADVISORS[0].toUpperCase() + ADVISORS.slice(1)}
-            </NavLink>
-          </li>
-          <li id={MEETINGS}>
-            <NavLink
-              to={"/dashboard/" + MEETINGS}
-              text={MEETINGS[0].toUpperCase() + MEETINGS.slice(1)}
-            >
-              {MEETINGS[0].toUpperCase() + MEETINGS.slice(1)}
-            </NavLink>
-          </li>
-          <li id={VIDEOS}>
-            <NavLink
-              to={"/dashboard/" + VIDEOS}
-              text={VIDEOS[0].toUpperCase() + VIDEOS.slice(1)}
-            >
-              {VIDEOS[0].toUpperCase() + VIDEOS.slice(1)}
-            </NavLink>
-          </li>
-        </ul>
+              <StyledBottomNavigation
+                showLabels
+                className="mobile-bottom-bar"
+                value={mobileBarValue}
+                onChange={(event, newValue) => {
+                  setMobileBarValue(newValue);
+                }}
+              >
+                <BottomNavigationAction
+                  className="mobile-bottom-bar-element"
+                  label="Statistics"
+                  onClick={() => {
+                    props.history.push("/dashboard/statistics");
+                  }}
+                  icon={<StatIcon fontSize="large" />}
+                />
+                <BottomNavigationAction
+                  className="mobile-bottom-bar-element"
+                  label="Advisors"
+                  icon={<AdvisorsIcon fontSize="large" />}
+                  onClick={() => {
+                    props.history.push("/dashboard/advisors");
+                  }}
+                />
+                <BottomNavigationAction
+                  className="mobile-bottom-bar-element"
+                  label="Meetings"
+                  icon={<MeetingsIcon fontSize="large" />}
+                  onClick={() => {
+                    props.history.push("/dashboard/meetings");
+                  }}
+                />
+                <BottomNavigationAction
+                  className="mobile-bottom-bar-element"
+                  label="Videos"
+                  onClick={() => {
+                    props.history.push("/dashboard/videos");
+                  }}
+                  icon={<VideosIcon fontSize="large" />}
+                />
+              </StyledBottomNavigation>
+            </Paper>
+          </>
+        ) : (
+          <ul className="side-bar">
+            <h1>
+              ADMIN
+              <br />
+              DASHBOARD
+            </h1>
+            <li id={STATISTICS}>
+              <NavLink
+                to={"/dashboard/" + STATISTICS}
+                text={STATISTICS[0].toUpperCase() + STATISTICS.slice(1)}
+              >
+                {STATISTICS[0].toUpperCase() + STATISTICS.slice(1)}
+              </NavLink>
+            </li>
+            <li id={ADVISORS}>
+              <NavLink
+                to={"/dashboard/" + ADVISORS}
+                text={ADVISORS[0].toUpperCase() + ADVISORS.slice(1)}
+              >
+                {ADVISORS[0].toUpperCase() + ADVISORS.slice(1)}
+              </NavLink>
+            </li>
+            <li id={MEETINGS}>
+              <NavLink
+                to={"/dashboard/" + MEETINGS}
+                text={MEETINGS[0].toUpperCase() + MEETINGS.slice(1)}
+              >
+                {MEETINGS[0].toUpperCase() + MEETINGS.slice(1)}
+              </NavLink>
+            </li>
+            <li id={VIDEOS}>
+              <NavLink
+                to={"/dashboard/" + VIDEOS}
+                text={VIDEOS[0].toUpperCase() + VIDEOS.slice(1)}
+              >
+                {VIDEOS[0].toUpperCase() + VIDEOS.slice(1)}
+              </NavLink>
+            </li>
+          </ul>
+        )}
+
         <ul className="dashboard-options">
           {parameter === STATISTICS ? (
             <Statistics />

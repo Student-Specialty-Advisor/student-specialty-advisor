@@ -563,7 +563,7 @@ body {
 .achievement-card {
   position: relative;
   flex-basis: 30%;
-  height: 140px;
+  height: 140px !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -812,6 +812,23 @@ body {
 }
 
 /*#endregion navbar*/
+
+/*#region mobile bottom navigation bar*/
+
+.mobile-bottom-bar {
+  height: 80px !important;
+}
+.mobile-bottom-bar-element {
+  color: white !important;
+}
+.mobile-bottom-bar-element .MuiBottomNavigationAction-label {
+  font-size: 0.95rem !important;
+}
+.mobile-bottom-bar-element.Mui-selected {
+  color: cyan !important;
+}
+
+/*#endregion mobile bottom navigation bar*/
 
 /*#region sign-in and sign-up page*/
 

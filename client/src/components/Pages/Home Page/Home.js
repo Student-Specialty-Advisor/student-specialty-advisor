@@ -2,12 +2,13 @@ import React from "react";
 import AuthService from "../../../services/AuthService";
 import MemberCard from "../../Team/MemberCard";
 import Footer from "../Footer";
-import { LinearProgress } from "@mui/material";
+import { LinearProgress, Skeleton } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { StyledButton } from "../../Basic Elements/StyledBasicElements";
 import fetchService from "../../../services/fetchService";
 import AchievementsCard from "./AchievementsCard";
 import { createAchievementInfo } from "../../../services/achievements";
+
 function Home(props) {
   React.useEffect(() => {
     document.title = "Student Specialty Advisor";
@@ -167,6 +168,20 @@ function Home(props) {
       );
     });
 
+    const loadingCards = Array(6)
+      .fill("")
+      .map((element, index) => {
+        return (
+          <Skeleton
+            key={"skeleton" + index}
+            sx={{ bgcolor: "rgba(255,255,255,0.7)" }}
+            variant="rectangular"
+            animation="wave"
+            className="achievement-card"
+          />
+        );
+      });
+
     const calculateProgress = (achievements) => {
       var completed = 0;
       for (const achievement in achievements) {
@@ -261,12 +276,12 @@ function Home(props) {
             display: "flex",
             width: "80%",
             margin: "auto",
-            marginTop: "5.5vh",
+            marginTop: "5%",
             justifyContent: "space-evenly",
             flexWrap: "wrap",
           }}
         >
-          {cardsList}
+          {achievementCards.length === 0 ? loadingCards : cardsList}
         </div>
       </>
     );
