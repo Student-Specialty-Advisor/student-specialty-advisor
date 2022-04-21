@@ -3,6 +3,8 @@ import React from "react";
 import AuthService from "../../../services/AuthService";
 import fetchService from "../../../services/fetchService";
 import utils from "../../utils";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 import {
   StyledTextField,
   StyledButton,
@@ -22,6 +24,7 @@ function Profile(props) {
   const [isCanceled, setIsCanceled] = React.useState(false);
   const [hasError, setHasError] = React.useState(false);
   const changePasswordPath = "/profile/password";
+  const isMobile = useMediaQuery("(max-width:1080px)");
 
   const changingState = (bool) => {
     setIsChanging(bool);
@@ -95,14 +98,7 @@ function Profile(props) {
   };
 
   const showInfo = (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        margin: "auto",
-      }}
-    >
+    <div className="profile-buttons">
       <StyledButton
         onClick={() => changingState(true)}
         size="large"
@@ -120,14 +116,7 @@ function Profile(props) {
     </div>
   );
   const changeInfo = (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        margin: "auto",
-      }}
-    >
+    <div className="profile-buttons">
       <StyledButton onClick={submit} size="large" sx={{ marginTop: "3%" }}>
         Submit
       </StyledButton>
@@ -207,7 +196,7 @@ function Profile(props) {
         </StyledTextField>
         {isChanging ? changeInfo : showInfo}
       </div>
-      <Footer />
+      {isMobile ? <Footer id="no-margin" /> : <Footer />}
     </>
   );
 }
