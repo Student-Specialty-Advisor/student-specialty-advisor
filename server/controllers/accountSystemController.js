@@ -31,13 +31,13 @@ var SignUp = (req, res) => {
       achievements
         .save()
         .then(() => {
-          const email = {
-            subject: "Verification Email ",
-            text: "",
-            html: `<div style='padding:5px; background-color: #10A5F5;'>
+          if (process.env.SHOULD_VERIFY === "YES") {
+            const email = {
+              subject: "Verification Email ",
+              text: "",
+              html: `<div style='padding:5px; background-color: #10A5F5;'>
               <div style='text-align: center; background-color: rgb(32, 53, 73);' >
-              <br/> <h1 style='color:white; margin-left:5%; margin-right:5%; '>Welcome to the Family 
-              ${newUser.firstName}!</h1> 
+              <br/> <h1 style='color:white; margin-left:5%; margin-right:5%; '>Welcome to the family, ${newUser.firstName}!</h1> 
               <p style='text-align:left; margin-left:5%; margin-right:5%; color:white;'><span style='font-style: bold'></span><br/><br/>Thank you for joining Student Specialty advisor. <br/><br/>We hope that we will help you find the right specialty for you throughout your journey with us. <br/><br/>Please do not forget to verify your email  so that you can have access to your account.</p> <br/> <br/>           
               <a href='https://student-specialty-advisor.herokuapp.com/verify/${newUser._id}' target='_blank' rel='noreferrer noopener' style = "background-color : cyan ; padding : 10px 40px ; color : rgb(15, 25,33) ; text-decoration : none ; text-align :center ;">Verify Email Now!</a>
               <br/><br/><br/><p style='text-align:left; margin-left:5%; margin-right:5%; color:white;'><span style='font-style: bold'>If you have any concerns, please contact us at <strong>studentspecialtyadvisor@outlook.com</strong>
@@ -45,19 +45,28 @@ var SignUp = (req, res) => {
               </p><br/>
               <a href='https://student-specialty-advisor.herokuapp.com/' target='_blank' rel='noreferrer noopener'><div style='width:100%; background-color: rgb(15, 25,33); padding-top: 2%; padding-bottom: 2%;'><img style='width:25%;' src= https://i.imgur.com/9oEMMqC.png alt=''/></div></a>
               </div></div>`,
-          };
-          sendEmail(newUser.email, email.subject, email.text, email.html)
-            .then((emailStatus) => {
-              res.status(200).send({
-                success: 1,
-                message:
-                  "User was created, and an achievements document was linked to it",
-                emailStatus: emailStatus,
+            };
+            sendEmail(newUser.email, email.subject, email.text, email.html)
+              .then((emailStatus) => {
+                res.status(200).send({
+                  success: 1,
+                  message:
+                    "User was created, and an achievements document was linked to it",
+                  emailStatus: emailStatus,
+                });
+              })
+              .catch((error) => {
+                res.status(500).send({ error: 1, errorObject: error });
               });
-            })
-            .catch((error) => {
-              res.status(500).send({ error: 1, errorObject: error });
+          } else {
+            res.status(200).send({
+              success: 1,
+              message:
+                "User was created, and an achievements document was linked to it",
+              emailStatus:
+                "Dev mode is enabled, so no verification email was sent to the newly created user. If you want a verification email to be sent, change SHOULD_VERIFY to YES",
             });
+          }
         })
         .catch((error) => {
           res.status(500).send({ error: 1, errorObject: error });

@@ -164,21 +164,25 @@ var requestMeeting = (req, res) => {
     } else if (meeting.isAvailable === true) {
       sendEmail(data.to, email.subject, email.text, email.html)
         .then((status) => {
-          Meeting.findByIdAndUpdate(
-            data.meetingID,
-            { isAvailable: false },
-            { new: true }
-          )
-            .then((meeting) => {
-              res.status(200).send({
-                success: 1,
-                message: status.message,
-                meeting: meeting,
+          if (status.success) {
+            Meeting.findByIdAndUpdate(
+              data.meetingID,
+              { isAvailable: false },
+              { new: true }
+            )
+              .then((meeting) => {
+                res.status(200).send({
+                  success: 1,
+                  message: status.message,
+                  meeting: meeting,
+                });
+              })
+              .catch((error) => {
+                res.status(500).send(error);
               });
-            })
-            .catch((error) => {
-              res.status(500).send(error);
-            });
+          } else {
+            res.status(500).send(status);
+          }
         })
         .catch((error) => {
           res.status(500).send({
