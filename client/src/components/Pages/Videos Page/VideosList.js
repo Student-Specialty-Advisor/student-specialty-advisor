@@ -6,7 +6,12 @@ import alertify from "alertifyjs";
 import VideoContainer from "./VideoContainer";
 import fetchService from "../../../services/fetchService";
 import { completeAchievement } from "../../../services/achievements";
-import { Typography } from "@mui/material";
+import { BottomNavigationAction, Paper, Typography } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
+import { StyledBottomNavigation } from "../../Basic Elements/StyledBasicElements";
+import SoftwareIcon from "@mui/icons-material/Code";
+import CSIcon from "@mui/icons-material/MemoryOutlined";
+import REIcon from "@mui/icons-material/WindPowerOutlined";
 
 const SPECIALTIES = ["se", "cse", "re"];
 
@@ -23,6 +28,10 @@ function VideosList(props) {
   const [videosCSE, setVideosCSE] = React.useState([]);
   const [videosRE, setVideosRE] = React.useState([]);
   const [isLoaded, setIsLoaded] = React.useState(false);
+  const [mobileBarValue, setMobileBarValue] = React.useState(
+    SPECIALTIES.indexOf(specialty)
+  );
+  const isMobile = useMediaQuery("(max-width:1080px)");
 
   const fetchAll = async () => {
     const listSE = await fetchService.doGET("videos/SE");
@@ -212,7 +221,53 @@ function VideosList(props) {
           {showVideosList.length === 0 && isLoaded ? emptyList : null}
         </ul>
       </div>
-      <Footer id="no-margin" />
+      {isMobile ? (
+        <Paper
+          sx={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: 12,
+          }}
+        >
+          <StyledBottomNavigation
+            showLabels
+            className="mobile-bottom-bar"
+            value={mobileBarValue}
+            onChange={(event, newValue) => {
+              setMobileBarValue(newValue);
+            }}
+          >
+            <BottomNavigationAction
+              className="mobile-bottom-bar-element"
+              label="Software"
+              onClick={() => {
+                props.history.push("/videos/se");
+              }}
+              icon={<SoftwareIcon fontSize="large" />}
+            />
+            <BottomNavigationAction
+              className="mobile-bottom-bar-element"
+              label="Hardware"
+              icon={<CSIcon fontSize="large" />}
+              onClick={() => {
+                props.history.push("/videos/cse");
+              }}
+            />
+            <BottomNavigationAction
+              className="mobile-bottom-bar-element"
+              label="Renewable"
+              icon={<REIcon fontSize="large" />}
+              onClick={() => {
+                props.history.push("/videos/re");
+              }}
+            />
+          </StyledBottomNavigation>
+        </Paper>
+      ) : (
+        <Footer id="no-margin" />
+      )}
     </>
   ) : (
     <Redirect to="/videos/se" />

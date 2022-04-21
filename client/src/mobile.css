@@ -10,6 +10,28 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .videos-container .side-bar {
+    display: none;
+  }
+  .videos-container .videos-list {
+    width: 100%;
+    height: auto;
+    scroll-behavior: smooth;
+    overflow: visible;
+    margin-bottom: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .videos-container .videos-list li {
+    width: 41%;
+    height: 315.15px;
+    margin-bottom: 2%;
+    margin-top: 2.5%;
+  }
+  .videos-container {
+    height: auto;
+  }
   .nav-items {
     display: none;
   }
@@ -90,6 +112,10 @@
   }
 }
 @media only screen and (max-width: 810px) {
+  .videos-container .videos-list li {
+    width: 75%;
+    height: 410.65px;
+  }
   .form-image-container {
     flex-basis: 40%;
   }
@@ -141,6 +167,10 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .videos-container .videos-list li {
+    width: 91%;
+    height: 313.65px;
+  }
   .form-image-container {
     display: none;
     flex-basis: 0%;
@@ -249,6 +279,11 @@
   }
 }
 @media only screen and (max-width: 480px) {
+  .videos-container .videos-list li {
+    width: 89%;
+    height: 254px;
+    margin-bottom: 4%;
+  }
   .quiz-container {
     background-color: rgb(40, 66, 91);
     margin-top: 22%;
@@ -315,6 +350,11 @@
   }
 }
 @media only screen and (max-width: 360px) {
+  .videos-container .videos-list li {
+    width: 100%;
+    height: 212.75px;
+    margin-bottom: 6%;
+  }
   .quiz-intro {
     margin-top: 28vh;
   }
