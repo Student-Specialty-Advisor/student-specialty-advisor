@@ -74,11 +74,19 @@
   .profile-container {
     width: 80%;
   }
-  .profile-container h1 { 
-    font-size: calc(60*100vh/992);
+  .profile-container h1 {
+    font-size: calc(60 * 100vh / 992);
   }
   .profile-container h4 {
-    font-size: calc(20*100vh/992);
+    font-size: calc(20 * 100vh / 992);
+  }
+  .dashboard-container {
+    min-height: 70vh;
+    height: auto;
+    padding-bottom: 12vh;
+  }
+  .dashboard-container .dashboard-options {
+    width: 100%;
   }
 }
 @media only screen and (max-width: 810px) {
@@ -233,11 +241,11 @@
     top: 11%;
     right: 42%;
   }
-  .profile-container h1 { 
-    font-size: calc(48*100vh/992);
+  .profile-container h1 {
+    font-size: calc(48 * 100vh / 992);
   }
   .profile-container h4 {
-    font-size: calc(20*100vh/992);
+    font-size: calc(20 * 100vh / 992);
   }
 }
 @media only screen and (max-width: 480px) {
@@ -296,11 +304,14 @@
     top: 12%;
     right: 39%;
   }
-  .profile-container h1 { 
-    font-size: calc(18*100vh/480);
+  .profile-container h1 {
+    font-size: calc(18 * 100vh / 480);
   }
   .profile-container h4 {
-    font-size: calc(10*100vh/480);
+    font-size: calc(10 * 100vh / 480);
+  }
+  .dashboard-option-typography {
+    width: 50% !important;
   }
 }
 @media only screen and (max-width: 360px) {
@@ -353,10 +364,10 @@
     right: 37.5%;
     font-size: 70px;
   }
-  .profile-container h1 { 
-    font-size: calc(13*100vh/480);
+  .profile-container h1 {
+    font-size: calc(13 * 100vh / 480);
   }
   .profile-container h4 {
-    font-size: calc(9*100vh/480);
+    font-size: calc(9 * 100vh / 480);
   }
 }

@@ -12,6 +12,7 @@ import {
 import { Doughnut, Bar } from "react-chartjs-2";
 import fetchService from "../../../services/fetchService";
 import Loading from "../../Loading";
+import { useMediaQuery } from "@mui/material";
 
 ChartJS.register(
   ArcElement,
@@ -35,6 +36,7 @@ function Statistics() {
   const [countSE, setCountSE] = React.useState(null);
   const [countCSE, setCountCSE] = React.useState(null);
   const [countRE, setCountRE] = React.useState(null);
+  const isMobile = useMediaQuery("(max-width:480px)");
 
   const getQuizJson = async () => {
     const json = await fetchService.doGET("statistics");
@@ -120,7 +122,7 @@ function Statistics() {
                   text: "Program Compatibility Quiz Results in %",
                   position: "top",
                   padding: 20,
-                  font: { size: 20 },
+                  font: { size: isMobile ? 15 : 20 },
                 },
                 legend: {
                   position: "bottom",
@@ -149,7 +151,7 @@ function Statistics() {
                   text: "Program Compatibility Quiz Results in numbers",
                   position: "top",
                   padding: 20,
-                  font: { size: 20 },
+                  font: { size: isMobile ? 15 : 20 },
                 },
                 legend: {
                   display: false,

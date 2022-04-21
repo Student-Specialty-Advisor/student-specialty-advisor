@@ -23,7 +23,9 @@ const Dashboard = (props) => {
   const [advisorsList, setAdvisorsList] = React.useState([]);
   const [meetingsList, setMeetingsList] = React.useState({ meetings: [] });
   const [videosList, setVideosList] = React.useState([]);
-  const [mobileBarValue, setMobileBarValue] = React.useState(0);
+  const [mobileBarValue, setMobileBarValue] = React.useState(
+    PARAMETERS.indexOf(parameter)
+  );
   const isMobile = useMediaQuery("(max-width:1080px)");
 
   React.useEffect(() => {

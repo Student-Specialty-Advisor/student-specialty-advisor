@@ -25,7 +25,10 @@ function MeetingsOptions(props) {
           sx={{ border: "solid" }}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          <Typography
+            className="dashboard-option-typography"
+            sx={{ width: "33%", flexShrink: 0 }}
+          >
             <strong>Add a Meeting</strong>
           </Typography>
         </AccordionSummary>
@@ -50,7 +53,10 @@ function MeetingsOptions(props) {
           sx={{ border: "solid" }}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          <Typography
+            className="dashboard-option-typography"
+            sx={{ width: "33%", flexShrink: 0 }}
+          >
             <strong>Delete a Meeting</strong>
           </Typography>
         </AccordionSummary>

@@ -26,7 +26,10 @@ function AdvisorsOptions(props) {
           sx={{ border: "solid" }}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          <Typography
+            className="dashboard-option-typography"
+            sx={{ width: "33%", flexShrink: 0 }}
+          >
             <strong>Add an Advisor</strong>
           </Typography>
         </AccordionSummary>
@@ -50,7 +53,10 @@ function AdvisorsOptions(props) {
           sx={{ border: "solid" }}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          <Typography
+            className="dashboard-option-typography"
+            sx={{ width: "33%", flexShrink: 0 }}
+          >
             <strong>Delete an Advisor</strong>
           </Typography>
         </AccordionSummary>
@@ -76,7 +82,10 @@ function AdvisorsOptions(props) {
           sx={{ border: "solid" }}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          <Typography
+            className="dashboard-option-typography"
+            sx={{ width: "33%", flexShrink: 0 }}
+          >
             <strong>Update an Advisor</strong>
           </Typography>
         </AccordionSummary>
