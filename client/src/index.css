@@ -1386,6 +1386,7 @@ body {
   padding: 0;
   margin: auto;
   margin-top: 18vh;
+  margin-bottom: 15vh;
   animation: fadeIn 0.5s;
 }
 .profile-container h1 {
@@ -1400,6 +1401,12 @@ body {
   text-align: center;
   font-style: italic;
   animation: fadeInWithTranslateY 0.5s;
+}
+.profile-buttons{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
 }
 /*#endregion profile page*/
 
