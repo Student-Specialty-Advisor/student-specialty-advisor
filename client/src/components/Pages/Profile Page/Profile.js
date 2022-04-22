@@ -20,7 +20,9 @@ function Profile(props) {
   const [isChanging, setIsChanging] = React.useState(false);
   const [isReadOnly, setIsReadOnly] = React.useState(true);
   const [userData, setUserData] = React.useState(AuthService.getCurrentUser());
-  const [universityYear, setUniversityYear] = React.useState("");
+  const [universityYear, setUniversityYear] = React.useState(
+    AuthService.getCurrentUser().universityYear
+  );
   const [isCanceled, setIsCanceled] = React.useState(false);
   const [hasError, setHasError] = React.useState(false);
   const changePasswordPath = "/profile/password";
@@ -177,7 +179,7 @@ function Profile(props) {
           select
           id="university year"
           label="University Year"
-          defaultValue={userData.universityYear}
+          value={universityYear}
           onChange={(event) => {
             setUniversityYear(event.target.value);
           }}
