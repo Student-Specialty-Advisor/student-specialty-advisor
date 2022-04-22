@@ -29,6 +29,7 @@ import ProgramsIcon from "@mui/icons-material/School";
 import VideosIcon from "@mui/icons-material/VideoLibrary";
 import MeetingsIcon from "@mui/icons-material/Groups";
 import ForumIcon from "@mui/icons-material/Forum";
+import ChatBotIcon from "@mui/icons-material/SmartToyOutlined";
 
 function PrivateNavbar(props) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -92,21 +93,6 @@ function PrivateNavbar(props) {
                     </ListItemIcon>
                     <ListItemText color="inherit" primary="Profile" />
                   </StyledListItem>
-                  <StyledListItem
-                    button
-                    onClick={() => {
-                      setIsOpen(false);
-                      logout();
-                    }}
-                  >
-                    <ListItemIcon>
-                      <LogoutIcon sx={{ color: "white" }} />
-                    </ListItemIcon>
-                    <ListItemText color="inherit" primary="Logout" />
-                  </StyledListItem>
-                  <Divider
-                    sx={{ backgroundColor: "rgba(255, 255, 255, 0.4)" }}
-                  />
                   {isAdmin ? (
                     <StyledListItem
                       button
@@ -183,6 +169,36 @@ function PrivateNavbar(props) {
                       <ForumIcon sx={{ color: "white" }} />
                     </ListItemIcon>
                     <ListItemText color="inherit" primary="Community Forum" />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/assistance");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <ChatBotIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Assistance" />
+                  </StyledListItem>
+                  <Divider
+                    sx={{
+                      backgroundColor: "rgba(255, 255, 255, 0.4)",
+                      marginTop: "20%",
+                    }}
+                  />
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      logout();
+                    }}
+                  >
+                    <ListItemIcon>
+                      <LogoutIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Logout" />
                   </StyledListItem>
                 </List>
               </Drawer>

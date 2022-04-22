@@ -3,7 +3,7 @@ import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 import Tree from "./Tree";
 
-function ChatBotSSA() {
+function ChatBotFloating() {
   const theme = {
     background: "white",
     headerBgColor: "var(--myorange)",
@@ -244,6 +244,7 @@ function ChatBotSSA() {
     }
     return "Hmm.. I had trouble understanding your question 🤔";
   };
+
   return (
     <ThemeProvider theme={theme}>
       <ChatBot
@@ -251,9 +252,10 @@ function ChatBotSSA() {
         hideUserAvatar={true}
         floating={true}
         bubbleStyle={{ wordWrap: "break-word" }}
+        className="assistance-chat-bot"
         floatingStyle={{
           left: "16px",
-          bottom: "32px",
+          bottom: "16px",
           zIndex: "10",
           transformOrigin: "bottom left",
         }}
@@ -290,4 +292,4 @@ function ChatBotSSA() {
   );
 }
 
-export default ChatBotSSA;
+export default ChatBotFloating;
