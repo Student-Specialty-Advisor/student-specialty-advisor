@@ -27,13 +27,17 @@ import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
 import ChatBotSSA from "./components/Chat Bot/ChatBotSSA";
 import NoMatch from "./components/Pages/NoMatch";
-
+import MeetingBottomNavbar from "./components/Pages/Meeting Page/MeetingBottomNavbar";
 function App() {
   return (
     <Router>
       <Navbar />
       <AuthVerify />
       <ChatBotSSA />
+      <PrivateRoute
+        path={["/meetings/about", "/meetings/advisors", "/meetings/request"]}
+        component={MeetingBottomNavbar}
+      />
       <Switch>
         <Route exact path="/" component={Home} />
         <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
