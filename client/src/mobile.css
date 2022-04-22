@@ -10,6 +10,9 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .program-info-content li {
+    padding-top: 3%;
+  }
   .videos-container .side-bar {
     display: none;
   }
@@ -97,10 +100,10 @@
     width: 80%;
   }
   .profile-container h1 {
-    font-size: calc(60 * 100vh / 992);
+    font-size: calc(60 * 100vw / 992);
   }
   .profile-container h4 {
-    font-size: calc(20 * 100vh / 992);
+    font-size: calc(20 * 100vw / 992);
   }
   .dashboard-container {
     min-height: 70vh;
@@ -109,6 +112,9 @@
   }
   .dashboard-container .dashboard-options {
     width: 100%;
+  }
+  .program-info-content li {
+    min-height: 0;
   }
 }
 @media only screen and (max-width: 810px) {
@@ -164,6 +170,12 @@
   .achievement-card .question-mark-icon {
     font-size: 80px;
     top: 15%;
+  }
+  .program-info-content li a {
+    font-size: 17px;
+  }
+  .profile-container h1 {
+    margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -272,10 +284,22 @@
     right: 42%;
   }
   .profile-container h1 {
-    font-size: calc(48 * 100vh / 992);
+    font-size: calc(40 * 100vw / 600);
   }
   .profile-container h4 {
-    font-size: calc(20 * 100vh / 992);
+    font-size: calc(16 * 100vw / 600);
+  }
+  .program-info-content .course-container p {
+    font-size: 16px;
+  }
+  .program-info-container {
+    width: 98%;
+  }
+  .program-info-container-title {
+    text-align: center;
+  }
+  .program-info-brochure {
+    text-align: center;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -297,7 +321,7 @@
     width: 75%;
   }
   .quiz-container p,
-  a {
+  .quiz-container a {
     margin-left: 4%;
     margin-right: 4%;
   }
@@ -340,13 +364,26 @@
     right: 39%;
   }
   .profile-container h1 {
-    font-size: calc(18 * 100vh / 480);
+    font-size: calc(32 * 100vw / 480);
   }
   .profile-container h4 {
-    font-size: calc(10 * 100vh / 480);
+    font-size: calc(14 * 100vw / 480);
   }
   .dashboard-option-typography {
     width: 50% !important;
+  }
+  .program-info-content .course-container p {
+    font-size: 15px;
+  }
+  .program-info-container-title {
+    font-size: calc(36 * 100vw / 480);
+  }
+  .program-info-brochure {
+    font-size: calc(18 * 100vw / 480);
+  }
+  .program-info-content li p,
+  .program-info-content li a {
+    font-size: 16px;
   }
 }
 @media only screen and (max-width: 360px) {
@@ -405,9 +442,16 @@
     font-size: 70px;
   }
   .profile-container h1 {
-    font-size: calc(13 * 100vh / 480);
+    font-size: calc(24 * 100vw / 360);
   }
   .profile-container h4 {
-    font-size: calc(9 * 100vh / 480);
+    font-size: calc(12 * 100vw / 360);
+  }
+  .program-info-content li p,
+  .program-info-content li a {
+    font-size: 14px;
+  }
+  .program-info-content .course-container p {
+    font-size: 12px;
   }
 }

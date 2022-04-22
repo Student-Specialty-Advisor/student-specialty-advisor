@@ -9,7 +9,7 @@ import { completeAchievement } from "../../../services/achievements";
 import { BottomNavigationAction, Paper, Typography } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import { StyledBottomNavigation } from "../../Basic Elements/StyledBasicElements";
-import SoftwareIcon from "@mui/icons-material/Code";
+import SEIcon from "@mui/icons-material/Code";
 import CSIcon from "@mui/icons-material/MemoryOutlined";
 import REIcon from "@mui/icons-material/WindPowerOutlined";
 
@@ -245,11 +245,11 @@ function VideosList(props) {
               onClick={() => {
                 props.history.push("/videos/se");
               }}
-              icon={<SoftwareIcon fontSize="large" />}
+              icon={<SEIcon fontSize="large" />}
             />
             <BottomNavigationAction
               className="mobile-bottom-bar-element"
-              label="Hardware"
+              label="Systems"
               icon={<CSIcon fontSize="large" />}
               onClick={() => {
                 props.history.push("/videos/cse");

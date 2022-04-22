@@ -1419,7 +1419,7 @@ body {
   font-style: italic;
   animation: fadeInWithTranslateY 0.5s;
 }
-.profile-buttons{
+.profile-buttons {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1430,90 +1430,27 @@ body {
 /*#region program page*/
 
 .program-info-container {
-  width: 100%;
-  margin-top: 13vh;
+  width: 90%;
+  margin-top: 12vh;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 13vh;
+  padding-bottom: 12vh;
 }
 .program-info-container-title {
-  position: relative;
   color: var(--myblue);
-  margin-bottom: 1%;
-  margin-left: 5%;
   font-size: 36px;
   animation: fadeInWithTranslateY 0.5s;
-}
-.program-info-container-return {
-  text-decoration: none;
-  font-size: 20px;
-  margin-left: 1%;
-  font-style: italic;
-  color: var(--mydarkblue);
-  width: fit-content;
-  animation: fadeInWithTranslateY 0.5s;
-}
-.program-info-container-return:hover {
+  margin-top: 0;
+  padding-top: 2%;
   text-decoration: underline;
-}
-.program-info-container-return:visited {
-  color: var(--mydarkblue);
-}
-.program-info-navbar {
-  width: 90%;
-  height: 9vh;
-  background-color: transparent;
-  padding: 0;
-  margin: auto;
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5%;
-  z-index: 1;
-  animation: fadeIn 1s;
-}
-.program-info-navbar li {
-  height: 100%;
-  flex-grow: 1;
-  background-color: rgb(23, 38, 53);
-  border-radius: 25px;
-}
-.program-info-navbar li a {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  border-radius: 25px;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: cyan;
-  text-decoration: underline transparent;
-  text-underline-offset: 10px;
-  transition: 0.2s;
-}
-.program-info-navbar li a:hover {
-  background-color: rgb(11, 61, 81);
-}
-.program-info-navbar li a.active {
-  background-color: rgb(0, 85, 110);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: bold;
 }
 .program-info-brochure {
-  position: absolute;
-  text-decoration: none;
-  right: 5%;
-  top: 20%;
+  display: block;
   font-size: 18px;
   font-weight: bold;
-  z-index: 1;
   color: var(--mydarkblue);
   animation: fadeInWithTranslateY 0.5s;
+  text-decoration: none;
 }
 .program-info-brochure:hover {
   text-decoration: underline;
@@ -1523,20 +1460,15 @@ body {
 }
 
 .program-info-content {
-  width: 90%;
+  width: 100%;
   padding: 0;
-  margin: auto;
-  margin-top: -3.9%;
-  padding-top: 5%;
-  flex-direction: row;
+  margin: 0;
   list-style-type: none;
-  border: solid var(--mydarkblue);
-  border-radius: 25px;
-  border-top-style: none;
   animation: fadeIn 1.5s;
 }
 .program-info-content li {
-  margin-top: 0.5%;
+  padding-top: 1%;
+  padding-bottom: 2%;
   margin-right: 0.25%;
   margin-left: 0.25%;
   display: flex;
@@ -1564,28 +1496,22 @@ body {
   margin-right: 5%;
   font-size: 18px;
   font-weight: 550;
-
-  flex-grow: 1;
   color: var(--mydarkblue);
 }
 .program-info-content li a {
-  color: var(--myblue);
-  text-decoration: none;
-  text-align: center;
-  margin-top: 3%;
   margin-left: 5%;
   margin-right: 5%;
-  margin-bottom: 1%;
+  font-size: 18px;
   font-weight: 550;
-  border-style: double;
-  border-radius: 25px;
-  padding: 5px 10px;
+  color: var(--myblue);
+  text-decoration: none;
+  align-self: flex-start;
 }
 .program-info-content li a:hover {
   text-decoration: underline;
 }
 .program-info-content li a:visited {
-  color: var(--mydarkblue);
+  color: var(--myblue);
 }
 
 .program-info-content .course-container {
