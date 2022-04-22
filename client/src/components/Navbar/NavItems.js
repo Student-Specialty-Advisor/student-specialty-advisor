@@ -86,8 +86,8 @@ export const DropDownElements3 = [
   },
   {
     id: 3,
-    title: "Request",
-    path: "/meetings/request",
+    title: "Schedule",
+    path: "/meetings/schedule",
     cName: "subMenu-item3",
   },
 ];

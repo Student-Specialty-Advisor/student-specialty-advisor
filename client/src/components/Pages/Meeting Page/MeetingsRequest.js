@@ -6,7 +6,7 @@ import MeetingsRequestPopup from "./MeetingsRequestPopup";
 
 function MeetingsRequest() {
   React.useEffect(() => {
-    document.title = "Meetings - Request - Student Specialty Advisor";
+    document.title = "Meetings - Schedule - Student Specialty Advisor";
   }, []);
 
   // schedule represents the 9 rows x 6 cols table: schedule[row][col]: schedule[0][2] => 8 am | Wednesday

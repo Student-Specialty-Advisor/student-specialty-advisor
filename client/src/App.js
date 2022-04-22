@@ -39,7 +39,7 @@ function App() {
       <AuthVerify />
       {!isMobile && <ChatBotFloating />}
       <PrivateRoute
-        path={["/meetings/about", "/meetings/advisors", "/meetings/request"]}
+        path={["/meetings/about", "/meetings/advisors", "/meetings/schedule"]}
         component={MeetingBottomNavbar}
       />
       <Switch>
@@ -61,7 +61,7 @@ function App() {
         <Redirect exact from="/videos" to="/videos/se" />
         <PrivateRoute
           exact
-          path="/meetings/request"
+          path="/meetings/schedule"
           component={MeetingsRequest}
         />
         <PrivateRoute
@@ -70,6 +70,7 @@ function App() {
           component={MeetingsAdvisorsList}
         />
         <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
+        <Redirect exact from="/meetings" to="/meetings/about" />
         <PrivateRoute exact path="/forum" component={Forum} />
         {isMobile && (
           <Route exact path="/assistance" component={ChatBotStatic} />

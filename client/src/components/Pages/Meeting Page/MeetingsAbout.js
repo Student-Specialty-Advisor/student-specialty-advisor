@@ -74,7 +74,7 @@ function MeetingsAbout(props) {
       <div className="about-container-end">
         <button
           onClick={() => {
-            window.location.href = "/meetings/request";
+            window.location.href = "/meetings/schedule";
           }}
         >
           MEETINGS SCHEDULE
