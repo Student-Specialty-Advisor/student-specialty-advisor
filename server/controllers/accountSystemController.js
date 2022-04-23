@@ -84,27 +84,29 @@ var LogIn = (req, res) => {
   User.findOne(emailObj).then((user) => {
     if (user === null) {
       res.status(500).send(invalidEmail);
-    } else if (!user.isVerified) {
-      res.status(401).send({
-        notVerified: 1,
-        message: "User did not verify  email address",
-      });
     } else {
       if (bcrypt.compareSync(json.password, user.password)) {
-        var token = jwt.sign({ id: user._id }, process.env.TOKEN_KEY, {
-          expiresIn: parseInt(process.env.TOKEN_DURATION),
-        });
-        var userData = {
-          id: user._id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          universityYear: user.universityYear,
-          email: user.email,
-          role: user.role,
-          accessToken: token,
-          isVerified: user.isVerified,
-        };
-        res.status(200).send(userData);
+        if (!user.isVerified) {
+          res.status(401).send({
+            notVerified: 1,
+            message: "User did not verify the email address",
+          });
+        } else {
+          var token = jwt.sign({ id: user._id }, process.env.TOKEN_KEY, {
+            expiresIn: parseInt(process.env.TOKEN_DURATION),
+          });
+          var userData = {
+            id: user._id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            universityYear: user.universityYear,
+            email: user.email,
+            role: user.role,
+            accessToken: token,
+            isVerified: user.isVerified,
+          };
+          res.status(200).send(userData);
+        }
       } else {
         res.status(500).send(invalidPassword);
       }

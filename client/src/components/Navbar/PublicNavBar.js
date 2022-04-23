@@ -14,6 +14,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import LoginIcon from "@mui/icons-material/Login";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ChatBotIcon from "@mui/icons-material/SmartToyOutlined";
 
 function PublicNavbar(props) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -73,6 +74,18 @@ function PublicNavbar(props) {
                       <AccountBoxIcon sx={{ color: "white" }} />
                     </ListItemIcon>
                     <ListItemText color="inherit" primary="Sign Up" />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/assistance");
+                    }}
+                  >
+                    <ListItemIcon>
+                      <ChatBotIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Assistance" />
                   </StyledListItem>
                 </List>
               </Drawer>
