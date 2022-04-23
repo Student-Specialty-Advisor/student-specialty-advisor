@@ -53,7 +53,7 @@ function MeetingsRequest() {
             Array(6).fill(""),
           ];
           for (var i = 0; i < response.meetings.length; i++) {
-            if (response.meetings[i].col < response.currentDayIndex - 1) {
+            if (response.meetings[i].col < response.currentDayIndex) {
               response.meetings[i].isAvailable = false;
               response.meetings[i].passed = true;
             }
