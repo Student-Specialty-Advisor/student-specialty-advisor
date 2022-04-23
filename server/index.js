@@ -44,6 +44,9 @@ app.put(
   [authJWT.verifyToken],
   accountSystemController.EditAccount
 );
+
+// Use this endpoint to verify a user account
+app.put("/ssa-api/verify/:id", accountSystemController.HandleVerification);
 //#endregion
 
 //#region Program Compatibility Quiz

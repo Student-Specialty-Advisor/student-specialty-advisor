@@ -323,10 +323,15 @@ function SignUpForm(props) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                textAlign: "center",
               }}
             >
               <CheckCircleIcon fontSize="large" sx={{ color: "#1976d2" }} />
-              <p>Signing up was successful!</p>
+              <p>
+                Signing up was successful!
+                <br />
+                We sent you a verification email. Check it out!
+              </p>
               <StyledButton
                 variant="contained"
                 sx={{ width: "50%" }}

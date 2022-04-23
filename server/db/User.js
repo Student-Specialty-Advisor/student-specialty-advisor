@@ -7,6 +7,7 @@ const User = mongoose.model("User", {
   email: { type: String, unique: true },
   password: String,
   role: String,
+  isVerified: { type: Boolean, default: false },
 });
 
 module.exports = User;

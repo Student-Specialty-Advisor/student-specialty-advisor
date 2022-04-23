@@ -40,17 +40,8 @@ function Profile(props) {
       AuthService.alertifyInvalidToken();
       throw utils.emptyInput;
     } else if (json.keyPattern) {
-      if (json.keyPattern.email) {
-        alertify.error(
-          "Seems like this email is already used by another account!"
-        );
-        throw utils.invalidEmail;
-      } else {
-        alertify.error(
-          "Error occured while updating profile. Try again later!"
-        );
-        throw utils.emptyInput;
-      }
+      alertify.error("Error occured while updating profile. Try again later!");
+      throw utils.emptyInput;
     } else if (json.accessToken) {
       AuthService.setCurrentUser(json);
       setUserData(json);
@@ -61,7 +52,6 @@ function Profile(props) {
   const refreshInputFields = () => {
     document.getElementById("firstName").value = userData.firstName;
     document.getElementById("lastName").value = userData.lastName;
-    document.getElementById("email").value = userData.email;
     setUniversityYear(userData.universityYear);
   };
 
@@ -75,17 +65,13 @@ function Profile(props) {
   const submit = () => {
     const newFirstName = document.getElementById("firstName").value;
     const newLastName = document.getElementById("lastName").value;
-    const newEmail = document.getElementById("email").value;
-    if (newFirstName === "" || newLastName === "" || newEmail === "") {
+
+    if (newFirstName === "" || newLastName === "") {
       alertify.warning("Hey! Some important fields were left empty!");
-    } else if (!utils.isValidEmail(newEmail)) {
-      alertify.warning("Make sure to enter a valid SMU / MEDTECH e-mail!");
-      setHasError(true);
     } else {
       const newData = {
         firstName: newFirstName,
         lastName: newLastName,
-        email: newEmail,
         universityYear: universityYear,
       };
       updateInfo(newData)
@@ -159,19 +145,6 @@ function Profile(props) {
           }}
           margin="normal"
           fullWidth
-        />
-        <br />
-        <StyledTextField
-          error={hasError}
-          id="email"
-          label="Email"
-          defaultValue={userData.email}
-          InputProps={{
-            readOnly: isReadOnly,
-          }}
-          margin="normal"
-          fullWidth
-          helperText={hasError ? "Incorrect entry." : ""}
         />
         <br />
         <StyledTextField

@@ -30,6 +30,7 @@ import ChatBotStatic from "./components/Chat Bot/ChatBotStatic";
 import NoMatch from "./components/Pages/NoMatch";
 import MeetingBottomNavbar from "./components/Pages/Meeting Page/MeetingBottomNavbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import VerifyAccount from "./components/VerifyAccount";
 
 function App() {
   const isMobile = useMediaQuery("(max-width:1080px)");
@@ -44,6 +45,7 @@ function App() {
       />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/verify/:id" component={VerifyAccount} />
         <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
         <Redirect exact from="/dashboard" to="/dashboard/statistics" />
         <PrivateRoute exact path="/quiz" component={Quiz} />

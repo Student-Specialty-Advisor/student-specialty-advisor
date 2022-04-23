@@ -23,7 +23,6 @@ function LogInForm(props) {
     if (!utils.isValidEmail(email)) return utils.invalidEmail;
     var password = utils.check(form["iPassword"].value);
     if (password === null) return utils.invalidPassword;
-
     const formDataHolder = {
       email: email,
       password: password,
@@ -44,6 +43,10 @@ function LogInForm(props) {
         if (response.keyPattern) {
           alertify.error(
             "Invalid Credentials..   Make sure you have written your e-mail and password correctly!"
+          );
+        } else if (response.notVerified) {
+          alertify.warning(
+            "You need to verify your email before you can access your account!"
           );
         } else {
           try {
