@@ -1343,8 +1343,14 @@ body {
   list-style-type: none;
   overflow: auto;
 }
+.videos-container .videos-list li .video-skeleton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .videos-container .videos-list li {
   display: inline-block;
+  position: relative;
   width: 27.5%;
   height: 30%;
   margin-top: 2.5%;
@@ -1352,9 +1358,8 @@ body {
   margin-right: 2.5%;
   border-color: var(--mydarkblue);
   border-style: solid;
-  background-color: var(--mydarkerblue);
+  background: none;
   color: white;
-  position: relative;
   box-shadow: 0px 0px 4px 8px rgba(0, 85, 110, 0.7);
   transition: 0.2s;
 }
@@ -1647,27 +1652,13 @@ body {
 }
 
 .about-container-end {
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 20vh;
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: center;
   gap: 10%;
-}
-.about-container-end button {
-  background-color: orange;
-  border: none;
-  border-radius: 10px;
-  width: 20%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  filter: drop-shadow(0px 0px 5px);
-  font-size: 20px;
-  transition: 0.5s;
-  cursor: pointer;
-}
-.about-container-end button:hover {
-  background-color: white;
-  color: grey;
 }
 /*#endregion meetings-about page*/
 
@@ -1881,43 +1872,19 @@ body {
   font-size: 15px;
   text-align: center;
 }
-.meetings-request-table .has-meeting button:enabled {
-  color: var(--mydarkblue);
-  font-size: 13px;
-  padding: 5px 10px;
-  outline: none;
-  border-radius: 25px;
-  background-color: white;
-  cursor: pointer;
-  border: solid 1px;
-}
-.meetings-request-table .has-meeting button:enabled:hover {
-  background-color: rgb(214, 191, 163);
-}
-.meetings-request-table .has-meeting button:enabled:active {
-  background-color: rgb(180, 161, 138);
-}
-.meetings-request-table .has-meeting button:disabled {
-  color: darkred;
-  padding: 5px 10px;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  border-radius: 25px;
-}
 #meetings-request-popup.forLeft {
   position: absolute;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 180%;
-  height: 120%;
+  width: 400px;
+  height: 200px;
   background-color: #ffce94;
   top: 12%;
   left: 115%;
   z-index: 5;
-  border-radius: 10px;
-  filter: drop-shadow(0px 0px 5px);
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),
+    0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
   animation: fadeInWithTranslateY 0.3s;
 }
 #meetings-request-popup.forRight {
@@ -1925,51 +1892,28 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 180%;
-  height: 120%;
+  width: 400px;
+  height: 200px;
   background-color: #ffce94;
   top: 12%;
   right: 115%;
   z-index: 5;
-  border-radius: 10px;
-  filter: drop-shadow(0px 0px 5px);
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),
+    0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
   animation: fadeInWithTranslateY 0.3s;
 }
 #meetings-request-popup h3 {
   margin-top: 10%;
   text-align: center;
-  font-size: 16px;
+  font-size: 1em;
 }
-#meetings-request-popup select {
-  color: var(--mydarkblue);
-  width: 70%;
-  margin-bottom: 10%;
-  padding: 5px 0px;
-  outline: none;
-  border: solid 1px;
-  text-align: center;
-  background-color: white;
-  font-weight: bold;
-  border-radius: 5px;
-}
-#meetings-request-popup div {
+#meetings-request-popup .buttons-container {
   position: absolute;
   display: flex;
   width: 90%;
   justify-content: right;
   gap: 3%;
   bottom: 10%;
-}
-#meetings-request-popup div button {
-  background-color: white;
-  border-radius: 5px;
-  font-weight: bold;
-}
-#meetings-request-popup div button:hover {
-  background-color: lightgrey;
-}
-#meetings-request-popup div button:active {
-  background-color: grey;
 }
 #meetings-request-popup p {
   padding-bottom: 2%;

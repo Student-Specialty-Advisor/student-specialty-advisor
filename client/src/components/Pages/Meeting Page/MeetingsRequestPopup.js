@@ -1,19 +1,31 @@
+import { CircularProgress, Typography } from "@mui/material";
 import alertify from "alertifyjs";
 import React from "react";
 import { completeAchievement } from "../../../services/achievements";
 import AuthService from "../../../services/AuthService";
 import fetchService from "../../../services/fetchService";
+import {
+  StyledButton,
+  StyledMenuItem,
+  StyledTextField,
+} from "../../Basic Elements/StyledBasicElements";
 
 function MeetingsRequestPopup(props) {
-  const [topic, setTopic] = React.useState("Topic I");
+  const [topic, setTopic] = React.useState("");
+  const [allowNext, setAllowNext] = React.useState(false);
+  const [confirmed, setConfirmed] = React.useState(false);
 
   const handleSelectChange = (event) => {
     setTopic(event.target.value);
+    if (allowNext === false) {
+      setAllowNext(true);
+    }
   };
 
   const currentUser = AuthService.getCurrentUser();
 
   const sendRequest = () => {
+    setConfirmed(true);
     document.getElementById("request-button").disabled = true;
     const data = {
       meetingID: props.info.meetingID,
@@ -46,6 +58,7 @@ function MeetingsRequestPopup(props) {
             "It seems we have issues processing your request.. Try again later :("
           );
         }
+        setConfirmed(false);
         props.setIsShown(false);
         props.fetchSchedule();
       })
@@ -61,38 +74,98 @@ function MeetingsRequestPopup(props) {
 
   const intro = (
     <>
-      <h3>
+      <Typography variant="h3" fontWeight="bold">
         What do you need {props.info.name.split(" ")[0]} to help you with?
-      </h3>
-      <select onChange={handleSelectChange}>
-        <option value="Topic I">Topic I</option>
-        <option value="Topic II">Topic II</option>
-        <option value="Topic III">Topic III</option>
-      </select>
-      <div>
-        <button onClick={() => props.setShowNext(true)}>{"Next >"}</button>
+      </Typography>
+      <StyledTextField
+        select
+        size="small"
+        label="Topic"
+        variant="outlined"
+        margin="normal"
+        sx={{ width: "80%" }}
+        value={topic}
+        onChange={handleSelectChange}
+      >
+        <StyledMenuItem value="Topic I">Topic I</StyledMenuItem>
+        <StyledMenuItem value="Topic II">Topic II</StyledMenuItem>
+        <StyledMenuItem value="Topic III">Topic III</StyledMenuItem>
+      </StyledTextField>
+      <div className="buttons-container">
+        <StyledButton
+          key="next-button"
+          variant="contained"
+          sx={{ backgroundColor: "white !important", fontSize: "0.8rem" }}
+          onClick={() => props.setShowNext(true)}
+          disabled={!allowNext}
+        >
+          Next
+        </StyledButton>
       </div>
     </>
   );
   const confirmation = (
     <>
-      <p style={{ marginTop: "2.5%" }}>
+      <Typography
+        textAlign="center"
+        variant="p"
+        marginTop="5%"
+        marginLeft="5%"
+        marginRight="5%"
+      >
         You are about to request a meeting with
         <strong> {props.info.name}</strong>, an advisor for the
         <strong> {props.info.specialty} specialty</strong> to discuss
         <strong> {topic}</strong>.
-      </p>
-      <p>
+      </Typography>
+      <Typography
+        variant="p"
+        textAlign="center"
+        marginTop="2.5%"
+        marginLeft="5%"
+        marginRight="5%"
+      >
         <strong>Would you like to confirm this request?</strong>
-      </p>
-      <div>
-        <button onClick={() => props.setShowNext(false)}>{"< Back"}</button>
-        <button id="request-button" onClick={sendRequest}>
-          {"Do it!"}
-        </button>
+      </Typography>
+      <div className="buttons-container">
+        <StyledButton
+          key="back-button"
+          variant="contained"
+          sx={{ backgroundColor: "white !important", fontSize: "0.8rem" }}
+          onClick={() => props.setShowNext(false)}
+        >
+          Back
+        </StyledButton>
+        <StyledButton
+          sx={{ backgroundColor: "lightgreen !important", fontSize: "0.8rem" }}
+          variant="contained"
+          id="request-button"
+          onClick={sendRequest}
+        >
+          {confirmed ? (
+            <CircularProgress
+              disableShrink
+              color="success"
+              thickness={5}
+              size={20}
+            />
+          ) : (
+            "Confirm"
+          )}
+        </StyledButton>
       </div>
     </>
   );
+
+  const { reset, setReset } = props;
+
+  React.useEffect(() => {
+    if (reset === true) {
+      setTopic("");
+      setAllowNext(false);
+      setReset(false);
+    }
+  }, [reset, setReset]);
 
   return props.isShown ? (
     props.info.col > 3 ? (

@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
 import { completeAchievement } from "../../../services/achievements";
+import { StyledButton } from "../../Basic Elements/StyledBasicElements";
 
 function MeetingsAbout(props) {
   React.useEffect(() => {
@@ -72,20 +73,26 @@ function MeetingsAbout(props) {
         </div>
       </div>
       <div className="about-container-end">
-        <button
+        <StyledButton
+          fullWidth
+          variant="contained"
+          size="large"
           onClick={() => {
             window.location.href = "/meetings/schedule";
           }}
         >
           MEETINGS SCHEDULE
-        </button>
-        <button
+        </StyledButton>
+        <StyledButton
+          fullWidth
+          variant="contained"
+          size="large"
           onClick={() => {
             window.location.href = "/meetings/advisors";
           }}
         >
           THE ADVISORS
-        </button>
+        </StyledButton>
       </div>
       <Footer />
     </>

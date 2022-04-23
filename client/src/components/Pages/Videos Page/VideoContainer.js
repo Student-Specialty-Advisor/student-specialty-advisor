@@ -1,7 +1,16 @@
+import { Skeleton } from "@mui/material";
+
 function VideoContainer(props) {
   return (
     <li key={props.code}>
-      <p>Video is loading!</p>
+      <Skeleton
+        className="video-skeleton"
+        width="100%"
+        height="100%"
+        variant="rectangular"
+        animation="wave"
+        sx={{ bgcolor: "var(--mydarkblue)" }}
+      />
       <iframe
         width="100%"
         height="100%"

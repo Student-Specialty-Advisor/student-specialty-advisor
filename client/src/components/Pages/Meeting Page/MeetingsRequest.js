@@ -1,5 +1,6 @@
 import React from "react";
 import fetchService from "../../../services/fetchService";
+import { StyledButton } from "../../Basic Elements/StyledBasicElements";
 import Loading from "../../Loading";
 import Footer from "../Footer";
 import MeetingsRequestPopup from "./MeetingsRequestPopup";
@@ -33,6 +34,7 @@ function MeetingsRequest() {
     email: "",
     meetingID: "",
   });
+  const [popupReset, setPopupReset] = React.useState(false);
 
   const fetchSchedule = () => {
     fetchService
@@ -51,8 +53,9 @@ function MeetingsRequest() {
             Array(6).fill(""),
           ];
           for (var i = 0; i < response.meetings.length; i++) {
-            if (response.meetings[i].col < response.currentDayIndex) {
+            if (response.meetings[i].col < response.currentDayIndex - 1) {
               response.meetings[i].isAvailable = false;
+              response.meetings[i].passed = true;
             }
             array[response.meetings[i].row][response.meetings[i].col] =
               response.meetings[i];
@@ -75,6 +78,7 @@ function MeetingsRequest() {
           onClick={() => {
             setPopupIsShown(false);
             setPopupShowNext(false);
+            setPopupReset(true);
           }}
         ></td>
       );
@@ -103,9 +107,12 @@ function MeetingsRequest() {
               Advisor for {element.advisor.specialty}
             </p>
             {element.isAvailable === true ? (
-              <button
+              <StyledButton
+                sx={{ backgroundColor: "white !important", fontSize: "0.8rem" }}
+                variant="contained"
                 onClick={() => {
                   setPopupShowNext(false);
+                  setPopupReset(true);
                   setPopupInfo({
                     col: col,
                     name: element.advisor.fullName,
@@ -124,9 +131,15 @@ function MeetingsRequest() {
                 }}
               >
                 Request Meeting
-              </button>
+              </StyledButton>
             ) : (
-              <button disabled>Unavailable\Reserved</button>
+              <StyledButton
+                variant="contained"
+                sx={{ backgroundColor: "white !important", fontSize: "0.8rem" }}
+                disabled
+              >
+                {element.passed ? "unavailable" : "reserved"}
+              </StyledButton>
             )}
           </div>
         </td>
@@ -233,6 +246,8 @@ function MeetingsRequest() {
             setShowNext={setPopupShowNext}
             info={popupInfo}
             fetchSchedule={fetchSchedule}
+            reset={popupReset}
+            setReset={setPopupReset}
           />
           <Footer />
         </>
