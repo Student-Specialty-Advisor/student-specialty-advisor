@@ -279,10 +279,12 @@ function Home(props) {
             marginTop: "5%",
             justifyContent: "space-evenly",
             flexWrap: "wrap",
+            marginBottom: "10%",
           }}
         >
           {achievementCards.length === 0 ? loadingCards : cardsList}
         </div>
+        <Footer id="no-margin" />
       </>
     );
   };

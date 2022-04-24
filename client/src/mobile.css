@@ -196,6 +196,9 @@
     justify-content: space-evenly;
     width: 20%;
   }
+  .home-private .achievements-emoji {
+    top: 15%;
+  }
 }
 @media only screen and (max-width: 600px) {
   .videos-container .videos-list li {
@@ -336,6 +339,9 @@
   .public-footer ul {
     font-size: 14px;
     width: 25%;
+  }
+  .home-private .achievements-emoji {
+    left: 2%;
   }
 }
 @media only screen and (max-width: 480px) {
