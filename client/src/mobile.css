@@ -121,6 +121,7 @@
   }
   .about-container-end {
     width: 70%;
+    margin-bottom: 120px;
   }
 }
 @media only screen and (max-width: 810px) {

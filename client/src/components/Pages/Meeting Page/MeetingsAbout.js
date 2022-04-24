@@ -99,7 +99,7 @@ function MeetingsAbout(props) {
           MEETINGS SCHEDULE
         </StyledButton>
       </div>
-      <Footer />
+      {!isMobile && <Footer />}
     </>
   );
 }
