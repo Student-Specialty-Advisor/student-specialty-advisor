@@ -1,7 +1,6 @@
 function Footer(props) {
   return (
     <div className="public-footer" id={props.id}>
-      <br />
       <div className="public-footer-logo"></div>
       <ul>
         <li>
@@ -28,7 +27,7 @@ function Footer(props) {
             target="_blank"
             rel="noreferrer noopener"
           >
-            Contact the team
+            Contact us
           </a>
         </li>
         <li>

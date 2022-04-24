@@ -93,7 +93,7 @@
   .achievements-progress-bar-wrapper {
     width: 90%;
   }
-  .achivements-progress-bar-label {
+  .achievements-progress-bar-label {
     width: 88%;
   }
   .profile-container {
@@ -189,6 +189,12 @@
     font-size: calc(18 * 100vw / 810);
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .public-footer ul {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 20%;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -327,6 +333,10 @@
   .meetings-request-mobile-element {
     width: 90%;
   }
+  .public-footer ul {
+    font-size: 14px;
+    width: 25%;
+  }
 }
 @media only screen and (max-width: 480px) {
   .videos-container .videos-list li {
@@ -423,6 +433,13 @@
   }
   .meetings-request-mobile-element {
     font-size: 14px;
+  }
+  .public-footer ul {
+    width: 35%;
+  }
+  .public-footer-logo {
+    width: 120px;
+    height: 120px;
   }
 }
 @media only screen and (max-width: 360px) {
