@@ -93,7 +93,7 @@
   .achievements-progress-bar-wrapper {
     width: 90%;
   }
-  .achivements-progress-bar-label {
+  .achievements-progress-bar-label {
     width: 88%;
   }
   .profile-container {
@@ -115,6 +115,26 @@
   }
   .program-info-content li {
     min-height: 0;
+  }
+
+  .public-footer {
+    width: 100%;
+  }
+  .public-footer ul {
+    font-size: calc(25 * 100vh / 992);
+    margin-left: 6vh;
+    display: -webkit-inline-box;
+  }
+  .public-footer li {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-around;
+    margin-left: 5%;
+  }
+  .public-footer-logo {
+    width: 140px;
+    margin-left: 10vh;
   }
 }
 @media only screen and (max-width: 810px) {
@@ -176,6 +196,21 @@
   }
   .profile-container h1 {
     margin-bottom: 0;
+  }
+  .public-footer {
+    width: 100%;
+  }
+  .public-footer ul {
+    font-size: calc(18 * 100vh / 810);
+    margin-left: 4vh;
+    display: -webkit-box;
+    margin-top: 10vh;
+  }
+
+  .public-footer-logo {
+    width: 130px;
+    margin-left: 10vh;
+    margin-top: 3vh;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -301,6 +336,21 @@
   .program-info-brochure {
     text-align: center;
   }
+
+  .public-footer ul {
+    font-size: calc(18 * 100vh / 600);
+    margin-left: 35vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 4.5vh;
+  }
+
+  .public-footer-logo {
+    width: 130px;
+    margin-left: 10vh;
+    margin-top: 3vh;
+  }
 }
 @media only screen and (max-width: 480px) {
   .videos-container .videos-list li {
@@ -385,6 +435,20 @@
   .program-info-content li a {
     font-size: 16px;
   }
+  .public-footer ul {
+    font-size: calc(12.2 * 100vh / 480);
+    margin-left: 35vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 2.5vh;
+  }
+
+  .public-footer-logo {
+    width: 130px;
+    margin-left: 10vh;
+    margin-top: 3vh;
+  }
 }
 @media only screen and (max-width: 360px) {
   .videos-container .videos-list li {
@@ -453,5 +517,20 @@
   }
   .program-info-content .course-container p {
     font-size: 12px;
+  }
+
+  .public-footer ul {
+    font-size: calc(8 * 100vh / 360);
+    margin-left: 25vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 2.5vh;
+  }
+
+  .public-footer-logo {
+    width: 110px;
+    margin-left: 7.5vh;
+    margin-top: 3vh;
   }
 }

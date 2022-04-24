@@ -28,7 +28,7 @@ function Footer(props) {
             target="_blank"
             rel="noreferrer noopener"
           >
-            Contact the team
+            Contact US
           </a>
         </li>
         <li>

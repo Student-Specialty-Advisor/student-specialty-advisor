@@ -241,7 +241,7 @@ function Home(props) {
             right choice!
           </h2>
           <div
-            className="achivements-progress-bar-label"
+            className="achievements-progress-bar-label"
             style={{
               display: "flex",
               justifyContent: "space-between",
