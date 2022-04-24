@@ -2,8 +2,11 @@ import React from "react";
 import Footer from "../Footer";
 import { completeAchievement } from "../../../services/achievements";
 import { StyledButton } from "../../Basic Elements/StyledBasicElements";
+import { useMediaQuery } from "@mui/material";
 
 function MeetingsAbout(props) {
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
+
   React.useEffect(() => {
     let achievementTimer = setTimeout(
       () =>
@@ -36,7 +39,7 @@ function MeetingsAbout(props) {
         </div>
         <div className="about-container-body-img"></div>
       </div>
-      <div className="about-container-body">
+      <div className="about-container-body" id="second">
         <div className="about-container-body-img" id="second"></div>
         <div className="about-container-body-text">
           <h3>How can I request a meeting?</h3>
@@ -78,20 +81,22 @@ function MeetingsAbout(props) {
           variant="contained"
           size="large"
           onClick={() => {
-            window.location.href = "/meetings/schedule";
+            window.location.href = "/meetings/advisors";
           }}
         >
-          MEETINGS SCHEDULE
+          THE ADVISORS
         </StyledButton>
         <StyledButton
           fullWidth
           variant="contained"
           size="large"
           onClick={() => {
-            window.location.href = "/meetings/advisors";
+            window.location.href = isMobile
+              ? "/meetings/schedule/mobile"
+              : "/meetings/schedule";
           }}
         >
-          THE ADVISORS
+          MEETINGS SCHEDULE
         </StyledButton>
       </div>
       <Footer />

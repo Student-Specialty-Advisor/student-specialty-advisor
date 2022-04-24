@@ -119,6 +119,9 @@
   .loading-component h1 {
     font-size: 50px;
   }
+  .about-container-end {
+    width: 70%;
+  }
 }
 @media only screen and (max-width: 810px) {
   .videos-container .videos-list li {
@@ -208,6 +211,40 @@
     font-size: calc(20 * 100vw / 810);
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .about-container-body-text h3 {
+    font-size: calc(28 * 100vw / 810);
+    text-align: center;
+  }
+  .about-container-body-text ul li {
+    font-size: 16px;
+  }
+  .about-container-body {
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    gap: 50px;
+  }
+  .about-container-body#second {
+    flex-direction: column-reverse;
+    align-items: center;
+    height: 600px;
+    gap: 50px;
+    margin-top: 100px;
+  }
+  .about-container-body-text {
+    text-align: center;
+    width: 100%;
+  }
+  .about-container-body-img {
+    width: 100%;
+  }
+  .about-container-body-text ul {
+    text-align: center;
+    list-style-type: none;
+  }
+  .about-container-body {
+    margin-top: 100px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -364,6 +401,14 @@
     margin-left: 5%;
     margin-right: 5%;
   }
+  .about-container-end {
+    width: 80%;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .about-container-body-text h3 {
+    font-size: calc(28 * 100vw / 600);
+  }
 }
 @media only screen and (max-width: 480px) {
   .videos-container .videos-list li {
@@ -470,7 +515,7 @@
   }
   .about-container-header h1 {
     font-size: calc(58 * 100vw / 480);
-    margin-top: 10%;
+    margin-top: 25%;
     margin-left: 5%;
     margin-right: 5%;
   }
@@ -478,6 +523,15 @@
     font-size: calc(18 * 100vw / 480);
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .about-container-body-steps p {
+    font-size: 14px;
+  }
+  .about-container-body-text h3 {
+    font-size: 24px;
+  }
+  .about-container-body-text ul li {
+    font-size: 14px;
   }
 }
 @media only screen and (max-width: 360px) {
@@ -550,7 +604,7 @@
   }
   .about-container-header h1 {
     font-size: calc(44 * 100vw / 360);
-    margin-top: 10%;
+    margin-top: 30%;
     margin-left: 5%;
     margin-right: 5%;
   }
