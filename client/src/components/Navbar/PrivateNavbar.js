@@ -86,6 +86,7 @@ function PrivateNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/profile");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -99,6 +100,7 @@ function PrivateNavbar(props) {
                       onClick={() => {
                         setIsOpen(false);
                         props.history.push("/dashboard");
+                        window.scrollTo(0, 0);
                       }}
                     >
                       <ListItemIcon>
@@ -112,6 +114,7 @@ function PrivateNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/quiz");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -127,6 +130,7 @@ function PrivateNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/programs/se");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -139,6 +143,7 @@ function PrivateNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/videos/se");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -151,6 +156,7 @@ function PrivateNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/meetings/about");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -163,6 +169,7 @@ function PrivateNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/forum");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -175,6 +182,7 @@ function PrivateNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/assistance");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>

@@ -38,6 +38,7 @@ const MeetingBottomNavbar = (props) => {
             label="About"
             onClick={() => {
               props.history.push("/meetings/about");
+              window.scrollTo(0, 0);
             }}
             icon={<AboutIcon fontSize="large" />}
           />
@@ -47,6 +48,7 @@ const MeetingBottomNavbar = (props) => {
             icon={<AdvisorsIcon fontSize="large" />}
             onClick={() => {
               props.history.push("/meetings/advisors");
+              window.scrollTo(0, 0);
             }}
           />
           <BottomNavigationAction
@@ -55,6 +57,7 @@ const MeetingBottomNavbar = (props) => {
             icon={<ScheduleIcon fontSize="large" />}
             onClick={() => {
               props.history.push("/meetings/schedule/mobile");
+              window.scrollTo(0, 0);
             }}
           />
         </StyledBottomNavigation>

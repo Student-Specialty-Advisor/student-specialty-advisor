@@ -244,6 +244,7 @@ function VideosList(props) {
               label="Software"
               onClick={() => {
                 props.history.push("/videos/se");
+                window.scrollTo(0, 0);
               }}
               icon={<SEIcon fontSize="large" />}
             />
@@ -253,6 +254,7 @@ function VideosList(props) {
               icon={<CSIcon fontSize="large" />}
               onClick={() => {
                 props.history.push("/videos/cse");
+                window.scrollTo(0, 0);
               }}
             />
             <BottomNavigationAction
@@ -261,6 +263,7 @@ function VideosList(props) {
               icon={<REIcon fontSize="large" />}
               onClick={() => {
                 props.history.push("/videos/re");
+                window.scrollTo(0, 0);
               }}
             />
           </StyledBottomNavigation>

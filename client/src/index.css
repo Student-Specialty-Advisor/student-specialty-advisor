@@ -2074,6 +2074,7 @@ body {
   }
   .about-container-header {
     margin-top: 80px;
+    height: 400px;
   }
 }
 /*#endregion media*/

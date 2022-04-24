@@ -56,6 +56,7 @@ function PublicNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/login");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -68,6 +69,7 @@ function PublicNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/signup");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>
@@ -80,6 +82,7 @@ function PublicNavbar(props) {
                     onClick={() => {
                       setIsOpen(false);
                       props.history.push("/assistance");
+                      window.scrollTo(0, 0);
                     }}
                   >
                     <ListItemIcon>

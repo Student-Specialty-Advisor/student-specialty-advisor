@@ -125,6 +125,7 @@ const Dashboard = (props) => {
                   label="Statistics"
                   onClick={() => {
                     props.history.push("/dashboard/statistics");
+                    window.scrollTo(0, 0);
                   }}
                   icon={<StatIcon fontSize="large" />}
                 />
@@ -134,6 +135,7 @@ const Dashboard = (props) => {
                   icon={<AdvisorsIcon fontSize="large" />}
                   onClick={() => {
                     props.history.push("/dashboard/advisors");
+                    window.scrollTo(0, 0);
                   }}
                 />
                 <BottomNavigationAction
@@ -142,6 +144,7 @@ const Dashboard = (props) => {
                   icon={<MeetingsIcon fontSize="large" />}
                   onClick={() => {
                     props.history.push("/dashboard/meetings");
+                    window.scrollTo(0, 0);
                   }}
                 />
                 <BottomNavigationAction
@@ -149,6 +152,7 @@ const Dashboard = (props) => {
                   label="Videos"
                   onClick={() => {
                     props.history.push("/dashboard/videos");
+                    window.scrollTo(0, 0);
                   }}
                   icon={<VideosIcon fontSize="large" />}
                 />
