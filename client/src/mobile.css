@@ -199,6 +199,16 @@
   .home-private .achievements-emoji {
     top: 15%;
   }
+  .about-container-header h1 {
+    font-size: calc(80 * 100vw / 810);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(20 * 100vw / 810);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 @media only screen and (max-width: 600px) {
   .videos-container .videos-list li {
@@ -343,6 +353,17 @@
   .home-private .achievements-emoji {
     left: 2%;
   }
+  .about-container-header h1 {
+    font-size: calc(70 * 100vw / 600);
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(20 * 100vw / 600);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 @media only screen and (max-width: 480px) {
   .videos-container .videos-list li {
@@ -447,6 +468,17 @@
     width: 120px;
     height: 120px;
   }
+  .about-container-header h1 {
+    font-size: calc(58 * 100vw / 480);
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(18 * 100vw / 480);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 @media only screen and (max-width: 360px) {
   .videos-container .videos-list li {
@@ -515,5 +547,16 @@
   }
   .program-info-content .course-container p {
     font-size: 12px;
+  }
+  .about-container-header h1 {
+    font-size: calc(44 * 100vw / 360);
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(16 * 100vw / 360);
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }

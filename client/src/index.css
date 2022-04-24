@@ -1701,123 +1701,58 @@ body {
   background-color: rgb(226, 128, 0);
 }
 
-.meetings-advisors-accordion {
-  width: 80%;
-  margin: auto;
-  margin-top: 10vh;
+.advisors-carousel {
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
-
-.meetings-advisors-list-title {
-  margin-top: 15vh;
+.advisor-card {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  color: var(--myblue);
-}
-.meetings-advisors-list {
-  display: flex;
-  gap: 10%;
-  overflow: auto;
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-.meetings-advisors-list h1 {
-  text-align: center;
-  font-size: 60px;
-  color: var(--mydarkerblue);
-}
-
-.meetings-advisors-list li {
-  justify-content: center;
-  display: flex;
   font-size: 18px;
   color: var(--mydarkblue);
-  width: 10vw;
-  font-weight: 550;
-  gap: 10%;
-  border: solid var(--mydarkblue);
-  background-color: white;
-  height: 10vw;
-  transition: 0.2s;
-  overflow: hidden;
-  border-radius: 50%;
-  align-items: center;
-  flex-shrink: 0;
-}
-.meetings-advisors-list li:hover {
-  width: 25vw;
-  border-radius: 25px;
-}
-.meetings-advisors-list li .picture-container {
+  width: 256px;
+  height: 370px;
   position: relative;
-  background-color: var(--myblue);
-  width: 9vw;
-  height: 9vw;
+}
+.advisor-card .picture {
+  background-color: white;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   border-style: solid;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
   background-position: center;
-  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.meetings-advisors-list li:hover .picture-container {
-  margin-left: 2%;
+.advisor-card .icon {
+  width: 40px;
+  height: 40px;
+  transition: 0.2s;
 }
-.meetings-advisors-list li .picture-container .picture-overlay {
+.advisor-card .icon:hover {
+  scale: 110%;
+}
+.advisor-card .card-overlay {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 9vw;
-  height: 9vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
-  border-style: none;
+  top: 0;
+  gap: 5%;
+  background-color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
   transition: 0.5s;
+  overflow: hidden;
 }
-.meetings-advisors-list li:hover .picture-container .picture-overlay {
+.advisor-card .card-overlay:hover {
   opacity: 1;
-}
-.meetings-advisors-list li .picture-container .picture-overlay #email {
-  position: absolute;
-  top: 35%;
-  left: 15%;
-  transition: 0.2s;
-}
-.meetings-advisors-list li .picture-container .picture-overlay #linkedin {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transition: 0.2s;
-}
-.meetings-advisors-list li .picture-container .picture-overlay img:hover {
-  scale: 120%;
-}
-.meetings-advisors-list li .description-container {
-  width: 70%;
-  margin-left: -4%;
-  margin-top: 3%;
-  display: none;
-}
-.meetings-advisors-list li:hover .description-container {
-  display: block;
-  margin-right: 2%;
-}
-.meetings-advisors-list li .description-container p {
-  margin: 0;
-  margin-bottom: 10%;
-}
-
-.meetings-advisors-list li img {
-  width: 30%;
-  height: auto;
-  margin-right: 2.5%;
-  margin-left: 2.5%;
-}
-.meetings-advisors-list li #quote {
-  font-style: italic;
-  font-size: 14px;
-  color: var(--myblue);
 }
 /*#endregion meetings-advisors page*/
 
@@ -2135,6 +2070,9 @@ body {
   }
   .btn-container {
     display: none;
+  }
+  .about-container-header {
+    margin-top: 80px;
   }
 }
 /*#endregion media*/
