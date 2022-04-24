@@ -2073,8 +2073,12 @@ body {
     display: none;
   }
   .about-container-header {
+    display: none;
     margin-top: 80px;
     height: 400px;
+  }
+  .advisors-carousel {
+    margin-top: 120px;
   }
 }
 /*#endregion media*/
