@@ -19,9 +19,10 @@ import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
 import Programs from "./components/Pages/Programs/Programs";
 import Forum from "./components/Pages/Forum";
-import MeetingsRequest from "./components/Pages/Meeting Page/MeetingsRequest";
 import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
 import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdvisorsList";
+import MeetingsRequest from "./components/Pages/Meeting Page/Meetings Schedule/MeetingsRequest";
+import MeetingsRequestMobile from "./components/Pages/Meeting Page/Meetings Schedule/MeetingsRequestMobile";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
@@ -33,14 +34,18 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import VerifyAccount from "./components/VerifyAccount";
 
 function App() {
-  const isMobile = useMediaQuery("(max-width:1080px)");
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
   return (
     <Router>
       <Navbar />
       <AuthVerify />
       {!isMobile && <ChatBotFloating />}
       <PrivateRoute
-        path={["/meetings/about", "/meetings/advisors", "/meetings/schedule"]}
+        path={[
+          "/meetings/about",
+          "/meetings/advisors",
+          "/meetings/schedule/mobile",
+        ]}
         component={MeetingBottomNavbar}
       />
       <Switch>
@@ -65,6 +70,11 @@ function App() {
           exact
           path="/meetings/schedule"
           component={MeetingsRequest}
+        />
+        <PrivateRoute
+          exact
+          path="/meetings/schedule/mobile"
+          component={MeetingsRequestMobile}
         />
         <PrivateRoute
           exact

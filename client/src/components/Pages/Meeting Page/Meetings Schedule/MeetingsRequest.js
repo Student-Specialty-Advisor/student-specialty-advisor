@@ -1,8 +1,10 @@
+import { useMediaQuery } from "@mui/material";
 import React from "react";
-import fetchService from "../../../services/fetchService";
-import { StyledButton } from "../../Basic Elements/StyledBasicElements";
-import Loading from "../../Loading";
-import Footer from "../Footer";
+import { Redirect } from "react-router-dom";
+import fetchService from "../../../../services/fetchService";
+import { StyledButton } from "../../../Basic Elements/StyledBasicElements";
+import Loading from "../../../Loading";
+import Footer from "../../Footer";
 import MeetingsRequestPopup from "./MeetingsRequestPopup";
 
 function MeetingsRequest() {
@@ -35,6 +37,7 @@ function MeetingsRequest() {
     meetingID: "",
   });
   const [popupReset, setPopupReset] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
 
   const fetchSchedule = () => {
     fetchService
@@ -62,6 +65,8 @@ function MeetingsRequest() {
           }
           setSchedule(array);
           setIsLoaded(true);
+        } else {
+          throw response;
         }
       })
       .catch((error) => {
@@ -177,9 +182,14 @@ function MeetingsRequest() {
   });
   //#endregion rows
 
-  React.useEffect(fetchSchedule, []);
+  React.useEffect(() => {
+    fetchSchedule();
+    return () => {
+      setSchedule([]);
+    };
+  }, []);
 
-  return (
+  return !isMobile ? (
     <div className="meetings-request-container">
       {isLoaded ? (
         <>
@@ -240,6 +250,7 @@ function MeetingsRequest() {
             </tbody>
           </table>
           <MeetingsRequestPopup
+            key="meetings-request-popup"
             isShown={popupIsShown}
             setIsShown={setPopupIsShown}
             showNext={popupShowNext}
@@ -257,6 +268,8 @@ function MeetingsRequest() {
         </>
       )}
     </div>
+  ) : (
+    <Redirect to="/meetings/schedule/mobile" />
   );
 }
 

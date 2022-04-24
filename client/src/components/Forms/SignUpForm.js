@@ -39,8 +39,6 @@ function SignUpForm(props) {
   }, []);
 
   const handleNext = () => {
-    if (activeStep === 0) {
-    }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 

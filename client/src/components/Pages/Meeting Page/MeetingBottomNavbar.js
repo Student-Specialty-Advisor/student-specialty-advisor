@@ -5,7 +5,11 @@ import AboutIcon from "@mui/icons-material/Info";
 import AdvisorsIcon from "@mui/icons-material/Groups";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 const MeetingBottomNavbar = (props) => {
-  const PAGES = ["/meetings/about", "/meetings/advisors", "/meetings/schedule"];
+  const PAGES = [
+    "/meetings/about",
+    "/meetings/advisors",
+    "/meetings/schedule/mobile",
+  ];
   const isMobile = useMediaQuery("(max-width:1080px)");
   const [mobileBarValue, setMobileBarValue] = React.useState(
     PAGES.indexOf(window.location.pathname)
@@ -50,7 +54,7 @@ const MeetingBottomNavbar = (props) => {
             label="Schedule"
             icon={<ScheduleIcon fontSize="large" />}
             onClick={() => {
-              props.history.push("/meetings/schedule");
+              props.history.push("/meetings/schedule/mobile");
             }}
           />
         </StyledBottomNavigation>

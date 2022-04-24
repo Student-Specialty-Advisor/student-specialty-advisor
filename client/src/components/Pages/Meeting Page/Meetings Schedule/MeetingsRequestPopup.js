@@ -1,14 +1,14 @@
 import { CircularProgress, Typography } from "@mui/material";
 import alertify from "alertifyjs";
 import React from "react";
-import { completeAchievement } from "../../../services/achievements";
-import AuthService from "../../../services/AuthService";
-import fetchService from "../../../services/fetchService";
+import { completeAchievement } from "../../../../services/achievements";
+import AuthService from "../../../../services/AuthService";
+import fetchService from "../../../../services/fetchService";
 import {
   StyledButton,
   StyledMenuItem,
   StyledTextField,
-} from "../../Basic Elements/StyledBasicElements";
+} from "../../../Basic Elements/StyledBasicElements";
 
 function MeetingsRequestPopup(props) {
   const [topic, setTopic] = React.useState("");
@@ -87,9 +87,15 @@ function MeetingsRequestPopup(props) {
         value={topic}
         onChange={handleSelectChange}
       >
-        <StyledMenuItem value="Topic I">Topic I</StyledMenuItem>
-        <StyledMenuItem value="Topic II">Topic II</StyledMenuItem>
-        <StyledMenuItem value="Topic III">Topic III</StyledMenuItem>
+        <StyledMenuItem
+          value={`The switch from another specialty to ${props.info.specialty}`}
+        >{`The switch from another specialty to ${props.info.specialty}`}</StyledMenuItem>
+        <StyledMenuItem value={`The reasons to choose ${props.info.specialty}`}>
+          {`The reasons to choose ${props.info.specialty}`}
+        </StyledMenuItem>
+        <StyledMenuItem
+          value={`Other concerns & questions about ${props.info.specialty}`}
+        >{`Other concerns & questions about ${props.info.specialty}`}</StyledMenuItem>
       </StyledTextField>
       <div className="buttons-container">
         <StyledButton

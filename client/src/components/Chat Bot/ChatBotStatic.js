@@ -164,6 +164,12 @@ function ChatBotStatic() {
     ) {
       return chatBotTree.find("github").value;
     }
+    if (
+      value.includes("verif") &&
+      (value.includes("account") || value.includes("email"))
+    ) {
+      return chatBotTree.find("verification").value;
+    }
     return "Hmm.. I had trouble understanding your question 🤔";
   };
 
