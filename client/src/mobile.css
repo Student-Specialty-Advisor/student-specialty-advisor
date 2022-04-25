@@ -123,6 +123,12 @@
     width: 70%;
     margin-bottom: 120px;
   }
+  .no-match-container {
+    flex-direction: column;
+  }
+  .no-match-container img {
+    height: 400px;
+  }
 }
 @media only screen and (max-width: 810px) {
   .videos-container .videos-list li {
@@ -533,6 +539,16 @@
   }
   .about-container-body-text ul li {
     font-size: 14px;
+  }
+  .no-match-container {
+    flex-direction: column;
+  }
+  .no-match-container img {
+    height: calc(400*100vw/480)
+  }
+  
+  .no-match-container .no-match-text-container h1{
+    font-size: calc(100*100vw/480);
   }
 }
 @media only screen and (max-width: 360px) {

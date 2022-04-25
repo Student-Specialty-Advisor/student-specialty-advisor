@@ -2012,6 +2012,7 @@ body {
   gap: 5%;
   align-items: center;
   user-select: none;
+  justify-content: center;
 }
 .no-match-container .no-match-text-container {
   display: flex;

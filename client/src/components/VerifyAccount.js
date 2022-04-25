@@ -49,7 +49,7 @@ function VerifyAccount(props) {
         <>
           <CancelIcon sx={{ color: "red", fontSize: 70 }} />
           <h2>Verification wasn't approved !</h2>
-          <p>Verification email is invalid or expired</p>
+          <p>Verification email is invalid.</p>
         </>
       ) : null}
       {success ? (
