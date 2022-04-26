@@ -22,6 +22,9 @@ function Forum() {
         console.log(error);
       });
   }, []);
+  const convertDate = (date) => {
+    return date.substr(0, 10);
+  };
   return (
     <>
       <div className="forum-container">
@@ -34,7 +37,7 @@ function Forum() {
             return (
               <ThreadLink
                 name={thread.name}
-                date={thread.date}
+                date={convertDate(thread.date)}
                 commentsNumber={thread.comments.length}
               />
             );
