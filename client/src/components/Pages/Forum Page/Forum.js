@@ -19,13 +19,35 @@ function Forum() {
         <Stack margin="auto" width="90%" spacing={2}>
           <Box bgcolor="white">
             <Button
-              href="/forum/thread-name"
+              href="/forum/software"
               fullWidth
               size="large"
               variant="outlined"
             >
               <div style={{ color: "var(--mydarkerblue)" }}>Thread:&nbsp;</div>
-              Thread name
+              Software Engineering
+            </Button>
+          </Box>
+          <Box bgcolor="white">
+            <Button
+              href="/forum/computerSystems"
+              fullWidth
+              size="large"
+              variant="outlined"
+            >
+              <div style={{ color: "var(--mydarkerblue)" }}>Thread:&nbsp;</div>
+              Computer Systems Engineering
+            </Button>
+          </Box>
+          <Box bgcolor="white">
+            <Button
+              href="/forum/renewableEnergy"
+              fullWidth
+              size="large"
+              variant="outlined"
+            >
+              <div style={{ color: "var(--mydarkerblue)" }}>Thread:&nbsp;</div>
+              Renewable Energy Engineering
             </Button>
           </Box>
         </Stack>
