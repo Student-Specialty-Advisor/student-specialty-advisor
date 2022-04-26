@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import fetchService from "../../../services/fetchService";
+import Comment from "./Comment";
 
 function Thread() {
   let { thread } = useParams();
@@ -8,9 +9,10 @@ function Thread() {
 
   const fetchComments = () => {
     fetchService
-      .doGET("forum/comments/" + thread)
+      .doGET("forum/comments/" + thread.replace(/-/g, " "))
       .then((response) => {
-        alert(JSON.stringify(response)); // response is a json and will have error+errorObject or success+comments
+        alert(JSON.stringify(response));
+        console.log(response); // response is a json and will have error+errorObject or success+comments
         // Do here anything related with the response, check if response was successful or not
         // If response was successful, setComments to the response
         // If response was an error, throw the response (code: throw response;) so that .catch handles it
@@ -21,8 +23,10 @@ function Thread() {
       });
   };
 
-  const commentsList = comments.map(() => {
-    return <></>;
+  const commentsList = comments.map((c) => {
+    return (
+      <Comment key={c._id} user={c.user} date={c.date} content={c.message} />
+    );
   });
 
   React.useEffect(fetchComments, [thread]);

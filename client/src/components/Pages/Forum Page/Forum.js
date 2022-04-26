@@ -27,7 +27,7 @@ function Forum() {
       <div className="forum-container">
         <h1>Community Forum</h1>
         <h6>
-          Share your thoughts & describe your experience with the specialties
+          Express your thoughts & share your experience with the specialties
         </h6>
         <Stack margin="auto" width="90%" spacing={2}>
           {threads.map((thread) => {
