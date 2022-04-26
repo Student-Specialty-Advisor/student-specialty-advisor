@@ -217,10 +217,26 @@ app.put(
 //#endregion
 
 //#region Forum
-app.get("/ssa-api/forum/comments/:name", forumController.getComments);
-app.get("/ssa-api/forum/threads", forumController.getThreads);
-app.put("/ssa-api/forum/threads/:name", forumController.saveComments);
-app.post("/ssa-api/forum/threads", forumController.createThread);
+app.get(
+  "/ssa-api/forum/comments/:name",
+  [authJWT.verifyToken],
+  forumController.getComments
+);
+app.get(
+  "/ssa-api/forum/threads",
+  [authJWT.verifyToken],
+  forumController.getThreads
+);
+app.put(
+  "/ssa-api/forum/threads/:name",
+  [authJWT.verifyToken],
+  forumController.saveComments
+);
+app.post(
+  "/ssa-api/forum/threads",
+  [authJWT.verifyToken],
+  forumController.createThread
+);
 //#endregion
 
 app.listen(PORT, () => {

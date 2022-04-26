@@ -70,6 +70,7 @@ const Dashboard = (props) => {
         advisors.className = "";
         meetings.className = "";
         videos.className = "";
+        threads.className = "";
         break;
       case ADVISORS:
         statistics.className = "";
