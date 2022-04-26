@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import { completeAchievement } from "../../../services/achievements";
 import fetchService from "../../../services/fetchService";
 import ThreadLink from "./ThreadLink";
+import alertify from "alertifyjs";
 function Forum() {
   React.useEffect(() => {
     document.title = "Community Forum - Student Specialty Advisor";
@@ -16,10 +17,11 @@ function Forum() {
     fetchService
       .doGET("forum/threads")
       .then((response) => {
-        setThreads(response);
+        if (!response.error) setThreads(response);
+        else throw response;
       })
       .catch((error) => {
-        console.log(error);
+        alertify.error("an error was occured while loading the forum threads");
       });
   }, []);
   const convertDate = (date) => {
@@ -36,6 +38,7 @@ function Forum() {
           {threads.map((thread) => {
             return (
               <ThreadLink
+                key={thread._id}
                 name={thread.name}
                 date={convertDate(thread.date)}
                 commentsNumber={thread.comments.length}

@@ -2,24 +2,28 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import fetchService from "../../../services/fetchService";
 import Comment from "./Comment";
+import alertify from "alertifyjs";
 
-function Thread() {
+function Thread(props) {
   let { thread } = useParams();
   const [comments, setComments] = React.useState([]);
-
+  React.useEffect(() => {
+    document.title =
+      thread.charAt(0).toUpperCase() +
+      thread.slice(1) +
+      " Section - Student Specialty Advisor";
+  }, [thread]);
   const fetchComments = () => {
     fetchService
       .doGET("forum/comments/" + thread.replace(/-/g, " "))
       .then((response) => {
-        alert(JSON.stringify(response));
-        console.log(response); // response is a json and will have error+errorObject or success+comments
-        // Do here anything related with the response, check if response was successful or not
-        // If response was successful, setComments to the response
-        // If response was an error, throw the response (code: throw response;) so that .catch handles it
+        if (response.success) {
+          setComments(response.comments);
+        } else throw response;
       })
       .catch((error) => {
-        // Do here anything related with telling the user there was an error loading comments
-        console.log(error);
+        props.history.push("/forum");
+        alertify.error("an error was occured while loading the forum comments");
       });
   };
 
@@ -29,7 +33,7 @@ function Thread() {
     );
   });
 
-  React.useEffect(fetchComments, [thread]);
+  React.useEffect(fetchComments, [thread, props.history]);
 
   return (
     <>
