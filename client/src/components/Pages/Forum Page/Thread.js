@@ -4,21 +4,35 @@ import fetchService from "../../../services/fetchService";
 
 function Thread() {
   let { thread } = useParams();
-  const [commentsList, setCommentsList] = React.useState([]);
+  const [comments, setComments] = React.useState([]);
 
-  React.useEffect(async () => {
-    const comments = await fetchService.doGET(
-      "/ssa-api/forum/comments/" + thread
-    );
-    setCommentsList(comments);
-  }, [thread]);
+  const fetchComments = () => {
+    fetchService
+      .doGET("forum/comments/" + thread)
+      .then((response) => {
+        alert(JSON.stringify(response)); // response is a json and will have error+errorObject or success+comments
+        // Do here anything related with the response, check if response was successful or not
+        // If response was successful, setComments to the response
+        // If response was an error, throw the response (code: throw response;) so that .catch handles it
+      })
+      .catch((error) => {
+        // Do here anything related with telling the user there was an error loading comments
+        console.log(error);
+      });
+  };
+
+  const commentsList = comments.map(() => {
+    return <></>;
+  });
+
+  React.useEffect(fetchComments, [thread]);
+
   return (
     <>
-      <div>Thread: {thread}</div>
-      <div>Thread: {thread}</div>
-      <div>Thread: {thread}</div>
-      <div>Thread: {thread}</div>
-      <div>Thread: {thread}</div>
+      <div>
+        <h1>Thread: {thread}</h1>
+      </div>
+      {commentsList}
     </>
   );
 }

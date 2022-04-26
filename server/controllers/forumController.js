@@ -14,7 +14,7 @@ var getComments = (req, res) => {
   Thread.findOne(req.params)
     .populate("comments")
     .then((thread) => {
-      res.status(200).send({ success: 1, thread: thread.comments });
+      res.status(200).send({ success: 1, comments: thread.comments });
     })
     .catch((error) => {
       res.status(500).send({ error: 1, errorObject: error });

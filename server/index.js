@@ -234,7 +234,7 @@ app.put(
 );
 app.post(
   "/ssa-api/forum/threads",
-  [authJWT.verifyToken],
+  [authJWT.verifyToken, authJWT.isAdmin],
   forumController.createThread
 );
 //#endregion

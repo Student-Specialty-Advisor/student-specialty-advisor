@@ -128,7 +128,6 @@ const Dashboard = (props) => {
               }}
             >
               <StyledBottomNavigation
-                showLabels
                 className="mobile-bottom-bar"
                 value={mobileBarValue}
                 onChange={(event, newValue) => {
@@ -136,6 +135,7 @@ const Dashboard = (props) => {
                 }}
               >
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Statistics"
                   onClick={() => {
@@ -145,6 +145,7 @@ const Dashboard = (props) => {
                   icon={<StatIcon fontSize="large" />}
                 />
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Advisors"
                   icon={<AdvisorsIcon fontSize="large" />}
@@ -154,6 +155,7 @@ const Dashboard = (props) => {
                   }}
                 />
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Meetings"
                   icon={<MeetingsIcon fontSize="large" />}
@@ -163,6 +165,7 @@ const Dashboard = (props) => {
                   }}
                 />
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Videos"
                   onClick={() => {
@@ -172,6 +175,7 @@ const Dashboard = (props) => {
                   icon={<VideosIcon fontSize="large" />}
                 />
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Threads"
                   onClick={() => {
