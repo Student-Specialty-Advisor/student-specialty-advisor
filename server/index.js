@@ -10,6 +10,7 @@ const quizController = require("./controllers/quizController.js");
 const meetingController = require("./controllers/meetingController.js");
 const videoController = require("./controllers/videoController.js");
 const achievementsController = require("./controllers/achievementsController.js");
+const forumController = require("./controllers/forumController");
 const authJWT = require("./middlewares/authJWT");
 
 const app = express();
@@ -213,6 +214,13 @@ app.put(
   [authJWT.verifyToken],
   achievementsController.setAchievement
 );
+//#endregion
+
+//#region Forum
+app.get("/ssa-api/forum/comments/:name", forumController.getComments);
+app.get("/ssa-api/forum/threads", forumController.getThreads);
+app.put("/ssa-api/forum/threads/:name", forumController.saveComments);
+app.post("/ssa-api/forum/threads", forumController.createThread);
 //#endregion
 
 app.listen(PORT, () => {
