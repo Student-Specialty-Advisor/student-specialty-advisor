@@ -7,7 +7,7 @@ import alertify from "alertifyjs";
 function Forum() {
   const [threads, setThreads] = React.useState([]);
 
-  const convertDate = (date) => {
+  const shortenDate = (date) => {
     return date.substr(0, 10);
   };
 
@@ -42,13 +42,13 @@ function Forum() {
         <h6>
           Express your thoughts & share your experience with the specialties
         </h6>
-        <Stack margin="auto" width="90%" spacing={2}>
+        <Stack className="forum-stack" spacing={2}>
           {threads.map((thread) => {
             return (
               <ThreadLink
                 key={thread._id}
                 name={thread.name}
-                date={convertDate(thread.date)}
+                date={shortenDate(thread.date)}
                 commentsNumber={thread.comments.length}
               />
             );

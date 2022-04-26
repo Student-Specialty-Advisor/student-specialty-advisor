@@ -1,3 +1,4 @@
+import { Stack } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import fetchService from "../../../services/fetchService";
@@ -35,7 +36,13 @@ function Thread(props) {
 
   const commentsList = comments.map((c) => {
     return (
-      <Comment key={c._id} user={c.user} date={c.date} content={c.message} />
+      <Comment
+        key={c._id}
+        user={c.user.firstName + " " + c.user.lastName}
+        date={c.date}
+        content={c.message}
+        /*picture={c.user.picture} Not yet implemented in the backend*/
+      />
     );
   });
 
@@ -46,7 +53,9 @@ function Thread(props) {
       <div className="forum-container">
         <h1>{thread.replace(/-/g, " ")}</h1>
       </div>
-      {commentsList}
+      <Stack className="forum-stack" spacing={1}>
+        {commentsList}
+      </Stack>
     </>
   );
 }

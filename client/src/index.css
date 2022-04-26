@@ -1975,11 +1975,39 @@ body {
   font-weight: normal;
   margin-top: 0;
 }
+.forum-stack {
+  width: 90%;
+  margin: auto;
+}
 .thread-info-container {
   width: 100%;
   padding: 7px 21px;
   margin: 0;
   text-align: left;
+}
+.comment-container {
+  background-color: white;
+  border-color: var(--mydarkerblue);
+  width: 100%;
+}
+.comment-user-section {
+  flex-basis: 15%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.comment-user-section img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 7px;
+  border: solid 1px;
+  border-color: var(--myblue);
+}
+.comment-content-section {
+  flex-basis: 85%;
+  min-height: 250px;
 }
 
 /*#endregion forum page*/
