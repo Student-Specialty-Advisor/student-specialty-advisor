@@ -8,6 +8,10 @@ function MeetingsAbout(props) {
   const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
 
   React.useEffect(() => {
+    document.title = "Meetings - About - Student Specialty Advisor";
+  }, []);
+
+  React.useEffect(() => {
     let achievementTimer = setTimeout(
       () =>
         completeAchievement("meetingsSectionCompletion", "Meetings & Advisors"),

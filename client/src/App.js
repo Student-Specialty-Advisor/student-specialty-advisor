@@ -18,7 +18,7 @@ import Profile from "./components/Pages/Profile Page/Profile";
 import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
 import Programs from "./components/Pages/Programs/Programs";
-import Forum from "./components/Pages/Forum";
+import Forum from "./components/Pages/Forum Page/Forum";
 import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
 import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdvisorsList";
 import MeetingsRequest from "./components/Pages/Meeting Page/Meetings Schedule/MeetingsRequest";
@@ -32,6 +32,7 @@ import NoMatch from "./components/Pages/NoMatch";
 import MeetingBottomNavbar from "./components/Pages/Meeting Page/MeetingBottomNavbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import VerifyAccount from "./components/VerifyAccount";
+import Thread from "./components/Pages/Forum Page/Thread";
 
 function App() {
   const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
@@ -84,6 +85,7 @@ function App() {
         <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
         <Redirect exact from="/meetings" to="/meetings/about" />
         <PrivateRoute exact path="/forum" component={Forum} />
+        <PrivateRoute exact path="/forum/:thread" component={Thread} />
         {isMobile && (
           <Route exact path="/assistance" component={ChatBotStatic} />
         )}
