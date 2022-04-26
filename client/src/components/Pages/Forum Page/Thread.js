@@ -7,23 +7,29 @@ import alertify from "alertifyjs";
 function Thread(props) {
   let { thread } = useParams();
   const [comments, setComments] = React.useState([]);
+
   React.useEffect(() => {
     document.title =
-      thread.charAt(0).toUpperCase() +
-      thread.slice(1) +
-      " Section - Student Specialty Advisor";
+      "Community Forum - " +
+      thread.replace(/-/g, " ") +
+      " - Student Specialty Advisor";
   }, [thread]);
+
   const fetchComments = () => {
     fetchService
       .doGET("forum/comments/" + thread.replace(/-/g, " "))
       .then((response) => {
         if (response.success) {
           setComments(response.comments);
-        } else throw response;
+        } else {
+          throw response;
+        }
       })
       .catch((error) => {
         props.history.push("/forum");
-        alertify.error("an error was occured while loading the forum comments");
+        alertify.error(
+          "The thread you tried to access does not exist or might have been changed!"
+        );
       });
   };
 

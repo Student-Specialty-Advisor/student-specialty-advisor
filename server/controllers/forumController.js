@@ -3,7 +3,7 @@ const Thread = require("../db/Thread");
 var getThreads = (req, res) => {
   Thread.find({})
     .then((threads) => {
-      res.status(200).send(threads);
+      res.status(200).send({ success: 1, threads: threads });
     })
     .catch((error) => {
       res.status(500).send({ error: 1, errorObject: error });
