@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Stack, Box, Typography } from "@mui/material";
 import { completeAchievement } from "../../../services/achievements";
+import fetchService from "../../../services/fetchService";
 function Forum() {
   const ThreadLink = (props) => {
     return (
@@ -50,7 +51,18 @@ function Forum() {
   React.useEffect(() => {
     completeAchievement("forumCompletion", "Come back soon!");
   }, []);
+  const [threads, setThreads] = React.useState([]);
 
+  React.useEffect(() => {
+    fetchService
+      .doGET("forum/threads")
+      .then((response) => {
+        setThreads(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
       <div className="forum-container">
@@ -59,12 +71,15 @@ function Forum() {
           Share your thoughts & describe your experience with the specialties
         </h6>
         <Stack margin="auto" width="90%" spacing={2}>
-          {/*Map me here*/}
-          <ThreadLink
-            name="Thread name"
-            date="Some date"
-            commentsNumber="Some number"
-          />
+          {threads.map((thread) => {
+            return (
+              <ThreadLink
+                name={thread.name}
+                date={thread.date}
+                commentsNumber={thread.comments.length}
+              />
+            );
+          })}
         </Stack>
       </div>
     </>
