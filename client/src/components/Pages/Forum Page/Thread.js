@@ -29,8 +29,8 @@ function Thread() {
 
   return (
     <>
-      <div>
-        <h1>Thread: {thread}</h1>
+      <div className="forum-container">
+        <h1>{thread.replace(/-/g, " ")}</h1>
       </div>
       {commentsList}
     </>
