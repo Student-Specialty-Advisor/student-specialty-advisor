@@ -14,7 +14,10 @@ var getComments = (req, res) => {
   Thread.findOne(req.params)
     .populate({
       path: "comments",
-      populate: { path: "user", select: { firstName: 1, lastName: 1 } },
+      populate: {
+        path: "user",
+        select: { firstName: 1, lastName: 1, universityYear: 1 },
+      },
     })
     .then((thread) => {
       res.status(200).send({ success: 1, comments: thread.comments });

@@ -1986,6 +1986,7 @@ body {
   text-align: left;
 }
 .comment-container {
+  position: relative;
   background-color: white;
   border-color: var(--mydarkerblue);
   width: 100%;
@@ -2009,7 +2010,44 @@ body {
   flex-basis: 85%;
   min-height: 250px;
 }
-
+.comment-container-options {
+  position: absolute;
+  width: 52px;
+  display: flex;
+  padding-top: 7px;
+  padding-right: 7px;
+  justify-content: space-between;
+  top: 0;
+  right: 0;
+}
+.comment-submit-container {
+  position: relative;
+  background-color: white;
+  border-color: var(--mydarkerblue);
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+}
+.comment-submit-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 7px;
+  border: solid 1px;
+  border-color: var(--myblue);
+  margin-left: 21px;
+  flex-basis: 200px;
+}
+.comment-submit-text-field {
+  flex-basis: calc(100% - 300px);
+  margin: auto;
+  margin-top: 21px;
+  margin-bottom: 7px;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+}
 /*#endregion forum page*/
 
 /*#region 404 page*/
