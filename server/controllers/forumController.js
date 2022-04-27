@@ -62,16 +62,10 @@ var createThread = (req, res) => {
 var deleteThread = (req, res) => {
   Thread.findOneAndDelete(req.params)
     .then((deletedThread) => {
-      if (deletedThread === null)
+      if (deletedThread === null) {
         res.status(500).send({ error: 1, errorObject: "thread was not found" });
-      else {
-        Comment.findOneAndDelete(deletedThread._id)
-          .then((comment) => {
-            res.status(200).send({ success: 1, comment: comment });
-          })
-          .catch((error) => {
-            res.status(500).send({ error: 1, errorObject: error });
-          });
+      } else {
+        res.status(500).send({ success: 1, deletedThread: deletedThread });
       }
     })
     .catch((error) => {
