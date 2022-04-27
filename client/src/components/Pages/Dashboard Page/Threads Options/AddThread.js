@@ -1,7 +1,7 @@
 import React from "react";
 
-function addThread() {
-  return <div>addThread</div>;
+function AddThread() {
+  return <div>AddThread</div>;
 }
 
-export default addThread;
+export default AddThread;
