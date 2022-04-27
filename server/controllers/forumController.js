@@ -80,7 +80,11 @@ var deleteThread = (req, res) => {
 };
 
 var deleteComment = (req, res) => {
-  Comment.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  Comment.findByIdAndUpdate(
+    req.params.id,
+    { message: "This comment was deleted." },
+    { new: true }
+  )
     .then((comment) => {
       res.status(200).send({ success: 1, deletedComment: comment });
     })
