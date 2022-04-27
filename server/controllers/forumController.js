@@ -62,7 +62,38 @@ var createThread = (req, res) => {
     });
 };
 
+var deleteThread = (req, res) => {
+  Thread.findOneAndDelete(req.params)
+    .then((deletedThread) => {
+      if (deletedThread === null)
+        res.status(500).send({ error: 1, errorObject: "thread was not found" });
+      else {
+        Comment.findOneAndDelete(deletedThread._id)
+          .then((comment) => {
+            res.status(200).send({ success: 1, comment: comment });
+          })
+          .catch((error) => {
+            res.status(500).send({ error: 1, errorObject: error });
+          });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({ error: 1, errorObject: error });
+    });
+};
+
+var deleteComment = (req, res) => {
+  Comment.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((comment) => {
+      res.status(200).send({ success: 1, deletedComment: comment });
+    })
+    .catch((error) => {
+      res.status(500).send({ error: 1, errorObject: error });
+    });
+};
 exports.getThreads = getThreads;
 exports.getComments = getComments;
 exports.saveComments = saveComments;
 exports.createThread = createThread;
+exports.deleteThread = deleteThread;
+exports.deleteComment = deleteComment;

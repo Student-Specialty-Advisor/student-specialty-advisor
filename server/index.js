@@ -237,6 +237,16 @@ app.post(
   [authJWT.verifyToken, authJWT.isAdmin],
   forumController.createThread
 );
+app.delete(
+  "/ssa-api/forum/threads/:name",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  forumController.deleteThread
+);
+app.put(
+  "/ssa-api/forum/comments/:id",
+  [authJWT.verifyToken],
+  forumController.deleteComment
+);
 //#endregion
 
 app.listen(PORT, () => {
