@@ -26,6 +26,7 @@ const Dashboard = (props) => {
   const [advisorsList, setAdvisorsList] = React.useState([]);
   const [meetingsList, setMeetingsList] = React.useState({ meetings: [] });
   const [videosList, setVideosList] = React.useState([]);
+  const [threadsList, setThreadsList] = React.useState([]);
   const [mobileBarValue, setMobileBarValue] = React.useState(
     PARAMETERS.indexOf(parameter)
   );
@@ -51,11 +52,16 @@ const Dashboard = (props) => {
     const list = await fetchService.doGET("videos");
     setVideosList(list);
   };
+  const fetchThreads = async () => {
+    const list = await fetchService.doGET("forum/threads");
+    setThreadsList(list);
+  };
 
   const fetchAll = () => {
     fetchAdvisors();
     fetchMeetings();
     fetchVideos();
+    fetchThreads();
   };
 
   const setupSideBar = () => {
@@ -258,7 +264,10 @@ const Dashboard = (props) => {
               setVideosList={fetchVideos}
             />
           ) : parameter === THREADS ? (
-            <ThreadsOptions />
+            <ThreadsOptions
+              threadsList={threadsList}
+              setThreadsList={fetchThreads}
+            />
           ) : null}
         </ul>
       </div>
