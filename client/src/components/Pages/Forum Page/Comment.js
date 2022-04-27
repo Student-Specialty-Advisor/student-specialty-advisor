@@ -1,7 +1,6 @@
-import { Divider, Paper, Typography } from "@mui/material";
+import { Divider, IconButton, Paper, Typography } from "@mui/material";
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 
 function Comment(props) {
   const shortenDate = (date) => {
@@ -42,9 +41,10 @@ function Comment(props) {
         </div>
       </div>
       <div className="comment-container-options">
-        {props.isOwner && <EditIcon sx={{ color: "var(--mydarkerblue)" }} />}
         {props.isOwner || props.isAdmin ? (
-          <DeleteIcon sx={{ color: "darkred" }} />
+          <IconButton sx={{ color: "darkred" }}>
+            <DeleteIcon />
+          </IconButton>
         ) : null}
       </div>
     </Paper>

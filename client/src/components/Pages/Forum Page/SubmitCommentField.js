@@ -2,13 +2,17 @@ import { CircularProgress, Divider, IconButton, Paper } from "@mui/material";
 import { StyledTextField } from "../../Basic Elements/StyledBasicElements";
 import SendIcon from "@mui/icons-material/Send";
 import React from "react";
+import alertify from "alertifyjs";
+import AuthService from "../../../services/AuthService";
+import fetchService from "../../../services/fetchService";
 
 function SubmitCommentField(props) {
   const [message, setMessage] = React.useState("");
   const [onCooldown, setOnCooldown] = React.useState(false);
   const [cooldownProgress, setCooldownProgress] = React.useState(100);
+  const CD = 30;
 
-  const CD = 10;
+  const currentUser = AuthService.getCurrentUser();
 
   const cooldownInterval = () => {
     var interval = setInterval(() => {
@@ -26,8 +30,32 @@ function SubmitCommentField(props) {
   };
 
   const submit = () => {
-    setOnCooldown(true);
-    cooldownInterval();
+    if (message.trim().length !== 0) {
+      fetchService
+        .doPUT("forum/threads/" + props.threadName, {
+          message: message,
+          user: currentUser.id,
+        })
+        .then((response) => {
+          if (response.success) {
+            props.fetchComments();
+            setOnCooldown(true);
+            setMessage("");
+            cooldownInterval();
+          } else {
+            throw response;
+          }
+        })
+        .catch((error) => {
+          alertify.error(
+            "There was an error while submitting your comment. Try again later!"
+          );
+        });
+    } else {
+      alertify.warning(
+        "Write something first before trying to submit your comment!"
+      );
+    }
   };
 
   return (
@@ -46,6 +74,7 @@ function SubmitCommentField(props) {
       />
       <div className="comment-submit-text-field">
         <StyledTextField
+          id="submit-comment-text-field"
           fullWidth
           placeholder="Write your reply..."
           variant="outlined"
@@ -77,7 +106,7 @@ function SubmitCommentField(props) {
                   position: "absolute",
                   top: "-1px",
                   left: "-3px",
-                  color: "darkred",
+                  color: "rgba(139,0,0,0.5)",
                 }}
                 size={36}
                 variant="determinate"

@@ -6,12 +6,14 @@ import Comment from "./Comment";
 import alertify from "alertifyjs";
 import SubmitCommentField from "./SubmitCommentField";
 import AuthService from "../../../services/AuthService";
+import Footer from "../Footer";
 
 function Thread(props) {
   let { thread } = useParams();
   const [comments, setComments] = React.useState([]);
   const currentUser = AuthService.getCurrentUser();
   const isAdmin = AuthService.isAdmin();
+  const didPost = React.useRef({ didPost: false });
 
   React.useEffect(() => {
     document.title =
@@ -55,15 +57,32 @@ function Thread(props) {
 
   React.useEffect(fetchComments, [thread, props.history]);
 
+  React.useEffect(() => {
+    if (comments.length !== 0) {
+      if (didPost.current.didPost === false) {
+        didPost.current.didPost = true;
+      } else {
+        document
+          .getElementById("submit-comment-text-field")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  }, [comments]);
+
   return (
     <>
       <div className="forum-container">
         <h1>{thread.replace(/-/g, " ")}</h1>
+        <Stack className="forum-stack" spacing={1}>
+          {commentsList}
+          <SubmitCommentField
+            /*picture={c.user.picture} Not yet implemented in the backend*/
+            threadName={thread.replace(/-/g, " ")}
+            fetchComments={fetchComments}
+          />
+        </Stack>
       </div>
-      <Stack className="forum-stack" spacing={1}>
-        {commentsList}
-        <SubmitCommentField />
-      </Stack>
+      <Footer id="no-margin" />
     </>
   );
 }

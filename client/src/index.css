@@ -1962,11 +1962,12 @@ body {
 
 .forum-container {
   margin-top: 15vh;
-  text-align: center;
+  margin-bottom: 120px;
 }
 .forum-container h1 {
   font-size: 60px;
   color: var(--mydarkerblue);
+  text-align: center;
 }
 .forum-container h6 {
   font-size: 24px;
@@ -1974,6 +1975,7 @@ body {
   font-style: italic;
   font-weight: normal;
   margin-top: 0;
+  text-align: center;
 }
 .forum-stack {
   width: 90%;
@@ -2012,7 +2014,7 @@ body {
 }
 .comment-container-options {
   position: absolute;
-  width: 52px;
+  width: 40px;
   display: flex;
   padding-top: 7px;
   padding-right: 7px;
