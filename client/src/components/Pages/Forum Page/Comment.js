@@ -1,5 +1,7 @@
 import { Divider, Paper, Typography } from "@mui/material";
 import React from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 function Comment(props) {
   const shortenDate = (date) => {
@@ -14,7 +16,10 @@ function Comment(props) {
         <div className="comment-user-section">
           <img src={props.picture} alt=""></img>
           <Typography marginTop="7px" color="var(--mydarkerblue)">
-            {props.user}
+            {props.userName}
+          </Typography>
+          <Typography fontSize="0.9rem" marginTop="7px" color="var(--myblue)">
+            University Year: <span style={{ color: "blue" }}>{props.year}</span>
           </Typography>
         </div>
         <Divider
@@ -27,12 +32,20 @@ function Comment(props) {
           }}
         />
         <div className="comment-content-section">
-          <Typography height="90%">{props.content}</Typography>
+          <Typography height="90%" whiteSpace="pre">
+            {props.content}
+          </Typography>
           <Divider sx={{ bgcolor: "var(--myblue)" }} />
           <Typography fontSize="0.7rem">
             Posted on the: {shortenDate(props.date)}
           </Typography>
         </div>
+      </div>
+      <div className="comment-container-options">
+        {props.isOwner && <EditIcon sx={{ color: "var(--mydarkerblue)" }} />}
+        {props.isOwner || props.isAdmin ? (
+          <DeleteIcon sx={{ color: "darkred" }} />
+        ) : null}
       </div>
     </Paper>
   );

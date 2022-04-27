@@ -4,10 +4,14 @@ import { useParams } from "react-router-dom";
 import fetchService from "../../../services/fetchService";
 import Comment from "./Comment";
 import alertify from "alertifyjs";
+import SubmitCommentField from "./SubmitCommentField";
+import AuthService from "../../../services/AuthService";
 
 function Thread(props) {
   let { thread } = useParams();
   const [comments, setComments] = React.useState([]);
+  const currentUser = AuthService.getCurrentUser();
+  const isAdmin = AuthService.isAdmin();
 
   React.useEffect(() => {
     document.title =
@@ -38,9 +42,12 @@ function Thread(props) {
     return (
       <Comment
         key={c._id}
-        user={c.user.firstName + " " + c.user.lastName}
+        userName={c.user.firstName + " " + c.user.lastName}
+        isOwner={c.user._id === currentUser.id}
+        isAdmin={isAdmin}
         date={c.date}
         content={c.message}
+        year={c.user.universityYear}
         /*picture={c.user.picture} Not yet implemented in the backend*/
       />
     );
@@ -55,6 +62,7 @@ function Thread(props) {
       </div>
       <Stack className="forum-stack" spacing={1}>
         {commentsList}
+        <SubmitCommentField />
       </Stack>
     </>
   );
