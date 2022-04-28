@@ -237,6 +237,11 @@ app.post(
   [authJWT.verifyToken, authJWT.isAdmin],
   forumController.createThread
 );
+app.put(
+  "/ssa-api/dashboard/threads/:name",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  forumController.updateThread
+);
 app.delete(
   "/ssa-api/forum/threads/:name",
   [authJWT.verifyToken, authJWT.isAdmin],

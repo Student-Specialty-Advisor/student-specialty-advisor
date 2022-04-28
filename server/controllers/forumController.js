@@ -86,9 +86,21 @@ var deleteComment = (req, res) => {
       res.status(500).send({ error: 1, errorObject: error });
     });
 };
+var updateThread = (req, res) => {
+  Thread.findOneAndUpdate(req.params, req.body, { new: true })
+    .then((updatedThread) => {
+      if (updatedThread === null) {
+        res.status(500).send({ error: 1, errorObject: "thread was not found" });
+      } else res.status(200).send({ success: 1, updatedThread: updatedThread });
+    })
+    .catch((error) => {
+      res.status(500).send({ error: 1, errorObject: error });
+    });
+};
 exports.getThreads = getThreads;
 exports.getComments = getComments;
 exports.saveComments = saveComments;
 exports.createThread = createThread;
 exports.deleteThread = deleteThread;
 exports.deleteComment = deleteComment;
+exports.updateThread = updateThread;
