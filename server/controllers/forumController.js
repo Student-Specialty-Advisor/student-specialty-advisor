@@ -16,7 +16,7 @@ var getComments = (req, res) => {
       path: "comments",
       populate: {
         path: "user",
-        select: { firstName: 1, lastName: 1, universityYear: 1 },
+        select: { firstName: 1, lastName: 1, universityYear: 1, role: 1 },
       },
     })
     .then((thread) => {

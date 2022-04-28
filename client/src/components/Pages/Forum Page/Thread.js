@@ -47,6 +47,7 @@ function Thread(props) {
         comment_id={c._id}
         isDeleted={c.isDeleted}
         userName={c.user.firstName + " " + c.user.lastName}
+        userRole={c.user.role}
         isOwner={c.user._id === currentUser.id}
         isAdmin={isAdmin}
         date={c.date}

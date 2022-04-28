@@ -85,7 +85,8 @@ function App() {
         <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
         <Redirect exact from="/meetings" to="/meetings/about" />
         <PrivateRoute exact path="/forum" component={Forum} />
-        <PrivateRoute exact path="/forum/:thread" component={Thread} />
+        <PrivateRoute exact path="/forum/threads/:thread" component={Thread} />
+        <Redirect exact from="/forum/threads" to="/forum" />
         {isMobile && (
           <Route exact path="/assistance" component={ChatBotStatic} />
         )}

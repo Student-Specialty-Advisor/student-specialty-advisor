@@ -144,6 +144,18 @@ body {
     transform: rotateY(360deg);
   }
 }
+
+@keyframes liveDotGlow {
+  0% {
+    background: red;
+  }
+  50% {
+    background: darkred;
+  }
+  100% {
+    background: red;
+  }
+}
 /*#endregion keyframes*/
 
 /*#region AlertifyJS*/
@@ -1981,6 +1993,16 @@ body {
   width: 90%;
   margin: auto;
 }
+.live-chat-thread-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: red;
+  top: 40%;
+  left: 170px;
+  animation: liveDotGlow 1s infinite;
+}
 .thread-info-container {
   width: 100%;
   padding: 7px 21px;
@@ -1999,6 +2021,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 .comment-user-section img {
   width: 100px;

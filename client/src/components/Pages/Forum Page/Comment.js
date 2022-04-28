@@ -43,6 +43,17 @@ function Comment(props) {
           <Typography marginTop="7px" color="var(--mydarkerblue)">
             {props.userName}
           </Typography>
+          {props.userRole && (
+            <Typography
+              fontSize="0.85rem"
+              bgcolor="darkred"
+              color="white"
+              padding="2px 12px"
+              sx={{ animation: "liveDotGlow 2s infinite" }}
+            >
+              Admin
+            </Typography>
+          )}
           <Typography fontSize="0.9rem" marginTop="7px" color="var(--myblue)">
             University Year: <span style={{ color: "blue" }}>{props.year}</span>
           </Typography>
@@ -58,8 +69,9 @@ function Comment(props) {
         />
         <div className="comment-content-section">
           <Typography
-            color={isDeleted === true ? "darkred" : null}
-            height="90%"
+            color={isDeleted && "darkred"}
+            fontStyle={isDeleted && "italic"}
+            minHeight="90%"
             whiteSpace="pre"
           >
             {content}
