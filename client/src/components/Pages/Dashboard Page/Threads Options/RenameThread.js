@@ -51,41 +51,49 @@ function RenameThread(props) {
   });
   return (
     <>
-      <p>Only the fields that you change are going to be updated</p>
-      <StyledTextField
-        select
-        size="small"
-        label="Thread"
-        value={select}
-        onChange={(event) => {
-          setSelect(event.target.value);
-        }}
-        variant="outlined"
-        margin="dense"
-        sx={{ width: 225 }}
-        helperText="Please select a thread to update"
-      >
-        {mapping}
-      </StyledTextField>
-      {isHidden === true ? null : (
-        <div key={currentThread._id}>
+      {props.threadsList.length === 0 ? (
+        <p>
+          <strong> There are no threads in the database yet.</strong>
+        </p>
+      ) : (
+        <>
+          <p>Only the fields that you change are going to be updated</p>
           <StyledTextField
+            select
             size="small"
-            label="Name"
-            defaultValue={currentThread.name}
+            label="Thread"
+            value={select}
+            onChange={(event) => {
+              setSelect(event.target.value);
+            }}
             variant="outlined"
             margin="dense"
-            inputRef={name}
-          />
-          <br />
-          <StyledButton
-            sx={{ marginTop: "1%" }}
-            variant="contained"
-            onClick={task}
+            sx={{ width: 225 }}
+            helperText="Please select a thread to update"
           >
-            Submit
-          </StyledButton>
-        </div>
+            {mapping}
+          </StyledTextField>
+          {isHidden === true ? null : (
+            <div key={currentThread._id}>
+              <StyledTextField
+                size="small"
+                label="Name"
+                defaultValue={currentThread.name}
+                variant="outlined"
+                margin="dense"
+                inputRef={name}
+              />
+              <br />
+              <StyledButton
+                sx={{ marginTop: "1%" }}
+                variant="contained"
+                onClick={task}
+              >
+                Submit
+              </StyledButton>
+            </div>
+          )}
+        </>
       )}
     </>
   );

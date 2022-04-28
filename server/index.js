@@ -243,7 +243,7 @@ app.put(
   forumController.updateThread
 );
 app.delete(
-  "/ssa-api/forum/threads/:name",
+  "/ssa-api/dashboard/threads/:name",
   [authJWT.verifyToken, authJWT.isAdmin],
   forumController.deleteThread
 );

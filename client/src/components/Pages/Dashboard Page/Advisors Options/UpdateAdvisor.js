@@ -80,109 +80,117 @@ const UpdateAdvisor = (props) => {
 
   return (
     <>
-      <p>Only the fields that you change are going to be updated</p>
-      <StyledTextField
-        select
-        size="small"
-        label="Advisor"
-        value={select}
-        onChange={(event) => {
-          setSelect(event.target.value);
-        }}
-        variant="outlined"
-        margin="dense"
-        sx={{ width: 225 }}
-        helperText="Please select an advisor to update"
-      >
-        {mapping}
-      </StyledTextField>
-      {isHidden === true ? null : (
-        <div key={currentAdvisor._id}>
-          <br />
-          <StyledTextField
-            size="small"
-            label="Full Name"
-            inputRef={fullName}
-            variant="outlined"
-            margin="dense"
-            defaultValue={currentAdvisor.fullName}
-          />
-          <br />
-          <StyledTextField
-            size="small"
-            label="Email"
-            inputRef={email}
-            variant="outlined"
-            margin="dense"
-            defaultValue={currentAdvisor.email}
-          />
-          <br />
-          <StyledTextField
-            size="small"
-            label="Profession"
-            inputRef={profession}
-            variant="outlined"
-            margin="dense"
-            defaultValue={currentAdvisor.profession}
-          />
-          <br />
+      {props.advisorsList.length === 0 ? (
+        <p>
+          <strong> There are no advisors in the database yet.</strong>
+        </p>
+      ) : (
+        <>
+          <p>Only the fields that you change are going to be updated</p>
           <StyledTextField
             select
             size="small"
-            label="Specialty"
-            value={specialty}
+            label="Advisor"
+            value={select}
             onChange={(event) => {
-              setSpecialty(event.target.value);
+              setSelect(event.target.value);
             }}
             variant="outlined"
             margin="dense"
-            helperText="The initially selected specialty is the currently assigned one."
             sx={{ width: 225 }}
+            helperText="Please select an advisor to update"
           >
-            <StyledMenuItem value="SE">Software Engineering</StyledMenuItem>
-            <StyledMenuItem value="CSE">
-              Computer Systems Engineering
-            </StyledMenuItem>
-            <StyledMenuItem value="REE">
-              Renewable Energy Engineering
-            </StyledMenuItem>
+            {mapping}
           </StyledTextField>
-          <br />
-          <StyledTextField
-            size="small"
-            label="LinkedIn URL"
-            inputRef={linkedinUrl}
-            variant="outlined"
-            margin="dense"
-            defaultValue={currentAdvisor.linkedinUrl}
-          />
-          <br />
-          <StyledTextField
-            size="small"
-            label="Picture URL"
-            inputRef={imageUrl}
-            variant="outlined"
-            margin="dense"
-            defaultValue={currentAdvisor.imageUrl}
-          />
-          <br />
-          <StyledTextField
-            size="small"
-            label="Quote"
-            inputRef={quote}
-            variant="outlined"
-            margin="dense"
-            defaultValue={currentAdvisor.quote}
-          />
-          <br />
-          <StyledButton
-            sx={{ marginTop: "1%" }}
-            variant="contained"
-            onClick={task}
-          >
-            Submit
-          </StyledButton>
-        </div>
+          {isHidden === true ? null : (
+            <div key={currentAdvisor._id}>
+              <br />
+              <StyledTextField
+                size="small"
+                label="Full Name"
+                inputRef={fullName}
+                variant="outlined"
+                margin="dense"
+                defaultValue={currentAdvisor.fullName}
+              />
+              <br />
+              <StyledTextField
+                size="small"
+                label="Email"
+                inputRef={email}
+                variant="outlined"
+                margin="dense"
+                defaultValue={currentAdvisor.email}
+              />
+              <br />
+              <StyledTextField
+                size="small"
+                label="Profession"
+                inputRef={profession}
+                variant="outlined"
+                margin="dense"
+                defaultValue={currentAdvisor.profession}
+              />
+              <br />
+              <StyledTextField
+                select
+                size="small"
+                label="Specialty"
+                value={specialty}
+                onChange={(event) => {
+                  setSpecialty(event.target.value);
+                }}
+                variant="outlined"
+                margin="dense"
+                helperText="The initially selected specialty is the currently assigned one."
+                sx={{ width: 225 }}
+              >
+                <StyledMenuItem value="SE">Software Engineering</StyledMenuItem>
+                <StyledMenuItem value="CSE">
+                  Computer Systems Engineering
+                </StyledMenuItem>
+                <StyledMenuItem value="REE">
+                  Renewable Energy Engineering
+                </StyledMenuItem>
+              </StyledTextField>
+              <br />
+              <StyledTextField
+                size="small"
+                label="LinkedIn URL"
+                inputRef={linkedinUrl}
+                variant="outlined"
+                margin="dense"
+                defaultValue={currentAdvisor.linkedinUrl}
+              />
+              <br />
+              <StyledTextField
+                size="small"
+                label="Picture URL"
+                inputRef={imageUrl}
+                variant="outlined"
+                margin="dense"
+                defaultValue={currentAdvisor.imageUrl}
+              />
+              <br />
+              <StyledTextField
+                size="small"
+                label="Quote"
+                inputRef={quote}
+                variant="outlined"
+                margin="dense"
+                defaultValue={currentAdvisor.quote}
+              />
+              <br />
+              <StyledButton
+                sx={{ marginTop: "1%" }}
+                variant="contained"
+                onClick={task}
+              >
+                Submit
+              </StyledButton>
+            </div>
+          )}
+        </>
       )}
     </>
   );
