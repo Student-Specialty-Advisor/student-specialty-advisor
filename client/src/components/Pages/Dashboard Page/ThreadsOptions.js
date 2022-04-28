@@ -94,8 +94,8 @@ function ThreadsOptions(props) {
             refresh={() => {
               setUpdateKey("updateThread" + new Date().getTime());
             }}
-            setThreadsList={props.setThreadList}
-            ThreadsList={props.ThreadList}
+            setThreadsList={props.setThreadsList}
+            threadsList={props.threadsList}
           />
         </AccordionDetails>
       </Accordion>
