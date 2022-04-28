@@ -18,7 +18,7 @@ function DeleteThread(props) {
   };
   const task = () => {
     fetchService
-      .doDelete("dashboard/threads/" + select)
+      .doDelete("forum/threads/" + select)
       .then((response) => {
         if (response.success) {
           alertify.success("Thread was deleted Successfully");

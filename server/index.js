@@ -233,17 +233,17 @@ app.put(
   forumController.saveComments
 );
 app.post(
-  "/ssa-api/dashboard/threads",
+  "/ssa-api/forum/threads",
   [authJWT.verifyToken, authJWT.isAdmin],
   forumController.createThread
 );
 app.put(
-  "/ssa-api/dashboard/threads/:name",
+  "/ssa-api/forum/threads/rename/:name",
   [authJWT.verifyToken, authJWT.isAdmin],
   forumController.updateThread
 );
 app.delete(
-  "/ssa-api/dashboard/threads/:name",
+  "/ssa-api/forum/threads/:name",
   [authJWT.verifyToken, authJWT.isAdmin],
   forumController.deleteThread
 );

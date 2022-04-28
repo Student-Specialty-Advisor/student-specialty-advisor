@@ -13,7 +13,7 @@ function AddThread(props) {
   };
   const task = () => {
     fetchService
-      .doPOST("dashboard/threads", { name: name })
+      .doPOST("forum/threads", { name: name })
       .then((response) => {
         if (response.success) {
           alertify.success("Thread Added Successfully");

@@ -22,7 +22,7 @@ function RenameThread(props) {
     const json = {};
     if (name.current.value !== "") json.name = name.current.value;
     fetchService
-      .doPUT("dashboard/threads/" + props.threadsList[select].name, json)
+      .doPUT("forum/threads/rename/" + props.threadsList[select].name, json)
       .then((response) => {
         if (response.success) {
           alertify.success("Thread was updated Successfully");
