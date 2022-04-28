@@ -233,7 +233,7 @@ app.put(
   forumController.saveComments
 );
 app.post(
-  "/ssa-api/forum/threads",
+  "/ssa-api/dashboard/threads",
   [authJWT.verifyToken, authJWT.isAdmin],
   forumController.createThread
 );
