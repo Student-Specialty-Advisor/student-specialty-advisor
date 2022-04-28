@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddThread from "./Threads Options/AddThread";
-import UpdateThread from "./Threads Options/UpdateThread";
+import RenameThread from "./Threads Options/RenameThread";
 import DeleteThread from "./Threads Options/DeleteThread";
 
 function ThreadsOptions(props) {
@@ -89,13 +89,13 @@ function ThreadsOptions(props) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
-          <UpdateThread
+          <RenameThread
             key={updateKey}
             refresh={() => {
               setUpdateKey("updateThread" + new Date().getTime());
             }}
-            setThreadsList={props.setThreadList}
-            ThreadsList={props.ThreadList}
+            setThreadsList={props.setThreadsList}
+            threadsList={props.threadsList}
           />
         </AccordionDetails>
       </Accordion>

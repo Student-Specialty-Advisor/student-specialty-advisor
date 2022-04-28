@@ -54,7 +54,7 @@ const Dashboard = (props) => {
   };
   const fetchThreads = async () => {
     const list = await fetchService.doGET("forum/threads");
-    setThreadsList(list);
+    setThreadsList(list.threads);
   };
 
   const fetchAll = () => {
