@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack, Paper, Typography, Divider } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import fetchService from "../../../services/fetchService";
@@ -75,7 +75,21 @@ function Thread(props) {
   return (
     <>
       <div className="forum-container">
-        <h1>{thread.replace(/-/g, " ")}</h1>
+        <Paper
+          sx={{
+            paddingBottom: "21px",
+            marginBottom: "7px",
+          }}
+          className="thread-header"
+          elevation={5}
+        >
+          <h1>{thread.replace(/-/g, " ")}</h1>
+
+          <Typography className="thread-description">{`Hey there ${currentUser.firstName}! Welcome to the forums!
+          The forums are a free space for the SMU Community to express their opinions, to share their experiences, and to have fun while doing that.
+          As much as we encourage freedom of speech in the forums, we do not tolerate any verbual abuse, hate speech, or racism, and would like to remind you to remain respectful to others, even if their opinion is different of yours!
+          Please keep the discussion in English, as we want everyone to be able to understand your comments!`}</Typography>
+        </Paper>
         <Stack className="forum-stack" spacing={1}>
           {commentsList}
           <SubmitCommentField

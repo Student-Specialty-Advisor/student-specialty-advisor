@@ -47,14 +47,6 @@ function Forum() {
         </h6>
         {isLoaded ? (
           <Stack className="forum-stack" spacing={2}>
-            <div style={{ position: "relative" }}>
-              <ThreadLink
-                key="live-chat-thread"
-                name="live chat"
-                overrideHref="/forum/live-chat"
-              />
-              <div className="live-chat-thread-dot"></div>
-            </div>
             {threads.map((thread) => {
               return (
                 <ThreadLink

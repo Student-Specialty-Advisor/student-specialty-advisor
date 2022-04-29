@@ -43,7 +43,7 @@ function Comment(props) {
           <Typography marginTop="7px" color="var(--mydarkerblue)">
             {props.userName}
           </Typography>
-          {props.userRole && (
+          {props.userRole === "Admin" && (
             <Typography
               fontSize="0.85rem"
               bgcolor="darkred"
@@ -72,7 +72,10 @@ function Comment(props) {
             color={isDeleted && "darkred"}
             fontStyle={isDeleted && "italic"}
             minHeight="90%"
-            whiteSpace="pre"
+            whiteSpace="pre-line"
+            width="97%"
+            sx={{ wordBreak: "break-all" }}
+            paddingBottom="7px"
           >
             {content}
           </Typography>

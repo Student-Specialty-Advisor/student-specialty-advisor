@@ -1989,6 +1989,28 @@ body {
   margin-top: 0;
   text-align: center;
 }
+.thread-header {
+  width: 90%;
+  margin: auto;
+  background-color: white;
+}
+.thread-header .thread-description {
+  white-space: pre-line;
+  width: 90%;
+  margin: auto;
+  color: var(--myblue);
+}
+.thread-header h1 {
+  font-size: 22px;
+  color: var(--mydarkerblue);
+  text-align: left;
+  width: 90%;
+  padding-top: 21px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
 .forum-stack {
   width: 90%;
   margin: auto;
@@ -1999,7 +2021,7 @@ body {
   height: 8px;
   border-radius: 50%;
   background: red;
-  top: 40%;
+  top: 39%;
   left: 170px;
   animation: liveDotGlow 1s infinite;
 }
