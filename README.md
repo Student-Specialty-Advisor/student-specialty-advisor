@@ -5,3 +5,4 @@ Sprint 2: Program Compatibility Quiz
 Sprint 3: Videos & Programs Info
 Sprint 4: Meetings Section
 Sprint 5: Admin Dashboard & Assistance Chat Bot
+Sprint 6: Community Forum
