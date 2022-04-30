@@ -4,25 +4,29 @@ import Statistics from "./Statistics";
 import AdvisorsOptions from "./AdvisorsOptions";
 import MeetingsOptions from "./MeetingsOptions";
 import VideosOptions from "./VideosOptions";
+import ThreadsOptions from "./ThreadsOptions";
 import fetchService from "../../../services/fetchService";
 import { BottomNavigationAction, Paper, useMediaQuery } from "@mui/material";
 import VideosIcon from "@mui/icons-material/VideoLibrary";
 import StatIcon from "@mui/icons-material/BarChart";
 import AdvisorsIcon from "@mui/icons-material/Groups";
 import MeetingsIcon from "@mui/icons-material/CalendarMonth";
+import ForumIcon from "@mui/icons-material/Forum";
 import { StyledBottomNavigation } from "../../Basic Elements/StyledBasicElements";
 
 const STATISTICS = "statistics";
 const ADVISORS = "advisors";
 const MEETINGS = "meetings";
 const VIDEOS = "videos";
-const PARAMETERS = [STATISTICS, ADVISORS, MEETINGS, VIDEOS];
+const THREADS = "threads";
+const PARAMETERS = [STATISTICS, ADVISORS, MEETINGS, VIDEOS, THREADS];
 
 const Dashboard = (props) => {
   let { parameter } = useParams();
   const [advisorsList, setAdvisorsList] = React.useState([]);
   const [meetingsList, setMeetingsList] = React.useState({ meetings: [] });
   const [videosList, setVideosList] = React.useState([]);
+  const [threadsList, setThreadsList] = React.useState([]);
   const [mobileBarValue, setMobileBarValue] = React.useState(
     PARAMETERS.indexOf(parameter)
   );
@@ -48,11 +52,16 @@ const Dashboard = (props) => {
     const list = await fetchService.doGET("videos");
     setVideosList(list);
   };
+  const fetchThreads = async () => {
+    const list = await fetchService.doGET("forum/threads");
+    setThreadsList(list.threads);
+  };
 
   const fetchAll = () => {
     fetchAdvisors();
     fetchMeetings();
     fetchVideos();
+    fetchThreads();
   };
 
   const setupSideBar = () => {
@@ -60,30 +69,42 @@ const Dashboard = (props) => {
     var advisors = document.getElementById(ADVISORS);
     var meetings = document.getElementById(MEETINGS);
     var videos = document.getElementById(VIDEOS);
+    var threads = document.getElementById(THREADS);
     switch (parameter) {
       case STATISTICS:
         statistics.className = "active";
         advisors.className = "";
         meetings.className = "";
         videos.className = "";
+        threads.className = "";
         break;
       case ADVISORS:
         statistics.className = "";
         advisors.className = "active";
         meetings.className = "";
         videos.className = "";
+        threads.className = "";
         break;
       case MEETINGS:
         statistics.className = "";
         advisors.className = "";
         meetings.className = "active";
         videos.className = "";
+        threads.className = "";
         break;
       case VIDEOS:
         statistics.className = "";
         advisors.className = "";
         meetings.className = "";
         videos.className = "active";
+        threads.className = "";
+        break;
+      case THREADS:
+        statistics.className = "";
+        advisors.className = "";
+        meetings.className = "";
+        videos.className = "";
+        threads.className = "active";
         break;
       default:
         break;
@@ -113,7 +134,6 @@ const Dashboard = (props) => {
               }}
             >
               <StyledBottomNavigation
-                showLabels
                 className="mobile-bottom-bar"
                 value={mobileBarValue}
                 onChange={(event, newValue) => {
@@ -121,6 +141,7 @@ const Dashboard = (props) => {
                 }}
               >
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Statistics"
                   onClick={() => {
@@ -130,6 +151,7 @@ const Dashboard = (props) => {
                   icon={<StatIcon fontSize="large" />}
                 />
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Advisors"
                   icon={<AdvisorsIcon fontSize="large" />}
@@ -139,6 +161,7 @@ const Dashboard = (props) => {
                   }}
                 />
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Meetings"
                   icon={<MeetingsIcon fontSize="large" />}
@@ -148,6 +171,7 @@ const Dashboard = (props) => {
                   }}
                 />
                 <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
                   className="mobile-bottom-bar-element"
                   label="Videos"
                   onClick={() => {
@@ -155,6 +179,16 @@ const Dashboard = (props) => {
                     window.scrollTo(0, 0);
                   }}
                   icon={<VideosIcon fontSize="large" />}
+                />
+                <BottomNavigationAction
+                  sx={{ minWidth: "64px" }}
+                  className="mobile-bottom-bar-element"
+                  label="Threads"
+                  onClick={() => {
+                    props.history.push("/dashboard/threads");
+                    window.scrollTo(0, 0);
+                  }}
+                  icon={<ForumIcon fontSize="large" />}
                 />
               </StyledBottomNavigation>
             </Paper>
@@ -198,6 +232,14 @@ const Dashboard = (props) => {
                 {VIDEOS[0].toUpperCase() + VIDEOS.slice(1)}
               </NavLink>
             </li>
+            <li id={THREADS}>
+              <NavLink
+                to={"/dashboard/" + THREADS}
+                text={THREADS[0].toUpperCase() + THREADS.slice(1)}
+              >
+                {THREADS[0].toUpperCase() + THREADS.slice(1)}
+              </NavLink>
+            </li>
           </ul>
         )}
 
@@ -220,6 +262,11 @@ const Dashboard = (props) => {
             <VideosOptions
               videosList={videosList}
               setVideosList={fetchVideos}
+            />
+          ) : parameter === THREADS ? (
+            <ThreadsOptions
+              threadsList={threadsList}
+              setThreadsList={fetchThreads}
             />
           ) : null}
         </ul>

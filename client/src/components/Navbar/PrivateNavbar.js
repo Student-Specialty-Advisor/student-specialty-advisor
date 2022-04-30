@@ -99,7 +99,7 @@ function PrivateNavbar(props) {
                       button
                       onClick={() => {
                         setIsOpen(false);
-                        props.history.push("/dashboard");
+                        props.history.push("/dashboard/statistics");
                         window.scrollTo(0, 0);
                       }}
                     >
@@ -217,7 +217,7 @@ function PrivateNavbar(props) {
                 {isAdmin ? (
                   <li className="nav-item">
                     <Link
-                      to="/dashboard"
+                      to="/dashboard/statistics"
                       onClick={() => {
                         window.scrollTo(0, 0);
                       }}
