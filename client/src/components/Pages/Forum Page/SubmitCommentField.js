@@ -18,7 +18,7 @@ function SubmitCommentField(props) {
     var interval = setInterval(() => {
       setCooldownProgress((cooldownProgress) => {
         if (cooldownProgress > 0) {
-          return cooldownProgress - 100 / CD;
+          return Math.floor(cooldownProgress - 100 / CD);
         } else {
           setOnCooldown(false);
           clearInterval(interval);
@@ -38,6 +38,7 @@ function SubmitCommentField(props) {
         })
         .then((response) => {
           if (response.success) {
+            props.setPageToLast();
             props.fetchComments();
             setOnCooldown(true);
             setMessage("");

@@ -1,4 +1,4 @@
-import { Stack, Paper, Typography, Divider } from "@mui/material";
+import { Stack, Paper, Typography, Pagination } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import fetchService from "../../../services/fetchService";
@@ -7,13 +7,12 @@ import alertify from "alertifyjs";
 import SubmitCommentField from "./SubmitCommentField";
 import AuthService from "../../../services/AuthService";
 import Footer from "../Footer";
+import ComponentPagination from "../../Custom Hooks/ComponentPagination";
 
 function Thread(props) {
   let { thread } = useParams();
   const [comments, setComments] = React.useState([]);
-  const currentUser = AuthService.getCurrentUser();
-  const isAdmin = AuthService.isAdmin();
-  const didPost = React.useRef({ didPost: false });
+  const [page, setPage] = React.useState(1);
 
   React.useEffect(() => {
     document.title =
@@ -21,6 +20,23 @@ function Thread(props) {
       thread.replace(/-/g, " ") +
       " - Student Specialty Advisor";
   }, [thread]);
+
+  const PER_PAGE = 10;
+  const count = Math.ceil(comments.length / PER_PAGE);
+  const commentsPagination = ComponentPagination(comments, PER_PAGE);
+  const currentUser = AuthService.getCurrentUser();
+  const isAdmin = AuthService.isAdmin();
+  const didPost = React.useRef({ didPost: false });
+
+  const handlePageChange = (e, p) => {
+    setPage(p);
+    commentsPagination.jump(p);
+  };
+
+  const setPageToLast = () => {
+    setPage(count);
+    commentsPagination.jump(count);
+  };
 
   const fetchComments = () => {
     fetchService
@@ -40,7 +56,7 @@ function Thread(props) {
       });
   };
 
-  const commentsList = comments.map((c) => {
+  const commentsList = commentsPagination.currentData().map((c) => {
     return (
       <Comment
         key={c._id}
@@ -57,6 +73,16 @@ function Thread(props) {
       />
     );
   });
+
+  const pagingComponent = (
+    <Pagination
+      size="large"
+      count={count}
+      page={page}
+      onChange={handlePageChange}
+      color="primary"
+    />
+  );
 
   React.useEffect(fetchComments, [thread, props.history]);
 
@@ -78,24 +104,26 @@ function Thread(props) {
         <Paper
           sx={{
             paddingBottom: "21px",
-            marginBottom: "7px",
+            marginBottom: "10px",
           }}
           className="thread-header"
           elevation={5}
         >
           <h1>{thread.replace(/-/g, " ")}</h1>
-
           <Typography className="thread-description">{`Hey there ${currentUser.firstName}! Welcome to the forums!
           The forums are a free space for the SMU Community to express their opinions, to share their experiences, and to have fun while doing that.
           As much as we encourage freedom of speech in the forums, we do not tolerate any verbual abuse, hate speech, or racism, and would like to remind you to remain respectful to others, even if their opinion is different of yours!
           Please keep the discussion in English, as we want everyone to be able to understand your comments!`}</Typography>
         </Paper>
         <Stack className="forum-stack" spacing={1}>
+          {pagingComponent}
           {commentsList}
+          {pagingComponent}
           <SubmitCommentField
             /*picture={c.user.picture} Not yet implemented in the backend*/
             threadName={thread.replace(/-/g, " ")}
             fetchComments={fetchComments}
+            setPageToLast={setPageToLast}
           />
         </Stack>
       </div>

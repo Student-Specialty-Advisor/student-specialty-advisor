@@ -2,11 +2,16 @@ import { Divider, IconButton, Paper, Typography } from "@mui/material";
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import fetchService from "../../../services/fetchService";
+import useIsOverflow from "../../Custom Hooks/useIsOverflow";
 import alertify from "alertifyjs";
 
 function Comment(props) {
   const [content, setContent] = React.useState(props.content);
   const [isDeleted, setIsDeleted] = React.useState(props.isDeleted);
+  const [readMore, setReadMore] = React.useState(false);
+  const contentRef = React.useRef();
+  const isOverflow = useIsOverflow(contentRef);
+
   const shortenDate = (date) => {
     return date.substr(0, 19).replace(/T/g, " ");
   };
@@ -69,9 +74,12 @@ function Comment(props) {
         />
         <div className="comment-content-section">
           <Typography
+            ref={contentRef}
             color={isDeleted && "darkred"}
             fontStyle={isDeleted && "italic"}
-            minHeight="90%"
+            height={readMore ? null : "215px"}
+            minHeight={readMore && "215px"}
+            overflow={!readMore && "hidden"}
             whiteSpace="pre-line"
             width="97%"
             sx={{ wordBreak: "break-all" }}
@@ -79,6 +87,26 @@ function Comment(props) {
           >
             {content}
           </Typography>
+          {isOverflow &&
+            (readMore ? (
+              <Typography
+                className="readmore-button"
+                onClick={() => {
+                  setReadMore(false);
+                }}
+              >
+                Show less
+              </Typography>
+            ) : (
+              <Typography
+                className="readmore-button"
+                onClick={() => {
+                  setReadMore(true);
+                }}
+              >
+                Read more
+              </Typography>
+            ))}
           <Divider sx={{ bgcolor: "var(--myblue)" }} />
           <Typography fontSize="0.7rem">
             Posted on the: {shortenDate(props.date)}

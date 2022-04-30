@@ -1996,16 +1996,18 @@ body {
 }
 .thread-header .thread-description {
   white-space: pre-line;
-  width: 90%;
+  width: 95%;
   margin: auto;
   color: var(--myblue);
+  text-align: left;
 }
 .thread-header h1 {
   font-size: 22px;
   color: var(--mydarkerblue);
   text-align: left;
-  width: 90%;
+  width: 95%;
   padding-top: 21px;
+  padding-bottom: 7px;
   margin-left: auto;
   margin-right: auto;
   text-decoration: underline;
@@ -2056,6 +2058,15 @@ body {
 .comment-content-section {
   flex-basis: 85%;
   min-height: 250px;
+}
+.comment-content-section .readmore-button {
+  font-weight: bold;
+  cursor: pointer;
+  color: grey;
+  font-size: 0.8rem;
+}
+.comment-content-section .readmore-button:hover {
+  text-decoration: underline;
 }
 .comment-container-options {
   position: absolute;
