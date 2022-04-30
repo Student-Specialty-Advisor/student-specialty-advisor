@@ -38,11 +38,11 @@ function SubmitCommentField(props) {
         })
         .then((response) => {
           if (response.success) {
-            props.setPageToLast();
             props.fetchComments();
             setOnCooldown(true);
             setMessage("");
             cooldownInterval();
+            props.didPost.current.didPost = true;
           } else {
             throw response;
           }

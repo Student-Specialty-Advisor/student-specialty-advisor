@@ -13,6 +13,12 @@ function Thread(props) {
   let { thread } = useParams();
   const [comments, setComments] = React.useState([]);
   const [page, setPage] = React.useState(1);
+  const PER_PAGE = 10;
+  const count = Math.ceil(comments.length / PER_PAGE);
+  const commentsPagination = ComponentPagination(comments, PER_PAGE);
+  const currentUser = AuthService.getCurrentUser();
+  const isAdmin = AuthService.isAdmin();
+  const didPost = React.useRef({ didPost: false });
 
   React.useEffect(() => {
     document.title =
@@ -21,21 +27,9 @@ function Thread(props) {
       " - Student Specialty Advisor";
   }, [thread]);
 
-  const PER_PAGE = 10;
-  const count = Math.ceil(comments.length / PER_PAGE);
-  const commentsPagination = ComponentPagination(comments, PER_PAGE);
-  const currentUser = AuthService.getCurrentUser();
-  const isAdmin = AuthService.isAdmin();
-  const didPost = React.useRef({ didPost: false });
-
   const handlePageChange = (e, p) => {
     setPage(p);
     commentsPagination.jump(p);
-  };
-
-  const setPageToLast = () => {
-    setPage(count);
-    commentsPagination.jump(count);
   };
 
   const fetchComments = () => {
@@ -87,14 +81,11 @@ function Thread(props) {
   React.useEffect(fetchComments, [thread, props.history]);
 
   React.useEffect(() => {
-    if (comments.length !== 0) {
-      if (didPost.current.didPost === false) {
-        didPost.current.didPost = true;
-      } else {
-        document
-          .getElementById("submit-comment-text-field")
-          .scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+    if (comments.length !== 0 && didPost.current.didPost === true) {
+      document
+        .getElementById("submit-comment-text-field")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+      didPost.current.didPost = false;
     }
   }, [comments]);
 
@@ -123,7 +114,7 @@ function Thread(props) {
             /*picture={c.user.picture} Not yet implemented in the backend*/
             threadName={thread.replace(/-/g, " ")}
             fetchComments={fetchComments}
-            setPageToLast={setPageToLast}
+            didPost={didPost}
           />
         </Stack>
       </div>
