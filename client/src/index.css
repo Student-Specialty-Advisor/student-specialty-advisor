@@ -1974,7 +1974,6 @@ body {
 
 .forum-container {
   margin-top: 15vh;
-  margin-bottom: 120px;
 }
 .forum-container h1 {
   font-size: 60px;
@@ -1992,7 +1991,7 @@ body {
 .thread-header {
   width: 90%;
   margin: auto;
-  background-color: white;
+  background-color: transparent !important;
 }
 .thread-header .thread-description {
   white-space: pre-line;
@@ -2001,15 +2000,12 @@ body {
   color: var(--myblue);
   text-align: left;
 }
-.thread-header h1 {
-  font-size: 22px;
+.thread-header h2 {
   color: var(--mydarkerblue);
   text-align: left;
   width: 95%;
-  padding-top: 21px;
-  padding-bottom: 7px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-bottom: 21px;
+  margin: auto;
   text-decoration: underline;
   text-underline-offset: 10px;
 }

@@ -174,7 +174,7 @@ function Home(props) {
         return (
           <Skeleton
             key={"skeleton" + index}
-            sx={{ bgcolor: "rgba(255,255,255,0.8)" }}
+            sx={{ bgcolor: "grey.100" }}
             variant="rectangular"
             className="achievement-card"
             animation="wave"

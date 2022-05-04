@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgress, Stack } from "@mui/material";
+import { Box, Skeleton, Stack } from "@mui/material";
 import { completeAchievement } from "../../../services/achievements";
 import fetchService from "../../../services/fetchService";
 import ThreadLink from "./ThreadLink";
@@ -12,6 +12,22 @@ function Forum() {
   const shortenDate = (date) => {
     return date.substr(0, 10);
   };
+
+  const loadingComponent = (
+    <Box
+      bgcolor="white"
+      border={1}
+      borderColor="rgba(25, 118, 210, 0.5)"
+      height="60px"
+    >
+      <Skeleton
+        variant="rectangular"
+        animation="wave"
+        sx={{ bgcolor: "grey.100" }}
+        height="60px"
+      ></Skeleton>
+    </Box>
+  );
 
   React.useEffect(() => {
     document.title = "Community Forum - Student Specialty Advisor";
@@ -59,11 +75,11 @@ function Forum() {
             })}
           </Stack>
         ) : (
-          <div
-            style={{ width: "100%", display: "flex", justifyContent: "center" }}
-          >
-            <CircularProgress size={80} />
-          </div>
+          <Stack className="forum-stack" spacing={2}>
+            {loadingComponent}
+            {loadingComponent}
+            {loadingComponent}
+          </Stack>
         )}
       </div>
     </>
