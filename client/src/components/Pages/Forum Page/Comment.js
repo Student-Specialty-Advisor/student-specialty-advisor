@@ -24,6 +24,7 @@ function Comment(props) {
           if (response.success) {
             setContent(response.deletedComment.message);
             setIsDeleted(response.deletedComment.isDeleted);
+            props.fetchComments();
             alertify.success("This comment was deleted successfully!");
           } else {
             throw response;

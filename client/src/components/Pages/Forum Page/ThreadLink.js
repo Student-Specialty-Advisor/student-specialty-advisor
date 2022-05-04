@@ -24,26 +24,22 @@ function ThreadLink(props) {
             Thread: <span style={{ color: "#1976d2" }}>{props.name}</span>
           </Typography>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {props.commentsNumber && (
-              <Typography
-                marginTop="7px"
-                color="var(--mydarkerblue)"
-                fontSize="0.7rem"
-                fontWeight="inherit"
-              >
-                Number of comments so far: {props.commentsNumber}
-              </Typography>
-            )}
-            {props.date && (
-              <Typography
-                marginTop="7px"
-                color="var(--mydarkerblue)"
-                fontSize="0.7rem"
-                fontWeight="inherit"
-              >
-                Discussion started on: {props.date}
-              </Typography>
-            )}
+            <Typography
+              marginTop="7px"
+              color="var(--mydarkerblue)"
+              fontSize="0.7rem"
+              fontWeight="inherit"
+            >
+              Number of comments so far: {props.commentsNumber}
+            </Typography>
+            <Typography
+              marginTop="7px"
+              color="var(--mydarkerblue)"
+              fontSize="0.7rem"
+              fontWeight="inherit"
+            >
+              Discussion started on: {props.date}
+            </Typography>
           </div>
         </div>
       </Button>
