@@ -6,8 +6,8 @@ import Comment from "./Comment";
 import alertify from "alertifyjs";
 import SubmitCommentField from "./SubmitCommentField";
 import AuthService from "../../../services/AuthService";
+import usePaginationComponent from "../../Custom Hooks/usePaginationComponent";
 import Footer from "../Footer";
-import ComponentPagination from "../../Custom Hooks/ComponentPagination";
 import Loading from "../../Loading";
 import ForumIcon from "@mui/icons-material/Forum";
 
@@ -18,7 +18,7 @@ function Thread(props) {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const PER_PAGE = 10;
   const count = Math.ceil(comments.length / PER_PAGE);
-  const commentsPagination = ComponentPagination(comments, PER_PAGE);
+  const commentsPagination = usePaginationComponent(comments, PER_PAGE);
   const currentUser = AuthService.getCurrentUser();
   const isAdmin = AuthService.isAdmin();
   const didPost = React.useRef({ didPost: false });
