@@ -1,10 +1,17 @@
-import { CircularProgress, Divider, IconButton, Paper } from "@mui/material";
+import {
+  Avatar,
+  CircularProgress,
+  Divider,
+  IconButton,
+  Paper,
+} from "@mui/material";
 import { StyledTextField } from "../../Basic Elements/StyledBasicElements";
 import SendIcon from "@mui/icons-material/Send";
 import React from "react";
 import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
 import fetchService from "../../../services/fetchService";
+import { stringAvatar } from "../../utils";
 
 function SubmitCommentField(props) {
   const [message, setMessage] = React.useState("");
@@ -61,7 +68,10 @@ function SubmitCommentField(props) {
 
   return (
     <Paper className="comment-submit-container" elevation={3}>
-      <img src={props.picture} alt=""></img>
+      <Avatar
+        className="comment-submit-user-avatar"
+        {...stringAvatar(props.userName)}
+      />
       <Divider
         flexItem
         orientation="vertical"

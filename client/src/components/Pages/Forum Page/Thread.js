@@ -60,7 +60,13 @@ function Thread(props) {
         key={c._id}
         comment_id={c._id}
         isDeleted={c.isDeleted}
-        userName={c.user.firstName + " " + c.user.lastName}
+        userName={
+          c.user.firstName[0].toUpperCase() +
+          c.user.firstName.slice(1) +
+          " " +
+          c.user.lastName[0].toUpperCase() +
+          c.user.lastName.slice(1)
+        }
         userRole={c.user.role}
         isOwner={c.user._id === currentUser.id}
         isAdmin={isAdmin}
@@ -68,7 +74,6 @@ function Thread(props) {
         content={c.message}
         year={c.user.universityYear}
         fetchComments={fetchComments}
-        /*picture={c.user.picture} Not yet implemented in the backend*/
       />
     );
   });
@@ -154,8 +159,14 @@ function Thread(props) {
 
               {
                 <SubmitCommentField
-                  /*picture={c.user.picture} Not yet implemented in the backend*/
                   threadName={thread.replace(/-/g, " ")}
+                  userName={
+                    currentUser.firstName[0].toUpperCase() +
+                    currentUser.firstName.slice(1) +
+                    " " +
+                    currentUser.lastName[0].toUpperCase() +
+                    currentUser.lastName.slice(1)
+                  }
                   fetchComments={fetchComments}
                   didPost={didPost}
                 />

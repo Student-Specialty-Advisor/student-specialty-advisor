@@ -1,9 +1,10 @@
-import { Divider, IconButton, Paper, Typography } from "@mui/material";
+import { Avatar, Divider, IconButton, Paper, Typography } from "@mui/material";
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import fetchService from "../../../services/fetchService";
 import useIsOverflow from "../../Custom Hooks/useIsOverflow";
 import alertify from "alertifyjs";
+import { stringAvatar } from "../../utils";
 
 function Comment(props) {
   const [content, setContent] = React.useState(props.content);
@@ -45,7 +46,10 @@ function Comment(props) {
         style={{ display: "flex", flexDirection: "row", padding: "7px 21px" }}
       >
         <div className="comment-user-section">
-          <img src={props.picture} alt=""></img>
+          <Avatar
+            className="comment-user-avatar"
+            {...stringAvatar(props.userName)}
+          />
           <Typography marginTop="7px" color="var(--mydarkerblue)">
             {props.userName}
           </Typography>
