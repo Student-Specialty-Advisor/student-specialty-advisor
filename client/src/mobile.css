@@ -679,6 +679,13 @@
     min-width: 32px;
     font-size: 0.8rem;
   }
+  .verification-page h2 {
+    font-size: calc(24 * 100vw / 480);
+  }
+  .verification-page p,
+  .verification-page a {
+    font-size: calc(16 * 100vw / 480);
+  }
 }
 @media only screen and (max-width: 360px) {
   .videos-container .videos-list li {
@@ -776,5 +783,12 @@
     height: 28px;
     min-width: 26px;
     font-size: 0.8rem;
+  }
+  .verification-page h2 {
+    font-size: calc(20 * 100vw / 360);
+  }
+  .verification-page p,
+  .verification-page a {
+    font-size: calc(14 * 100vw / 360);
   }
 }

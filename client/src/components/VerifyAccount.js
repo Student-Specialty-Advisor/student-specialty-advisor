@@ -19,6 +19,9 @@ function VerifyAccount(props) {
     var interval = setInterval(() => {
       setRedirectCounter((prev) => {
         if (prev > 0) {
+          if (prev - 1 === 0) {
+            clearInterval(interval);
+          }
           return prev - 1;
         } else {
           clearInterval(interval);
@@ -72,6 +75,7 @@ function VerifyAccount(props) {
     <Redirect to="/"></Redirect>
   ) : (
     <div
+      className="verification-page"
       style={{
         width: "100%",
         height: "100vh",
