@@ -1,19 +1,57 @@
 import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import Loading from "./Loading";
-import { StyledButton } from "./Basic Elements/StyledBasicElements";
 import SignalWifiConnectedNoInternet4Icon from "@mui/icons-material/SignalWifiConnectedNoInternet4";
 function VerifyAccount(props) {
   let { id } = useParams();
   const [success, setIsSuccess] = React.useState(false);
   const [error, setIsError] = React.useState(false);
   const [noResponse, setNoResponse] = React.useState(false);
+  const [redirectCounter, setRedirectCounter] = React.useState(5);
+  const countdownRef = React.useRef(null);
+
+  const isLoggedIn = AuthService.isLoggedIn();
+
+  const startCountdown = () => {
+    var interval = setInterval(() => {
+      setRedirectCounter((prev) => {
+        if (prev > 0) {
+          return prev - 1;
+        } else {
+          clearInterval(interval);
+          return 0;
+        }
+      });
+    }, 1000);
+    countdownRef.current = interval;
+  };
+
+  const redirectCountdown =
+    redirectCounter === 0 ? (
+      success ? (
+        <Redirect to="/login"></Redirect>
+      ) : (
+        <Redirect to="/"></Redirect>
+      )
+    ) : (
+      <p>
+        <strong>
+          Redirecting you to {success ? "login page" : "home page"} in{" "}
+          {redirectCounter}..
+        </strong>
+      </p>
+    );
+
   React.useEffect(() => {
     document.title = "Verification - Student Specialty Advisor";
+    return () => {
+      clearInterval(countdownRef);
+    };
   }, []);
+
   React.useEffect(() => {
     AuthService.verifyAccount(id)
       .then((response) => {
@@ -22,13 +60,17 @@ function VerifyAccount(props) {
         } else {
           setIsError(true);
         }
+        startCountdown();
       })
       .catch((error) => {
         setNoResponse(true);
+        startCountdown();
       });
   }, [id]);
 
-  return (
+  return isLoggedIn ? (
+    <Redirect to="/"></Redirect>
+  ) : (
     <div
       style={{
         width: "100%",
@@ -44,29 +86,33 @@ function VerifyAccount(props) {
         textAlign: "center",
       }}
     >
-      {!error && !success && !noResponse ? <Loading /> : null}
       {error ? (
         <>
           <CancelIcon sx={{ color: "red", fontSize: 70 }} />
-          <h2>Verification wasn't approved !</h2>
-          <p>Verification email is invalid.</p>
+          <h2>Verification wasn't approved!</h2>
+          <p>
+            This verification link is invalid.
+            <br /> Make sure you clicked on the right link.
+            <br />
+            Having difficulties verifying your account?
+            <br />
+            <a
+              href="mailto: studentspecialtyadvisor@outlook.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Contact us!
+            </a>
+          </p>
+          {redirectCountdown}
         </>
       ) : null}
       {success ? (
         <>
           <CheckCircleIcon sx={{ color: "green", fontSize: 70 }} />
-          <h2>Verification was approved</h2>
-          <p>You can now access to your account !</p>
-          <br />
-          <StyledButton
-            variant="contained"
-            size="large"
-            onClick={() => {
-              props.history.push("/login");
-            }}
-          >
-            Continue to login
-          </StyledButton>
+          <h2>Verification was approved!</h2>
+          <p>You now have access to your account!</p>
+          {redirectCountdown}
         </>
       ) : null}
       {noResponse ? (
@@ -74,24 +120,23 @@ function VerifyAccount(props) {
           <SignalWifiConnectedNoInternet4Icon
             sx={{ color: "orange", fontSize: 70 }}
           />
-          <h2>Opps ... We are having trouble getting to the server</h2>
+          <h2>Oops.. :( We are having trouble getting to the server!</h2>
           <p>
-            Please try again Later ! <br /> If the problem persists , please
-            contact us :
+            Please try again later!
+            <br />
+            If the problem persists, please{" "}
+            <a
+              href="mailto: studentspecialtyadvisor@outlook.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              contact us!
+            </a>
           </p>
-
-          <a
-            href="mailto:studentspecialtyadvisor@outlook.com"
-            target="_blank"
-            rel="noreferrer noopener"
-            style={{
-              color: "var(--myblue)",
-            }}
-          >
-            studentspecialtyadvisor@outlook.com
-          </a>
+          {redirectCountdown}
         </>
       ) : null}
+      {!error && !success && !noResponse ? <Loading /> : null}
     </div>
   );
 }

@@ -19,6 +19,7 @@ function SubmitCommentField(props) {
   const [onCooldown, setOnCooldown] = React.useState(false);
   const [cooldownProgress, setCooldownProgress] = React.useState(100);
   const CD = 30;
+  const intervalRef = React.useRef(null);
 
   const currentUser = AuthService.getCurrentUser();
 
@@ -34,7 +35,7 @@ function SubmitCommentField(props) {
         }
       });
     }, 1000);
-    return interval;
+    intervalRef.current = interval;
   };
 
   const submit = () => {
@@ -67,6 +68,12 @@ function SubmitCommentField(props) {
       );
     }
   };
+
+  React.useEffect(() => {
+    return () => {
+      clearInterval(intervalRef);
+    };
+  });
 
   return (
     <Paper className="comment-submit-container" elevation={3}>

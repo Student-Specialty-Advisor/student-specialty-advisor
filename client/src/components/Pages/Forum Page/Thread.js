@@ -36,10 +36,7 @@ function Thread(props) {
   const isUnder480px = useMediaQuery("(max-width:480px)", { noSsr: true });
 
   React.useEffect(() => {
-    document.title =
-      "Community Forum - " +
-      thread.replace(/-/g, " ") +
-      " - Student Specialty Advisor";
+    document.title = thread.replace(/-/g, " ") + " - Student Specialty Advisor";
   }, [thread]);
 
   const handlePageChange = (e, p) => {
