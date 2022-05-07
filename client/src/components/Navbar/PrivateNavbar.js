@@ -193,7 +193,7 @@ function PrivateNavbar(props) {
                   <Divider
                     sx={{
                       backgroundColor: "rgba(255, 255, 255, 0.4)",
-                      marginTop: "20%",
+                      marginTop: "30%",
                     }}
                   />
                   <StyledListItem

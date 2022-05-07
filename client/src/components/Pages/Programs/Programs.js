@@ -71,11 +71,7 @@ function Programs(props) {
 
   React.useEffect(() => {
     let achievementTimer = setTimeout(
-      () =>
-        completeAchievement(
-          "infoSectionCompletion",
-          "All kinds of information"
-        ),
+      () => completeAchievement("infoSectionCompletion", "Specialty Info"),
       60000
     );
     return () => {

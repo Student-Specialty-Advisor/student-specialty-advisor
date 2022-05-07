@@ -119,7 +119,7 @@ function QuizContainer() {
         setResults(result);
         setIsSubmitted(true);
         window.scrollTo(0, 0);
-        completeAchievement("quizCompletion", "Program Compatibility Quiz");
+        completeAchievement("quizCompletion", "Compatibility Quiz");
       })
       .catch((error) => {
         console.log(error);

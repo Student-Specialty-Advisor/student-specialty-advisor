@@ -1,13 +1,14 @@
 import React from "react";
-import { Box, Skeleton, Stack } from "@mui/material";
-import { completeAchievement } from "../../../services/achievements";
+import { Box, Skeleton, Stack, useMediaQuery } from "@mui/material";
 import fetchService from "../../../services/fetchService";
 import ThreadLink from "./ThreadLink";
 import alertify from "alertifyjs";
+import Footer from "../Footer";
 
-function Forum() {
+function Forum(props) {
   const [threads, setThreads] = React.useState([]);
   const [isLoaded, setIsLoaded] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
 
   const shortenDate = (date) => {
     return date.substr(0, 10);
@@ -31,9 +32,6 @@ function Forum() {
 
   React.useEffect(() => {
     document.title = "Community Forum - Student Specialty Advisor";
-  }, []);
-  React.useEffect(() => {
-    completeAchievement("forumCompletion", "Come back soon!");
   }, []);
 
   React.useEffect(() => {
@@ -70,6 +68,7 @@ function Forum() {
                   name={thread.name}
                   date={shortenDate(thread.date)}
                   commentsNumber={thread.comments.length}
+                  history={props.history}
                 />
               );
             })}
@@ -82,6 +81,7 @@ function Forum() {
           </Stack>
         )}
       </div>
+      {!isMobile && <Footer />}
     </>
   );
 }

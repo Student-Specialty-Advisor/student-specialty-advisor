@@ -13,8 +13,7 @@ function MeetingsAbout(props) {
 
   React.useEffect(() => {
     let achievementTimer = setTimeout(
-      () =>
-        completeAchievement("meetingsSectionCompletion", "Meetings & Advisors"),
+      () => completeAchievement("meetingsSectionCompletion", "About Meetings"),
       10000
     );
     return () => {

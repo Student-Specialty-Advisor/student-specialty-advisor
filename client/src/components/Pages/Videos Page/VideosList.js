@@ -179,7 +179,7 @@ function VideosList(props) {
 
   React.useEffect(() => {
     let achievementTimer = setTimeout(
-      () => completeAchievement("videosCompletion", "Browsing videos"),
+      () => completeAchievement("videosCompletion", "Specialty Videos"),
       60000
     );
     return () => {

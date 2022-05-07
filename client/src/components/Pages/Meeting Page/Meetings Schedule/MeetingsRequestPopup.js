@@ -48,7 +48,7 @@ function MeetingsRequestPopup(props) {
           alertify.success(
             "Your request was sent, and we just informed the advisor!"
           );
-          completeAchievement("meetingsRequestCompletion", "Meeting Request");
+          completeAchievement("meetingsRequestCompletion", "Request a Meeting");
         } else if (response.unavailable) {
           alertify.warning(
             "Hm.. Unfortunately, this meeting just got reserved by someone else!"

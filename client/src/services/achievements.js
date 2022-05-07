@@ -92,7 +92,10 @@ export const createAchievementInfo = (achievementDB) => {
         description: "Request a meeting with an advisor",
       };
     case "forumCompletion":
-      return { title: "Community Forum", description: "Come Back Soon!" };
+      return {
+        title: "Community Forum",
+        description: "Post your first comment in one of the threads",
+      };
     default:
       return { title: "Unknown", description: "how did this happen" };
   }
