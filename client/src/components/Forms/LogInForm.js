@@ -23,7 +23,6 @@ function LogInForm(props) {
     if (!utils.isValidEmail(email)) return utils.invalidEmail;
     var password = utils.check(form["iPassword"].value);
     if (password === null) return utils.invalidPassword;
-
     const formDataHolder = {
       email: email,
       password: password,
@@ -44,6 +43,10 @@ function LogInForm(props) {
         if (response.keyPattern) {
           alertify.error(
             "Invalid Credentials..   Make sure you have written your e-mail and password correctly!"
+          );
+        } else if (response.notVerified) {
+          alertify.warning(
+            "You need to verify your email before you can access your account!"
           );
         } else {
           try {
@@ -110,13 +113,13 @@ function LogInForm(props) {
 
   return (
     <div className="sign-in-background">
-      <div className="sign-in-image-container" id="background-image"></div>
-      <div className="sign-in-form-container">
+      <div className="form-image-container" id="background-image"></div>
+      <div className="form-container">
         <form id="signInForm">
           <div
             className="logo"
             onClick={() => {
-              window.location.href = "/";
+              props.history.push("/");
             }}
           ></div>
           <h3>Log in</h3>
@@ -140,6 +143,7 @@ function LogInForm(props) {
                 type="password"
               />
               <StyledButton
+                type="submit"
                 sx={{ marginTop: "4%" }}
                 size="large"
                 fullWidth
@@ -150,13 +154,21 @@ function LogInForm(props) {
               </StyledButton>
               <div>
                 <br />
-                <a
+                <button
+                  type="button"
+                  style={{
+                    outline: "none",
+                    backgroundColor: "transparent",
+                    border: "none",
+                  }}
                   className="signup-link"
-                  href="/signup"
-                  rel="noreferrer noopener"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    props.history.push("/signup");
+                  }}
                 >
-                  Don't have an account? Sign Up
-                </a>
+                  Don't have an account? Sign Up!
+                </button>
               </div>
             </>
           )}

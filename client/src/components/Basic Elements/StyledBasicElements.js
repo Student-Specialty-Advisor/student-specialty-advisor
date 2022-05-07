@@ -1,4 +1,12 @@
-import { Button, MenuItem, Radio, TextField } from "@mui/material";
+import {
+  Button,
+  MenuItem,
+  Radio,
+  TextField,
+  Stepper,
+  ListItem,
+  BottomNavigation,
+} from "@mui/material";
 import styled from "@emotion/styled";
 
 export const StyledTextField = styled(TextField)({
@@ -13,8 +21,10 @@ export const StyledTextField = styled(TextField)({
   },
   "& input.MuiOutlinedInput-input": {
     color: "var(--mydarkerblue)",
+    backgroundColor: "white",
   },
   "& .MuiOutlinedInput-root": {
+    backgroundColor: "white",
     "& fieldset": {
       borderColor: "var(--mydarkblue)",
     },
@@ -24,10 +34,12 @@ export const StyledTextField = styled(TextField)({
     "&.Mui-focused fieldset": {
       borderColor: "var(--myblue)",
     },
+    color: "var(--mydarkerblue)",
   },
 });
 
 export const StyledMenuItem = styled(MenuItem)({
+  color: "var(--mydarkerblue)",
   "&:hover": {
     backgroundColor: "var(--myblue)",
   },
@@ -53,4 +65,25 @@ export const StyledRadio = styled(Radio)({
   "&.Mui-checked": {
     color: "orange",
   },
+});
+
+export const StyledStepper = styled(Stepper)({
+  "& .MuiStepIcon-root text": {
+    fill: "black",
+    fontWeight: "bold",
+  },
+  "& .MuiStepIcon-root.Mui-active": {
+    color: "orange",
+  },
+});
+
+export const StyledListItem = styled(ListItem)({
+  color: "white",
+  "&:hover": {
+    backgroundColor: "rgba(255,255,255,0.2)",
+  },
+});
+
+export const StyledBottomNavigation = styled(BottomNavigation)({
+  backgroundColor: "var(--mydarkblue)",
 });

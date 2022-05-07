@@ -2,11 +2,13 @@ import React from "react";
 import AuthService from "../../../services/AuthService";
 import MemberCard from "../../Team/MemberCard";
 import Footer from "../Footer";
-import { LinearProgress } from "@mui/material";
+import { LinearProgress, Skeleton } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import { StyledButton } from "../../Basic Elements/StyledBasicElements";
 import fetchService from "../../../services/fetchService";
 import AchievementsCard from "./AchievementsCard";
 import { createAchievementInfo } from "../../../services/achievements";
+
 function Home(props) {
   React.useEffect(() => {
     document.title = "Student Specialty Advisor";
@@ -21,50 +23,53 @@ function Home(props) {
           <img className="home-public-head-bg" alt=""></img>
           <h1>Student Specialty Advisor</h1>
           <h2>By Students, For Students.</h2>
-          <br />
           <p>
             Free, Reliable & Safe. Let us help you get things done. Join the
             family now!
           </p>
-          <button
+          <StyledButton
+            variant="contained"
+            size="large"
+            sx={{ minWidth: "20%", animation: "fadeInWithTranslateY 1.5s" }}
             onClick={() => {
               props.history.push("/signup");
             }}
           >
             Sign Up For Free
-          </button>
-          <br /> <br /> <br />
+          </StyledButton>
           <p>“Good Advice Is Beyond All Price”</p>
         </div>
-        <div className="home-public-mid">
-          <h1>All the info you need in one place.</h1>
-          <br />
-          <p>
-            Choosing a specialty might define your future career. We & the SMU
-            community will help you pick a decision you will not regret.
-          </p>
+        <div className="home-public-text-with-image">
+          <div className="home-public-mid">
+            <h1>All the info you need in one place.</h1>
+            <br />
+            <p>
+              Choosing a specialty might define your future career. We & the SMU
+              community will help you pick a decision you will not regret.
+            </p>
+          </div>
+          <div className="home-public-mid-img"></div>
         </div>
-        <br /> <br /> <br />
-        <div className="home-public-mid-img"></div>
-        <div className="home-public-mid-other">
-          <h1>So.. What is it?</h1>
-          <p>
-            Student Specialty Advisor is a free service, delivered as a
-            web-based multifeatured app to SMU students.
-            <br />
-            <br />
-            We believe that with what this project provides, choosing a
-            specialty has never been easier.
-            <br />
-            <br />
-            Gone are the days of "I am not sure", "I don't know the difference"
-            & "What if".
-          </p>
-        </div>
-        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-        <div className="home-public-mid-other-img">
-          <div id="side-a"></div>
-          <div id="side-b"></div>
+        <div className="home-public-text-with-image">
+          <div className="home-public-mid-other-img">
+            <div id="side-a"></div>
+            <div id="side-b"></div>
+          </div>
+          <div className="home-public-mid-other">
+            <h1>So.. What is it?</h1>
+            <p>
+              Student Specialty Advisor is a free service, delivered as a
+              web-based multifeatured app to SMU students.
+              <br />
+              <br />
+              We believe that with what this project provides, choosing a
+              specialty has never been easier.
+              <br />
+              <br />
+              Gone are the days of "I am not sure", "I don't know the
+              difference" & "What if".
+            </p>
+          </div>
         </div>
         <div className="home-public-bot">
           <h1>Access multiple features at any time!</h1>
@@ -105,28 +110,27 @@ function Home(props) {
           <h1>Cooking the website with love:</h1>
           <ul>
             <MemberCard
+              id="aymen"
               fullname="Aymen HAMMAMI"
-              email="contact"
-              fb="https://www.facebook.com"
-              github="https://www.github.com"
+              email="hammami.aym@outlook.com"
+              github="https://www.github.com/aymendps"
             />
             <MemberCard
+              id="youssef"
               fullname="Youssef AYDI"
-              email="contact"
-              fb="https://www.facebook.com"
-              github="https://www.github.com"
+              email="youssefaydi7@gmail.com"
+              github="https://github.com/youssef-aydi"
             />
             <MemberCard
               fullname="Aziz MAAZOUZ"
               email="contact"
-              fb="https://www.facebook.com"
               github="https://www.github.com"
             />
             <MemberCard
+              id="mahdi"
               fullname="Mahdi KLOUZ"
-              email="contact"
-              fb="https://www.facebook.com"
-              github="https://www.github.com"
+              email="mahdiklouz@gmail.com"
+              github="https://github.com/mahdi232"
             />
           </ul>
         </div>
@@ -164,6 +168,20 @@ function Home(props) {
         />
       );
     });
+
+    const loadingCards = Array(6)
+      .fill("")
+      .map((element, index) => {
+        return (
+          <Skeleton
+            key={"skeleton" + index}
+            sx={{ bgcolor: "grey.100" }}
+            variant="rectangular"
+            className="achievement-card"
+            animation="wave"
+          />
+        );
+      });
 
     const calculateProgress = (achievements) => {
       var completed = 0;
@@ -224,9 +242,9 @@ function Home(props) {
             right choice!
           </h2>
           <div
+            className="achievements-progress-bar-label"
             style={{
               display: "flex",
-              width: "78%",
               justifyContent: "space-between",
               margin: "auto",
               paddingBottom: "0.5%",
@@ -236,9 +254,9 @@ function Home(props) {
             <h4>{progress}%</h4>
           </div>
           <div
+            className="achievements-progress-bar-wrapper"
             style={{
               position: "relative",
-              width: "80%",
               margin: "auto",
               backgroundColor: "white",
               paddingRight: "0.4%",
@@ -259,13 +277,15 @@ function Home(props) {
             display: "flex",
             width: "80%",
             margin: "auto",
-            marginTop: "5.5vh",
+            marginTop: "5%",
             justifyContent: "space-evenly",
             flexWrap: "wrap",
+            marginBottom: "10%",
           }}
         >
-          {cardsList}
+          {achievementCards.length === 0 ? loadingCards : cardsList}
         </div>
+        <Footer id="no-margin" />
       </>
     );
   };

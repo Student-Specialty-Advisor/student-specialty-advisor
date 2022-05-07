@@ -39,6 +39,7 @@ function Quiz(props) {
           id="start-button"
           onClick={() => {
             document.getElementById("start-button").disabled = true;
+            window.scrollTo(0, 0);
             var lastOne = document.getElementById("n6");
             document.getElementById("n1").className = "quiz-transition-start";
             document.getElementById("n2").className = "quiz-transition-start";
@@ -46,7 +47,7 @@ function Quiz(props) {
             document.getElementById("n4").className = "quiz-transition-start";
             document.getElementById("n5").className = "quiz-transition-start";
             document.getElementById("n6").className = "quiz-transition-start";
-            lastOne.addEventListener("animationend", function () {
+            lastOne.addEventListener("animationend", function() {
               props.history.push("/quiz/started");
               window.scrollTo(0, 0);
             });

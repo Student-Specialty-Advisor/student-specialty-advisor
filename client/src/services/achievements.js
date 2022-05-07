@@ -6,7 +6,44 @@ export const completeAchievement = (achievementDB, achievementTitle) => {
   var json = {};
   json[achievementDB] = true;
   var oldAchievements = JSON.parse(localStorage.getItem("userAchievements"));
-  if (oldAchievements[achievementDB] === false) {
+  if (oldAchievements === null) {
+    fetchService
+      .doGET("achievements/" + AuthService.getCurrentUser().id)
+      .then((response) => {
+        if (response.success) {
+          localStorage.setItem(
+            "userAchievements",
+            JSON.stringify(response.achievements)
+          );
+          if (response.achievements[achievementDB] === false) {
+            fetchService
+              .doPUT("achievements/" + AuthService.getCurrentUser().id, json)
+              .then((response) => {
+                if (response.success) {
+                  localStorage.setItem(
+                    "userAchievements",
+                    JSON.stringify(response.achievements)
+                  );
+                  alertify.message(
+                    "<strong>Achievement Completed!</strong><br/>" +
+                      achievementTitle
+                  );
+                } else {
+                  throw response;
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
+        } else {
+          throw response;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } else if (oldAchievements[achievementDB] === false) {
     fetchService
       .doPUT("achievements/" + AuthService.getCurrentUser().id, json)
       .then((response) => {
@@ -55,7 +92,10 @@ export const createAchievementInfo = (achievementDB) => {
         description: "Request a meeting with an advisor",
       };
     case "forumCompletion":
-      return { title: "Community Forum", description: "Come Back Soon!" };
+      return {
+        title: "Community Forum",
+        description: "Post your first comment in one of the threads",
+      };
     default:
       return { title: "Unknown", description: "how did this happen" };
   }

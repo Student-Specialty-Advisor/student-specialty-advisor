@@ -1,12 +1,11 @@
 function Footer(props) {
   return (
     <div className="public-footer" id={props.id}>
-      <br />
       <div className="public-footer-logo"></div>
       <ul>
         <li>
           <a
-            href="https://www.google.com"
+            href="https://forms.gle/NXtPETbeWrwZ223p8"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -15,7 +14,7 @@ function Footer(props) {
         </li>
         <li>
           <a
-            href="https://www.google.com"
+            href="https://forms.gle/222PYbZPwL5AKXnP7"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -24,16 +23,16 @@ function Footer(props) {
         </li>
         <li>
           <a
-            href="https://www.google.com"
+            href="mailto: studentspecialtyadvisor@outlook.com"
             target="_blank"
             rel="noreferrer noopener"
           >
-            Contact the team
+            Contact us
           </a>
         </li>
         <li>
           <a
-            href="https://www.google.com"
+            href="https://github.com/SEJG2-MYGROUP"
             target="_blank"
             rel="noreferrer noopener"
           >

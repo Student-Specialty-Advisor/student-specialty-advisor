@@ -30,6 +30,19 @@ class AuthService {
     const json = await response.json();
     return json;
   }
+  async verifyAccount(id) {
+    const response = await fetch(
+      process.env.REACT_APP_API_URL + "verify/" + id,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const json = await response.json();
+    return json;
+  }
   getCurrentUser() {
     return JSON.parse(localStorage.getItem("user"));
   }

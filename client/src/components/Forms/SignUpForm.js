@@ -1,123 +1,346 @@
 import { Redirect } from "react-router-dom";
 import AuthService from "../../services/AuthService";
-import utils from "../utils";
 import alertify from "alertifyjs";
 import React from "react";
+import {
+  Step,
+  StepButton,
+  StepContent,
+  StepLabel,
+  Button,
+} from "@mui/material";
+import {
+  StyledButton,
+  StyledMenuItem,
+  StyledStepper,
+  StyledTextField,
+} from "../Basic Elements/StyledBasicElements";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 function SignUpForm(props) {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [yearValue, setYearValue] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [password2, setPassword2] = React.useState("");
+  const [continueDisabled, setContinueDisabled] = React.useState(true);
+  const [signUpDisabled, setSignUpDisabled] = React.useState(true);
+  const [notMatching, setNotMatching] = React.useState(false);
+  const [invalidEmail, setInvalidEmail] = React.useState(false);
+
+  const steps = ["Fill in your information", "Fill in your credentials "];
+  const loginPagePath = "/login";
+  const isLoggedIn = AuthService.isLoggedIn();
+
   React.useEffect(() => {
     document.title = "Sign Up - Student Specialty Advisor";
   }, []);
 
-  const loginPagePath = "/login";
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
 
-  const isLoggedIn = AuthService.isLoggedIn();
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
-  const getFormData = () => {
-    var form = document.getElementById("signUpForm").elements;
-    var firstName = utils.check(form["iFirstName"].value);
-    if (firstName === null) return utils.emptyInput;
-    var lastName = utils.check(form["iLastName"].value);
-    if (lastName === null) return utils.emptyInput;
-    var email = utils.check(form["iEmail"].value);
-    if (email === null) return utils.emptyInput;
-    if (!utils.isValidEmail(email)) return utils.invalidEmail;
-    var password = utils.check(form["iPassword"].value);
-    if (password === null) return utils.emptyInput;
-    var repeatPassword = utils.check(form["iPassword2"].value);
-    if (repeatPassword === null) return utils.emptyInput;
-    if (password !== repeatPassword) return utils.invalidPassword;
+  const handleFirstStep = () => {
+    if (firstName === "" || lastName === "" || yearValue === "") {
+      setContinueDisabled(true);
+    } else {
+      setContinueDisabled(false);
+    }
+  };
 
-    const formDataHolder = {
-      firstName: firstName,
-      lastName: lastName,
-      universityYear:
-        document.getElementById("signUpForm").elements["iUniversityYear"].value,
-      email: email,
-      password: password,
-    };
+  const handlePassword = () => {
+    if (password === "" || password2 === "") {
+      setNotMatching(false);
+    } else {
+      if (password !== password2) {
+        setNotMatching(true);
+      } else {
+        setNotMatching(false);
+      }
+    }
+  };
 
-    return formDataHolder; // If all values are there, create an object with them and return it
+  const handleEmail = () => {
+    if (email !== "") {
+      if (
+        email.split("@")[1] === "medtech.tn" ||
+        email.split("@")[1] === "smu.tn"
+      ) {
+        setInvalidEmail(false);
+      } else {
+        setInvalidEmail(true);
+      }
+    } else {
+      setInvalidEmail(false);
+    }
+  };
+
+  const handleSecondStep = () => {
+    if (notMatching === true || invalidEmail === true) {
+      setSignUpDisabled(true);
+    } else if (email === "" || password === "" || password2 === "") {
+      setSignUpDisabled(true);
+    } else {
+      setSignUpDisabled(false);
+    }
   };
 
   const task = (e) => {
     e.preventDefault(); // Prevent form from refreshing the page on button click
-    var data = getFormData();
-    if (data === utils.emptyInput) {
-      alertify.warning("Hey! Some important fields were left empty!");
-    } else if (data === utils.invalidEmail) {
-      alertify.warning("Make sure to enter a valid SMU / MEDTECH e-mail!");
-    } else if (data === utils.invalidPassword) {
-      alertify.warning("Password fields are not matching!");
-    } else {
-      AuthService.register(data).then((response) => {
+    var data = {
+      firstName: firstName,
+      lastName: lastName,
+      universityYear: yearValue,
+      email: email,
+      password: password,
+    };
+    AuthService.register(data)
+      .then((response) => {
         if (response.keyPattern) {
           alertify.error(
             "Seems like this email is already used by another account!"
           );
         } else {
-          alertify.success(
-            "Sign up was successful. You can now log into your account!"
-          );
-          props.history.push(loginPagePath);
+          handleNext();
         }
+      })
+      .catch((error) => {
+        console.log(error);
+        alertify.error(
+          "Something went wrong when creating the account. Please try again later."
+        );
       });
-    }
   };
+
+  const getBackgroundImage = () => {
+    var images = ["image1", "image2", "image3"];
+    var image = images[Math.floor(Math.random() * images.length)];
+    document.getElementById("background-image").classList.add(image);
+  };
+
+  React.useEffect(getBackgroundImage, []);
+
+  React.useEffect(handleFirstStep, [firstName, lastName, yearValue]);
+
+  React.useEffect(handlePassword, [password, password2]);
+
+  React.useEffect(handleEmail, [email]);
+
+  React.useEffect(handleSecondStep, [
+    notMatching,
+    invalidEmail,
+    email,
+    password,
+    password2,
+  ]);
 
   const Form = (
     <div className="sign-up-background">
-      <div className="sign-up-form-container">
+      <div className="form-image-container" id="background-image"></div>
+      <div className="form-container">
         <form id="signUpForm">
-          <h3>Create your account in a few steps!</h3>
-          <label htmlFor="iFirstName"></label>
-          <br></br>
-          <input
-            type="text"
-            name="iFirstName"
-            placeholder="First Name.."
-          ></input>
-          <br></br>
-          <label htmlFor="iLastName"></label>
-          <br></br>
-          <input type="text" name="iLastName" placeholder="Last Name.."></input>
-          <br></br>
-          <label htmlFor="iUniversityYear">University Year :</label>
-          <select name="iUniversityYear">
-            <option value="Freshman">Freshman year</option>
-            <option value="Sophomore">Sophomore year</option>
-            <option value="Junior">Junior year</option>
-            <option value="Senior">Senior year</option>
-            <option value="Final">Final year</option>
-          </select>
-          <br></br>
-          <label htmlFor="iEmail"></label>
-          <br></br>
-          <input
-            type="text"
-            name="iEmail"
-            placeholder="E-mail Address.."
-          ></input>
-          <br></br>
-          <label htmlFor="iPassword"></label>
-          <br></br>
-          <input
-            type="password"
-            name="iPassword"
-            placeholder="Password.."
-          ></input>
-          <br></br>
-          <label htmlFor="iPassword2"></label>
-          <br></br>
-          <input
-            type="password"
-            name="iPassword2"
-            placeholder="Confirm Password.."
-          ></input>
-          <br></br>
-          <button id="taskButton" onClick={task}>
-            SIGN UP
-          </button>
+          <div
+            className="logo"
+            onClick={() => {
+              props.history.push("/");
+            }}
+          ></div>
+          <h3>Sign Up</h3>
+          <StyledStepper
+            sx={{ width: "100%" }}
+            activeStep={activeStep}
+            orientation="vertical"
+          >
+            <Step key={steps[0]}>
+              <StepButton
+                onClick={() => {
+                  setActiveStep(0);
+                }}
+              >
+                {steps[0]}
+              </StepButton>
+              <StepContent TransitionProps={{ unmountOnExit: false }}>
+                <StyledTextField
+                  fullWidth
+                  variant="outlined"
+                  label="First Name"
+                  placeholder="E.g: Aymen"
+                  margin="dense"
+                  value={firstName}
+                  onChange={(event) => {
+                    setFirstName(event.target.value);
+                  }}
+                />
+                <StyledTextField
+                  fullWidth
+                  variant="outlined"
+                  label="Last Name"
+                  placeholder="E.g: Hammami"
+                  margin="dense"
+                  value={lastName}
+                  onChange={(event) => {
+                    setLastName(event.target.value);
+                  }}
+                />
+                <StyledTextField
+                  select
+                  fullWidth
+                  variant="outlined"
+                  label="University Year"
+                  margin="dense"
+                  value={yearValue}
+                  onChange={(event) => {
+                    setYearValue(event.target.value);
+                  }}
+                >
+                  <StyledMenuItem value="Freshman">
+                    Freshman year
+                  </StyledMenuItem>
+                  <StyledMenuItem value="Sophomore">
+                    Sophomore year
+                  </StyledMenuItem>
+                  <StyledMenuItem value="Junior">Junior year</StyledMenuItem>
+                  <StyledMenuItem value="Senior">Senior year</StyledMenuItem>
+                  <StyledMenuItem value="Final">Final year</StyledMenuItem>
+                </StyledTextField>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <StyledButton
+                    sx={{ marginTop: "2%" }}
+                    size="large"
+                    variant="contained"
+                    onClick={handleNext}
+                    disabled={continueDisabled}
+                  >
+                    Continue
+                  </StyledButton>
+                  <button
+                    type="button"
+                    style={{
+                      outline: "none",
+                      backgroundColor: "transparent",
+                      border: "none",
+                    }}
+                    className="login-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.history.push("/login");
+                    }}
+                  >
+                    Already have an account? Log in!
+                  </button>
+                </div>
+              </StepContent>
+            </Step>
+            <Step key={steps[1]}>
+              <StepLabel>{steps[1]}</StepLabel>
+              <StepContent TransitionProps={{ unmountOnExit: false }}>
+                <StyledTextField
+                  fullWidth
+                  variant="outlined"
+                  label="Email"
+                  placeholder="E.g: aymen.hammami@medtech.tn"
+                  margin="dense"
+                  value={email}
+                  error={invalidEmail}
+                  helperText={
+                    invalidEmail
+                      ? "Email should end with @medtech.tn or @smu.tn"
+                      : ""
+                  }
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                  }}
+                />
+                <StyledTextField
+                  fullWidth
+                  variant="outlined"
+                  label="Password"
+                  placeholder="E.g: aymen123-"
+                  margin="dense"
+                  type="password"
+                  value={password}
+                  error={notMatching}
+                  helperText={notMatching ? "Fields are not matching." : ""}
+                  onChange={(event) => {
+                    setPassword(event.target.value);
+                  }}
+                />
+                <StyledTextField
+                  fullWidth
+                  variant="outlined"
+                  label="Repeat Password"
+                  margin="dense"
+                  type="password"
+                  value={password2}
+                  error={notMatching}
+                  helperText={notMatching ? "Fields are not matching." : ""}
+                  onChange={(event) => {
+                    setPassword2(event.target.value);
+                  }}
+                />
+                <StyledButton
+                  sx={{ marginTop: "2%" }}
+                  size="large"
+                  variant="contained"
+                  onClick={task}
+                  disabled={signUpDisabled}
+                >
+                  Sign Up
+                </StyledButton>
+                <Button
+                  sx={{
+                    marginTop: "2%",
+                    marginLeft: "2%",
+                  }}
+                  size="large"
+                  variant="contained"
+                  onClick={handleBack}
+                >
+                  Back
+                </Button>
+              </StepContent>
+            </Step>
+          </StyledStepper>
+          {activeStep === 2 ? (
+            <div
+              style={{
+                marginTop: "10%",
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              <CheckCircleIcon fontSize="large" sx={{ color: "#1976d2" }} />
+              <p>
+                Signing up was successful!
+                <br />
+                We sent you a verification email. Check it out!
+              </p>
+              <StyledButton
+                variant="contained"
+                sx={{ width: "50%" }}
+                onClick={() => {
+                  props.history.push(loginPagePath);
+                }}
+              >
+                Continue to Login
+              </StyledButton>
+            </div>
+          ) : null}
         </form>
       </div>
     </div>

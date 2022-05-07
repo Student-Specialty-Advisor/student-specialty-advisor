@@ -1,12 +1,15 @@
+import { useMediaQuery } from "@mui/material";
 import React from "react";
-import fetchService from "../../../services/fetchService";
-import Loading from "../../Loading";
-import Footer from "../Footer";
+import { Redirect } from "react-router-dom";
+import fetchService from "../../../../services/fetchService";
+import { StyledButton } from "../../../Basic Elements/StyledBasicElements";
+import Loading from "../../../Loading";
+import Footer from "../../Footer";
 import MeetingsRequestPopup from "./MeetingsRequestPopup";
 
 function MeetingsRequest() {
   React.useEffect(() => {
-    document.title = "Meetings - Request - Student Specialty Advisor";
+    document.title = "Meetings - Schedule - Student Specialty Advisor";
   }, []);
 
   // schedule represents the 9 rows x 6 cols table: schedule[row][col]: schedule[0][2] => 8 am | Wednesday
@@ -33,6 +36,8 @@ function MeetingsRequest() {
     email: "",
     meetingID: "",
   });
+  const [popupReset, setPopupReset] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
 
   const fetchSchedule = () => {
     fetchService
@@ -53,12 +58,15 @@ function MeetingsRequest() {
           for (var i = 0; i < response.meetings.length; i++) {
             if (response.meetings[i].col < response.currentDayIndex) {
               response.meetings[i].isAvailable = false;
+              response.meetings[i].passed = true;
             }
             array[response.meetings[i].row][response.meetings[i].col] =
               response.meetings[i];
           }
           setSchedule(array);
           setIsLoaded(true);
+        } else {
+          throw response;
         }
       })
       .catch((error) => {
@@ -75,6 +83,7 @@ function MeetingsRequest() {
           onClick={() => {
             setPopupIsShown(false);
             setPopupShowNext(false);
+            setPopupReset(true);
           }}
         ></td>
       );
@@ -103,9 +112,12 @@ function MeetingsRequest() {
               Advisor for {element.advisor.specialty}
             </p>
             {element.isAvailable === true ? (
-              <button
+              <StyledButton
+                sx={{ backgroundColor: "white !important", fontSize: "0.8rem" }}
+                variant="contained"
                 onClick={() => {
                   setPopupShowNext(false);
+                  setPopupReset(true);
                   setPopupInfo({
                     col: col,
                     name: element.advisor.fullName,
@@ -124,9 +136,15 @@ function MeetingsRequest() {
                 }}
               >
                 Request Meeting
-              </button>
+              </StyledButton>
             ) : (
-              <button disabled>Unavailable\Reserved</button>
+              <StyledButton
+                variant="contained"
+                sx={{ backgroundColor: "white !important", fontSize: "0.8rem" }}
+                disabled
+              >
+                {element.passed ? "unavailable" : "reserved"}
+              </StyledButton>
             )}
           </div>
         </td>
@@ -164,9 +182,14 @@ function MeetingsRequest() {
   });
   //#endregion rows
 
-  React.useEffect(fetchSchedule, []);
+  React.useEffect(() => {
+    fetchSchedule();
+    return () => {
+      setSchedule([]);
+    };
+  }, []);
 
-  return (
+  return !isMobile ? (
     <div className="meetings-request-container">
       {isLoaded ? (
         <>
@@ -227,12 +250,15 @@ function MeetingsRequest() {
             </tbody>
           </table>
           <MeetingsRequestPopup
+            key="meetings-request-popup"
             isShown={popupIsShown}
             setIsShown={setPopupIsShown}
             showNext={popupShowNext}
             setShowNext={setPopupShowNext}
             info={popupInfo}
             fetchSchedule={fetchSchedule}
+            reset={popupReset}
+            setReset={setPopupReset}
           />
           <Footer />
         </>
@@ -242,6 +268,8 @@ function MeetingsRequest() {
         </>
       )}
     </div>
+  ) : (
+    <Redirect to="/meetings/schedule/mobile" />
   );
 }
 

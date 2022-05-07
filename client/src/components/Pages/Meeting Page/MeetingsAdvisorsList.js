@@ -1,15 +1,10 @@
 import React from "react";
-import AdvisorCard from "./AdvisorCard";
+import AdvisorCard from "../../Team/AdvisorCard";
 import fetchService from "../../../services/fetchService";
 import Footer from "../Footer";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from "@mui/material";
+import Carousel from "react-material-ui-carousel";
 import { StyledButton } from "../../Basic Elements/StyledBasicElements";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useMediaQuery } from "@mui/material";
 
 function MeetingsAdvisorsList() {
   React.useEffect(() => {
@@ -21,6 +16,7 @@ function MeetingsAdvisorsList() {
     const json = await fetchService.doGET("meeting/advisors");
     setAdvisors(json);
   };
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
 
   const mappingFunction = (advisor) => {
     return (
@@ -29,6 +25,7 @@ function MeetingsAdvisorsList() {
         fullname={advisor.fullName}
         picture={advisor.imageUrl}
         profession={advisor.profession}
+        specialty={advisor.specialty}
         quote={advisor.quote}
         email={advisor.email}
         linkedin={advisor.linkedinUrl}
@@ -36,98 +33,43 @@ function MeetingsAdvisorsList() {
     );
   };
 
-  const advisorsSE = advisors.filter((advisor) => {
-    return advisor.specialty === "SE";
-  });
-  const advisorsCSE = advisors.filter((advisor) => {
-    return advisor.specialty === "CSE";
-  });
-  const advisorsREE = advisors.filter((advisor) => {
-    return advisor.specialty === "REE";
-  });
-
   return (
     <>
       <div className="about-container-header">
         <h1>Meet the Team!</h1>
         <h4>Get the guidance you need from friends and familiar faces</h4>
+      </div>
+      <Carousel
+        height={400}
+        navButtonsAlwaysInvisible={true}
+        className="advisors-carousel"
+        a
+      >
+        {advisors.map(mappingFunction)}
+      </Carousel>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: isMobile && "120px",
+        }}
+      >
         <p>
           <strong>Want to be the change?</strong>
         </p>
         <StyledButton
           size="large"
-          sx={{ width: "20%" }}
           variant="contained"
           onClick={() => {
-            window.location.href = "the form link";
+            window.open("https://forms.gle/ontbQo6ypicRPUb3A", "blank");
           }}
         >
           Become an advisor
         </StyledButton>
       </div>
-      <div className="meetings-advisors-accordion">
-        <Accordion
-          sx={{
-            color: "var(--mydarkblue)",
-          }}
-        >
-          <AccordionSummary
-            sx={{ border: "solid" }}
-            expandIcon={<ExpandMoreIcon />}
-          >
-            <Typography sx={{ width: "33%", flexShrink: 0 }}>
-              <strong>Software Engineering Advisors</strong>
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
-            <div className="meetings-advisors-list">
-              {advisorsSE.map(mappingFunction)}
-            </div>
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion
-          sx={{
-            color: "var(--mydarkblue)",
-          }}
-        >
-          <AccordionSummary
-            sx={{ border: "solid", marginTop: "2%" }}
-            expandIcon={<ExpandMoreIcon />}
-          >
-            <Typography sx={{ width: "33%", flexShrink: 0 }}>
-              <strong>Computer Systems Engineering Advisors</strong>
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
-            <div className="meetings-advisors-list">
-              {advisorsCSE.map(mappingFunction)}
-            </div>
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion
-          sx={{
-            color: "var(--mydarkblue)",
-          }}
-        >
-          <AccordionSummary
-            sx={{ border: "solid", marginTop: "2%" }}
-            expandIcon={<ExpandMoreIcon />}
-          >
-            <Typography sx={{ width: "33%", flexShrink: 0 }}>
-              <strong>Renewable Energy Engineering Advisors</strong>
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails sx={{ border: "solid", borderTopStyle: "none" }}>
-            <div className="meetings-advisors-list">
-              {advisorsREE.map(mappingFunction)}
-            </div>
-          </AccordionDetails>
-        </Accordion>
-      </div>
-
-      <Footer />
+      {!isMobile && <Footer />}
     </>
   );
 }

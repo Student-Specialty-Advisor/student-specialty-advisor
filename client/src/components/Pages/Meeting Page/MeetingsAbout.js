@@ -1,12 +1,19 @@
 import React from "react";
 import Footer from "../Footer";
 import { completeAchievement } from "../../../services/achievements";
+import { StyledButton } from "../../Basic Elements/StyledBasicElements";
+import { useMediaQuery } from "@mui/material";
 
 function MeetingsAbout(props) {
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
+
+  React.useEffect(() => {
+    document.title = "Meetings - About - Student Specialty Advisor";
+  }, []);
+
   React.useEffect(() => {
     let achievementTimer = setTimeout(
-      () =>
-        completeAchievement("meetingsSectionCompletion", "Meetings & Advisors"),
+      () => completeAchievement("meetingsSectionCompletion", "About Meetings"),
       10000
     );
     return () => {
@@ -35,7 +42,7 @@ function MeetingsAbout(props) {
         </div>
         <div className="about-container-body-img"></div>
       </div>
-      <div className="about-container-body">
+      <div className="about-container-body" id="second">
         <div className="about-container-body-img" id="second"></div>
         <div className="about-container-body-text">
           <h3>How can I request a meeting?</h3>
@@ -72,22 +79,30 @@ function MeetingsAbout(props) {
         </div>
       </div>
       <div className="about-container-end">
-        <button
-          onClick={() => {
-            window.location.href = "/meetings/request";
-          }}
-        >
-          MEETINGS SCHEDULE
-        </button>
-        <button
+        <StyledButton
+          fullWidth
+          variant="contained"
+          size="large"
           onClick={() => {
             window.location.href = "/meetings/advisors";
           }}
         >
           THE ADVISORS
-        </button>
+        </StyledButton>
+        <StyledButton
+          fullWidth
+          variant="contained"
+          size="large"
+          onClick={() => {
+            window.location.href = isMobile
+              ? "/meetings/schedule/mobile"
+              : "/meetings/schedule";
+          }}
+        >
+          MEETINGS SCHEDULE
+        </StyledButton>
       </div>
-      <Footer />
+      {!isMobile && <Footer />}
     </>
   );
 }

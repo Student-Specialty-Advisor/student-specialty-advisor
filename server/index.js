@@ -10,6 +10,7 @@ const quizController = require("./controllers/quizController.js");
 const meetingController = require("./controllers/meetingController.js");
 const videoController = require("./controllers/videoController.js");
 const achievementsController = require("./controllers/achievementsController.js");
+const forumController = require("./controllers/forumController");
 const authJWT = require("./middlewares/authJWT");
 
 const app = express();
@@ -44,6 +45,9 @@ app.put(
   [authJWT.verifyToken],
   accountSystemController.EditAccount
 );
+
+// Use this endpoint to verify a user account
+app.put("/ssa-api/verify/:id", accountSystemController.HandleVerification);
 //#endregion
 
 //#region Program Compatibility Quiz
@@ -209,6 +213,44 @@ app.put(
   "/ssa-api/achievements/:userID",
   [authJWT.verifyToken],
   achievementsController.setAchievement
+);
+//#endregion
+
+//#region Forum
+app.get(
+  "/ssa-api/forum/comments/:name",
+  [authJWT.verifyToken],
+  forumController.getComments
+);
+app.get(
+  "/ssa-api/forum/threads",
+  [authJWT.verifyToken],
+  forumController.getThreads
+);
+app.put(
+  "/ssa-api/forum/threads/:name",
+  [authJWT.verifyToken],
+  forumController.saveComments
+);
+app.post(
+  "/ssa-api/forum/threads",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  forumController.createThread
+);
+app.put(
+  "/ssa-api/forum/threads/rename/:name",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  forumController.updateThread
+);
+app.delete(
+  "/ssa-api/forum/threads/:name",
+  [authJWT.verifyToken, authJWT.isAdmin],
+  forumController.deleteThread
+);
+app.put(
+  "/ssa-api/forum/comments/:id",
+  [authJWT.verifyToken],
+  forumController.deleteComment
 );
 //#endregion
 

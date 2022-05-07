@@ -18,24 +18,40 @@ import Profile from "./components/Pages/Profile Page/Profile";
 import ChangePassword from "./components/Pages/Profile Page/ChangePassword";
 import Quiz from "./components/Pages/Quiz Page/Quiz";
 import Programs from "./components/Pages/Programs/Programs";
-import Forum from "./components/Pages/Forum";
-import MeetingsRequest from "./components/Pages/Meeting Page/MeetingsRequest";
+import Forum from "./components/Pages/Forum Page/Forum";
 import MeetingsAbout from "./components/Pages/Meeting Page/MeetingsAbout";
 import MeetingsAdvisorsList from "./components/Pages/Meeting Page/MeetingsAdvisorsList";
+import MeetingsRequest from "./components/Pages/Meeting Page/Meetings Schedule/MeetingsRequest";
+import MeetingsRequestMobile from "./components/Pages/Meeting Page/Meetings Schedule/MeetingsRequestMobile";
 import QuizContainer from "./components/Pages/Quiz Page/QuizContainer";
 import VideosList from "./components/Pages/Videos Page/VideosList";
 import Dashboard from "./components/Pages/Dashboard Page/Dashboard";
-import ChatBotSSA from "./components/Chat Bot/ChatBotSSA";
+import ChatBotFloating from "./components/Chat Bot/ChatBotFloating";
+import ChatBotStatic from "./components/Chat Bot/ChatBotStatic";
 import NoMatch from "./components/Pages/NoMatch";
+import MeetingBottomNavbar from "./components/Pages/Meeting Page/MeetingBottomNavbar";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import VerifyAccount from "./components/VerifyAccount";
+import Thread from "./components/Pages/Forum Page/Thread";
 
 function App() {
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
   return (
     <Router>
       <Navbar />
       <AuthVerify />
-      <ChatBotSSA />
+      {!isMobile && <ChatBotFloating />}
+      <PrivateRoute
+        path={[
+          "/meetings/about",
+          "/meetings/advisors",
+          "/meetings/schedule/mobile",
+        ]}
+        component={MeetingBottomNavbar}
+      />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/verify/:id" component={VerifyAccount} />
         <AdminRoute exact path="/dashboard/:parameter" component={Dashboard} />
         <Redirect exact from="/dashboard" to="/dashboard/statistics" />
         <PrivateRoute exact path="/quiz" component={Quiz} />
@@ -53,8 +69,13 @@ function App() {
         <Redirect exact from="/videos" to="/videos/se" />
         <PrivateRoute
           exact
-          path="/meetings/request"
+          path="/meetings/schedule"
           component={MeetingsRequest}
+        />
+        <PrivateRoute
+          exact
+          path="/meetings/schedule/mobile"
+          component={MeetingsRequestMobile}
         />
         <PrivateRoute
           exact
@@ -62,7 +83,13 @@ function App() {
           component={MeetingsAdvisorsList}
         />
         <PrivateRoute exact path="/meetings/about" component={MeetingsAbout} />
+        <Redirect exact from="/meetings" to="/meetings/about" />
         <PrivateRoute exact path="/forum" component={Forum} />
+        <PrivateRoute exact path="/forum/threads/:thread" component={Thread} />
+        <Redirect exact from="/forum/threads" to="/forum" />
+        {isMobile && (
+          <Route exact path="/assistance" component={ChatBotStatic} />
+        )}
         <Route exact path="/login" component={LogInForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <PrivateRoute exact path="/profile" component={Profile} />

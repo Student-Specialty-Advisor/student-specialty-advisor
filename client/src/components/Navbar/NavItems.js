@@ -35,19 +35,19 @@ export const DropDownElements1 = [
   {
     id: 1,
     title: "Software Engineering",
-    path: "/programs/se/overview",
+    path: "/programs/se/",
     cName: "subMenu-item",
   },
   {
     id: 2,
     title: "Computer Systems Engineering",
-    path: "/programs/cse/overview",
+    path: "/programs/cse/",
     cName: "subMenu-item",
   },
   {
     id: 3,
     title: "Renewable Energy Engineering",
-    path: "/programs/re/overview",
+    path: "/programs/re/",
     cName: "subMenu-item",
   },
 ];
@@ -86,8 +86,8 @@ export const DropDownElements3 = [
   },
   {
     id: 3,
-    title: "Request",
-    path: "/meetings/request",
+    title: "Schedule",
+    path: "/meetings/schedule",
     cName: "subMenu-item3",
   },
 ];

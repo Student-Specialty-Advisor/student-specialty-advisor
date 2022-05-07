@@ -18,28 +18,30 @@ const sendEmail = (to, subject, text, html) => {
     html: html,
   };
   if (process.env.SHOULD_SEND_EMAIL === "YES") {
-    transporter.sendMail(mailData, (error, info) => {
-      try {
-        if (error) {
-          console.log(error);
-          return null;
+    return new Promise((resolve, reject) => {
+      transporter.sendMail(mailData, (error, info) => {
+        try {
+          if (error) {
+            reject({ error: error, message: error });
+          }
+          resolve({
+            success: 1,
+            message: "Email was sent successfully",
+            message_id: info.messageId,
+          });
+        } catch (exception) {
+          reject({ error: exception, message: "exception" });
         }
-        return {
-          success: 1,
-          message: "Email was sent successfully",
-          message_id: info.messageId,
-        };
-      } catch (exception) {
-        console.log(exception);
-        return null;
-      }
+      });
     });
   } else {
-    return {
-      success: 1,
-      message:
-        "Dev mode is enabled, therefore no email was sent. If you want to send an email, change SHOULD_SEND_EMAIL to YES",
-    };
+    return new Promise((resolve, reject) => {
+      resolve({
+        success: 1,
+        message:
+          "Dev mode is enabled, therefore no email was sent. If you want to send an email, change SHOULD_SEND_EMAIL to YES",
+      });
+    });
   }
 };
 

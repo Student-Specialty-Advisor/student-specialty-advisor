@@ -8,8 +8,31 @@ import {
   DropDownElements2,
   DropDownElements3,
 } from "./NavItems";
+import {
+  StyledButton,
+  StyledListItem,
+} from "../Basic Elements/StyledBasicElements";
+import {
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import ProfileIcon from "@mui/icons-material/AccountBox";
+import LogoutIcon from "@mui/icons-material/Logout";
+import DashboardIcon from "@mui/icons-material/Settings";
+import QuizIcon from "@mui/icons-material/Quiz";
+import ProgramsIcon from "@mui/icons-material/School";
+import VideosIcon from "@mui/icons-material/VideoLibrary";
+import MeetingsIcon from "@mui/icons-material/Groups";
+import ForumIcon from "@mui/icons-material/Forum";
+import ChatBotIcon from "@mui/icons-material/SmartToyOutlined";
 
 function PrivateNavbar(props) {
+  const [isOpen, setIsOpen] = React.useState(false);
   const [dropDown, showDropDown] = useState(false);
   const [dropDown2, showDropDown2] = useState(false);
   const [dropDown3, showDropDown3] = useState(false);
@@ -38,109 +61,260 @@ function PrivateNavbar(props) {
               ></img>
             </Link>
           </div>
-          <ul className="nav-items">
-            {isAdmin ? (
-              <li className="nav-item">
-                <Link
-                  to="/dashboard"
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  Dashboard
-                </Link>
-              </li>
-            ) : null}
-            {NavItems.map((item) => {
-              if (item.title === "Programs") {
-                return (
-                  <li
-                    key={item.id}
-                    className={item.cName}
-                    onMouseEnter={() => showDropDown(true)}
-                    onMouseLeave={() => showDropDown(false)}
-                  >
-                    <p>{item.title}</p>
-                    {dropDown && (
-                      <Dropdown
-                        elements={DropDownElements1}
-                        classClicked="services-subMenu clicked"
-                        classSubMenu="services-subMenu"
-                      />
-                    )}
-                  </li>
-                );
-              } else if (item.title === "Videos") {
-                return (
-                  <li
-                    key={item.id}
-                    className={item.cName}
-                    onMouseEnter={() => showDropDown2(true)}
-                    onMouseLeave={() => showDropDown2(false)}
-                  >
-                    <p>{item.title}</p>
-                    {dropDown2 && (
-                      <Dropdown
-                        elements={DropDownElements2}
-                        classClicked="services-subMenu clicked2"
-                        classSubMenu="services-subMenu2"
-                      />
-                    )}
-                  </li>
-                );
-              } else if (item.title === "Meetings") {
-                return (
-                  <li
-                    key={item.id}
-                    className={item.cName}
-                    onMouseEnter={() => showDropDown3(true)}
-                    onMouseLeave={() => showDropDown3(false)}
-                  >
-                    <p>{item.title}</p>
-                    {dropDown3 && (
-                      <Dropdown
-                        elements={DropDownElements3}
-                        classClicked="services-subMenu clicked3"
-                        classSubMenu="services-subMenu3"
-                      />
-                    )}
-                  </li>
-                );
-              }
-
-              return (
-                <li key={item.id} className={item.cName}>
-                  <Link
-                    className="nav-item-link"
-                    to={item.path}
+          {props.isMobile ? (
+            <>
+              <IconButton
+                color="inherit"
+                sx={{ color: "white", display: isOpen ? "none" : null }}
+                onClick={() => {
+                  setIsOpen(true);
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                PaperProps={{ sx: { backgroundColor: "var(--mydarkblue)" } }}
+                anchor="right"
+                open={isOpen}
+                onClose={() => {
+                  setIsOpen(false);
+                }}
+              >
+                <List className="nav-drawer">
+                  <StyledListItem
+                    button
                     onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/profile");
                       window.scrollTo(0, 0);
                     }}
                   >
-                    {item.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="btn-container">
-            <div className="btn-container">
-              <Link
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-                to="/profile"
-                className="btn"
-              >
-                Profile
-              </Link>
-            </div>
-            <div className="btn-container">
-              <button className="btn" onClick={logout}>
-                Log Out
-              </button>
-            </div>
-          </div>
+                    <ListItemIcon>
+                      <ProfileIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Profile" />
+                  </StyledListItem>
+                  {isAdmin ? (
+                    <StyledListItem
+                      button
+                      onClick={() => {
+                        setIsOpen(false);
+                        props.history.push("/dashboard/statistics");
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      <ListItemIcon>
+                        <DashboardIcon sx={{ color: "white" }} />
+                      </ListItemIcon>
+                      <ListItemText color="inherit" primary="Dashboard" />
+                    </StyledListItem>
+                  ) : null}
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/quiz");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <ListItemIcon>
+                      <QuizIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText
+                      color="inherit"
+                      primary="Compatibility Quiz"
+                    />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/programs/se");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <ListItemIcon>
+                      <ProgramsIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Programs" />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/videos/se");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <ListItemIcon>
+                      <VideosIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Videos" />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/meetings/about");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <ListItemIcon>
+                      <MeetingsIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Meetings" />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/forum");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <ListItemIcon>
+                      <ForumIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Community Forum" />
+                  </StyledListItem>
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      props.history.push("/assistance");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <ListItemIcon>
+                      <ChatBotIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Assistance" />
+                  </StyledListItem>
+                  <Divider
+                    sx={{
+                      backgroundColor: "rgba(255, 255, 255, 0.4)",
+                      marginTop: "30%",
+                    }}
+                  />
+                  <StyledListItem
+                    button
+                    onClick={() => {
+                      setIsOpen(false);
+                      logout();
+                    }}
+                  >
+                    <ListItemIcon>
+                      <LogoutIcon sx={{ color: "white" }} />
+                    </ListItemIcon>
+                    <ListItemText color="inherit" primary="Logout" />
+                  </StyledListItem>
+                </List>
+              </Drawer>
+            </>
+          ) : (
+            <>
+              <ul className="nav-items">
+                {isAdmin ? (
+                  <li className="nav-item">
+                    <Link
+                      to="/dashboard/statistics"
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                ) : null}
+                {NavItems.map((item) => {
+                  if (item.title === "Programs") {
+                    return (
+                      <li
+                        key={item.id}
+                        className={item.cName}
+                        onMouseEnter={() => showDropDown(true)}
+                        onMouseLeave={() => showDropDown(false)}
+                      >
+                        <p>{item.title}</p>
+                        {dropDown && (
+                          <Dropdown
+                            elements={DropDownElements1}
+                            classClicked="services-subMenu clicked"
+                            classSubMenu="services-subMenu"
+                          />
+                        )}
+                      </li>
+                    );
+                  } else if (item.title === "Videos") {
+                    return (
+                      <li
+                        key={item.id}
+                        className={item.cName}
+                        onMouseEnter={() => showDropDown2(true)}
+                        onMouseLeave={() => showDropDown2(false)}
+                      >
+                        <p>{item.title}</p>
+                        {dropDown2 && (
+                          <Dropdown
+                            elements={DropDownElements2}
+                            classClicked="services-subMenu clicked2"
+                            classSubMenu="services-subMenu2"
+                          />
+                        )}
+                      </li>
+                    );
+                  } else if (item.title === "Meetings") {
+                    return (
+                      <li
+                        key={item.id}
+                        className={item.cName}
+                        onMouseEnter={() => showDropDown3(true)}
+                        onMouseLeave={() => showDropDown3(false)}
+                      >
+                        <p>{item.title}</p>
+                        {dropDown3 && (
+                          <Dropdown
+                            elements={DropDownElements3}
+                            classClicked="services-subMenu clicked3"
+                            classSubMenu="services-subMenu3"
+                          />
+                        )}
+                      </li>
+                    );
+                  }
+
+                  return (
+                    <li key={item.id} className={item.cName}>
+                      <Link
+                        className="nav-item-link"
+                        to={item.path}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="btn-container">
+                <StyledButton
+                  variant="contained"
+                  size="large"
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    props.history.push("/profile");
+                  }}
+                >
+                  Profile
+                </StyledButton>
+                <StyledButton variant="contained" size="large" onClick={logout}>
+                  Log Out
+                </StyledButton>
+              </div>
+            </>
+          )}
         </div>
       </nav>
     </>
