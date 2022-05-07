@@ -181,7 +181,11 @@ function ChatBotStatic() {
         bubbleStyle={{ wordWrap: "break-word" }}
         className="assistance-chat-bot"
         headerTitle="Assistance Chat Bot"
-        style={{ boxShadow: "0px 0px 5px 1px", marginTop: "80px" }}
+        style={{
+          boxShadow: "0px 0px 5px 1px",
+          borderRadius: "0",
+          marginTop: "75px",
+        }}
         height="calc(100vh - 80px)"
         width="100%"
         steps={[

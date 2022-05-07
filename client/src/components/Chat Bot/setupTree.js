@@ -82,7 +82,7 @@ export const setupTree = () => {
   tree.insert(
     "features",
     "features-forum",
-    "SSA offers a community forum, a safe space for students to review and discuss the different specialties. Join the family now by signing up and express your opinion freely."
+    "SSA offers a community forum, a safe space for students to chat, have fun and review the different specialties. You can find multiple threads in the forum that you can join. You can read other user's comments and post yours as well!"
   );
   tree.insert(
     "main",
