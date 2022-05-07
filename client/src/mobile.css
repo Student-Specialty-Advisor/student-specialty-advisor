@@ -129,6 +129,43 @@
   .no-match-container img {
     height: 400px;
   }
+  .forum-container h1,
+  .forum-container h6 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .thread-header h2 {
+    font-size: calc(3.25 * 16 * 100vw / 992);
+    flex-basis: 90%;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: calc(1 * 16 * 100vw / 992);
+  }
+  .forum-stack h5 {
+    font-size: calc(1.25 * 16 * 100vw / 992);
+  }
+  .comment-submit-text-field {
+    flex-basis: 100%;
+    margin-left: 21px;
+  }
+  .comment-container {
+    flex-direction: column;
+  }
+  .comment-user-section {
+    flex-basis: 10%;
+  }
+  .comment-user-section p {
+    font-size: 0.7rem;
+  }
+  .comment-content-section {
+    flex-basis: 90%;
+  }
+  .comment-user-section .comment-user-avatar {
+    width: 75px;
+    height: 75px;
+    font-size: 1.5rem;
+  }
 }
 @media only screen and (max-width: 810px) {
   .videos-container .videos-list li {
@@ -252,6 +289,32 @@
   }
   .about-container-body {
     margin-top: 100px;
+  }
+  .forum-container h1 {
+    font-size: calc(60 * 100vw / 810);
+  }
+  .forum-container h6 {
+    font-size: calc(24 * 100vw / 810);
+  }
+  .forum-stack {
+    width: 98%;
+  }
+  .thread-info-container {
+    font-size: 0.9rem;
+  }
+  .thread-stats {
+    font-size: 0.65rem;
+  }
+  .thread-header h2 {
+    font-size: calc(3.25 * 15 * 100vw / 810);
+    margin-bottom: 7px;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: calc(1 * 15 * 100vw / 810);
+  }
+  .forum-stack h5 {
+    font-size: calc(1.25 * 15 * 100vw / 810);
   }
 }
 @media only screen and (max-width: 600px) {
@@ -416,6 +479,43 @@
   .about-container-body-text h3 {
     font-size: calc(28 * 100vw / 600);
   }
+  .forum-container h1 {
+    font-size: calc(48 * 100vw / 600);
+  }
+  .forum-container h6 {
+    font-size: calc(18 * 100vw / 600);
+  }
+  .thread-info-container {
+    font-size: 0.85rem;
+  }
+  .thread-stats {
+    font-size: 0.6rem;
+  }
+  .thread-header h2 {
+    font-size: calc(3.25 * 14 * 100vw / 600);
+    margin-bottom: 7px;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: calc(1 * 14 * 100vw / 600);
+  }
+  .forum-stack h5 {
+    font-size: calc(1.25 * 14 * 100vw / 600);
+  }
+  .comment-user-section {
+    min-height: 0px;
+    flex-direction: row;
+    gap: 5%;
+    align-items: center;
+  }
+  .comment-container-options {
+    top: 10px;
+  }
+  .comment-user-section .comment-user-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
 }
 @media only screen and (max-width: 480px) {
   .videos-container .videos-list li {
@@ -544,11 +644,40 @@
     flex-direction: column;
   }
   .no-match-container img {
-    height: calc(400*100vw/480)
+    height: calc(400 * 100vw / 480);
   }
-  
-  .no-match-container .no-match-text-container h1{
-    font-size: calc(100*100vw/480);
+  .no-match-container .no-match-text-container h1 {
+    font-size: calc(100 * 100vw / 480);
+  }
+  .forum-container h1 {
+    font-size: calc(46 * 100vw / 480);
+  }
+  .forum-container h6 {
+    font-size: calc(20 * 100vw / 480);
+  }
+  .thread-stats {
+    margin-top: 7px;
+  }
+  .thread-stats p {
+    flex-basis: 34%;
+  }
+  .thread-header h2 {
+    font-size: calc(2.5 * 16 * 100vw / 480);
+    margin-bottom: 7px;
+    margin-right: 2.5%;
+    flex-basis: 85%;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: 0.9rem;
+  }
+  .forum-stack h5 {
+    font-size: 0.9rem;
+  }
+  .thread-pagination-list li button {
+    height: 32px;
+    min-width: 32px;
+    font-size: 0.8rem;
   }
 }
 @media only screen and (max-width: 360px) {
@@ -629,5 +758,23 @@
     font-size: calc(16 * 100vw / 360);
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .thread-header h2 {
+    font-size: 1.6rem;
+    margin-bottom: 7px;
+    margin-right: 2.5%;
+    flex-basis: 83%;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: 0.8rem;
+  }
+  .forum-stack h5 {
+    font-size: 0.8rem;
+  }
+  .thread-pagination-list li button {
+    height: 28px;
+    min-width: 26px;
+    font-size: 0.8rem;
   }
 }

@@ -12,6 +12,7 @@ function Comment(props) {
   const [readMore, setReadMore] = React.useState(false);
   const contentRef = React.useRef();
   const isOverflow = useIsOverflow(contentRef);
+  const STUDENT_YEARS = ["Freshman", "Sophomore", "Junior", "Senior", "Final"];
 
   const shortenDate = (date) => {
     return date.substr(0, 19).replace(/T/g, " ");
@@ -40,40 +41,85 @@ function Comment(props) {
     }
   };
 
-  return (
-    <Paper className="comment-container" elevation={3}>
-      <div
-        style={{ display: "flex", flexDirection: "row", padding: "7px 21px" }}
-      >
-        <div className="comment-user-section">
-          <Avatar
-            className="comment-user-avatar"
-            {...stringAvatar(props.userName)}
-          />
+  const userSectionOnTheSide = (
+    <>
+      <div className="comment-user-section">
+        <Avatar
+          className="comment-user-avatar"
+          {...stringAvatar(props.userName)}
+        />
+        <Typography marginTop="7px" color="var(--mydarkerblue)">
+          {props.userName}
+        </Typography>
+        {props.userRole === "Admin" && (
+          <Typography
+            fontSize="0.85rem"
+            bgcolor="darkred"
+            color="white"
+            padding="2px 12px"
+            marginBottom="14px"
+            sx={{ animation: "liveDotGlow 2s infinite" }}
+          >
+            Admin
+          </Typography>
+        )}
+        <Typography fontSize="0.9rem" marginTop="7px" color="blue">
+          {props.year}
+          {STUDENT_YEARS.includes(props.year) && " Student"}
+        </Typography>
+      </div>
+    </>
+  );
+
+  const userSectionOnTop = (
+    <>
+      <div className="comment-user-section">
+        <Avatar
+          className="comment-user-avatar"
+          {...stringAvatar(props.userName)}
+        />
+        <div>
           <Typography marginTop="7px" color="var(--mydarkerblue)">
             {props.userName}
           </Typography>
-          {props.userRole === "Admin" && (
-            <Typography
-              fontSize="0.85rem"
-              bgcolor="darkred"
-              color="white"
-              padding="2px 12px"
-              sx={{ animation: "liveDotGlow 2s infinite" }}
-            >
-              Admin
-            </Typography>
-          )}
-          <Typography fontSize="0.9rem" marginTop="7px" color="var(--myblue)">
-            University Year: <span style={{ color: "blue" }}>{props.year}</span>
+          <Typography fontSize="0.9rem" marginTop="7px" color="blue">
+            {props.year}
+            {STUDENT_YEARS.includes(props.year) && " Student"}
           </Typography>
         </div>
+        {props.userRole === "Admin" && (
+          <Typography
+            fontSize="0.85rem"
+            bgcolor="darkred"
+            color="white"
+            padding="2px 12px"
+            sx={{ animation: "liveDotGlow 2s infinite" }}
+          >
+            Admin
+          </Typography>
+        )}
+      </div>
+    </>
+  );
+
+  return (
+    <Paper className="comment-container" elevation={3}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: props.isUnder600px ? "column" : "row",
+          padding: "7px 21px",
+        }}
+      >
+        {props.isUnder600px ? userSectionOnTop : userSectionOnTheSide}
         <Divider
           flexItem
-          orientation="vertical"
+          orientation={props.isUnder600px ? "horizontal" : "vertical"}
           sx={{
-            marginRight: "21px",
-            marginLeft: "21px",
+            marginRight: props.isUnder600px ? "-21px" : "21px",
+            marginLeft: props.isUnder600px ? "-21px" : "21px",
+            marginTop: props.isUnder600px ? "14px" : "0px",
+            marginBottom: props.isUnder600px ? "14px" : "0px",
             bgcolor: "var(--myblue)",
           }}
         />
@@ -89,6 +135,7 @@ function Comment(props) {
             width="97%"
             sx={{ wordBreak: "break-all" }}
             paddingBottom="7px"
+            className="comment-content-typography"
           >
             {content}
           </Typography>
@@ -112,7 +159,13 @@ function Comment(props) {
                 Read more
               </Typography>
             ))}
-          <Divider sx={{ bgcolor: "var(--myblue)" }} />
+          <Divider
+            sx={{
+              bgcolor: "var(--myblue)",
+              marginLeft: props.isUnder600px ? "-21px" : "0px",
+              marginRight: props.isUnder600px ? "-21px" : "0px",
+            }}
+          />
           <Typography fontSize="0.7rem">
             Posted on the: {shortenDate(props.date)}
           </Typography>

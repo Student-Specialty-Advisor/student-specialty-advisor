@@ -1,4 +1,11 @@
-import { Stack, Paper, Typography, Pagination } from "@mui/material";
+import {
+  Stack,
+  Paper,
+  Typography,
+  Pagination,
+  IconButton,
+  Divider,
+} from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import fetchService from "../../../services/fetchService";
@@ -10,6 +17,8 @@ import usePaginationComponent from "../../Custom Hooks/usePaginationComponent";
 import Footer from "../Footer";
 import Loading from "../../Loading";
 import ForumIcon from "@mui/icons-material/Forum";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useMediaQuery } from "@mui/material";
 
 function Thread(props) {
   let { thread } = useParams();
@@ -22,6 +31,9 @@ function Thread(props) {
   const currentUser = AuthService.getCurrentUser();
   const isAdmin = AuthService.isAdmin();
   const didPost = React.useRef({ didPost: false });
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
+  const isUnder600px = useMediaQuery("(max-width:600px)", { noSsr: true });
+  const isUnder480px = useMediaQuery("(max-width:480px)", { noSsr: true });
 
   React.useEffect(() => {
     document.title =
@@ -74,12 +86,14 @@ function Thread(props) {
         content={c.message}
         year={c.user.universityYear}
         fetchComments={fetchComments}
+        isUnder600px={isUnder600px}
       />
     );
   });
 
   const pagingComponent = (
     <Pagination
+      className="thread-pagination-list"
       size="large"
       count={count}
       page={page}
@@ -93,9 +107,6 @@ function Thread(props) {
   React.useEffect(
     () => {
       if (comments.length !== 0 && didPost.current.didPost === true) {
-        document
-          .getElementById("submit-comment-text-field")
-          .scrollIntoView({ behavior: "smooth", block: "center" });
         setPage(count);
         commentsPagination.jump(count);
         didPost.current.didPost = false;
@@ -118,7 +129,46 @@ function Thread(props) {
               className="thread-header"
               elevation={0}
             >
-              <Typography variant="h2">{thread.replace(/-/g, " ")}</Typography>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                <div
+                  style={{
+                    flexBasis: isUnder480px ? "10%" : "5%",
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingBottom: "21px",
+                  }}
+                >
+                  <IconButton
+                    onClick={() => {
+                      props.history.push("/forum/");
+                    }}
+                    sx={{
+                      color: "var(--mydarkerblue)",
+                    }}
+                  >
+                    <ArrowBackIcon
+                      fontSize={isUnder480px ? "medium" : "large"}
+                    />
+                  </IconButton>
+                </div>
+                <Typography variant="h2">
+                  {thread.replace(/-/g, " ")}
+                </Typography>
+              </div>
+              <Divider
+                sx={{
+                  marginBottom: "21px",
+                  bgcolor: "var(--mydarkblue)",
+                  borderWidth: "1px",
+                }}
+              />
               <Typography className="thread-description">{`Hey there ${currentUser.firstName}! Welcome to the forums!
           The forums are a free space for the SMU Community to express their opinions, to share their experiences, and to have fun while doing that.
           As much as we encourage freedom of speech in the forums, we do not tolerate any verbual abuse, hate speech, or racism, and would like to remind you to remain respectful to others, even if their opinion is different of yours!
@@ -127,7 +177,6 @@ function Thread(props) {
             <Stack className="forum-stack" spacing={1}>
               {comments.length !== 0 ? (
                 <>
-                  {pagingComponent}
                   {commentsList}
                   {pagingComponent}
                 </>
@@ -144,7 +193,7 @@ function Thread(props) {
                     sx={{
                       display: "block",
                       margin: "auto",
-                      fontSize: "60px",
+                      fontSize: isUnder480px ? "40px" : "60px",
                       marginBottom: "14px",
                       color: "var(--mydarkerblue)",
                     }}
@@ -156,7 +205,6 @@ function Thread(props) {
                   </Typography>
                 </Paper>
               )}
-
               {
                 <SubmitCommentField
                   threadName={thread.replace(/-/g, " ")}
@@ -169,6 +217,7 @@ function Thread(props) {
                   }
                   fetchComments={fetchComments}
                   didPost={didPost}
+                  isMobile={isMobile}
                 />
               }
             </Stack>
@@ -179,7 +228,7 @@ function Thread(props) {
           </>
         )}
       </div>
-      {isLoaded && <Footer />}
+      {!isMobile && isLoaded && <Footer />}
     </>
   );
 }

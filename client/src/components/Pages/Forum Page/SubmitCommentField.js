@@ -12,6 +12,7 @@ import alertify from "alertifyjs";
 import AuthService from "../../../services/AuthService";
 import fetchService from "../../../services/fetchService";
 import { stringAvatar } from "../../utils";
+import { completeAchievement } from "../../../services/achievements";
 
 function SubmitCommentField(props) {
   const [message, setMessage] = React.useState("");
@@ -50,6 +51,7 @@ function SubmitCommentField(props) {
             setMessage("");
             cooldownInterval();
             props.didPost.current.didPost = true;
+            completeAchievement("forumCompletion", "Community Forum");
           } else {
             throw response;
           }
@@ -68,21 +70,25 @@ function SubmitCommentField(props) {
 
   return (
     <Paper className="comment-submit-container" elevation={3}>
-      <Avatar
-        className="comment-submit-user-avatar"
-        {...stringAvatar(props.userName)}
-      />
-      <Divider
-        flexItem
-        orientation="vertical"
-        sx={{
-          marginRight: "21px",
-          marginLeft: "21px",
-          marginTop: "7px",
-          marginBottom: "7px",
-          bgcolor: "var(--myblue)",
-        }}
-      />
+      {!props.isMobile && (
+        <>
+          <Avatar
+            className="comment-submit-user-avatar"
+            {...stringAvatar(props.userName)}
+          />
+          <Divider
+            flexItem
+            orientation="vertical"
+            sx={{
+              marginRight: "21px",
+              marginLeft: "21px",
+              marginTop: "7px",
+              marginBottom: "7px",
+              bgcolor: "var(--myblue)",
+            }}
+          />
+        </>
+      )}
       <div className="comment-submit-text-field">
         <StyledTextField
           id="submit-comment-text-field"

@@ -30,11 +30,14 @@ body {
 }*/
 
 /*#region loading component*/
-.loading-component h1 {
-  text-align: center;
-  font-size: 60px;
-  color: var(--mydarkerblue);
-  animation: fadeIn 1s;
+.loading-component {
+  position: fixed;
+  top: 0;
+  width: inherit;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*#endregion loading component*/
 
@@ -940,7 +943,7 @@ body {
 .public-footer {
   width: 100%;
   height: 200px;
-  margin-top: 32vh;
+  margin-top: 40vh;
   background-color: var(--mydarkblue);
   display: flex;
   justify-content: space-evenly;
@@ -1638,6 +1641,7 @@ body {
 }
 .about-container-header::before {
   content: "";
+  background-color: var(--myblue);
   background-image: url("./assets/art/meetings_about.jpg");
   background-size: cover;
   background-position: center 90%;
@@ -1772,6 +1776,7 @@ body {
 /*#region meetings-request page*/
 .meetings-request-container {
   margin-top: 15vh;
+  width: 100%;
 }
 .meetings-request-title {
   text-align: center;
@@ -1973,6 +1978,7 @@ body {
 /*#region forum page*/
 
 .forum-container {
+  width: 100%;
   margin-top: 15vh;
 }
 .forum-container h1 {
@@ -1989,13 +1995,13 @@ body {
   text-align: center;
 }
 .thread-header {
-  width: 90%;
+  width: 100%;
   margin: auto;
   background-color: transparent !important;
 }
 .thread-header .thread-description {
   white-space: pre-line;
-  width: 95%;
+  width: 90%;
   margin: auto;
   color: var(--myblue);
   text-align: left;
@@ -2003,11 +2009,8 @@ body {
 .thread-header h2 {
   color: var(--mydarkerblue);
   text-align: left;
-  width: 95%;
+  flex-basis: 95%;
   padding-bottom: 21px;
-  margin: auto;
-  text-decoration: underline;
-  text-underline-offset: 10px;
 }
 .forum-stack {
   width: 90%;
@@ -2028,6 +2031,15 @@ body {
   padding: 7px 21px;
   margin: 0;
   text-align: left;
+}
+.thread-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+}
+.thread-pagination-list {
+  display: flex;
+  justify-content: center !important;
 }
 .comment-container {
   position: relative;

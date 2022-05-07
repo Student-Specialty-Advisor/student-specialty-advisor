@@ -2,18 +2,20 @@ import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 
 function ThreadLink(props) {
+  const href = props.overrideHref
+    ? props.overrideHref
+    : `/forum/threads/${props.name.replace(/ /g, "-")}`;
+
   return (
     <Box bgcolor="white">
       <Button
         sx={{ padding: "0" }}
-        href={
-          props.overrideHref
-            ? props.overrideHref
-            : `/forum/threads/${props.name.replace(/ /g, "-")}`
-        }
         fullWidth
         size="large"
         variant="outlined"
+        onClick={() => {
+          props.history.push(href);
+        }}
       >
         <div className="thread-info-container">
           <Typography
@@ -23,19 +25,19 @@ function ThreadLink(props) {
           >
             Thread: <span style={{ color: "#1976d2" }}>{props.name}</span>
           </Typography>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="thread-stats">
             <Typography
+              fontSize="inherit"
               marginTop="7px"
               color="var(--mydarkerblue)"
-              fontSize="0.7rem"
               fontWeight="inherit"
             >
-              Number of comments so far: {props.commentsNumber}
+              Number of comments: {props.commentsNumber}
             </Typography>
             <Typography
+              fontSize="inherit"
               marginTop="7px"
               color="var(--mydarkerblue)"
-              fontSize="0.7rem"
               fontWeight="inherit"
             >
               Discussion started on: {props.date}
