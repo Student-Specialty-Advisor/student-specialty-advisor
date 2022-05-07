@@ -122,9 +122,10 @@ function Home(props) {
               github="https://github.com/youssef-aydi"
             />
             <MemberCard
+              id="aziz"
               fullname="Aziz MAAZOUZ"
-              email="contact"
-              github="https://www.github.com"
+              email="aziz.maazouz@medtech.tn"
+              github="https://github.com/aziz-maazouz"
             />
             <MemberCard
               id="mahdi"

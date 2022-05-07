@@ -521,7 +521,6 @@ body {
   position: relative;
   transition: 0.5s;
 }
-
 .home-public-team li div#aymen {
   background-image: url("./assets/art/team/aymen_team.jpg");
   background-repeat: no-repeat;
@@ -532,10 +531,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.home-public-team li div#aziz {
+  background-image: url("./assets/art/team/aziz_team.jpg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: 70% bottom;
+}
 .home-public-team li div#youssef {
   background-image: url("./assets/art/team/youssef_team.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
+  transform: rotateZ(10deg);
 }
 .home-public-team li img {
   width: 15%;
