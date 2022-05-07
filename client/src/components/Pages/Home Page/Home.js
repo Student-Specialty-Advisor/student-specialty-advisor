@@ -116,9 +116,10 @@ function Home(props) {
               github="https://www.github.com/aymendps"
             />
             <MemberCard
+              id="youssef"
               fullname="Youssef AYDI"
-              email="contact"
-              github="https://www.github.com"
+              email="youssefaydi7@gmail.com"
+              github="https://github.com/youssef-aydi"
             />
             <MemberCard
               fullname="Aziz MAAZOUZ"
