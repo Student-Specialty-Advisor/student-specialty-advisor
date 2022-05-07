@@ -3,13 +3,12 @@ import { CircularProgress } from "@mui/material";
 function Loading() {
   return (
     <div className="loading-component">
-      <h1>Loading...</h1>
       <div style={{ display: "flex" }}>
         <CircularProgress
-          thickness={8}
-          size={60}
+          size={100}
+          disableShrink
           variant="indeterminate"
-          sx={{ margin: "auto", color: "var(--mydarkerblue)" }}
+          sx={{ color: "var(--mydarkerblue)" }}
         />
       </div>
     </div>
