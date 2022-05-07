@@ -524,7 +524,8 @@ body {
 .home-public-team li div#aymen {
   background-image: url("./assets/art/team/aymen_team.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 120%;
+  background-position: 40% 40%;
 }
 .home-public-team li div#mahdi {
   background-image: url("./assets/art/team/mahdi_team.jpg");
@@ -540,7 +541,9 @@ body {
 .home-public-team li div#youssef {
   background-image: url("./assets/art/team/youssef_team.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 95%;
+  background-position: right 0%;
+  background-color: #c4c4bc;
   transform: rotateZ(10deg);
 }
 .home-public-team li img {
