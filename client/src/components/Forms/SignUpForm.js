@@ -111,7 +111,6 @@ function SignUpForm(props) {
         }
       })
       .catch((error) => {
-        console.log(error);
         alertify.error(
           "Something went wrong when creating the account. Please try again later."
         );

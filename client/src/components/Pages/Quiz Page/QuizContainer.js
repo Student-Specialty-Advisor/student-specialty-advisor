@@ -122,7 +122,6 @@ function QuizContainer() {
         completeAchievement("quizCompletion", "Compatibility Quiz");
       })
       .catch((error) => {
-        console.log(error);
         alertify.error(
           "Something went wrong when submitting your answers. Try again in a few seconds."
         );

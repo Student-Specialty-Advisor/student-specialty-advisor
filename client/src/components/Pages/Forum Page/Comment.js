@@ -36,7 +36,6 @@ function Comment(props) {
           alertify.error(
             "An error occured when trying to delete this comment. Please try again later!"
           );
-          console.log(error);
         });
     }
   };

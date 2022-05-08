@@ -73,7 +73,6 @@ function MeetingsRequestMobileSlot(props) {
         props.fetchSchedule();
       })
       .catch((error) => {
-        console.log(error);
         alertify.error(
           "It seems we have issues processing your request.. Try again later :("
         );
