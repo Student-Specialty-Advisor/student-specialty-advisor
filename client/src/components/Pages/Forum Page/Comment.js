@@ -81,7 +81,10 @@ function Comment(props) {
           {...stringAvatar(props.userName)}
         />
         <div>
-          <Typography marginTop="7px" color="var(--mydarkerblue)">
+          <Typography
+            color={props.userName === "Deleted" ? "red" : "var(--mydarkerblue)"}
+            marginTop="7px"
+          >
             {props.userName}
           </Typography>
           <Typography fontSize="0.9rem" marginTop="7px" color="blue">
@@ -135,7 +138,7 @@ function Comment(props) {
             overflow={!readMore && "hidden"}
             whiteSpace="pre-line"
             width="97%"
-            sx={{ wordBreak: "break-all" }}
+            sx={{ wordBreak: "break-word" }}
             paddingBottom="7px"
             className="comment-content-typography"
           >

@@ -150,7 +150,7 @@ var requestMeeting = (req, res) => {
       "<br/><br/>As always, we are extremely grateful for your effort as an advisor to the South Mediterranean University community and we thank you for your time and understanding." +
       "<br/><br/><br/><i>By Students, For Students,<br/>The Student Specialty Advisor Team</i>" +
       "</p><br/>" +
-      "<a href='https://student-specialty-advisor.herokuapp.com/' target='_blank' rel='noreferrer noopener'><div style='width:100%; background-color: rgb(15, 25,33); padding-top: 2%; padding-bottom: 2%;'><img style='width:25%;' src= https://i.imgur.com/9oEMMqC.png alt=''/></div></a>" +
+      "<a href='https://student-specialty-advisor.herokuapp.com/' target='_blank' rel='noreferrer noopener'><div style='width:100%; background-color: rgb(15, 25,33); padding-top: 2%; padding-bottom: 2%;'><img style='width:25%;' src='cid:unique@logo.ssa-api' alt=''/></div></a>" +
       "</div></div>",
   };
   Meeting.findById(data.meetingID).then((meeting) => {
@@ -162,7 +162,7 @@ var requestMeeting = (req, res) => {
       res.status(500).send({ unavailable: 1 });
       return;
     } else if (meeting.isAvailable === true) {
-      sendEmail(data.to, email.subject, email.text, email.html)
+      sendEmail(data.to, email.subject, email.text, email.html, true)
         .then((status) => {
           if (status.success) {
             Meeting.findByIdAndUpdate(

@@ -4,10 +4,10 @@ import alertify from "alertifyjs";
 import React from "react";
 import {
   Step,
-  StepButton,
   StepContent,
   StepLabel,
   Button,
+  CircularProgress,
 } from "@mui/material";
 import {
   StyledButton,
@@ -29,6 +29,7 @@ function SignUpForm(props) {
   const [signUpDisabled, setSignUpDisabled] = React.useState(true);
   const [notMatching, setNotMatching] = React.useState(false);
   const [invalidEmail, setInvalidEmail] = React.useState(false);
+  const [isWaiting, setIsWaiting] = React.useState(false);
 
   const steps = ["Fill in your information", "Fill in your credentials "];
   const loginPagePath = "/login";
@@ -100,20 +101,25 @@ function SignUpForm(props) {
       email: email,
       password: password,
     };
+    setIsWaiting(true);
     AuthService.register(data)
       .then((response) => {
         if (response.keyPattern) {
           alertify.error(
             "Seems like this email is already used by another account!"
           );
+        } else if (response.error) {
+          throw response;
         } else {
           handleNext();
         }
+        setIsWaiting(false);
       })
       .catch((error) => {
         alertify.error(
           "Something went wrong when creating the account. Please try again later."
         );
+        setIsWaiting(false);
       });
   };
 
@@ -157,13 +163,7 @@ function SignUpForm(props) {
             orientation="vertical"
           >
             <Step key={steps[0]}>
-              <StepButton
-                onClick={() => {
-                  setActiveStep(0);
-                }}
-              >
-                {steps[0]}
-              </StepButton>
+              <StepLabel>{steps[0]}</StepLabel>
               <StepContent TransitionProps={{ unmountOnExit: false }}>
                 <StyledTextField
                   fullWidth
@@ -294,9 +294,19 @@ function SignUpForm(props) {
                   size="large"
                   variant="contained"
                   onClick={task}
-                  disabled={signUpDisabled}
+                  disabled={signUpDisabled || isWaiting}
                 >
-                  Sign Up
+                  {isWaiting ? (
+                    <CircularProgress
+                      disableShrink
+                      variant="indeterminate"
+                      size={26}
+                      thickness={6}
+                      color="warning"
+                    ></CircularProgress>
+                  ) : (
+                    "Sign Up"
+                  )}
                 </StyledButton>
                 <Button
                   sx={{

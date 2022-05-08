@@ -43,10 +43,16 @@ var SignUp = (req, res) => {
               <br/><br/><br/><p style='text-align:left; margin-left:5%; margin-right:5%; color:white;'><span style='font-style: bold'>If you have any concerns, please contact us at <strong>studentspecialtyadvisor@outlook.com</strong>
               <br/><br/><br/><i>By Students, For Students,<br/>The Student Specialty Advisor Team</i>
               </p><br/>
-              <a href='https://student-specialty-advisor.herokuapp.com/' target='_blank' rel='noreferrer noopener'><div style='width:100%; background-color: rgb(15, 25,33); padding-top: 2%; padding-bottom: 2%;'><img style='width:25%;' src= https://i.imgur.com/9oEMMqC.png alt=''/></div></a>
+              <a href='https://student-specialty-advisor.herokuapp.com/' target='_blank' rel='noreferrer noopener'><div style='width:100%; background-color: rgb(15, 25,33); padding-top: 2%; padding-bottom: 2%;'><img style='width:25%;' src='cid:unique@logo.ssa-api' alt=''/></div></a>
               </div></div>`,
             };
-            sendEmail(newUser.email, email.subject, email.text, email.html)
+            sendEmail(
+              newUser.email,
+              email.subject,
+              email.text,
+              email.html,
+              true
+            )
               .then((emailStatus) => {
                 res.status(200).send({
                   success: 1,

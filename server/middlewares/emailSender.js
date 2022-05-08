@@ -1,5 +1,4 @@
 const nodemailer = require("nodemailer");
-
 const transporter = nodemailer.createTransport({
   service: "Outlook365",
   auth: {
@@ -9,13 +8,23 @@ const transporter = nodemailer.createTransport({
   secure: true,
 });
 
-const sendEmail = (to, subject, text, html) => {
+const sendEmail = (to, subject, text, html, withLogo) => {
   const mailData = {
     from: process.env.AUTH_EMAIL_USER,
     to: to,
     subject: subject,
     text: text,
     html: html,
+    attachments:
+      withLogo === true
+        ? [
+            {
+              filename: "logo_white.png",
+              path: "./resources/logo_white.png",
+              cid: "unique@logo.ssa-api",
+            },
+          ]
+        : null,
   };
   if (process.env.SHOULD_SEND_EMAIL === "YES") {
     return new Promise((resolve, reject) => {
