@@ -12,11 +12,14 @@ function AdvisorCard(props) {
         <br />
         Advisor for {props.specialty}
       </p>
-      <div className="card-overlay">
-        <div style={{ marginLeft: "7%", marginRight: "7%" }}>
-          '{props.quote}'
-        </div>
-        <div style={{ display: "flex", gap: "10%" }}>
+      {props.isMobile && (
+        <div
+          style={{
+            display: "flex",
+            gap: "5%",
+            justifyContent: "center",
+          }}
+        >
           <a
             href={"mailto: " + props.email}
             target="_blank"
@@ -28,7 +31,26 @@ function AdvisorCard(props) {
             <img className="icon" src={linkedinIcon} alt=""></img>
           </a>
         </div>
-      </div>
+      )}
+      {!props.isMobile && (
+        <div className="card-overlay">
+          <div style={{ marginLeft: "7%", marginRight: "7%" }}>
+            '{props.quote}'
+          </div>
+          <div style={{ display: "flex", gap: "10%" }}>
+            <a
+              href={"mailto: " + props.email}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <img className="icon" src={emailIcon} alt=""></img>
+            </a>
+            <a href={props.linkedin} target="_blank" rel="noreferrer noopener">
+              <img className="icon" src={linkedinIcon} alt=""></img>
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

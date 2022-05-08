@@ -29,6 +29,7 @@ function MeetingsAdvisorsList() {
         quote={advisor.quote}
         email={advisor.email}
         linkedin={advisor.linkedinUrl}
+        isMobile={isMobile}
       />
     );
   };
@@ -40,7 +41,7 @@ function MeetingsAdvisorsList() {
         <h4>Get the guidance you need from friends and familiar faces</h4>
       </div>
       <Carousel
-        height={400}
+        height={isMobile ? 420 : 360}
         navButtonsAlwaysInvisible={true}
         className="advisors-carousel"
         a
