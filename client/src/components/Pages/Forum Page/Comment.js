@@ -48,7 +48,10 @@ function Comment(props) {
           className="comment-user-avatar"
           {...stringAvatar(props.userName)}
         />
-        <Typography marginTop="7px" color="var(--mydarkerblue)">
+        <Typography
+          marginTop="7px"
+          color={props.userName === "Deleted" ? "red" : "var(--mydarkerblue)"}
+        >
           {props.userName}
         </Typography>
         {props.userRole === "Admin" && (

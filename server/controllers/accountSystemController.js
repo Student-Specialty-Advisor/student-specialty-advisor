@@ -15,8 +15,8 @@ var SignUp = (req, res) => {
     parseInt(process.env.HASH_SALT)
   ); // Hash json.password
   var userData = {
-    firstName: json.firstName,
-    lastName: json.lastName,
+    firstName: json.firstName[0].toUpperCase() + json.firstName.slice(1),
+    lastName: json.lastName[0].toUpperCase() + json.lastName.slice(1),
     universityYear: json.universityYear,
     email: json.email,
     password: hashedPassword,

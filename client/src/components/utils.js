@@ -25,9 +25,13 @@ const stringToColor = (string) => {
 const stringAvatar = (name) => {
   return {
     sx: {
-      bgcolor: stringToColor(name),
+      bgcolor: name === "Deleted" ? "darkred" : stringToColor(name),
     },
-    children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+    children: `${name.split(" ")[0][0]}${
+      name.split(" ")[1] === undefined || name.split(" ")[1][0] === undefined
+        ? name.split(" ")[0][name.split(" ")[0].length - 1].toUpperCase()
+        : name.split(" ")[1][0]
+    }`,
   };
 };
 

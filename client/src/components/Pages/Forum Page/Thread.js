@@ -70,18 +70,20 @@ function Thread(props) {
         comment_id={c._id}
         isDeleted={c.isDeleted}
         userName={
-          c.user.firstName[0].toUpperCase() +
-          c.user.firstName.slice(1) +
-          " " +
-          c.user.lastName[0].toUpperCase() +
-          c.user.lastName.slice(1)
+          c.user === null
+            ? "Deleted"
+            : c.user.firstName[0].toUpperCase() +
+              c.user.firstName.slice(1) +
+              " " +
+              c.user.lastName[0].toUpperCase() +
+              c.user.lastName.slice(1)
         }
-        userRole={c.user.role}
-        isOwner={c.user._id === currentUser.id}
+        userRole={c.user === null ? "Member" : c.user.role}
+        isOwner={c.user === null ? false : c.user._id === currentUser.id}
         isAdmin={isAdmin}
         date={c.date}
         content={c.message}
-        year={c.user.universityYear}
+        year={c.user === null ? "" : c.user.universityYear}
         fetchComments={fetchComments}
         isUnder600px={isUnder600px}
       />
