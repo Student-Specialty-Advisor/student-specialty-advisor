@@ -1,9 +1,13 @@
+import { useMediaQuery } from "@mui/material";
 import React from "react";
+import { Redirect } from "react-router-dom";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 import { setupTree } from "./setupTree";
 
 function ChatBotStatic() {
+  const isMobile = useMediaQuery("(max-width:1080px)", { noSsr: true });
+
   const theme = {
     background: "white",
     headerBgColor: "var(--myorange)",
@@ -173,7 +177,7 @@ function ChatBotStatic() {
     return "Hmm.. I had trouble understanding your question 🤔";
   };
 
-  return (
+  return isMobile ? (
     <ThemeProvider theme={theme}>
       <ChatBot
         placeholder="Ask me a question about SSA.."
@@ -215,6 +219,8 @@ function ChatBotStatic() {
         ]}
       />
     </ThemeProvider>
+  ) : (
+    <Redirect to="/"></Redirect>
   );
 }
 
