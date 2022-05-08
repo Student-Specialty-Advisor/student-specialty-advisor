@@ -61,19 +61,31 @@ function DeleteMeeting(props) {
         return "pm";
     }
   };
-  const mappingOverMeetings = props.meetingsList.meetings.map((meeting) => {
-    return (
-      <StyledMenuItem key={meeting._id} value={meeting._id}>
-        {meeting.advisor.fullName +
-          ", " +
-          meeting.day +
-          ", " +
-          meeting.from +
-          " " +
-          timeSuffix(meeting.from)}
-      </StyledMenuItem>
-    );
-  });
+  const mappingOverMeetings = props.meetingsList.meetings
+    .sort((a, b) => {
+      const nameA = a.advisor.fullName.toUpperCase();
+      const nameB = b.advisor.fullName.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    })
+    .map((meeting) => {
+      return (
+        <StyledMenuItem key={meeting._id} value={meeting._id}>
+          {meeting.advisor.fullName +
+            ", " +
+            meeting.day +
+            ", " +
+            meeting.from +
+            " " +
+            timeSuffix(meeting.from)}
+        </StyledMenuItem>
+      );
+    });
 
   return (
     <>

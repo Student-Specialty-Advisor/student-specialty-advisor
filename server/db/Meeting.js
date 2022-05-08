@@ -5,7 +5,7 @@ const MeetingSchema = new Schema({
   day: String,
   from: String,
   advisor: { type: Schema.Types.ObjectId, ref: "Advisor" },
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+  userName: String,
   isAvailable: Boolean,
   row: Number,
   col: Number,

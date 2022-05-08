@@ -167,7 +167,7 @@ var requestMeeting = (req, res) => {
           if (status.success) {
             Meeting.findByIdAndUpdate(
               data.meetingID,
-              { isAvailable: false },
+              { isAvailable: false, userName: data.userName },
               { new: true }
             )
               .then((meeting) => {

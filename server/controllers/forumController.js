@@ -2,6 +2,7 @@ const Comment = require("../db/Comment");
 const Thread = require("../db/Thread");
 var getThreads = (req, res) => {
   Thread.find({})
+    .sort({ date: 1 })
     .then((threads) => {
       res.status(200).send({ success: 1, threads: threads });
     })
@@ -18,6 +19,7 @@ var getComments = (req, res) => {
         path: "user",
         select: { firstName: 1, lastName: 1, universityYear: 1, role: 1 },
       },
+      options: { sort: { date: 1 } },
     })
     .then((thread) => {
       res.status(200).send({ success: 1, comments: thread.comments });

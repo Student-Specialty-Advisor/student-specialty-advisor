@@ -248,13 +248,33 @@ const Dashboard = (props) => {
             <Statistics />
           ) : parameter === ADVISORS ? (
             <AdvisorsOptions
-              advisorsList={advisorsList}
+              advisorsList={advisorsList.sort((a, b) => {
+                const nameA = a.fullName.toUpperCase();
+                const nameB = b.fullName.toUpperCase();
+                if (nameA < nameB) {
+                  return -1;
+                }
+                if (nameA > nameB) {
+                  return 1;
+                }
+                return 0;
+              })}
               setAdvisorsList={fetchAdvisors}
               meetingsList={meetingsList}
             />
           ) : parameter === MEETINGS ? (
             <MeetingsOptions
-              advisorsList={advisorsList}
+              advisorsList={advisorsList.sort((a, b) => {
+                const nameA = a.fullName.toUpperCase();
+                const nameB = b.fullName.toUpperCase();
+                if (nameA < nameB) {
+                  return -1;
+                }
+                if (nameA > nameB) {
+                  return 1;
+                }
+                return 0;
+              })}
               meetingsList={meetingsList}
               setMeetingsList={fetchMeetings}
             />
