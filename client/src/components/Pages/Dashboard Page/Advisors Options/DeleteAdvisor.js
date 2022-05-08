@@ -53,7 +53,7 @@ function DeleteAdvisor(props) {
         .confirm(
           "Cannot delete this advisor due to meetings bound to them. Please delete their meetings first!",
           function() {
-            window.location.href = "/dashboard/meetings";
+            props.history.push("/dashboard/meetings");
           }
         )
         .set("labels", { ok: "Go to Meetings", cancel: "Cancel" });

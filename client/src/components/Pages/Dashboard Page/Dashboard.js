@@ -261,6 +261,7 @@ const Dashboard = (props) => {
               })}
               setAdvisorsList={fetchAdvisors}
               meetingsList={meetingsList}
+              history={props.history}
             />
           ) : parameter === MEETINGS ? (
             <MeetingsOptions
