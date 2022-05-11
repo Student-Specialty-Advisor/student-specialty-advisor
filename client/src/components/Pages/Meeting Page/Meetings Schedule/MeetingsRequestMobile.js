@@ -177,7 +177,7 @@ function MeetingsRequestMobile(props) {
           </Box>
         </>
       ) : (
-        <Loading />
+        <Loading overrideStyle={{ marginTop: "100px" }} />
       )}
     </div>
   ) : (

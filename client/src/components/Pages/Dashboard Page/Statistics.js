@@ -106,7 +106,7 @@ function Statistics() {
   }, []);
   return !isLoaded ? (
     <>
-      <Loading />
+      <Loading overrideStyle={{ marginTop: "30vh" }} />
     </>
   ) : (
     <>

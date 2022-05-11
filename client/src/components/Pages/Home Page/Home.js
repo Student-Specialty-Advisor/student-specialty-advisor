@@ -118,7 +118,7 @@ function Home(props) {
             <MemberCard
               id="youssef"
               fullname="Youssef AYDI"
-              email="youssefaydi7@gmail.com"
+              email="youssefaydi20@gmail.com"
               github="https://github.com/youssef-aydi"
             />
             <MemberCard

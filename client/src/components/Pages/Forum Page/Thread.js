@@ -223,7 +223,7 @@ function Thread(props) {
           </>
         ) : (
           <>
-            <Loading />
+            <Loading overrideStyle={{ marginTop: "50vh" }} />
           </>
         )}
       </div>

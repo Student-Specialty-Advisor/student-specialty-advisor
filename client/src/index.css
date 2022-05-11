@@ -31,10 +31,7 @@ body {
 
 /*#region loading component*/
 .loading-component {
-  position: fixed;
-  top: 0;
-  width: inherit;
-  height: 90vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1655,7 +1652,7 @@ body {
 }
 .about-container-header::before {
   content: "";
-  background-color: var(--myblue);
+  background-color: #808080ab;
   background-image: url("./assets/art/meetings_about.jpg");
   background-size: cover;
   background-position: center 90%;

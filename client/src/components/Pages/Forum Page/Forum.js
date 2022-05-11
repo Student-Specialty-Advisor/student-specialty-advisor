@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, Skeleton, Stack, useMediaQuery } from "@mui/material";
+import { Box, Skeleton, Stack, Typography, useMediaQuery } from "@mui/material";
 import fetchService from "../../../services/fetchService";
 import ThreadLink from "./ThreadLink";
 import alertify from "alertifyjs";
 import Footer from "../Footer";
+import ForumIcon from "@mui/icons-material/Forum";
 
 function Forum(props) {
   const [threads, setThreads] = React.useState([]);
@@ -61,17 +62,43 @@ function Forum(props) {
         </h6>
         {isLoaded ? (
           <Stack className="forum-stack" spacing={2}>
-            {threads.map((thread) => {
-              return (
-                <ThreadLink
-                  key={thread._id}
-                  name={thread.name}
-                  date={shortenDate(thread.date)}
-                  commentsNumber={thread.comments.length}
-                  history={props.history}
+            {threads.length !== 0 ? (
+              threads.map((thread) => {
+                return (
+                  <ThreadLink
+                    key={thread._id}
+                    name={thread.name}
+                    date={shortenDate(thread.date)}
+                    commentsNumber={thread.comments.length}
+                    history={props.history}
+                  />
+                );
+              })
+            ) : (
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <ForumIcon
+                  fontSize="large"
+                  sx={{ color: "var(--mydarkblue)" }}
                 />
-              );
-            })}
+                <Typography
+                  textAlign="center"
+                  marginTop="14px"
+                  color="var(--mydarkblue)"
+                >
+                  There are no threads yet!
+                  <br />
+                  Come back later!
+                </Typography>
+              </div>
+            )}
           </Stack>
         ) : (
           <Stack className="forum-stack" spacing={2}>

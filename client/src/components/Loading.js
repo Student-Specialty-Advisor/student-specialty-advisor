@@ -1,16 +1,15 @@
 import { CircularProgress } from "@mui/material";
 
-function Loading() {
+function Loading(props) {
+  console.log(props.overrideStyle);
   return (
-    <div className="loading-component">
-      <div style={{ display: "flex" }}>
-        <CircularProgress
-          size={100}
-          disableShrink
-          variant="indeterminate"
-          sx={{ color: "var(--mydarkerblue)" }}
-        />
-      </div>
+    <div className="loading-component" style={props.overrideStyle}>
+      <CircularProgress
+        size={100}
+        disableShrink
+        variant="indeterminate"
+        sx={{ color: "var(--mydarkerblue)" }}
+      />
     </div>
   );
 }

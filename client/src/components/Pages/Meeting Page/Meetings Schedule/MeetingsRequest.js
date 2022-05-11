@@ -264,7 +264,7 @@ function MeetingsRequest() {
         </>
       ) : (
         <>
-          <Loading />
+          <Loading overrideStyle={{ marginTop: "50vh" }} />
         </>
       )}
     </div>
