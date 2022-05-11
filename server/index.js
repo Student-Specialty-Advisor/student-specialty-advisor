@@ -20,7 +20,7 @@ app.use(express.static(buildPath));
 
 app.use(express.json());
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.header(
     "Access-Control-Allow-Headers",
     "x-access-token, Origin, Content-Type, Accept"
@@ -251,6 +251,10 @@ app.put(
   forumController.deleteComment
 );
 //#endregion
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/build/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Started listening to requests on port ${PORT}`);
