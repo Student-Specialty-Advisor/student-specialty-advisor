@@ -2,7 +2,7 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 
 module.exports = mongoose
-  .connect("mongodb://localhost:27017/student-specialty-advisor")
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("Connected to database");
   })
