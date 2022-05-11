@@ -1,9 +1,8 @@
 const express = require("express");
-const cors = require("cors");
 require("dotenv").config();
 require("./db");
 require("./db/User");
-/*const path = require("path");*/
+const path = require("path");
 const accountSystemController = require("./controllers/accountSystemController.js");
 const statisticsController = require("./controllers/statisticsController.js");
 const quizController = require("./controllers/quizController.js");
@@ -16,11 +15,10 @@ const authJWT = require("./middlewares/authJWT");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-/*const buildPath = path.join(__dirname, '..', 'build');
-app.use(express.static(buildPath)); LEAVE THIS COMMENTED*/
+const buildPath = path.join(__dirname, "..", "build");
+app.use(express.static(buildPath));
 
 app.use(express.json());
-app.use(cors());
 
 app.use(function (req, res, next) {
   res.header(
