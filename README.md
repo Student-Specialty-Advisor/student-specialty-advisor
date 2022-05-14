@@ -12,7 +12,7 @@ Then you must be familiar with the difficulties that one faces when choosing a s
 <h4 align="center">
 After all, that decision might define the majority of one's career path. This problem also applies for the students of the South Mediterranean University.<br/><br/>
 With lack of experience and knowledge about the different engineering fields, a MedTech student would want to seek guidance and help.<br/><br/>
-Student Specialty Advisor is a free web app for the South Mediterranean University's community that will lend a hand to the students by helping them pick the right specialty that suits them best.
+Student Specialty Advisor is a free web app for the South Mediterranean University's community that aims to help the students pick the right specialty that suits them best.
 </h4><br/>
 <h2 align="center">Features</h2>
 <h2 align="center">Dependencies</h2>
