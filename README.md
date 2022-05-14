@@ -1,7 +1,4 @@
 <h1 align="center">Welcome to Student Specialty Advisor</h1>
-<p align="center">
-  <img width="200px" src="/client/src/assets/art/logo/logo_white.png?raw=true"></img>
-</p>
 <h2 align="center">By Students. For Students.
   <br/>
   <a href="https://student-specialty-advisor.herokuapp.com" target="_blank" rel="noreferrer noopener">Join now with your MedTech/SMU email!</a></h2>
@@ -18,10 +15,9 @@ With lack of experience and knowledge about the different engineering fields, a 
 Student Specialty Advisor is a free web app for the South Mediterranean University's community that will lend a hand to the students by helping them pick the right specialty that suits them best.
 </h4><br/>
 <h2 align="center">Features</h2>
-
-Sprint 1: Account System
-Sprint 2: Program Compatibility Quiz
-Sprint 3: Videos & Programs Info
-Sprint 4: Meetings Section
-Sprint 5: Admin Dashboard & Assistance Chat Bot
-Sprint 6: Community Forum
+<h2 align="center">Dependencies</h2>
+<h2 align="center">Contributions</h2>
+<h2 align="center">Building</h2>
+<h2 align="center">Documentation</h2>
+<h2 align="center">Authors</h2>
+<h2 align="center">License</h2>
