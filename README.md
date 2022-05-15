@@ -40,7 +40,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 </ul>
 <br/>
 
-> [You can find all the screenshots about these elements here]("/client/src/assets/art/screenshots")
+> [You can find all the screenshots about these elements here](/client/src/assets/art/screenshots)
 <h2 align="center">Dependencies</h2>
 <ul>
 <li>
@@ -68,11 +68,11 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
   <li>Localization & Translation</li>
 </ul>
 
-> [You can read more about how to contribute and contribution guidelines here]("/CONTRIBUTING.md")
+> [You can read more about how to contribute and contribution guidelines here](/CONTRIBUTING.md)
 <h2 align="center">Building</h2>
 <p>In order to integrate your code, test and apply changes to the project, you need to build a local instance of the web application</p>
 
-> [You can find here all the steps on how to build the project]("/BUILD.md")
+> [You can find here all the steps on how to build the project](/BUILD.md)
 <h2 align="center">Documentation</h2>
 <h2 align="center">Authors</h2>
 <h2 align="center">License</h2>
