@@ -14,7 +14,31 @@ After all, that decision might define the majority of one's career path. This pr
 With lack of experience and knowledge about the different engineering fields, a MedTech student would want to seek guidance and help.<br/><br/>
 Student Specialty Advisor is a free web app for the South Mediterranean University's community that aims to help the students pick the right specialty that suits them best.
 </h4><br/>
-<h2 align="center">Features</h2>
+<h2 align="center">Featured Elements</h2>
+<li>
+  <h3>Account System</h3>
+</li>
+<li>
+  <h3>Assistance Chat Bot</h3>
+</li>
+<li>
+  <h3>Program Compatibility Quiz</h3>
+</li>
+<li>
+  <h3>Textual and visual information about the programs</h3>
+</li>
+<li> 
+  <h3>Meetings with Advisors</h3>
+</li>
+<li>
+  <h3>Community Forum</h3>
+</li>
+<li>
+  <h3>Statistics & Dashboard (admin only)</h3>
+</li>
+<br/>
+
+You can find all the screenshots about these elements [here](/client/src/assets/art/screenshots).
 <h2 align="center">Dependencies</h2>
 <h2 align="center">Contributions</h2>
 <h2 align="center">Building</h2>
