@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Student Specialty Advisor</h1>
 <h2 align="center">By Students. For Students.
   <br/>
-  <a href="https://student-specialty-advisor.herokuapp.com" target="_blank" rel="noreferrer noopener">Join now with your MedTech/SMU email!</a></h2>
+  <a href="https://student-specialty-advisor.herokuapp.com">Join now with your MedTech/SMU email!</a></h2>
 <p align="center">
     <img width="200px" src="/client/src/assets/art/logo/qr-code.png"></img>
 </p>
@@ -16,30 +16,38 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 </h4><br/>
 <h2 align="center">Featured Elements</h2>
 <li>
-  <h3>Account System</h3>
+  <h4>Account System</h4>
 </li>
 <li>
-  <h3>Assistance Chat Bot</h3>
+  <h4>Assistance Chat Bot</h4>
 </li>
 <li>
-  <h3>Program Compatibility Quiz</h3>
+  <h4>Program Compatibility Quiz</h4>
 </li>
 <li>
-  <h3>Textual and visual information about the programs</h3>
+  <h4>Textual and visual information about the programs</h4>
 </li>
 <li> 
-  <h3>Meetings with Advisors</h3>
+  <h4>Meetings with Advisors</h4>
 </li>
 <li>
-  <h3>Community Forum</h3>
+  <h4>Community Forum</h4>
 </li>
 <li>
-  <h3>Statistics & Dashboard (admin only)</h3>
+  <h4>Statistics & Dashboard (admin only)</h4>
 </li>
 <br/>
-
-You can find all the screenshots about these elements [here](/client/src/assets/art/screenshots).
+<p>You can find all the screenshots about these elements <a href="/client/src/assets/art/screenshots"><strong>here</strong></a></p>
 <h2 align="center">Dependencies</h2>
+<li>
+  <h4>Environment: <a href="https://nodejs.org/en/download">Node.js</a></h4>  
+</li>
+<li>
+  <h4>DBMS: <a href="https://www.mongodb.com/try/download/community">MongoDB</a></h4>  
+</li>
+<li>
+  <h4>Source Control: <a href="https://git-scm.com/downloads">Git</a></h4>  
+</li>
 <h2 align="center">Contributions</h2>
 <h2 align="center">Building</h2>
 <h2 align="center">Documentation</h2>
