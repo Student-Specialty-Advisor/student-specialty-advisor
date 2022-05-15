@@ -75,7 +75,27 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 > [You can find here all the steps on how to build the project](/BUILD.md)
 <h2 align="center">Documentation</h2>
 <h2 align="center">Authors</h2>
+<p>Student Specialty Advisor was originally developped by:</p>
+<ul>
+<li>
+  <h4><a href="https://github.com/aymendps">Aymen HAMMAMI</a></h4>
+</li>
+<li>
+  <h4><a href="https://github.com/youssef-aydi">Youssef AYDI</a></h4>
+</li>
+<li>
+  <h4><a href="https://github.com/aziz-maazouz">Aziz MAAZOUZ</a></h4>
+</li>
+<li>
+  <h4><a href="https://github.com/mahdi232">Mahdi KLOUZ</a></h4>
+</li>
+</ul>
 <h2 align="center">License</h2>
 <p>Student Specialty Advisor is licensed under the GNU General Public License v3.0</p>
 
 > [You can find the license of the project here](/LICENSE)
+
+<br/><br/>
+<p align="center">
+  <img width="200px" src="/client/src/assets/art/logo/logo_white.png"></img>
+</p>
