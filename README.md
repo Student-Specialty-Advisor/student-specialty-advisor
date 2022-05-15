@@ -41,6 +41,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 <br/>
 
 > [You can find all the screenshots about these elements here](/client/src/assets/art/screenshots)
+<br/>
 <h2 align="center">Dependencies</h2>
 <ul>
 <li>
@@ -56,6 +57,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
   <h4>IDE / Source-code editor: <a href="https://code.visualstudio.com/download">VS Code</a></h4>
 </li>
 </ul>
+<br/>
 <h2 align="center">Contributions</h2>
 <p>Thank you for your interest in Student Specialty Advisor! If you want to participate in improving the quality of the project, do not hesitate to contribute!<br/>There are many ways to contribute, and we appreciate all of them:</p>
 <ul>
@@ -69,15 +71,18 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 </ul>
 
 > [You can read more about how to contribute and contribution guidelines here](/CONTRIBUTING.md)
+<br/>
 <h2 align="center">Building</h2>
 <p>In order to integrate your code, test and apply changes to the project, you need to build a local instance of the web application</p>
 
 > [You can find all the steps on how to build the project here](/BUILD.md)
+<br/>
 <h2 align="center">Documentation</h2>
 <p>We are currently working on commenting every bit of the source code, as well as providing a full documentation of our REST API.
 <br/>Contributions about documentation are always welcome!
 <br/>
 <br/>You can also <a href="/documentation">check out additional documents</a> (such as the project report, the project presentation...)</p>
+<br/>
 <h2 align="center">Authors</h2>
 <p>Student Specialty Advisor was originally developped by:</p>
 <ul>
@@ -94,6 +99,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
   <h4><a href="https://github.com/mahdi232">Mahdi KLOUZ</a></h4>
 </li>
 </ul>
+<br/>
 <h2 align="center">License</h2>
 <p>Student Specialty Advisor is licensed under the GNU General Public License v3.0</p>
 
