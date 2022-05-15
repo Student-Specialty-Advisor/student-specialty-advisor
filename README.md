@@ -15,6 +15,7 @@ With lack of experience and knowledge about the different engineering fields, a 
 Student Specialty Advisor is a free web app for the South Mediterranean University's community that aims to help the students pick the right specialty that suits them best.
 </h4><br/>
 <h2 align="center">Featured Elements</h2>
+<ul>
 <li>
   <h4>Account System</h4>
 </li>
@@ -36,9 +37,12 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 <li>
   <h4>Statistics & Dashboard (admin only)</h4>
 </li>
+</ul>
 <br/>
-<p>You can find all the screenshots about these elements <a href="/client/src/assets/art/screenshots"><strong>here</strong></a></p>
+
+> [You can find all the screenshots about these elements here]("/client/src/assets/art/screenshots")
 <h2 align="center">Dependencies</h2>
+<ul>
 <li>
   <h4>Environment: <a href="https://nodejs.org/en/download">Node.js</a></h4>  
 </li>
@@ -48,8 +52,27 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 <li>
   <h4>Source Control: <a href="https://git-scm.com/downloads">Git</a></h4>  
 </li>
+<li>
+  <h4>IDE / Source-code editor: <a href="https://code.visualstudio.com/download">VS Code</a></h4>
+</li>
+</ul>
 <h2 align="center">Contributions</h2>
+<p>Thank you for your interest in Student Specialty Advisor! If you want to participate in improving the quality of the project, do not hesitate to contribute!<br/>There are many ways to contribute, and we appreciate all of them:</p>
+<ul>
+  <li>Source code</li>
+  <li>Unit tests</li>
+  <li>Feature requests</li>
+  <li>Bug reports</li>
+  <li>Feedback</li>
+  <li>Documentation</li>
+  <li>Localization & Translation</li>
+</ul>
+
+> [You can read more about how to contribute and contribution guidelines here]("/CONTRIBUTING.md")
 <h2 align="center">Building</h2>
+<p>In order to integrate your code, test and apply changes to the project, you need to build a local instance of the web application</p>
+
+> [You can find here all the steps on how to build the project]("/BUILD.md")
 <h2 align="center">Documentation</h2>
 <h2 align="center">Authors</h2>
 <h2 align="center">License</h2>
