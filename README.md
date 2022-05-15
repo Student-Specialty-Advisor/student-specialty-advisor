@@ -74,6 +74,9 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 
 > [You can find here all the steps on how to build the project](/BUILD.md)
 <h2 align="center">Documentation</h2>
+<p>We are currently working on commenting every bit of the source code, as well as providing a full documentation of our REST API.
+<br/>Contributions about documentation are always welcome!
+<br/>You can also <a href="/documentation">check out additional documents</a> (such as the project report, the project presentation...)</p>
 <h2 align="center">Authors</h2>
 <p>Student Specialty Advisor was originally developped by:</p>
 <ul>
