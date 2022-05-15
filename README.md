@@ -76,3 +76,6 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 <h2 align="center">Documentation</h2>
 <h2 align="center">Authors</h2>
 <h2 align="center">License</h2>
+<p>Student Specialty Advisor is licensed under the GNU General Public License v3.0</p>
+
+> [You can find the license of the project here](/LICENSE)
