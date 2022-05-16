@@ -57,7 +57,7 @@ SHOULD_SEND_EMAIL=NO
 SHOULD_VERIFY=NO
 MONGODB_URL=mongodb://localhost:27017/student-specialty-advisor
 ```
-> For more information on what each variable does, [check out ENV.md in the documentation folder]()
+> For more information on what each variable does, [check out ENV.md in the documentation folder](/documentation/ENV.md)
 
 10- To run the frontend, navigate to the client folder in the terminal and then type:
 ```
