@@ -32,7 +32,7 @@ function Footer(props) {
         </li>
         <li>
           <a
-            href="https://github.com/SEJG2-MYGROUP"
+            href="https://github.com/Student-Specialty-Advisor/student-specialty-advisor"
             target="_blank"
             rel="noreferrer noopener"
           >

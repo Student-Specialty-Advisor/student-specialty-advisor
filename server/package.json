@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Medtech-CS311-SEJG2-MYGROUP/student-specialty-advisor.git"
+    "url": "git+https://github.com/Student-Specialty-Advisor/student-specialty-advisor.git"
   },
   "author": "aymendps",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Medtech-CS311-SEJG2-MYGROUP/student-specialty-advisor/issues"
+    "url": "https://github.com/Student-Specialty-Advisor/student-specialty-advisor/issues"
   },
-  "homepage": "https://github.com/Medtech-CS311-SEJG2-MYGROUP/student-specialty-advisor#readme",
+  "homepage": "https://github.com/Student-Specialty-Advisor/student-specialty-advisor#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
