@@ -1,0 +1,474 @@
+{
+  "se": {
+    "overview": "MedTech's Software Engineering (SWE) program provides a combination of advanced technical and theoretical knowledge, best engineering practices, and emerging technologies to develop software that meet high quality standards.\n\nThe SE program is based on real-world learning experiences through team-centered, and hands-on projects to prepare students to become software architects and development team leaders. Moreover, the program helps students to acquire an entrepreneurial mindset by providing them with the required theoretical and practical knowledge of the entrepreneurial process and the practical steps to identify opportunities.",
+    "curriculum": [
+      {
+        "subject": "Web Development",
+        "desc": "Learn about full-stack development: learn to implement the website, its server and data base using the latest technology.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Operating Systems",
+        "desc": "Learn how operating systems manage to make your computer work. This course has some hardware aspects to it.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Global Software Development",
+        "desc": "Learn the history and the mindset behind open-source. Learn about open-source contributions, licensing, business models and more. Course offers several workshops.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Startup Engineering",
+        "desc": "Ever wondered how to launch a successful startup or start your own innovative business? This course if for you.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Introduction to Software Engineering",
+        "desc": "Learn about the discipline of software engineering: What's the job of a SE? What's expected of a SE? what are the techniques, methodologies and designs a SE should know?",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Introduction to Management",
+        "desc": "Learn how to be a good project manager. Management is the act of getting people together to accomplish desired goals and objectives using available resources efficiently and effectively.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Graph Theory & Applications",
+        "desc": "Learn to use the power of graph theory to optimize any situation.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Database Management Systems",
+        "desc": "Learn to work with databases and how to integrate them in your projects.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Mobile Software Development",
+        "desc": "Learn to create websites suitable for smart phones, and mobile applications.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Requirements & User Experience",
+        "desc": "This is what comes after 'Introduction to Software Engineering' and the next step in you becoming a SE.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Governance & Citizenship",
+        "desc": "Improve your writing skills and introduce yourself to governance, citizenship and constitutional laws.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Junior Project",
+        "desc": "Use all what you learn during your junior year to make the best project you can.",
+        "when": "Junior Year"
+      },
+      {
+        "subject": "Computer Networks",
+        "desc": "Learn how a set of computer connected by network nodes works and learn it's fundimentals.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Analysis & Design",
+        "desc": "It helps you understand the transformation of requirement specification into implementation.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Effective Technical Communication",
+        "desc": "You will learn tools and techniques that will help you communicate technical information more clearly.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Introduction to Finance",
+        "desc": "You will be introduced to the basic concepts needed to understand the financial manager's.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Distributed Systems",
+        "desc": "Get familiar with a computing environment in which various components are spread across multiple computers on a network.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Senior Project",
+        "desc": "Use all what you learn during your senior year to make the best project you can.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Architecture",
+        "desc": "Simply you will learn the organization of a system.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Development Methodologies",
+        "desc": "learn and get familiar with the methodologies used for software development.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Engineering Ethics & Professional Pratice",
+        "desc": "Get familiar with the ethics of an engineer and his professional practice.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Artificial Intelligence",
+        "desc": "Learn the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Software Quality and Testing",
+        "desc": "Learn the methods of testing and finding out the quality of software.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Programming Language Design & Implementation",
+        "desc": " To learn the design and implementation of modern programming languages.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Cyber Security Assessment & Management",
+        "desc": "Learn to examine an organization's IT infrastructure and analyzes the ability of established security controls to remediate vulnerabilities.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Data Analytics",
+        "desc": "Learn the science of analyzing raw data to make conclusions about that information.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Pervasive Computing & Cloud",
+        "desc": "Learn the growing trend of embedding computational capability into everyday objects to make them effectively communicate.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Research Methods",
+        "desc": "Learn a set of procedures or techniques used to identify, select, process, and analyze information about a topic.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Machine Learning",
+        "desc": "Learn a type of artificial intelligence (AI) that allows software applications to become more accurate at predicting outcomes.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Capstone Project",
+        "desc": "Use all what you learn during all years to make the best project you can to graduate.",
+        "when": "Final Year"
+      }
+    ],
+    "outcomes": "As a SE Student, you should expect to gain:\n\n   - Ability to understand and work with multiple programming languages, frameworks and libraries.\n\n   - Ability to work in one or more significant application domains.\n\n   - Ability to apply the software engineering lifecycle by demonstrating competence in communication, planning, analysis, design, construction, and deployment.\n\n   - Ability to work as an individual and as part of a multidisciplinary team.\n\n   - Ability to demonstrate agility in solving software challenges.\n\n   - An ability to identify, formulate, and solve CSE problems.\n\n   - An ability to lead a team and function within a team.\n\n   - An understanding of professional and ethical responsibility.\n\n   - An ability to communicate effectively.\n\n   - All ABET Student Outcomes.",
+    "opportunities": "- Applications & Web Development.\n- The 'Internet Of Things' field.\n- Artificial Intelligence.\n- Security, Cloud and Data Science.\n- Game Development.\n- Research & Testing of Software Systems.\n- Freelancing and Consulting.",
+    "requirements": "To enroll in this program, you should have completed the common core pre-engineering program, or have completed an equivalent level of study such as: License, Two years of preparatory studies...\n\nIf you want to excel at this program, you should have relatively good grades in Mathematics and coding courses like Object Oriented Programming. Consider taking our Program Compatibility Quiz to know which programs may suit you and your personality."
+  },
+
+  "cse": {
+    "overview": "The CSE program is based on real-world learning experiences through team-centered and hands-on projects to provide students with the required knowledge and skills. Moperreover, the program helps students to acquire an entrepreneurial mindset by providing them with the required theoretical and practical knowledge of the entrepreneurial process and the practical steps to identify opportunities.\n\nAfter the completion of the program with 210 credits of which 126 credits are in the main field of study, an engineering degree certificate is issued with a major in Computer Systems.",
+    "curriculum": [
+      {
+        "subject": "Electronic Devices & Circuits",
+        "desc": "Get familiar with a fundamental course for Electronics Students.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Embedded Systems",
+        "desc": "get familiar with a microcontroller-based, software-driven, reliable, real-time control system, designed to perform a specific task.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Operating Systems",
+        "desc": "Learn how operating systems manage to make your computer work. This course has some hardware aspects to it.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Startup Engineering",
+        "desc": "Ever wondered how to launch a successful startup or start your own innovative business? This course if for you.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Signals & Systems",
+        "desc": "Covers the fundamentals of signal and system analysis, focusing on representations of discrete-time and continuous-time signals.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Introduction to Management",
+        "desc": "Learn how to be a good project manager. Management is the act of getting people together to accomplish desired goals and objectives using available resources efficiently and effectively.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Graph Theory & Applications",
+        "desc": "Learn to use the power of graph theory to optimize any situation.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Database Management Systems",
+        "desc": "Learn to work with databases and how to integrate them in your projects.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Feedback Control Systems",
+        "desc": "Learn the fundamentals of control design and analysis using state-space methods.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Multivariable Calculus & Numerical",
+        "desc": "Get familiar with an intermediate level mathematics course that builds on the prerequisite courses Calculus and Linear Algebra.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Governance & Citizenship",
+        "desc": "Improve your writing skills and introduce yourself to governance, citizenship and constitutional laws.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Junior Project",
+        "desc": "Use all what you learn during your junior year to make the best project you can.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Effective Technical Communication",
+        "desc": "Learn To communicate effectively with others and to dis- seminate ideas, views, and observations to a broader community.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Introduction to Finance",
+        "desc": "You will be introduced to the basic concepts needed to understand the financial manager's.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Distributed Systems",
+        "desc": "Get familiar with a computing environment in which various components are spread across multiple computers on a network.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Senior Project",
+        "desc": "Use all what you learn during your senior year to make the best project you can.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Engineering Ethics & Professional Pratice",
+        "desc": "Get familiar with the ethics of an engineer and his professional practice.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Digital Signal Processing",
+        "desc": "Learn the use of digital processing, such as by computers or more specialized digital signal processors.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Programming Language Design & Implementation",
+        "desc": "To learn the design and implementation of modern programming languages.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Computer Networks",
+        "desc": "Learn how a set of computer connected by network nodes works and learn it's fundimentals.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Advanced Digital Systems",
+        "desc": " Learn to develope the knowledge and skills to design advanced digital processing systems.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": " Microprocessor, Embedded & Real-time Systems",
+        "desc": "Get more familiar with the details of microprocessors.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Artificial Intelligence",
+        "desc": "Learn the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Cyber Security Assessment & Management",
+        "desc": "Learn to examine an organization's IT infrastructure and analyzes the ability of established security controls to remediate vulnerabilities.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Data Analytics",
+        "desc": "Learn the science of analyzing raw data to make conclusions about that information.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Robotics Engineering",
+        "desc": "Learn the field of engineering which centers on building machines that replicate human actions.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Pervasive Computing & Cloud",
+        "desc": "Learn the growing trend of embedding computational capability into everyday objects to make them effectively communicate.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Research Methods",
+        "desc": "Learn a set of procedures or techniques used to identify, select, process, and analyze information about a topic.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Capstone Project",
+        "desc": "Use all what you learn during all years to make the best project you can to graduate.",
+        "when": "Final Year"
+      }
+    ],
+    "outcomes": "As a CSE Student, you should expect to gain:\n\n   - An ability to apply knowledge of mathematics, science and engineering.\n\n   - An ability to design and conduct experiments, as well as to analyze and interpret data.\n\n   - An ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability.\n\n   - An ability to coordinate between Software & Hardware components.\n\n   - An ability to identify, formulate, and solve CSE problems.\n\n   - An ability to lead a team and function within a team.\n\n   - An understanding of professional and ethical responsibility.\n\n   - An ability to communicate effectively.\n\n   - All ABET Student Outcomes.",
+    "opportunities": "- Hardware & Embedded System Development.\n- The 'Internet Of Things' field.\n- Automation & Robotics.\n- Security, Cloud and Data Science.\n- Networks & Telecommunications.\n- Research & System Integration.",
+    "requirements": "To enroll in this program, you should have completed the common core pre-engineering program, or have completed an equivalent level of study such as: License, Two years of preparatory studies...\n\nIf you want to excel at this program, you should have relatively good grades in Mathematics and Electrical/Computer related courses and lab sessions. A decent programming knowledge is a plus. Consider taking our Program Compatibility Quiz to know which programs may suit you and your personality."
+  },
+
+  "re": {
+    "overview": "MedTech's Renewable Energy Engineering (REE) program provides a combination of advanced technical and theoretical knowledge in the rapidly expanding area of renewable energy engineering with a clear Electrical Engineering focus.\n\nThe REE program is based on real-world learning experiences through team-centered, and hands-on projects to provide students with the required knowledge and skills to assess renewable energy resources, design appropriate renewable energy systems, evaluate the performance of these systems and assess the wider impacts of renewable energy development. Moreover, the program helps students to acquire an entrepreneurial mindset by providing them with the required theoretical and practical knowledge of the entrepreneurial process and the practical steps to identify opportunities.",
+    "curriculum": [
+      {
+        "subject": "Thermodynamics",
+        "desc": "Get familiar with an introduction to the most powerful engineering principles you will ever learn",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Electrical Power Systems",
+        "desc": "Get familiar with standards and policies of the electric utility industry, and provides you with basic vocabulary used in the business.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Chemistry II",
+        "desc": "Include acids and bases, kinetics and equilibria of chemical reactions, properties of gases and solutions, electrochemistry, and nuclear chemistry.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Signals & Systems",
+        "desc": "Covers the fundamentals of signal and system analysis, focusing on representations of discrete-time and continuous-time signals.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Startup Engineering",
+        "desc": "Ever wondered how to launch a successful startup or start your own innovative business? This course if for you.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Introduction to Management",
+        "desc": "Learn how to be a good project manager. Management is the act of getting people together to accomplish desired goals and objectives using available resources efficiently and effectively.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Electromechanical Conversion Systems",
+        "desc": "Get familiar with a good understanding of electrical energy conversion techniques and equipment.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Graph Theory & Applications",
+        "desc": "Learn to use the power of graph theory to optimize any situation.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Multivariable Calculus & Numerical ",
+        "desc": "Get familiar with an intermediate level mathematics course that builds on the prerequisite courses Calculus and Linear Algebra.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Governance & Citizenship",
+        "desc": "Improve your writing skills and introduce yourself to governance, citizenship and constitutional laws.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Junior Project",
+        "desc": "Use all what you learn during your junior year to make the best project you can.",
+        "when": "Junior year"
+      },
+      {
+        "subject": "Effective Technical Communication",
+        "desc": "Learn To communicate effectively with others and to dis- seminate ideas, views, and observations to a broader community.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Introduction to Finance",
+        "desc": "You will be introduced to the basic concepts needed to understand the financial manager's.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Senior Project",
+        "desc": "Use all what you learn during your senior year to make the best project you can.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Engineering Ethics & Professional Pratice",
+        "desc": "Get familiar with the ethics of an engineer and his professional practice.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Biomass & Bioenergy Systems",
+        "desc": "Get familiar with a renewable energy resource derived from living organisms and/or their byproducts.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Power Electronics",
+        "desc": "Learn the basic concepts of switched-mode converter circuits for controlling and converting electrical power with high efficiency.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Fluid Mechanics",
+        "desc": "The study of fluid behavior (liquids, gases, blood, and plasmas) at rest and in motion.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Energy Management & Analysis",
+        "desc": " Gather as much data on electric power, solar power, gas and water and display it graphically.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Solar Energy Systems",
+        "desc": "Get to explore economic considerations, touching on solar PV costs for residential and commercial use, incentives.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Wind Energy",
+        "desc": "Get familiar with key aspects in wind energy engineering",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Feedback Control Systems",
+        "desc": "Learn the fundamentals of control design and analysis using state-space methods.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Materials for Renewable Energy",
+        "desc": "You will explore the vital role that new materials play in ensuring life on Earth is sustainable.",
+        "when": "Senior Year"
+      },
+      {
+        "subject": "Energy, Environment & Sustainability",
+        "desc": "The course is an introduction to further studies in energy and environment.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Energy Conversion & Storage",
+        "desc": "You will study the conversion of energy from one form to another for storage.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Artificial Intelligence",
+        "desc": "Learn the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Data Analytics",
+        "desc": "Learn the science of analyzing raw data to make conclusions about that information.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Research Methods",
+        "desc": "Learn a set of procedures or techniques used to identify, select, process, and analyze information about a topic.",
+        "when": "Final Year"
+      },
+
+      {
+        "subject": "Power Systems & Smart Grid",
+        "desc": "You will be able to Understand the technical and economic challenges for electrical power systems.",
+        "when": "Final Year"
+      },
+      {
+        "subject": "Capstone Project",
+        "desc": "Use all what you learn during all years to make the best project you can to graduate.",
+        "when": "Final Year"
+      }
+    ],
+    "outcomes": "As a RE Student, you should expect to gain:\n\n   - An ability to apply knowledge of mathematics, physics, chemistry and electrical engineering.\n\n   - An ability to work on and conduct experiments, as well as to analyze and interpret data.\n\n   - An ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability.\n\n   - An ability to conduct research and produce technical reports and writings.\n\n   - An ability to negotiate and communicate with people from different educational backgrounds.\n\n   - An ability to lead a team and function within a team.\n\n   - An understanding of professional and ethical responsibility.\n\n   - An ability to communicate effectively.\n\n   - All ABET Student Outcomes.",
+    "opportunities": "- Design & Development of renewable energy technologies.\n- Site and ground condition inspections renewable energy sites.\n- Lab experiments & Research.\n- Usage of mathematical modelling to produce estimates.\n- Environmental project plans & environmental laws.\n- Testing, Technical Writing & Consulting.\n- Business, Management & Negotiations with providers, contractors.",
+    "requirements": "To enroll in this program, you should have completed the common core pre-engineering program, or have completed an equivalent level of study such as: License, Two years of preparatory studies...\n\nIf you want to excel at this program, you should have relatively good grades in Mathematics, Physics and Chemistry. A good understanding of electrical circuits is a plus. Consider taking our Program Compatibility Quiz to know what programs may suit you and your personality."
+  }
+}

@@ -1,0 +1,791 @@
+/*Tablets*/
+/*Smart Phones*/
+:root {
+  --mydarkblue: rgb(32, 53, 73);
+  --myorange: rgb(243, 147, 19);
+  --myblue: rgb(5, 121, 153); /*in white background*/
+  --mylightblue: rgb(0, 255, 255);
+  --mydarkerblue: rgb(0, 0, 40);
+  --mybgcolor: rgb(220, 250, 250);
+}
+
+@media only screen and (max-width: 992px) {
+  .program-info-content li {
+    padding-top: 3%;
+  }
+  .videos-container .side-bar {
+    display: none;
+  }
+  .videos-container .videos-list {
+    width: 100%;
+    height: auto;
+    scroll-behavior: smooth;
+    overflow: visible;
+    margin-bottom: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .videos-container .videos-list li {
+    width: 41%;
+    height: 315.15px;
+    margin-bottom: 2%;
+    margin-top: 2.5%;
+  }
+  .videos-container {
+    height: auto;
+  }
+  .nav-items {
+    display: none;
+  }
+  .form-image-container.image2 {
+    background-position: 76%;
+  }
+  .navbar,
+  .navbar-flex {
+    height: 80px;
+  }
+  .btn-container {
+    display: none;
+  }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(40 * 100vw / 992);
+  }
+  .home-public-team h1,
+  .home-public-bot h1 {
+    font-size: calc(46 * 100vw / 992);
+  }
+  .home-public-mid-other p {
+    font-size: calc(18 * 100vw / 992);
+  }
+  .home-public-bot .feature-desc li {
+    pointer-events: none;
+  }
+  .home-public-team ul {
+    flex-wrap: wrap;
+  }
+  .home-public-team li {
+    flex-basis: 34%;
+    margin-bottom: 5%;
+  }
+  .home-public-team h1 {
+    margin-bottom: 10%;
+  }
+  .form-container .login-link {
+    font-size: 12px;
+  }
+  .home-private h1 {
+    font-size: calc(50 * 100vw / 992);
+  }
+  .home-private h2 {
+    font-size: calc(24 * 100vw / 992);
+  }
+  .achievement-card {
+    flex-basis: 45%;
+  }
+  .achievement-card h1 {
+    font-size: calc(28 * 100vw / 992);
+  }
+  .achievement-card p {
+    font-size: calc(16 * 100vw / 992);
+  }
+  .achievements-progress-bar-wrapper {
+    width: 90%;
+  }
+  .achievements-progress-bar-label {
+    width: 88%;
+  }
+  .profile-container {
+    width: 80%;
+  }
+  .profile-container h1 {
+    font-size: calc(60 * 100vw / 992);
+  }
+  .profile-container h4 {
+    font-size: calc(20 * 100vw / 992);
+  }
+  .dashboard-container {
+    min-height: 70vh;
+    height: auto;
+    padding-bottom: 12vh;
+  }
+  .dashboard-container .dashboard-options {
+    width: 100%;
+  }
+  .program-info-content li {
+    min-height: 0;
+  }
+  .about-container-end {
+    width: 70%;
+    margin-bottom: 120px;
+  }
+  .no-match-container {
+    flex-direction: column;
+  }
+  .no-match-container img {
+    height: 400px;
+  }
+  .forum-container h1,
+  .forum-container h6 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .thread-header h2 {
+    font-size: calc(3.25 * 16 * 100vw / 992);
+    flex-basis: 90%;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: calc(1 * 16 * 100vw / 992);
+  }
+  .forum-stack h5 {
+    font-size: calc(1.25 * 16 * 100vw / 992);
+  }
+  .comment-submit-text-field {
+    flex-basis: 100%;
+    margin-left: 21px;
+  }
+  .comment-container {
+    flex-direction: column;
+  }
+  .comment-user-section {
+    flex-basis: 10%;
+  }
+  .comment-user-section p {
+    font-size: 0.7rem;
+  }
+  .comment-content-section {
+    flex-basis: 90%;
+  }
+  .comment-user-section .comment-user-avatar {
+    width: 75px;
+    height: 75px;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 810px) {
+  .videos-container .videos-list li {
+    width: 75%;
+    height: 410.65px;
+  }
+  .form-image-container {
+    flex-basis: 40%;
+  }
+  .form-container {
+    flex-basis: 60%;
+  }
+  .form-image-container.image1 {
+    background-position: 0%;
+  }
+  .form-image-container.image3 {
+    background-position: center;
+  }
+  .quiz-container {
+    width: 86%;
+    margin-top: 12%;
+  }
+  .home-public-mid-other p {
+    font-size: calc(16 * 100vw / 810);
+  }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(42 * 100vw / 992);
+  }
+  .home-public-team h1,
+  .home-public-bot {
+    font-size: calc(42 * 100vw / 810);
+  }
+  .home-public-mid-img {
+    box-shadow: -3.125rem -3.125rem 0 -2.5rem var(--mydarkblue),
+      3.125rem 3.125rem 0 -2.5rem var(--mydarkblue);
+  }
+  .home-public-head p {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .home-private h1 {
+    font-size: calc(48 * 100vw / 810);
+  }
+  .home-private h2 {
+    font-size: calc(20 * 100vw / 810);
+  }
+  .achievement-card {
+    flex-basis: 45%;
+    height: 120px !important;
+  }
+  .achievement-card .question-mark-icon {
+    font-size: 80px;
+    top: 15%;
+  }
+  .program-info-content li a {
+    font-size: 17px;
+  }
+  .profile-container h1 {
+    margin-bottom: 0;
+  }
+  .meetings-request-title {
+    font-size: calc(50 * 100vw / 810);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .meetings-request-subtitle {
+    font-size: calc(18 * 100vw / 810);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .public-footer ul {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 20%;
+  }
+  .home-private .achievements-emoji {
+    top: 15%;
+  }
+  .about-container-header h1 {
+    font-size: calc(80 * 100vw / 810);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(20 * 100vw / 810);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-body-text h3 {
+    font-size: calc(28 * 100vw / 810);
+    text-align: center;
+  }
+  .about-container-body-text ul li {
+    font-size: 16px;
+  }
+  .about-container-body {
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    gap: 50px;
+  }
+  .about-container-body#second {
+    flex-direction: column-reverse;
+    align-items: center;
+    height: 600px;
+    gap: 50px;
+    margin-top: 100px;
+  }
+  .about-container-body-text {
+    text-align: center;
+    width: 100%;
+  }
+  .about-container-body-img {
+    width: 100%;
+  }
+  .about-container-body-text ul {
+    text-align: center;
+    list-style-type: none;
+  }
+  .about-container-body {
+    margin-top: 100px;
+  }
+  .forum-container h1 {
+    font-size: calc(60 * 100vw / 810);
+  }
+  .forum-container h6 {
+    font-size: calc(24 * 100vw / 810);
+  }
+  .forum-stack {
+    width: 98%;
+  }
+  .thread-info-container {
+    font-size: 0.9rem;
+  }
+  .thread-stats {
+    font-size: 0.65rem;
+  }
+  .thread-header h2 {
+    font-size: calc(3.25 * 15 * 100vw / 810);
+    margin-bottom: 7px;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: calc(1 * 15 * 100vw / 810);
+  }
+  .forum-stack h5 {
+    font-size: calc(1.25 * 15 * 100vw / 810);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .videos-container .videos-list li {
+    width: 91%;
+    height: 313.65px;
+  }
+  .form-image-container {
+    display: none;
+    flex-basis: 0%;
+  }
+  .form-container {
+    flex-basis: 100%;
+  }
+  .quiz-intro h1 {
+    font-size: calc(46 * 100vw / 600);
+  }
+  .quiz-intro #subtitle {
+    font-size: calc(26 * 100vw / 600);
+  }
+  .quiz-container {
+    width: 97%;
+    margin-top: 22%;
+  }
+  .home-public-head h1 {
+    font-size: calc(58 * 100vw / 600);
+  }
+  .home-public-head h2 {
+    font-size: calc(34 * 100vw / 600);
+  }
+  .home-public-head p {
+    font-size: calc(20 * 100vw / 600);
+  }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(42 * 100vw / 600);
+  }
+  .home-public-bot h1,
+  .home-public-team h1 {
+    font-size: calc(42 * 100vw / 600);
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .home-public-mid p,
+  .home-public-mid-other p {
+    font-size: calc(20 * 100vw / 600);
+  }
+  .home-public-text-with-image {
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+  }
+  .home-public-mid-img {
+    margin-top: 10%;
+    flex-basis: auto;
+    background-size: cover;
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 20%;
+  }
+  .home-public-mid-other-img {
+    margin-top: 10%;
+    flex-basis: auto;
+    background-size: cover;
+    height: 30vh;
+    width: 30vh;
+    order: 2;
+    margin-bottom: 10%;
+  }
+  .home-public-bot .feature-img {
+    display: none;
+  }
+  .home-public-bot .feature-desc {
+    width: 90%;
+    margin: auto;
+  }
+  .home-public-bot .feature-img {
+    margin-left: 8.5%;
+  }
+  .achievement-card {
+    flex-basis: 100%;
+    height: 110px !important;
+    margin-bottom: 7%;
+  }
+  .achievement-card h1 {
+    font-size: calc(26 * 100vw / 600);
+  }
+  .achievement-card p {
+    font-size: calc(14 * 100vw / 600);
+  }
+  .home-private h1 {
+    font-size: calc(40 * 100vw / 600);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .home-private h2 {
+    font-size: calc(16 * 100vw / 600);
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .home-private h4 {
+    font-size: calc(18 * 100vw / 600);
+  }
+  .achievement-card .question-mark-icon {
+    top: 11%;
+    right: 42%;
+  }
+  .profile-container h1 {
+    font-size: calc(40 * 100vw / 600);
+  }
+  .profile-container h4 {
+    font-size: calc(16 * 100vw / 600);
+  }
+  .program-info-content .course-container p {
+    font-size: 16px;
+  }
+  .program-info-container {
+    width: 98%;
+  }
+  .program-info-container-title {
+    text-align: center;
+  }
+  .program-info-brochure {
+    text-align: center;
+  }
+  .meetings-request-title {
+    font-size: calc(40 * 100vw / 600);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .meetings-request-subtitle {
+    font-size: calc(16 * 100vw / 600);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .meetings-request-mobile-element {
+    width: 90%;
+  }
+  .public-footer ul {
+    font-size: 14px;
+    width: 25%;
+  }
+  .home-private .achievements-emoji {
+    left: 2%;
+  }
+  .about-container-header h1 {
+    font-size: calc(70 * 100vw / 600);
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(20 * 100vw / 600);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-end {
+    width: 80%;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .about-container-body-text h3 {
+    font-size: calc(28 * 100vw / 600);
+  }
+  .forum-container h1 {
+    font-size: calc(48 * 100vw / 600);
+  }
+  .forum-container h6 {
+    font-size: calc(18 * 100vw / 600);
+  }
+  .thread-info-container {
+    font-size: 0.85rem;
+  }
+  .thread-stats {
+    font-size: 0.6rem;
+  }
+  .thread-header h2 {
+    font-size: calc(3.25 * 14 * 100vw / 600);
+    margin-bottom: 7px;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: calc(1 * 14 * 100vw / 600);
+  }
+  .forum-stack h5 {
+    font-size: calc(1.25 * 14 * 100vw / 600);
+  }
+  .comment-user-section {
+    min-height: 0px;
+    flex-direction: row;
+    gap: 5%;
+    align-items: center;
+  }
+  .comment-container-options {
+    top: 10px;
+  }
+  .comment-user-section .comment-user-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .videos-container .videos-list li {
+    width: 89%;
+    height: 254px;
+    margin-bottom: 4%;
+  }
+  .quiz-container {
+    background-color: rgb(40, 66, 91);
+    margin-top: 22%;
+    width: 97.2%;
+    border-width: 5px;
+  }
+  .quiz-question #text li {
+    font-size: calc(12 * 100vw / 480);
+  }
+  .quiz-radio {
+    width: 75%;
+  }
+  .quiz-container p,
+  .quiz-container a {
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  .home-public-head {
+    gap: 2%;
+  }
+  .home-public-team li {
+    flex-basis: 60%;
+  }
+  .home-public-head p,
+  .home-public-mid p,
+  .home-public-mid-other p {
+    font-size: calc(20 * 100vw / 480);
+  }
+  .home-public-mid h1,
+  .home-public-mid-other h1 {
+    font-size: calc(42 * 100vw / 480);
+  }
+  .achievement-card h1 {
+    font-size: calc(26 * 100vw / 480);
+  }
+  .achievement-card p {
+    font-size: calc(14 * 100vw / 480);
+  }
+  .home-private h1 {
+    font-size: calc(40 * 100vw / 480);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .home-private h2 {
+    font-size: calc(16 * 100vw / 480);
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .home-private h4 {
+    font-size: calc(18 * 100vw / 480);
+  }
+  .achievement-card .question-mark-icon {
+    top: 12%;
+    right: 39%;
+  }
+  .profile-container h1 {
+    font-size: calc(32 * 100vw / 480);
+  }
+  .profile-container h4 {
+    font-size: calc(14 * 100vw / 480);
+  }
+  .dashboard-option-typography {
+    width: 50% !important;
+  }
+  .program-info-content .course-container p {
+    font-size: 15px;
+  }
+  .program-info-container-title {
+    font-size: calc(36 * 100vw / 480);
+  }
+  .program-info-brochure {
+    font-size: calc(18 * 100vw / 480);
+  }
+  .program-info-content li p,
+  .program-info-content li a {
+    font-size: 16px;
+  }
+  .meetings-request-title {
+    font-size: calc(40 * 100vw / 480);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .meetings-request-subtitle {
+    font-size: calc(17 * 100vw / 480);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .meetings-request-mobile-element {
+    font-size: 14px;
+  }
+  .public-footer ul {
+    width: 35%;
+  }
+  .public-footer-logo {
+    width: 120px;
+    height: 120px;
+  }
+  .about-container-header h1 {
+    font-size: calc(58 * 100vw / 480);
+    margin-top: 25%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(18 * 100vw / 480);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-body-steps p {
+    font-size: 14px;
+  }
+  .about-container-body-text h3 {
+    font-size: 24px;
+  }
+  .about-container-body-text ul li {
+    font-size: 14px;
+  }
+  .no-match-container {
+    flex-direction: column;
+  }
+  .no-match-container img {
+    height: calc(400 * 100vw / 480);
+  }
+  .no-match-container .no-match-text-container h1 {
+    font-size: calc(100 * 100vw / 480);
+  }
+  .forum-container h1 {
+    font-size: calc(46 * 100vw / 480);
+  }
+  .forum-container h6 {
+    font-size: calc(20 * 100vw / 480);
+  }
+  .thread-stats {
+    margin-top: 7px;
+  }
+  .thread-stats p {
+    flex-basis: 34%;
+  }
+  .thread-header h2 {
+    font-size: calc(2.5 * 16 * 100vw / 480);
+    margin-bottom: 7px;
+    margin-right: 2.5%;
+    flex-basis: 85%;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: 0.9rem;
+  }
+  .forum-stack h5 {
+    font-size: 0.9rem;
+  }
+  .thread-pagination-list li button {
+    height: 32px;
+    min-width: 32px;
+    font-size: 0.8rem;
+  }
+  .verification-page h2 {
+    font-size: calc(24 * 100vw / 480);
+  }
+  .verification-page p,
+  .verification-page a {
+    font-size: calc(16 * 100vw / 480);
+  }
+}
+@media only screen and (max-width: 360px) {
+  .videos-container .videos-list li {
+    width: 100%;
+    height: 212.75px;
+    margin-bottom: 6%;
+  }
+  .quiz-intro {
+    margin-top: 28vh;
+  }
+  .quiz-container {
+    margin-top: 22%;
+  }
+  .quiz-intro #desc {
+    height: 21vh;
+    overflow: hidden;
+    font-size: calc(26 * 100vw / 600);
+  }
+  .quiz-question p {
+    font-size: calc(14 * 100vw / 360);
+  }
+  .home-public-head p {
+    font-size: calc(18 * 100vw / 360);
+  }
+  .home-public-mid p,
+  .home-public-mid-other p {
+    font-size: calc(18 * 100vw / 360);
+  }
+  .form-container .login-link {
+    font-size: 10px;
+  }
+  .achievement-card {
+    height: 100px !important;
+  }
+  .achievement-card h1 {
+    margin-top: 2%;
+    font-size: calc(28 * 100vw / 480);
+  }
+  .home-private h1 {
+    font-size: calc(36 * 100vw / 360);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .home-private h2 {
+    font-size: calc(14 * 100vw / 360);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .home-private h4 {
+    font-size: calc(18 * 100vw / 480);
+  }
+  .achievement-card .question-mark-icon {
+    top: 12%;
+    right: 37.5%;
+    font-size: 70px;
+  }
+  .profile-container h1 {
+    font-size: calc(24 * 100vw / 360);
+  }
+  .profile-container h4 {
+    font-size: calc(12 * 100vw / 360);
+  }
+  .program-info-content li p,
+  .program-info-content li a {
+    font-size: 14px;
+  }
+  .program-info-content .course-container p {
+    font-size: 12px;
+  }
+  .about-container-header h1 {
+    font-size: calc(44 * 100vw / 360);
+    margin-top: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .about-container-header h4 {
+    font-size: calc(16 * 100vw / 360);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .thread-header h2 {
+    font-size: 1.6rem;
+    margin-bottom: 7px;
+    margin-right: 2.5%;
+    flex-basis: 83%;
+  }
+  .thread-header .thread-description,
+  .comment-content-section .comment-content-typography {
+    font-size: 0.8rem;
+  }
+  .forum-stack h5 {
+    font-size: 0.8rem;
+  }
+  .thread-pagination-list li button {
+    height: 28px;
+    min-width: 26px;
+    font-size: 0.8rem;
+  }
+  .verification-page h2 {
+    font-size: calc(20 * 100vw / 360);
+  }
+  .verification-page p,
+  .verification-page a {
+    font-size: calc(14 * 100vw / 360);
+  }
+}
