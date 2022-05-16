@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Student Specialty Advisor</h1>
 <h2 align="center">By Students. For Students.
   <br/>
-  <a href="https://student-specialty-advisor.herokuapp.com">Join now with your MedTech/SMU email!</a></h2>
+  <a href="https://student-specialty-advisor.herokuapp.com">Join now with your MedTech/SMU E-mail!</a></h2>
 <p align="center">
     <img width="200px" src="/client/src/assets/art/logo/qr-code.png"></img>
 </p>
