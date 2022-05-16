@@ -14,7 +14,7 @@ After all, that decision might define the majority of one's career path. This pr
 With lack of experience and knowledge about the different engineering fields, a MedTech student would want to seek guidance and help.<br/><br/>
 Student Specialty Advisor is a free web app for the South Mediterranean University's community that aims to help the students pick the right specialty that suits them best.
 </h4><br/>
-<h2 align="center">Featured Elements</h2>
+<h2>Featured Elements</h2>
 <ul>
 <li>
   <h4>Account System</h4>
@@ -42,7 +42,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 
 > [You can find all the screenshots about these elements here](/client/src/assets/art/screenshots)
 <br/>
-<h2 align="center">Dependencies</h2>
+<h2>Dependencies</h2>
 <ul>
 <li>
   <h4>Environment: <a href="https://nodejs.org/en/download">Node.js</a></h4>  
@@ -58,7 +58,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 </li>
 </ul>
 <br/>
-<h2 align="center">Contributions</h2>
+<h2>Contributions</h2>
 <p>Thank you for your interest in Student Specialty Advisor! If you want to participate in improving the quality of the project, do not hesitate to contribute!<br/>There are many ways to contribute, and we appreciate all of them:</p>
 <ul>
   <li>Source code</li>
@@ -72,18 +72,18 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 
 > [You can read more about how to contribute and contribution guidelines here](/CONTRIBUTING.md)
 <br/>
-<h2 align="center">Building</h2>
+<h2>Building</h2>
 <p>In order to integrate your code, test and apply changes to the project, you need to build a local instance of the web application</p>
 
 > [You can find all the steps on how to build the project here](/BUILD.md)
 <br/>
-<h2 align="center">Documentation</h2>
+<h2>Documentation</h2>
 <p>We are currently working on commenting every bit of the source code, as well as providing a full documentation of our REST API.
 <br/>Contributions about documentation are always welcome!
 <br/>
 <br/>You can also <a href="/documentation">check out additional documents</a> (such as the project report, the project presentation...)</p>
 <br/>
-<h2 align="center">Authors</h2>
+<h2>Authors</h2>
 <p>Student Specialty Advisor was originally developped by:</p>
 <ul>
 <li>
@@ -100,7 +100,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 </li>
 </ul>
 <br/>
-<h2 align="center">License</h2>
+<h2>License</h2>
 <p>Student Specialty Advisor is licensed under the GNU General Public License v3.0</p>
 
 > [You can find the license of the project here](/LICENSE)
