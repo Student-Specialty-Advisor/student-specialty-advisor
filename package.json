@@ -1,37 +1,12 @@
 {
-  "name": "client",
-  "version": "6.0.0",
+  "name": "prod-client",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.6.0",
-    "@mui/material": "^5.6.0",
-    "@react-sigma/core": "^2.0.2",
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "alertify.js": "^1.0.12",
-    "alertifyjs": "^1.13.1",
-    "react": "^17.0.2",
-    "react-chartjs-2": "^4.0.1",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-material-ui-carousel": "^3.3.3",
-    "react-router-dom": "^5.3.0",
-    "react-scripts": "5.0.0",
-    "react-simple-chatbot": "^0.6.1",
-    "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.4"
-  },
-  "overrides": {
-    "styled-components@^4.0.0": "^5.3.3"
-  },
   "scripts": {
-    "start-client": "react-scripts start",
-    "build": "react-scripts build && (cd server && npm install)",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start-client": "cd client && npm run start-client",
+    "build": "cd client && npm install && npm run build",
+    "test": "cd client && npm run test",
+    "eject": "cd client && npm run eject",
     "start": "cd server && npm start"
   },
   "eslintConfig": {
