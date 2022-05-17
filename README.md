@@ -70,6 +70,8 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
   <li>Localization & Translation</li>
 </ul>
 
+More information about a roadmap will be available soon!
+
 > [You can read more about how to contribute and contribution guidelines here](/CONTRIBUTING.md)
 <br/>
 <h2>Building</h2>
