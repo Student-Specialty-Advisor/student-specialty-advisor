@@ -5,7 +5,7 @@
 <p align="center">
     <img width="200px" src="/client/src/assets/art/logo/qr-code.png"></img>
 </p>
-<h1 align="center">Best Software Project Of The Year</h2>
+<h1 align="center">Best MedTech Software Project Of The Year</h2>
 <p align="center">
   <img src="/client/src/assets/art/team/award1.jpg"></img>
 </p>
