@@ -5,13 +5,14 @@
 <p align="center">
     <img width="200px" src="/client/src/assets/art/logo/qr-code.png"></img>
 </p>
-<h2>Best Software Project Of The Year</h2>
+<h1 align="center">Best Software Project Of The Year</h2>
 <p align="center">
-  <img width="400px" src="/client/src/assets/art/team/award1"></img>
+  <img src="/client/src/assets/art/team/award1.jpg"></img>
 </p>
 <p align="center">
-  <img width="400px" src="/client/src/assets/art/team/award2"></img>
+  <img src="/client/src/assets/art/team/award2.jpg"></img>
 </p>
+<h2 align="center">About Student Specialty Advisor</h2>
 <h3 align="center">
 Ever been a student or know someone who is attending university?<br/>
 Then you must be familiar with the difficulties that one faces when choosing a specialty to pursue.<br/>
