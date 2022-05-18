@@ -45,6 +45,9 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 <li>
   <h4>Statistics & Dashboard (admin only)</h4>
 </li>
+<li>
+  <h4>Responsive on Desktop and Mobile</h4>
+</li>
 </ul>
 <br/>
 
