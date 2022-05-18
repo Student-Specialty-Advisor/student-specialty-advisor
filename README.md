@@ -5,6 +5,13 @@
 <p align="center">
     <img width="200px" src="/client/src/assets/art/logo/qr-code.png"></img>
 </p>
+<h2>Best Software Project Of The Year</h2>
+<p align="center">
+  <img width="400px" src="/client/src/assets/art/team/award1"></img>
+</p>
+<p align="center">
+  <img width="400px" src="/client/src/assets/art/team/award2"></img>
+</p>
 <h3 align="center">
 Ever been a student or know someone who is attending university?<br/>
 Then you must be familiar with the difficulties that one faces when choosing a specialty to pursue.<br/>
@@ -40,8 +47,7 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 </ul>
 <br/>
 
-> [You can find all the screenshots about these elements here](/documentation/screenshots)
-> <br/>
+> [You can find all the screenshots about these elements here](/documentation/screenshots) > <br/>
 
 <h2>Dependencies</h2>
 <ul>
@@ -73,14 +79,12 @@ Student Specialty Advisor is a free web app for the South Mediterranean Universi
 
 More information about a roadmap will be available soon!
 
-> [You can read more about how to contribute and contribution guidelines here](/CONTRIBUTING.md)
-> <br/>
+> [You can read more about how to contribute and contribution guidelines here](/CONTRIBUTING.md) > <br/>
 
 <h2>Building</h2>
 <p>In order to integrate your code, test and apply changes to the project, you need to build a local instance of the web application</p>
 
-> [You can find all the steps on how to build the project here](/BUILD.md)
-> <br/>
+> [You can find all the steps on how to build the project here](/BUILD.md) > <br/>
 
 <h2>Documentation</h2>
 <p>We are currently working on commenting every bit of the source code, as well as providing a full documentation of our REST API.
